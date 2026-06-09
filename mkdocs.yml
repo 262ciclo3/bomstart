@@ -1,0 +1,96 @@
+site_name: BOM START
+site_description: Proyecto integrador del ciclo 3 con REQ, BD1 y LP1.
+site_author: UPeU
+copyright: Angel Sullon @asullom - UPeU 2026
+theme:
+  name: material
+  language: es
+  features:
+    - navigation.tabs
+    - navigation.sections
+    - navigation.top
+    - toc.integrate
+    - content.code.copy
+  palette:
+    - scheme: default
+      primary: indigo
+      accent: teal
+
+markdown_extensions:
+  - admonition
+  - attr_list
+  - md_in_html
+  - tables
+  - pymdownx.superfences:
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:pymdownx.superfences.fence_code_format
+  - toc:
+      permalink: true
+
+nav:
+  - Inicio: index.md
+  - REQ:
+      - Silabo: req/index.md
+      - Unidad 1:
+          - Sesion 1: req/sesiones/sesion-01.md
+          - Sesion 2: req/sesiones/sesion-02.md
+          - Sesion 3: req/sesiones/sesion-03.md
+          - Sesion 4: req/sesiones/sesion-04.md
+          - Sesion 5: req/sesiones/sesion-05.md
+          - Sesion 6: req/sesiones/sesion-06.md
+      - Unidad 2:
+          - Sesion 7: req/sesiones/sesion-07.md
+          - Sesion 8: req/sesiones/sesion-08.md
+          - Sesion 9: req/sesiones/sesion-09.md
+          - Sesion 10: req/sesiones/sesion-10.md
+          - Sesion 11: req/sesiones/sesion-11.md
+          - Sesion 12: req/sesiones/sesion-12.md
+      - Unidad 3:
+          - Sesion 13: req/sesiones/sesion-13.md
+          - Sesion 14: req/sesiones/sesion-14.md
+          - Sesion 15: req/sesiones/sesion-15.md
+          - Sesion 16: req/sesiones/sesion-16.md
+  - BD1:
+      - Silabo: bd1/index.md
+      - Unidad 1:
+          - Sesion 1: bd1/sesiones/sesion-01.md
+          - Sesion 2: bd1/sesiones/sesion-02.md
+          - Sesion 3: bd1/sesiones/sesion-03.md
+          - Sesion 4: bd1/sesiones/sesion-04.md
+          - Sesion 5: bd1/sesiones/sesion-05.md
+          - Sesion 6: bd1/sesiones/sesion-06.md
+      - Unidad 2:
+          - Sesion 7: bd1/sesiones/sesion-07.md
+          - Sesion 8: bd1/sesiones/sesion-08.md
+          - Sesion 9: bd1/sesiones/sesion-09.md
+          - Sesion 10: bd1/sesiones/sesion-10.md
+          - Sesion 11: bd1/sesiones/sesion-11.md
+          - Sesion 12: bd1/sesiones/sesion-12.md
+      - Unidad 3:
+          - Sesion 13: bd1/sesiones/sesion-13.md
+          - Sesion 14: bd1/sesiones/sesion-14.md
+          - Sesion 15: bd1/sesiones/sesion-15.md
+          - Sesion 16: bd1/sesiones/sesion-16.md
+  - LP1:
+      - Silabo: lp1/index.md
+      - Unidad 1:
+          - Sesion 1: lp1/sesiones/sesion-01.md
+          - Sesion 2: lp1/sesiones/sesion-02.md
+          - Sesion 3: lp1/sesiones/sesion-03.md
+          - Sesion 4: lp1/sesiones/sesion-04.md
+          - Sesion 5: lp1/sesiones/sesion-05.md
+          - Sesion 6: lp1/sesiones/sesion-06.md
+      - Unidad 2:
+          - Sesion 7: lp1/sesiones/sesion-07.md
+          - Sesion 8: lp1/sesiones/sesion-08.md
+          - Sesion 9: lp1/sesiones/sesion-09.md
+          - Sesion 10: lp1/sesiones/sesion-10.md
+          - Sesion 11: lp1/sesiones/sesion-11.md
+          - Sesion 12: lp1/sesiones/sesion-12.md
+      - Unidad 3:
+          - Sesion 13: lp1/sesiones/sesion-13.md
+          - Sesion 14: lp1/sesiones/sesion-14.md
+          - Sesion 15: lp1/sesiones/sesion-15.md
+          - Sesion 16: lp1/sesiones/sesion-16.md
