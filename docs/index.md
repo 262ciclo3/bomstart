@@ -4,7 +4,13 @@
 
 ## BOM START
 
-BOM START es una plantilla academica para desarrollar una aplicacion web empresarial inicial mediante tres cursos articulados: Ingenieria de Requerimientos, Administracion de Base de Datos I y Lenguaje de Programacion I.
+[BOM START](https://github.com/262ciclo3/bomstart) es una plantilla academica para desarrollar una aplicacion web empresarial inicial mediante tres cursos articulados: Ingenieria de Requerimientos, Administracion de Base de Datos I y Lenguaje de Programacion I.
+
+Repositorio de la plantilla:
+
+```text
+https://github.com/262ciclo3/bomstart
+```
 
 El proyecto busca que cada equipo construya una solucion funcional conectando:
 

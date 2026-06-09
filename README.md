@@ -2,7 +2,7 @@
 
 **Proyecto Integrador del Ciclo 3**
 
-BOM START es una plantilla academica para desarrollar el proyecto integrador del ciclo 3. Articula requerimientos, base de datos y programacion web server-side en una misma solucion funcional.
+[BOM START](https://github.com/262ciclo3/bomstart) es una plantilla academica para desarrollar el proyecto integrador del ciclo 3. Articula requerimientos, base de datos y programacion web server-side en una misma solucion funcional.
 
 El proyecto integra la linea curricular:
 
@@ -41,6 +41,12 @@ bomstart/
 ## Documentacion
 
 La documentacion se mantiene en [`docs/`](docs/) y se publica automaticamente con GitHub Actions en la rama `gh-pages`.
+
+Repositorio de la plantilla:
+
+```text
+https://github.com/262ciclo3/bomstart
+```
 
 Cada curso tiene su propia seccion:
 
