@@ -1,91 +1,99 @@
-# Lenguaje de Programacion I
+# LP1 - Lenguaje de Programación I
 
-## Proposito del Curso
+## Producto del curso
 
-Desarrollar aplicaciones web server-side aplicando el patron MVC, persistencia de datos mediante ORM, validaciones, autenticacion basica y buenas practicas de desarrollo, garantizando la integracion entre requerimientos, base de datos y aplicacion web.
+**Sistema Web MVC Empresarial.**
 
-## Producto Final del Curso
-
-**Aplicacion Web Server-Side Completa**
-
-Incluye:
-
-* Arquitectura MVC implementada.
-* Vistas web dinamicas.
-* Formularios funcionales.
-* Controladores web.
-* Modelos de dominio.
-* Persistencia mediante ORM.
-* Operaciones CRUD completas.
-* Validaciones de datos.
-* Relaciones entre entidades.
-* Autenticacion basica basada en sesiones.
-* Integracion con la base de datos disenada en BD1.
-* Cumplimiento de requerimientos definidos en REQ.
+Aplicación web monolítica con persistencia, control de acceso, consultas y optimización básica.
 
 ---
 
-# Unidad 1: Fundamentos del Desarrollo Web Server-Side
+# UNIDAD 1 - Fundamentos del Desarrollo Web
 
-## Proposito
+### Resultado de aprendizaje
 
-Construir las vistas y componentes iniciales de una aplicacion web utilizando tecnologias frontend y fundamentos del desarrollo web moderno, tomando como referencia los requerimientos y prototipos del proyecto.
+Construye interfaces web interactivas mediante arquitectura web, plantillas reutilizables, formularios, JavaScript, DOM, eventos y validación del lado del cliente.
 
-## Producto
+### Producto de la unidad
 
-**Vistas web dinamicas y formularios funcionales.**
+**Página web interactiva (plantillas + formularios).**
 
-## Sesiones
-
-### Sesion 1. Fundamentos de Aplicaciones Web
-### Sesion 2. HTML y CSS para Aplicaciones Web
-### Sesion 3. JavaScript y Dinamismo en la Interfaz
-### Sesion 4. Formularios y Validacion del Lado del Cliente
-### Sesion 5. Integracion de Vistas y Formularios
-### Sesion 6. Evaluacion Unidad 1
-
----
-
-# Unidad 2: Desarrollo de Aplicaciones Web con Arquitectura MVC
-
-## Proposito
-
-Implementar la logica de negocio y el acceso a datos mediante arquitectura MVC, aplicando persistencia con ORM y mecanismos de validacion y autenticacion.
-
-## Producto
-
-**Aplicacion MVC con persistencia de datos y funcionalidades CRUD.**
-
-## Sesiones
-
-### Sesion 7. Controladores y Navegacion Web
-### Sesion 8. Modelos y Persistencia de Datos
-### Sesion 9. Operaciones CRUD y Validaciones
-### Sesion 10. Relaciones entre Entidades
-### Sesion 11. Autenticacion e Integracion MVC
-### Sesion 12. Evaluacion Unidad 2
+| Sesión | Tema | Producto de sesión |
+|--------|------|--------------------|
+| **S1** | Arquitectura Web, HTTP y estructura de aplicaciones cliente-servidor | Mapa funcional de la arquitectura web y estructura inicial del proyecto cliente-servidor. |
+| **S2** | Interfaces web con HTML, CSS y plantillas reutilizables (Bootstrap) | Interfaz web base con diseño responsive y plantillas reutilizables. |
+| **S3** | Interactividad web con JavaScript, DOM, eventos y validación de formularios | Formulario interactivo con validación del lado del cliente y manejo de eventos. |
+| **S4** | Formularios, procesamiento de datos e interacción web, compilados | Página web interactiva integrada con formularios, plantillas y procesamiento básico de datos. |
+| **S5** | Evaluación U1 | **Producto U1:** página web interactiva sustentada. |
 
 ---
 
-# Unidad 3: Proyecto de Aplicacion Web Server-Side
+# UNIDAD 2 - Desarrollo de Aplicaciones Web MVC
 
-## Proposito
+### Resultado de aprendizaje
 
-Integrar las vistas, la logica de negocio, la persistencia de datos y los requerimientos funcionales en una aplicacion web completa alineada al proyecto integrador del ciclo.
+Desarrolla una aplicación web MVC empresarial aplicando rutas, controladores, servicios, ORM, repositorios, persistencia, relaciones de datos, consultas, autenticación, autorización, sesiones, validaciones y optimización básica.
 
-## Producto
+### Producto de la unidad
 
-**Aplicacion Web Server-Side Completa**
+**Aplicación Web MVC con persistencia, relaciones, consultas y control de acceso.**
 
-## Sesiones
-
-### Sesion 13. Integracion de la Aplicacion Web
-### Sesion 14. Validacion Funcional del Sistema
-### Sesion 15. Sustentacion de la Aplicacion Web
-### Sesion 16. Evaluacion Final
+| Sesión | Tema | Producto de sesión |
+|--------|------|--------------------|
+| **S6** | Arquitectura MVC: rutas, controladores, servicios, ORM, repositorios y registro/consulta de una entidad simple | Módulo MVC inicial con registro y consulta de una entidad simple. |
+| **S7** | Persistencia de datos, operaciones transaccionales y relaciones básicas (1:1 y 1:*): ORM / Nativos | Módulo persistente con operaciones transaccionales y relaciones básicas. |
+| **S8** | Relaciones de datos complejas (*:*), integridad referencial y operaciones integradas | Módulo con relación muchos a muchos, integridad referencial y operaciones integradas. |
+| **S9** | Consultas, filtros, búsqueda, ordenamiento y paginación web | Vistas de consulta con filtros, búsqueda, ordenamiento y paginación. |
+| **S10** | Control de acceso, autenticación, autorización y gestión de sesiones | Sistema con autenticación, autorización básica y gestión de sesión. |
+| **S11** | Validaciones, manejo de errores, seguimiento de solicitudes, caché y optimización de aplicaciones web | Aplicación MVC validada, con manejo de errores, seguimiento de solicitudes y optimización básica. |
+| **S12** | Evaluación U2 | **Producto U2:** aplicación Web MVC con persistencia, relaciones, consultas y control de acceso. |
 
 ---
 
-# Integracion Curricular
+# UNIDAD 3 - Proyecto Integrador Web MVC
 
-LP1 implementa la aplicacion web final del ciclo usando el SRS elaborado en REQ y la base de datos construida en BD1.
+### Resultado de aprendizaje
+
+Integra módulos funcionales, pruebas, correcciones y sustentación técnica para consolidar un sistema web MVC empresarial alineado al proyecto integrador del ciclo.
+
+### Producto de la unidad
+
+**Sistema Web MVC Empresarial.**
+
+| Sesión | Tema | Producto de sesión |
+|--------|------|--------------------|
+| **S13** | Integración funcional de módulos y consolidación del sistema | Sistema MVC consolidado con módulos integrados. |
+| **S14** | Pruebas funcionales, corrección de errores y refinamiento | Sistema probado, corregido y refinado para presentación final. |
+| **S15** | Sustentación técnica del proyecto | **Producto final:** Sistema Web MVC Empresarial sustentado técnicamente. |
+| **S16** | Evaluación final | Evaluación final teórico-práctica. |
+
+---
+
+# Evolución del proyecto
+
+## Unidad 1
+- Arquitectura web y flujo HTTP.
+- Estructura cliente-servidor.
+- Interfaces con HTML, CSS y Bootstrap.
+- Plantillas reutilizables.
+- JavaScript, DOM, eventos y validaciones.
+- Formularios integrados.
+
+## Unidad 2
+- Arquitectura MVC.
+- Rutas, controladores, servicios, ORM y repositorios.
+- Registro y consulta de entidades.
+- Persistencia y transacciones.
+- Relaciones 1:1, 1:* y *:*.
+- Filtros, búsqueda, ordenamiento y paginación.
+- Autenticación, autorización y sesiones.
+- Validaciones, errores, seguimiento, caché y optimización básica.
+
+## Unidad 3
+- Integración funcional de módulos.
+- Consolidación del sistema.
+- Pruebas funcionales.
+- Corrección de errores.
+- Refinamiento del producto.
+- Sustentación técnica.
+- Evaluación final.

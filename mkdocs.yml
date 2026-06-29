@@ -74,15 +74,18 @@ nav:
           - Sesion 15: bd1/sesiones/sesion-15.md
           - Sesion 16: bd1/sesiones/sesion-16.md
   - LP1:
-      - Silabo: lp1/index.md
+      - Contenido final: lp1/index.md
+      - Silabos:
+          - Silabo 2026-1: lp1/silabo_lp1_2026_1.md
+          - Silabo 2026-2: lp1/silabo_lp1_2026_2.md
       - Unidad 1:
           - Sesion 1: lp1/sesiones/sesion-01.md
           - Sesion 2: lp1/sesiones/sesion-02.md
           - Sesion 3: lp1/sesiones/sesion-03.md
           - Sesion 4: lp1/sesiones/sesion-04.md
           - Sesion 5: lp1/sesiones/sesion-05.md
-          - Sesion 6: lp1/sesiones/sesion-06.md
       - Unidad 2:
+          - Sesion 6: lp1/sesiones/sesion-06.md
           - Sesion 7: lp1/sesiones/sesion-07.md
           - Sesion 8: lp1/sesiones/sesion-08.md
           - Sesion 9: lp1/sesiones/sesion-09.md

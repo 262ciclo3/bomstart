@@ -1,27 +1,29 @@
-﻿# Sesion 1. Fundamentos de Aplicaciones Web
+# Sesión 1. Arquitectura Web, HTTP y estructura de aplicaciones cliente-servidor
 
 ## Curso
 
-Lenguaje de Programacion I
+Lenguaje de Programación I
 
 ## Unidad 1
 
-Fundamentos del Desarrollo Web Server-Side
+Fundamentos del Desarrollo Web
+
+## Producto de la sesión
+
+Mapa funcional de la arquitectura web y estructura inicial del proyecto cliente-servidor.
 
 ## Temas
 
-* Arquitectura cliente-servidor
-* HTTP
-* Request-response
-* Navegadores y servidores web
-* Estructura general de una aplicacion web
+- Arquitectura Web, HTTP y estructura de aplicaciones cliente-servidor
 
-## Evidencia Esperada
+## Actividad práctica
 
-* Avance documentado en la carpeta del curso.
-* Evidencia publicada o enlazada en la documentacion del proyecto.
-* Trazabilidad con el producto integrador BOM START.
+Desarrollar el avance correspondiente del Sistema Web MVC Empresarial, manteniendo trazabilidad con los requerimientos de REQ y la base de datos de BD1.
 
-## Relacion con el Proyecto Integrador
+## Aprendizaje autónomo
 
-Esta sesion aporta al desarrollo coordinado entre REQ, BD1 y LP1, conectando requerimientos, datos y aplicacion web.
+Revisar, documentar y mejorar el avance de la sesión, preparando evidencias para la integración progresiva del producto.
+
+## Relación con el Proyecto Integrador
+
+Esta sesión aporta a la construcción del Sistema Web MVC Empresarial del ciclo 3, conectando requerimientos, datos y aplicación web.
