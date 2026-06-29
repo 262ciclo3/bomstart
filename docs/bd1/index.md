@@ -61,7 +61,7 @@ Implementar bases de datos relacionales mediante SQL, manipulando y consultando 
 ### Sesion 8. Manipulacion de Datos con SQL DML
 ### Sesion 9. Consultas SQL Fundamentales
 ### Sesion 10. Consultas Multitabla y Reportes
-### Sesion 11. Bases de Datos Relacionales y No Relacionales
+### Sesion 11. Bases de Datos No Relacionales
 ### Sesion 12. Evaluacion Unidad 2
 
 ---

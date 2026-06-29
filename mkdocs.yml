@@ -31,6 +31,8 @@ markdown_extensions:
 
 nav:
   - Inicio: index.md
+  - Proyecto Integrador:
+      - Alineamiento: proyecto-integrador/index.md
   - REQ:
       - Silabo: req/index.md
       - Unidad 1:
