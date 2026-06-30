@@ -34,7 +34,10 @@ nav:
   - Proyecto Integrador:
       - Alineamiento: proyecto-integrador/index.md
   - REQ:
-      - Silabo: req/index.md
+      - Contenido final: req/index.md
+      - Silabos:
+          - Silabo 2026-1: req/silabo_req_2026_1.md
+          - Silabo 2026-2: req/silabo_req_2026_2.md
       - Unidad 1:
           - Sesion 1: req/sesiones/sesion-01.md
           - Sesion 2: req/sesiones/sesion-02.md
@@ -55,7 +58,10 @@ nav:
           - Sesion 15: req/sesiones/sesion-15.md
           - Sesion 16: req/sesiones/sesion-16.md
   - BD1:
-      - Silabo: bd1/index.md
+      - Contenido final: bd1/index.md
+      - Silabos:
+          - Silabo 2026-1: bd1/silabo_bd1_2026_1.md
+          - Silabo 2026-2: bd1/silabo_bd1_2026_2.md
       - Unidad 1:
           - Sesion 1: bd1/sesiones/sesion-01.md
           - Sesion 2: bd1/sesiones/sesion-02.md
