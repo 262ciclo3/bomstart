@@ -76,44 +76,50 @@ Desarrolla aplicaciones web MVC aplicando arquitectura web, formularios, persist
 
 La arquitectura inicial del Ciclo 3 organiza el trabajo en tres responsabilidades conectadas: **requerimientos**, **base de datos relacional** e **implementación web MVC**.
 
+REQ produce el SRS y los prototipos funcionales. BD1 transforma esos requerimientos en un modelo de datos y una base relacional implementada. LP1 usa los prototipos y la base de datos para construir la aplicación web MVC.
+
 ```mermaid
-flowchart LR
-    subgraph REQ["REQ - Requerimientos"]
-        Problema["Problema y alcance"]
-        Stakeholders["Stakeholders"]
-        RF["RF / RNF"]
-        Prototipos["Prototipos"]
-        SRS["SRS"]
+flowchart TB
+    subgraph Proyecto["Proyecto integrador del Ciclo 3"]
+        subgraph REQ["REQ - Requerimientos"]
+            Problema["Problema, contexto y alcance"]
+            Stakeholders["Stakeholders y restricciones"]
+            Reqs["RF, RNF y reglas de negocio"]
+            Prototipos["Prototipos y validación"]
+            SRS["SRS documentado"]
+        end
+
+        subgraph BD1["BD1 - Base de Datos Relacional"]
+            ER["Modelo entidad-relación"]
+            Logico["Modelo lógico relacional"]
+            Diccionario["Diccionario de datos"]
+            Scripts["Scripts DDL / DML"]
+            Consultas["Consultas SQL y reportes"]
+            BD["Base de datos relacional validada"]
+        end
+
+        subgraph LP1["LP1 - Aplicación Web MVC"]
+            UI["Plantillas, formularios e interacción web"]
+            MVC["Rutas, controladores y servicios"]
+            ORM["ORM / repositorios"]
+            Seguridad["Autenticación, autorización y sesiones"]
+            Validaciones["Validaciones, errores y consultas"]
+            App["Sistema Web MVC empresarial"]
+        end
     end
 
-    subgraph BD1["BD1 - Base de Datos Relacional"]
-        ER["Modelo ER"]
-        Logico["Modelo lógico"]
-        Diccionario["Diccionario de datos"]
-        SQL["DDL / DML / Consultas"]
-        BD["BD relacional"]
-    end
-
-    subgraph LP1["LP1 - Aplicación Web MVC"]
-        Web["Plantillas y formularios"]
-        MVC["Rutas, controladores y servicios"]
-        Persistencia["ORM / repositorios"]
-        Seguridad["Control de acceso"]
-        App["Sistema Web MVC"]
-    end
-
-    Problema --> RF --> SRS
-    Stakeholders --> SRS
-    Prototipos --> Web
-    SRS --> ER --> Logico --> Diccionario --> SQL --> BD
-    BD --> Persistencia
-    Web --> MVC --> Persistencia --> Seguridad --> App
+    Problema --> Stakeholders --> Reqs --> Prototipos --> SRS
+    SRS --> ER --> Logico --> Diccionario --> Scripts --> Consultas --> BD
+    Prototipos --> UI
+    BD --> ORM
+    UI --> MVC --> ORM --> Seguridad --> Validaciones --> App
+    Consultas --> Validaciones
+    SRS --> App
 ```
 
 La integración se valida cuando los requerimientos documentados, el modelo de datos y la aplicación web pertenecen al mismo dominio y pueden trazarse entre sí.
 
 ---
-
 # Hitos Transversales
 
 ## Hito 1 - Evaluación Unidad 1
