@@ -1,155 +1,159 @@
-# Integracion Curricular del Ciclo 3 - 2026-2
+# Integración Curricular del Ciclo 3 - 2026-2
 
 # Proyecto Integrador del Ciclo
 
-## BOM START
+El Ciclo 3 integra **Ingeniería de Requerimientos (REQ)**, **Administración de Base de Datos I (BD1)** y **Lenguaje de Programación I (LP1)** alrededor de un mismo sistema web empresarial.
 
-[BOM START](https://github.com/262ciclo3/bomstart) es una plantilla academica para desarrollar una aplicacion web empresarial inicial mediante tres cursos articulados: Ingenieria de Requerimientos, Administracion de Base de Datos I y Lenguaje de Programacion I.
-
-Repositorio de la plantilla:
+La integración curricular se organiza así:
 
 ```text
-https://github.com/262ciclo3/bomstart
+REQ -> BD1 -> LP1
 ```
 
-El proyecto busca que cada equipo construya una solucion funcional conectando:
-
-* Una especificacion de requerimientos de software.
-* Una base de datos relacional implementada y validada.
-* Una aplicacion web server-side con arquitectura MVC.
-
----
-
-# Cursos Integrados
-
-## REQ - Ingenieria de Requerimientos
-
-Analiza necesidades organizacionales y define requerimientos mediante tecnicas de elicitacion, modelado, validacion y documentacion.
-
-**Producto final:** Especificacion de Requerimientos de Software (SRS) documentada.
-
-## BD1 - Administracion de Base de Datos I
-
-Disena e implementa bases de datos relacionales a partir de los requerimientos del negocio, aplicando modelado conceptual, diseno logico, normalizacion, SQL e integridad de datos.
-
-**Producto final:** Base de datos relacional implementada y validada.
-
-## LP1 - Lenguaje de Programacion I
-
-Desarrolla aplicaciones web server-side aplicando MVC, ORM, validaciones, autenticacion basica y buenas practicas de desarrollo.
-
-**Producto final:** Aplicacion web server-side completa.
-
----
-
-# Flujo de Integracion
-
-```mermaid
-flowchart LR
-    subgraph REQ["REQ - Ingenieria de Requerimientos"]
-        Stakeholders["Stakeholders"]
-        Alcance["Alcance"]
-        RF["Requerimientos"]
-        Prototipos["Prototipos"]
-        SRS["SRS IEEE 29148"]
-    end
-
-    subgraph BD1["BD1 - Administracion de Base de Datos I"]
-        ER["Modelo ER"]
-        Logico["Modelo Logico"]
-        Normalizacion["Normalizacion"]
-        SQL["DDL / DML / Consultas"]
-        BD["BD Relacional"]
-    end
-
-    subgraph LP1["LP1 - Lenguaje de Programacion I"]
-        Vistas["Vistas Web"]
-        MVC["MVC"]
-        ORM["ORM"]
-        CRUD["CRUD"]
-        Auth["Autenticacion Basica"]
-        App["Aplicacion Web"]
-    end
-
-    SRS --> ER
-    RF --> Logico
-    Prototipos --> Vistas
-    ER --> Logico --> Normalizacion --> SQL --> BD
-    BD --> ORM
-    Vistas --> MVC --> ORM --> CRUD --> Auth --> App
-```
-
----
-
-# Hitos Transversales
-
-## Hito 1 - Evaluacion Unidad 1
-
-### Sesiones de evaluacion
-
-* REQ: Sesion 6.
-* BD1: Sesion 6.
-* LP1: Sesion 6.
-
-### Evidencia esperada
-
-* REQ: Requerimientos iniciales priorizados y prototipos validados.
-* BD1: Modelo de datos conceptual y logico documentado.
-* LP1: Vistas web dinamicas y formularios funcionales.
-
----
-
-## Hito 2 - Evaluacion Unidad 2
-
-### Sesiones de evaluacion
-
-* REQ: Sesion 12.
-* BD1: Sesion 12.
-* LP1: Sesion 12.
-
-### Evidencia esperada
-
-* REQ: Modelo funcional y requerimientos documentados con trazabilidad.
-* BD1: Base de datos relacional implementada con consultas funcionales.
-* LP1: Aplicacion MVC con persistencia de datos y funcionalidades CRUD.
-
----
-
-## Hito 3 - Sustentacion del Proyecto
-
-### Sesiones de sustentacion
-
-* REQ: Sesion 15.
-* BD1: Sesion 15.
-* LP1: Sesion 15.
-
-### Evidencia esperada
-
-* REQ: Sustentacion del SRS.
-* BD1: Sustentacion de la base de datos relacional.
-* LP1: Sustentacion de la aplicacion web.
-
----
-
-## Cierre Final
-
-### Sesiones de cierre
-
-* REQ: Sesion 16.
-* BD1: Sesion 16.
-* LP1: Sesion 16.
-
-### Evidencia esperada
-
-* Evaluacion individual.
-* Recuperacion de sustentaciones pendientes.
-* Correccion de observaciones.
-* Cierre academico del proyecto.
+REQ define el problema y documenta los requerimientos. BD1 transforma esos requerimientos en una base de datos relacional. LP1 implementa una aplicación web MVC usando los requerimientos y la base de datos construida.
 
 ---
 
 # Producto Integrador del Ciclo
 
-**Aplicacion web server-side completa, basada en un SRS documentado, conectada a una base de datos relacional implementada y validada.**
+**Sistema Web MVC Empresarial con SRS y Base de Datos Relacional Validada.**
 
-Este producto constituye la evidencia integradora del Ciclo 3 y servira como base para cursos posteriores como Analisis y Diseno de Sistemas de Informacion, Administracion de Base de Datos II y Lenguaje de Programacion II.
+El producto integrador incluye:
+
+- Especificación de Requerimientos de Software (SRS).
+- Modelo Entidad-Relación.
+- Modelo lógico relacional.
+- Diccionario de datos.
+- Base de datos implementada con scripts DDL y DML.
+- Consultas SQL y reportes.
+- Aplicación web MVC con persistencia.
+- Control de acceso, validaciones y consultas.
+- Evidencias de integración entre requerimientos, base de datos y aplicación.
+
+---
+
+# Cursos Integrados
+
+## REQ - Ingeniería de Requerimientos
+
+Analiza necesidades organizacionales y define requerimientos de software mediante técnicas de elicitación, modelado, validación y documentación.
+
+**Producto final:** Especificación de Requerimientos de Software (SRS) documentada.
+
+| Unidad | Enfoque | Producto |
+|---|---|---|
+| Unidad 1 | Descubrimiento, elicitación y análisis del problema. | Requerimientos iniciales priorizados y prototipos validados. |
+| Unidad 2 | Análisis funcional y requerimientos no funcionales. | Modelo funcional y requerimientos documentados con trazabilidad. |
+| Unidad 3 | Proyecto de especificación de requerimientos. | SRS documentado y validado. |
+
+## BD1 - Administración de Base de Datos I
+
+Diseña e implementa bases de datos relacionales a partir de los requerimientos del negocio, aplicando modelado conceptual, diseño lógico, normalización, SQL e integridad de datos.
+
+**Producto final:** Base de datos relacional implementada y validada.
+
+| Unidad | Enfoque | Producto |
+|---|---|---|
+| Unidad 1 | Diseño conceptual y lógico de bases de datos. | Modelo de datos conceptual y lógico documentado. |
+| Unidad 2 | Implementación y consulta de bases de datos. | Base de datos relacional implementada con consultas funcionales. |
+| Unidad 3 | Proyecto de base de datos relacional. | Base de datos relacional implementada y validada. |
+
+## LP1 - Lenguaje de Programación I
+
+Desarrolla aplicaciones web MVC aplicando arquitectura web, formularios, persistencia, relaciones, consultas, control de acceso, validaciones y buenas prácticas de desarrollo.
+
+**Producto final:** Sistema Web MVC Empresarial.
+
+| Unidad | Enfoque | Producto |
+|---|---|---|
+| Unidad 1 | Fundamentos del desarrollo web. | Página web interactiva con plantillas y formularios. |
+| Unidad 2 | Desarrollo de aplicaciones web MVC. | Aplicación web MVC con persistencia, relaciones, seguridad y consultas. |
+| Unidad 3 | Proyecto integrador web MVC. | Sistema Web MVC Empresarial sustentado. |
+
+---
+
+# Arquitectura Inicial
+
+La arquitectura inicial del Ciclo 3 organiza el trabajo en tres responsabilidades conectadas: **requerimientos**, **base de datos relacional** e **implementación web MVC**.
+
+```mermaid
+flowchart LR
+    subgraph REQ["REQ - Requerimientos"]
+        Problema["Problema y alcance"]
+        Stakeholders["Stakeholders"]
+        RF["RF / RNF"]
+        Prototipos["Prototipos"]
+        SRS["SRS"]
+    end
+
+    subgraph BD1["BD1 - Base de Datos Relacional"]
+        ER["Modelo ER"]
+        Logico["Modelo lógico"]
+        Diccionario["Diccionario de datos"]
+        SQL["DDL / DML / Consultas"]
+        BD["BD relacional"]
+    end
+
+    subgraph LP1["LP1 - Aplicación Web MVC"]
+        Web["Plantillas y formularios"]
+        MVC["Rutas, controladores y servicios"]
+        Persistencia["ORM / repositorios"]
+        Seguridad["Control de acceso"]
+        App["Sistema Web MVC"]
+    end
+
+    Problema --> RF --> SRS
+    Stakeholders --> SRS
+    Prototipos --> Web
+    SRS --> ER --> Logico --> Diccionario --> SQL --> BD
+    BD --> Persistencia
+    Web --> MVC --> Persistencia --> Seguridad --> App
+```
+
+La integración se valida cuando los requerimientos documentados, el modelo de datos y la aplicación web pertenecen al mismo dominio y pueden trazarse entre sí.
+
+---
+
+# Hitos Transversales
+
+## Hito 1 - Evaluación Unidad 1
+
+| Curso | Sesión | Evidencia esperada |
+|---|---:|---|
+| REQ | S6 | Requerimientos iniciales priorizados y prototipos validados. |
+| BD1 | S6 | Modelo de datos conceptual y lógico documentado. |
+| LP1 | S5 | Página web interactiva con plantillas y formularios. |
+
+## Hito 2 - Evaluación Unidad 2
+
+| Curso | Sesión | Evidencia esperada |
+|---|---:|---|
+| REQ | S12 | Modelo funcional y requerimientos documentados con trazabilidad. |
+| BD1 | S12 | Base de datos relacional implementada con consultas funcionales. |
+| LP1 | S12 | Aplicación Web MVC con persistencia, relaciones, seguridad y validaciones. |
+
+## Hito 3 - Sustentación del Proyecto
+
+| Curso | Sesión | Evidencia esperada |
+|---|---:|---|
+| REQ | S15 | Sustentación del SRS. |
+| BD1 | S15 | Sustentación de la base de datos relacional. |
+| LP1 | S15 | Sustentación del Sistema Web MVC Empresarial. |
+
+## Cierre Final
+
+| Curso | Sesión | Evidencia esperada |
+|---|---:|---|
+| REQ | S16 | Evaluación final y cierre académico. |
+| BD1 | S16 | Evaluación final y cierre académico. |
+| LP1 | S16 | Evaluación final y cierre académico. |
+
+---
+
+# Proyección
+
+El producto del Ciclo 3 sirve como base para el Ciclo 4, donde la solución evoluciona hacia diseño técnico profesional, base de datos Oracle administrada y aplicación full-stack empresarial.
+
+```text
+Sistema Web MVC -> Diseño técnico + Oracle empresarial + API REST + SPA
+```
