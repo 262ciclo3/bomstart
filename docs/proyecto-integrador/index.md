@@ -71,6 +71,26 @@ Este alineamiento sirve como referencia metodológica para coordinar los avances
 
 ## 5. Producto Final
 
+### Repositorio académico y topics
+
+Desde la primera presentación del proyecto, el repositorio debe estar creado y configurado con los topics académicos mínimos. Esta configuración es obligatoria porque permite identificar campus, semestre, línea, tipo de proyecto, cursos participantes, sección y grupo.
+
+El detalle oficial del estándar se encuentra en [Estándar transversal de topics para repositorios académicos](https://upeuoficial.github.io/planb/anexos/estandar-topics-repositorios/).
+
+Ejemplo base para el Proyecto Integrador del Ciclo 3:
+
+```text
+campus-juliaca
+semestre-2026-2
+linea-software
+tipo-pi
+req
+bd1
+lp1
+seccion-g1
+grupo-<numero>-<nombre-proyecto>
+```
+
 Componentes mínimos:
 
 - SRS con problema, alcance, stakeholders, requerimientos funcionales, no funcionales, reglas y trazabilidad.
@@ -96,7 +116,7 @@ Componentes mínimos:
 | Evidencias | Se presentan documentos, scripts, capturas, pruebas, repositorio y ejecución. |
 | Calidad técnica | El código, la base y la documentación son ordenados, verificables y mantenibles. |
 | Sustentación técnica | El equipo explica la trazabilidad desde el requerimiento hasta la funcionalidad. |
-| Sustentación profesional | Cada integrante defiende su aporte, demuestra evidencia y mantiene presentación adecuada. |
+| Sustentación profesional | Cada integrante defiende su aporte, demuestra evidencia, mantiene presentación adecuada y presenta el repositorio académico disponible desde la primera presentación con los topics mínimos configurados correctamente y evidencia el cumplimiento de estándares básicos de programación, organización del repositorio, documentación y reproducibilidad. |
 
 ## 7. Sustentación
 
