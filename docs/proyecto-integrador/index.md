@@ -117,10 +117,25 @@ Los criterios se organizan según una matriz común de evaluación de proyectos 
 | Integración del producto | Integración | REQ + BD1 + LP1 | Requerimientos, base de datos y aplicación pertenecen al mismo sistema y se justifican entre sí. |
 | Calidad técnica | Calidad técnica | REQ + BD1 + LP1 | El código, la base, la documentación y el repositorio son ordenados, verificables, mantenibles y reproducibles. |
 | Validación, pruebas o resultados | Validación y evidencias | REQ + BD1 + LP1 | Se presentan documentos, scripts, capturas, pruebas, datos, ejecución y resultados verificables del sistema. |
-| Sustentación técnica | Sustentación técnica | REQ + BD1 + LP1 | El equipo explica la trazabilidad desde el requerimiento hasta la base de datos y la funcionalidad implementada. |
-| Sustentación profesional | Sustentación profesional | REQ + BD1 + LP1 | Cada integrante defiende su aporte, demuestra evidencia y evidencia comunicación clara, puntualidad, vestimenta limpia y adecuada, cabello ordenado, higiene personal y actitud profesional; además presenta el repositorio académico disponible desde la primera presentación con los topics mínimos configurados correctamente y evidencia el cumplimiento de estándares básicos de programación, organización del repositorio, documentación y reproducibilidad. |
+| Sustentación técnica y profesional | Sustentación integral | REQ + BD1 + LP1 | Se evalúa mediante subaspectos de defensa técnica, comunicación, presentación personal, aporte individual, repositorio, documentación publicada y pitch/demo ejecutiva. |
+
+### Subaspectos de la sustentación integral
+
+La sustentación integral debe representar como mínimo el 30% de la evaluación del proyecto. Se revisa mediante los siguientes subaspectos:
+
+| Subaspecto | Qué observa |
+|---|---|
+| Defensa técnica | Explicación de la trazabilidad desde el requerimiento hasta la base de datos y la funcionalidad implementada. |
+| Comunicación y orden | Claridad, estructura, tiempo y lenguaje técnico. |
+| Presentación personal y actitud | Puntualidad, vestimenta limpia y adecuada, higiene, cabello ordenado y actitud profesional. |
+| Aporte individual | Cada integrante demuestra lo que hizo. |
+| Repositorio y estándares | Topics, organización, commits, documentación y reproducibilidad. |
+| MkDocs o equivalente | Documentación publicada, navegable y alineada al producto. |
+| Pitch/demo ejecutiva | Introducción clara del problema, solución y valor, seguida de una demo funcional. |
 
 ## 7. Sustentación
+
+La sustentación inicia con un video pitch breve o introducción ejecutiva de 1 a 3 minutos para presentar el problema, la solución, el valor del producto y la participación del equipo o estudiante.
 
 | Momento | Tiempo sugerido | Propósito |
 |---|---:|---|
@@ -138,3 +153,22 @@ Problema -> SRS -> Modelo relacional -> Base de datos -> Aplicación Web MVC -> 
 ```
 
 El valor del proyecto integrador no está en entregar tres productos separados, sino en evidenciar que el SRS, la base de datos y la aplicación web evolucionaron como un mismo sistema.
+
+## Anexo. Secuencia sugerida de presentación
+
+La presentación puede organizarse con una secuencia breve de apoyo visual. El video pitch o introducción ejecutiva abre la sustentación y no reemplaza la demo ni la defensa técnica.
+
+| Orden | Slide o momento | Propósito |
+|---:|---|---|
+| 1 | Título del proyecto y equipo | Identificar el proyecto, integrantes y dominio elegido. |
+| 2 | Video pitch o introducción ejecutiva | Presentar problema, solución, valor y participación del equipo. |
+| 3 | Problema y alcance | Explicar necesidad, contexto, actores y límites del sistema. |
+| 4 | Requerimientos | Presentar SRS, reglas, criterios de aceptación y trazabilidad. |
+| 5 | Modelo de datos | Mostrar ER, modelo lógico, normalización y diccionario. |
+| 6 | Base de datos | Presentar DDL, DML, integridad, consultas y reportes. |
+| 7 | Aplicación MVC | Explicar rutas, controladores, servicios, vistas y persistencia. |
+| 8 | Integración | Evidenciar relación entre requerimientos, tablas, módulos y pantallas. |
+| 9 | Validación y pruebas | Mostrar scripts, capturas, datos, casos de prueba y resultados. |
+| 10 | Demo en vivo | Ejecutar el flujo principal del sistema web. |
+| 11 | Aporte individual | Indicar qué hizo cada integrante por curso o componente. |
+| 12 | Repositorio, estándares y mejoras | Mostrar topics, documentación publicada en MkDocs o equivalente, reproducibilidad, límites y mejora. |
