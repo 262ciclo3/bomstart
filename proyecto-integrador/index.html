@@ -3314,52 +3314,75 @@ grupo-&lt;numero&gt;-&lt;nombre-proyecto&gt;
 <li>Evidencias de integración entre requerimientos, tablas, módulos y pantallas.</li>
 </ul>
 <h2 id="6-evaluacion">6. Evaluación<a class="headerlink" href="#6-evaluacion" title="Permanent link">&para;</a></h2>
+<p>Los criterios se organizan según una matriz común de evaluación de proyectos académicos: problema, requerimientos, diseño, datos, implementación, integración, calidad, validación y sustentación. El PI se evalúa con una sola rúbrica integrada; cada dimensión indica el curso que aporta principalmente al criterio, sin separar el producto en entregas inconexas.</p>
 <table>
 <thead>
 <tr>
-<th>Criterio</th>
+<th>Dimensión común</th>
+<th>Criterio del PI</th>
+<th>Curso asociado</th>
 <th>Qué se observa</th>
 </tr>
 </thead>
 <tbody>
 <tr>
 <td>Problema y alcance</td>
-<td>El proyecto responde a una necesidad clara y viable para el ciclo.</td>
+<td>Problema y alcance</td>
+<td>REQ</td>
+<td>El proyecto responde a una necesidad clara, viable y bien delimitada para el ciclo.</td>
 </tr>
 <tr>
+<td>Requerimientos o funcionalidad esperada</td>
 <td>Requerimientos</td>
-<td>El SRS define requerimientos, reglas, actores, restricciones y trazabilidad útil.</td>
+<td>REQ</td>
+<td>El SRS define requerimientos, reglas, actores, restricciones, criterios de aceptación y trazabilidad útil.</td>
 </tr>
 <tr>
+<td>Diseño, modelo o arquitectura</td>
 <td>Modelo de datos</td>
-<td>El modelo ER/lógico representa correctamente el dominio y se normaliza de manera adecuada.</td>
+<td>BD1</td>
+<td>El modelo ER/lógico representa correctamente el dominio, se normaliza de manera adecuada y se relaciona con los requerimientos.</td>
 </tr>
 <tr>
-<td>Base de datos</td>
-<td>La base implementa estructura, integridad, datos de prueba, consultas y reportes.</td>
-</tr>
-<tr>
+<td>Implementación técnica</td>
 <td>Aplicación MVC</td>
-<td>El sistema implementa formularios, persistencia, seguridad, consultas y flujos principales.</td>
+<td>LP1</td>
+<td>El sistema implementa formularios, rutas, controladores, servicios, persistencia y flujos principales.</td>
 </tr>
 <tr>
+<td>Datos, persistencia o procesamiento</td>
+<td>Base de datos</td>
+<td>BD1</td>
+<td>La base implementa estructura, integridad, datos de prueba, consultas y reportes alineados al sistema.</td>
+</tr>
+<tr>
+<td>Integración del producto</td>
 <td>Integración</td>
-<td>REQ, BD1 y LP1 pertenecen al mismo sistema y se justifican entre sí.</td>
-</tr>
-<tr>
-<td>Evidencias</td>
-<td>Se presentan documentos, scripts, capturas, pruebas, repositorio y ejecución.</td>
+<td>REQ + BD1 + LP1</td>
+<td>Requerimientos, base de datos y aplicación pertenecen al mismo sistema y se justifican entre sí.</td>
 </tr>
 <tr>
 <td>Calidad técnica</td>
-<td>El código, la base y la documentación son ordenados, verificables y mantenibles.</td>
+<td>Calidad técnica</td>
+<td>REQ + BD1 + LP1</td>
+<td>El código, la base, la documentación y el repositorio son ordenados, verificables, mantenibles y reproducibles.</td>
+</tr>
+<tr>
+<td>Validación, pruebas o resultados</td>
+<td>Validación y evidencias</td>
+<td>REQ + BD1 + LP1</td>
+<td>Se presentan documentos, scripts, capturas, pruebas, datos, ejecución y resultados verificables del sistema.</td>
 </tr>
 <tr>
 <td>Sustentación técnica</td>
-<td>El equipo explica la trazabilidad desde el requerimiento hasta la funcionalidad.</td>
+<td>Sustentación técnica</td>
+<td>REQ + BD1 + LP1</td>
+<td>El equipo explica la trazabilidad desde el requerimiento hasta la base de datos y la funcionalidad implementada.</td>
 </tr>
 <tr>
 <td>Sustentación profesional</td>
+<td>Sustentación profesional</td>
+<td>REQ + BD1 + LP1</td>
 <td>Cada integrante defiende su aporte, demuestra evidencia, mantiene presentación adecuada y presenta el repositorio académico disponible desde la primera presentación con los topics mínimos configurados correctamente y evidencia el cumplimiento de estándares básicos de programación, organización del repositorio, documentación y reproducibilidad.</td>
 </tr>
 </tbody>
