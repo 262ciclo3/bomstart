@@ -105,18 +105,20 @@ Componentes mínimos:
 
 ## 6. Evaluación
 
-| Criterio | Qué se observa |
-|---|---|
-| Problema y alcance | El proyecto responde a una necesidad clara y viable para el ciclo. |
-| Requerimientos | El SRS define requerimientos, reglas, actores, restricciones y trazabilidad útil. |
-| Modelo de datos | El modelo ER/lógico representa correctamente el dominio y se normaliza de manera adecuada. |
-| Base de datos | La base implementa estructura, integridad, datos de prueba, consultas y reportes. |
-| Aplicación MVC | El sistema implementa formularios, persistencia, seguridad, consultas y flujos principales. |
-| Integración | REQ, BD1 y LP1 pertenecen al mismo sistema y se justifican entre sí. |
-| Evidencias | Se presentan documentos, scripts, capturas, pruebas, repositorio y ejecución. |
-| Calidad técnica | El código, la base y la documentación son ordenados, verificables y mantenibles. |
-| Sustentación técnica | El equipo explica la trazabilidad desde el requerimiento hasta la funcionalidad. |
-| Sustentación profesional | Cada integrante defiende su aporte, demuestra evidencia, mantiene presentación adecuada y presenta el repositorio académico disponible desde la primera presentación con los topics mínimos configurados correctamente y evidencia el cumplimiento de estándares básicos de programación, organización del repositorio, documentación y reproducibilidad. |
+Los criterios se organizan según una matriz común de evaluación de proyectos académicos: problema, requerimientos, diseño, datos, implementación, integración, calidad, validación y sustentación. El PI se evalúa con una sola rúbrica integrada; cada dimensión indica el curso que aporta principalmente al criterio, sin separar el producto en entregas inconexas.
+
+| Dimensión común | Criterio del PI | Curso asociado | Qué se observa |
+|---|---|---|---|
+| Problema y alcance | Problema y alcance | REQ | El proyecto responde a una necesidad clara, viable y bien delimitada para el ciclo. |
+| Requerimientos o funcionalidad esperada | Requerimientos | REQ | El SRS define requerimientos, reglas, actores, restricciones, criterios de aceptación y trazabilidad útil. |
+| Diseño, modelo o arquitectura | Modelo de datos | BD1 | El modelo ER/lógico representa correctamente el dominio, se normaliza de manera adecuada y se relaciona con los requerimientos. |
+| Implementación técnica | Aplicación MVC | LP1 | El sistema implementa formularios, rutas, controladores, servicios, persistencia y flujos principales. |
+| Datos, persistencia o procesamiento | Base de datos | BD1 | La base implementa estructura, integridad, datos de prueba, consultas y reportes alineados al sistema. |
+| Integración del producto | Integración | REQ + BD1 + LP1 | Requerimientos, base de datos y aplicación pertenecen al mismo sistema y se justifican entre sí. |
+| Calidad técnica | Calidad técnica | REQ + BD1 + LP1 | El código, la base, la documentación y el repositorio son ordenados, verificables, mantenibles y reproducibles. |
+| Validación, pruebas o resultados | Validación y evidencias | REQ + BD1 + LP1 | Se presentan documentos, scripts, capturas, pruebas, datos, ejecución y resultados verificables del sistema. |
+| Sustentación técnica | Sustentación técnica | REQ + BD1 + LP1 | El equipo explica la trazabilidad desde el requerimiento hasta la base de datos y la funcionalidad implementada. |
+| Sustentación profesional | Sustentación profesional | REQ + BD1 + LP1 | Cada integrante defiende su aporte, demuestra evidencia, mantiene presentación adecuada y presenta el repositorio académico disponible desde la primera presentación con los topics mínimos configurados correctamente y evidencia el cumplimiento de estándares básicos de programación, organización del repositorio, documentación y reproducibilidad. |
 
 ## 7. Sustentación
 
@@ -138,4 +140,3 @@ Problema -> SRS -> Modelo relacional -> Base de datos -> Aplicación Web MVC -> 
 ```
 
 El valor del proyecto integrador no está en entregar tres productos separados, sino en evidenciar que el SRS, la base de datos y la aplicación web evolucionaron como un mismo sistema.
-
