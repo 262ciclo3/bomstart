@@ -118,7 +118,7 @@ Los criterios se organizan según una matriz común de evaluación de proyectos 
 | Calidad técnica | Calidad técnica | REQ + BD1 + LP1 | El código, la base, la documentación y el repositorio son ordenados, verificables, mantenibles y reproducibles. |
 | Validación, pruebas o resultados | Validación y evidencias | REQ + BD1 + LP1 | Se presentan documentos, scripts, capturas, pruebas, datos, ejecución y resultados verificables del sistema. |
 | Sustentación técnica | Sustentación técnica | REQ + BD1 + LP1 | El equipo explica la trazabilidad desde el requerimiento hasta la base de datos y la funcionalidad implementada. |
-| Sustentación profesional | Sustentación profesional | REQ + BD1 + LP1 | Cada integrante defiende su aporte, demuestra evidencia, mantiene presentación adecuada y presenta el repositorio académico disponible desde la primera presentación con los topics mínimos configurados correctamente y evidencia el cumplimiento de estándares básicos de programación, organización del repositorio, documentación y reproducibilidad. |
+| Sustentación profesional | Sustentación profesional | REQ + BD1 + LP1 | Cada integrante defiende su aporte, demuestra evidencia y evidencia comunicación clara, puntualidad, vestimenta limpia y adecuada, cabello ordenado, higiene personal y actitud profesional; además presenta el repositorio académico disponible desde la primera presentación con los topics mínimos configurados correctamente y evidencia el cumplimiento de estándares básicos de programación, organización del repositorio, documentación y reproducibilidad. |
 
 ## 7. Sustentación
 
@@ -128,8 +128,6 @@ Los criterios se organizan según una matriz común de evaluación de proyectos 
 | Demostración en vivo | 5 minutos | Ejecutar el sistema web, mostrar persistencia, consultas, seguridad y trazabilidad. |
 
 Cada integrante debe explicar una parte verificable del proyecto: requerimientos, base de datos, consultas, backend, vistas, seguridad, pruebas o integración. La sustentación debe mostrar cómo una necesidad se convirtió en sistema funcional.
-
-Se espera comunicación clara, puntualidad, vestimenta limpia y adecuada, apariencia ordenada y actitud profesional.
 
 ## 8. Resultado Esperado
 
