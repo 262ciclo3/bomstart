@@ -486,6 +486,34 @@
     </span>
   </a>
   
+    <nav class="md-nav" aria-label="1. Propósito">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#competencia-o-capacidad-del-proyecto" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Competencia o capacidad del proyecto
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#competencias-relacionadas" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Competencias relacionadas
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
         <li class="md-nav__item">
@@ -567,16 +595,27 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#6-evaluacion" class="md-nav__link">
+  <a href="#6-evaluacion-por-competencias" class="md-nav__link">
     <span class="md-ellipsis">
       
-        6. Evaluación
+        6. Evaluación por competencias
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="6. Evaluación">
+    <nav class="md-nav" aria-label="6. Evaluación por competencias">
       <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#rubrica" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Rúbrica
+      
+    </span>
+  </a>
+  
+</li>
         
           <li class="md-nav__item">
   <a href="#subaspectos-de-la-sustentacion-integral" class="md-nav__link">
@@ -621,6 +660,28 @@
     <span class="md-ellipsis">
       
         Anexo. Secuencia sugerida de presentación
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#anexo-plantilla-minima-de-documentacion-mkdocs-o-equivalente" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Anexo. Plantilla mínima de documentación MkDocs o equivalente
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#anexo-plantilla-sugerida-de-informe-del-proyecto" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Anexo. Plantilla sugerida de informe del proyecto
       
     </span>
   </a>
@@ -3159,6 +3220,45 @@
 <div class="highlight"><pre><span></span><code>Problema -&gt; Requerimientos -&gt; Modelo de datos -&gt; Base de datos -&gt; Sistema Web MVC -&gt; Sustentación
 </code></pre></div>
 <p>REQ define el problema y el SRS. BD1 transforma los requerimientos en una base de datos relacional. LP1 implementa una aplicación web MVC usando esos requerimientos y la base de datos construida.</p>
+<h3 id="competencia-o-capacidad-del-proyecto">Competencia o capacidad del proyecto<a class="headerlink" href="#competencia-o-capacidad-del-proyecto" title="Permanent link">&para;</a></h3>
+<p>Al finalizar el Proyecto Integrador, el equipo demuestra que puede transformar una necesidad de negocio en un sistema web MVC funcional, integrando requerimientos validados, modelo de datos relacional, base de datos implementada, aplicación web, trazabilidad, validación, documentación y sustentación integral del producto.</p>
+<h3 id="competencias-relacionadas">Competencias relacionadas<a class="headerlink" href="#competencias-relacionadas" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Código</th>
+<th>Curso asociado</th>
+<th>Competencia</th>
+<th>Relación con el proyecto</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>CE021</td>
+<td>REQ</td>
+<td>Ingeniería de Requerimientos</td>
+<td>Evidencia SRS, reglas, prototipos, validación y trazabilidad.</td>
+</tr>
+<tr>
+<td>CE022</td>
+<td>BD1</td>
+<td>Ingeniería de la Información</td>
+<td>Evidencia modelo relacional, base de datos implementada, integridad, consultas y reportes.</td>
+</tr>
+<tr>
+<td>CE023</td>
+<td>LP1</td>
+<td>Programación</td>
+<td>Evidencia sistema web MVC funcional integrado con la base de datos.</td>
+</tr>
+<tr>
+<td>CE024</td>
+<td>Transversal</td>
+<td>Calidad de Software</td>
+<td>Evidencia pruebas, documentación, repositorio, estándares, reproducibilidad y sustentación integral.</td>
+</tr>
+</tbody>
+</table>
 <h2 id="2-el-proyecto">2. El Proyecto<a class="headerlink" href="#2-el-proyecto" title="Permanent link">&para;</a></h2>
 <p>El producto integrador es un <strong>Sistema Web MVC Empresarial con SRS y Base de Datos Relacional Validada</strong>.</p>
 <p>El proyecto debe resolver un problema de negocio realista y mantener trazabilidad entre lo que se solicita, lo que se modela, lo que se almacena y lo que se implementa.</p>
@@ -3208,75 +3308,16 @@
     C --&gt; F</code></pre>
 <h3 id="alineamiento-por-sesiones">Alineamiento por sesiones<a class="headerlink" href="#alineamiento-por-sesiones" title="Permanent link">&para;</a></h3>
 <p>Este alineamiento sirve como referencia metodológica para coordinar los avances de los tres cursos sin convertir el documento principal en una lista extensa de sesiones.</p>
-<table>
-<thead>
-<tr>
-<th>Sesiones</th>
-<th>REQ</th>
-<th>BD1</th>
-<th>LP1</th>
-<th>Integración esperada</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>S1-S2</td>
-<td>Problema, stakeholders, contexto y alcance.</td>
-<td>Datos, entidades y modelo ER inicial.</td>
-<td>Arquitectura web, HTTP e interfaz base.</td>
-<td>Todos trabajan sobre el mismo dominio y una entidad principal.</td>
-</tr>
-<tr>
-<td>S3-S4</td>
-<td>Priorización y prototipo inicial.</td>
-<td>Modelo ER avanzado y transformación al modelo lógico.</td>
-<td>JavaScript, formularios e interacción web.</td>
-<td>Los prototipos de REQ orientan los formularios de LP1; BD1 modela entidades y relaciones.</td>
-</tr>
-<tr>
-<td>S5-S6</td>
-<td>Validación inicial y evaluación U1.</td>
-<td>Normalización, diccionario de datos y evaluación U1.</td>
-<td>Evaluación U1 de la página web interactiva.</td>
-<td>Primer corte integrado: requerimientos iniciales, modelo lógico e interfaz web inicial.</td>
-</tr>
-<tr>
-<td>S7-S8</td>
-<td>Historias de usuario, casos de uso y RNF.</td>
-<td>Implementación DDL y manipulación DML.</td>
-<td>Arquitectura MVC y persistencia.</td>
-<td>LP1 inicia MVC y empieza a conectarse con la base construida en BD1.</td>
-</tr>
-<tr>
-<td>S9-S10</td>
-<td>Reglas de negocio y prototipos funcionales.</td>
-<td>Consultas SQL y reportes.</td>
-<td>Relaciones, consultas, filtros y paginación.</td>
-<td>Las reglas de REQ se convierten en validaciones, consultas y flujos funcionales.</td>
-</tr>
-<tr>
-<td>S11-S12</td>
-<td>Trazabilidad y evaluación U2.</td>
-<td>Comparación NoSQL y evaluación U2.</td>
-<td>Seguridad, validaciones y optimización.</td>
-<td>Segundo corte integrado: sistema MVC con persistencia, consultas, reglas y trazabilidad.</td>
-</tr>
-<tr>
-<td>S13-S15</td>
-<td>SRS IEEE 29148, validación y sustentación.</td>
-<td>Integración, validación y sustentación de la base de datos.</td>
-<td>Integración, pruebas y sustentación del sistema MVC.</td>
-<td>Consolidación final del proyecto integrador.</td>
-</tr>
-<tr>
-<td>S16</td>
-<td>Evaluación final.</td>
-<td>Evaluación final.</td>
-<td>Evaluación final.</td>
-<td>Cierre académico y evaluación individual o técnica.</td>
-</tr>
-</tbody>
-</table>
+<p>| Sesiones | REQ | BD1 | LP1 | Integración esperada |
+|---|---:|---|---|---|---|
+| S1-S2 | Problema, stakeholders, contexto y alcance. | Datos, entidades y modelo ER inicial. | Arquitectura web, HTTP e interfaz base. | Todos trabajan sobre el mismo dominio y una entidad principal. |
+| S3-S4 | Priorización y prototipo inicial. | Modelo ER avanzado y transformación al modelo lógico. | JavaScript, formularios e interacción web. | Los prototipos de REQ orientan los formularios de LP1; BD1 modela entidades y relaciones. |
+| S5-S6 | Validación inicial y evaluación U1. | Normalización, diccionario de datos y evaluación U1. | Evaluación U1 de la página web interactiva. | Primer corte integrado: requerimientos iniciales, modelo lógico e interfaz web inicial. |
+| S7-S8 | Historias de usuario, casos de uso y RNF. | Implementación DDL y manipulación DML. | Arquitectura MVC y persistencia. | LP1 inicia MVC y empieza a conectarse con la base construida en BD1. |
+| S9-S10 | Reglas de negocio y prototipos funcionales. | Consultas SQL y reportes. | Relaciones, consultas, filtros y paginación. | Las reglas de REQ se convierten en validaciones, consultas y flujos funcionales. |
+| S11-S12 | Trazabilidad y evaluación U2. | Comparación NoSQL y evaluación U2. | Seguridad, validaciones y optimización. | Segundo corte integrado: sistema MVC con persistencia, consultas, reglas y trazabilidad. |
+| S13-S15 | SRS IEEE 29148, validación y sustentación. | Integración, validación y sustentación de la base de datos. | Integración, pruebas y sustentación del sistema MVC. | Consolidación final del proyecto integrador. |
+| S16 | Evaluación final. | Evaluación final. | Evaluación final. | Cierre académico y evaluación individual o técnica. |</p>
 <h2 id="4-cronograma">4. Cronograma<a class="headerlink" href="#4-cronograma" title="Permanent link">&para;</a></h2>
 <table>
 <thead>
@@ -3341,71 +3382,153 @@ grupo-&lt;numero&gt;-&lt;nombre-proyecto&gt;
 <li>Control de acceso y gestión de sesiones.</li>
 <li>Evidencias de integración entre requerimientos, tablas, módulos y pantallas.</li>
 </ul>
-<h2 id="6-evaluacion">6. Evaluación<a class="headerlink" href="#6-evaluacion" title="Permanent link">&para;</a></h2>
-<p>Los criterios se organizan según una matriz común de evaluación de proyectos académicos: problema, requerimientos, diseño, datos, implementación, integración, calidad, validación y sustentación. El PI se evalúa con una sola rúbrica integrada; cada dimensión indica el curso que aporta principalmente al criterio, sin separar el producto en entregas inconexas.</p>
+<h2 id="6-evaluacion-por-competencias">6. Evaluación por competencias<a class="headerlink" href="#6-evaluacion-por-competencias" title="Permanent link">&para;</a></h2>
+<p>Los criterios se organizan según una matriz común de evaluación de proyectos académicos: problema, requerimientos, diseño, datos, implementación, integración y calidad, validación y sustentación. El PI se evalúa con una sola rúbrica integrada; cada dimensión indica el curso que aporta principalmente al criterio, sin separar el producto en entregas inconexas.</p>
 <table>
 <thead>
 <tr>
 <th>Dimensión común</th>
 <th>Criterio del PI</th>
 <th>Curso asociado</th>
-<th>Qué se observa</th>
+<th>Capacidad evaluada</th>
+<th>Evidencias esperadas</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td>Problema y alcance</td>
+<td>1. Problema y alcance</td>
 <td>Problema y alcance</td>
 <td>REQ</td>
-<td>El proyecto responde a una necesidad clara, viable y bien delimitada para el ciclo.</td>
+<td>Analiza una necesidad organizacional y delimita una solución viable.</td>
+<td>Contexto, problema, actores, alcance, restricciones y justificación.</td>
 </tr>
 <tr>
-<td>Requerimientos o funcionalidad esperada</td>
+<td>2. Requerimientos o funcionalidad esperada</td>
 <td>Requerimientos</td>
 <td>REQ</td>
-<td>El SRS define requerimientos, reglas, actores, restricciones, criterios de aceptación y trazabilidad útil.</td>
+<td>Define, valida y traza requerimientos funcionales y no funcionales.</td>
+<td>SRS, reglas, criterios de aceptación, trazabilidad, prototipos o vistas.</td>
 </tr>
 <tr>
-<td>Diseño, modelo o arquitectura</td>
+<td>3. Diseño, modelo o arquitectura</td>
 <td>Modelo de datos</td>
 <td>BD1</td>
-<td>El modelo ER/lógico representa correctamente el dominio, se normaliza de manera adecuada y se relaciona con los requerimientos.</td>
+<td>Modela información relacional coherente con los requerimientos.</td>
+<td>Modelo ER, modelo lógico, normalización, diccionario y relación con requerimientos.</td>
 </tr>
 <tr>
-<td>Implementación técnica</td>
+<td>4. Implementación técnica</td>
 <td>Aplicación MVC</td>
 <td>LP1</td>
-<td>El sistema implementa formularios, rutas, controladores, servicios, persistencia y flujos principales.</td>
+<td>Implementa una aplicación web MVC funcional alineada al modelo y requerimientos.</td>
+<td>Rutas, controladores, servicios, vistas, formularios, seguridad y persistencia.</td>
 </tr>
 <tr>
-<td>Datos, persistencia o procesamiento</td>
+<td>5. Datos, persistencia o procesamiento</td>
 <td>Base de datos</td>
 <td>BD1</td>
-<td>La base implementa estructura, integridad, datos de prueba, consultas y reportes alineados al sistema.</td>
+<td>Implementa una base relacional íntegra, consultable y útil para el sistema.</td>
+<td>DDL, DML, restricciones, datos de prueba, consultas y reportes.</td>
 </tr>
 <tr>
-<td>Integración del producto</td>
-<td>Integración</td>
+<td>6. Integración del producto y calidad técnica</td>
+<td>Integración y calidad técnica</td>
 <td>REQ + BD1 + LP1</td>
-<td>Requerimientos, base de datos y aplicación pertenecen al mismo sistema y se justifican entre sí.</td>
+<td>Integra requerimientos, base de datos y aplicación como un solo sistema verificable y reproducible.</td>
+<td>Trazabilidad SRS-BD-pantallas, demo end-to-end, repositorio, estructura, documentación, estándares, scripts y forma de ejecución.</td>
 </tr>
 <tr>
-<td>Calidad técnica</td>
-<td>Calidad técnica</td>
-<td>REQ + BD1 + LP1</td>
-<td>El código, la base, la documentación y el repositorio son ordenados, verificables, mantenibles y reproducibles.</td>
-</tr>
-<tr>
-<td>Validación, pruebas o resultados</td>
+<td>7. Validación, pruebas o resultados</td>
 <td>Validación y evidencias</td>
 <td>REQ + BD1 + LP1</td>
-<td>Se presentan documentos, scripts, capturas, pruebas, datos, ejecución y resultados verificables del sistema.</td>
+<td>Verifica funcionamiento, datos, reglas y resultados del sistema.</td>
+<td>Pruebas, capturas, scripts, datos, resultados, incidencias y correcciones.</td>
 </tr>
 <tr>
-<td>Sustentación técnica y profesional</td>
+<td>8. Sustentación técnica y profesional</td>
 <td>Sustentación integral</td>
 <td>REQ + BD1 + LP1</td>
-<td>Se evalúa mediante subaspectos de defensa técnica, comunicación, presentación personal, aporte individual, repositorio, documentación publicada y pitch/demo ejecutiva.</td>
+<td>Defiende técnica y profesionalmente el PI, evidenciando autoría, integración y responsabilidad académica.</td>
+<td>Pitch, demo, defensa técnica, aporte individual, repositorio, topics y MkDocs o equivalente.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="rubrica">Rúbrica<a class="headerlink" href="#rubrica" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Criterios</th>
+<th style="text-align: right;">%</th>
+<th>A (20)</th>
+<th>B (15)</th>
+<th>C (10)</th>
+<th>D (5)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1. Problema y alcance</td>
+<td style="text-align: right;">10%</td>
+<td>Problema claro, viable y bien delimitado; el alcance responde al contexto y está justificado.</td>
+<td>Problema y alcance comprensibles, con algunos límites o justificaciones por precisar.</td>
+<td>Problema poco delimitado o alcance parcialmente viable.</td>
+<td>Problema confuso, sin alcance definido o sin relación clara con el producto.</td>
+</tr>
+<tr>
+<td>2. Requerimientos o funcionalidad esperada</td>
+<td style="text-align: right;">10%</td>
+<td>Funcionalidades o requerimientos completos, coherentes y verificables según la necesidad planteada.</td>
+<td>Funcionalidades principales cubiertas, con detalles menores pendientes o poco precisos.</td>
+<td>Funcionalidades incompletas o parcialmente alineadas al problema.</td>
+<td>Funcionalidades ausentes, inconexas o sin relación verificable con la necesidad.</td>
+</tr>
+<tr>
+<td>3. Diseño, modelo o arquitectura</td>
+<td style="text-align: right;">10%</td>
+<td>Diseño, modelo o arquitectura coherente, aplicado y alineado al producto; muestra estructura y decisiones claras.</td>
+<td>Diseño funcional con limitaciones menores o decisiones parcialmente justificadas.</td>
+<td>Diseño poco claro, incompleto o aplicado de forma parcial.</td>
+<td>No presenta diseño, modelo o arquitectura verificable.</td>
+</tr>
+<tr>
+<td>4. Implementación técnica</td>
+<td style="text-align: right;">10%</td>
+<td>Implementación correcta, funcional y alineada a los contenidos centrales del curso.</td>
+<td>Implementación funcional con detalles técnicos menores por corregir.</td>
+<td>Implementación parcial, con errores o uso limitado de los contenidos del curso.</td>
+<td>Implementación insuficiente, no funcional o no relacionada con los contenidos del curso.</td>
+</tr>
+<tr>
+<td>5. Datos, persistencia o procesamiento</td>
+<td style="text-align: right;">10%</td>
+<td>Los datos se gestionan, almacenan, consultan o procesan correctamente según el tipo de proyecto.</td>
+<td>Gestión de datos funcional con detalles menores de consistencia, estructura o procesamiento.</td>
+<td>Gestión de datos parcial, limitada o con errores relevantes.</td>
+<td>No hay manejo de datos verificable o este impide el funcionamiento del producto.</td>
+</tr>
+<tr>
+<td>6. Integración del producto y calidad técnica</td>
+<td style="text-align: right;">10%</td>
+<td>El producto funciona como sistema integrado, ordenado, documentado y reproducible.</td>
+<td>Integración funcional con detalles menores de organización, documentación o reproducibilidad.</td>
+<td>Integración parcial; existen componentes aislados, desorden o evidencias incompletas.</td>
+<td>Componentes desconectados, sin organización técnica ni evidencia reproducible.</td>
+</tr>
+<tr>
+<td>7. Validación, pruebas o resultados</td>
+<td style="text-align: right;">10%</td>
+<td>Presenta pruebas, evidencias o resultados claros que comprueban el funcionamiento y el valor del producto.</td>
+<td>Presenta evidencias suficientes, con algunos casos o resultados por completar.</td>
+<td>Evidencias limitadas, poco claras o con validación parcial.</td>
+<td>No presenta pruebas, evidencias ni resultados verificables.</td>
+</tr>
+<tr>
+<td>8. Sustentación técnica y profesional</td>
+<td style="text-align: right;">30%</td>
+<td>Explica y defiende el producto con solvencia; demuestra aporte individual, dominio técnico, comunicación clara, repositorio, documentación y actitud profesional.</td>
+<td>Sustentación clara y funcional, con detalles menores en defensa técnica, evidencias, comunicación o documentación.</td>
+<td>Sustentación parcial; dominio, evidencias, comunicación o aporte individual insuficientemente demostrados.</td>
+<td>No sustenta adecuadamente, no demuestra autoría o no presenta evidencias mínimas del producto.</td>
 </tr>
 </tbody>
 </table>
@@ -3420,35 +3543,36 @@ grupo-&lt;numero&gt;-&lt;nombre-proyecto&gt;
 </thead>
 <tbody>
 <tr>
-<td>Defensa técnica</td>
+<td>1. Defensa técnica</td>
 <td>Explicación de la trazabilidad desde el requerimiento hasta la base de datos y la funcionalidad implementada.</td>
 </tr>
 <tr>
-<td>Comunicación y orden</td>
+<td>2. Comunicación y orden</td>
 <td>Claridad, estructura, tiempo y lenguaje técnico.</td>
 </tr>
 <tr>
-<td>Presentación personal y actitud</td>
-<td>Puntualidad, vestimenta limpia y adecuada, higiene, cabello ordenado y actitud profesional.</td>
+<td>3. Presentación personal y actitud</td>
+<td>Puntualidad, vestimenta limpia y adecuada, higiene, cabello ordenado, actitud profesional, respeto, honestidad y coherencia con los valores y principios cristianos de la institución.</td>
 </tr>
 <tr>
-<td>Aporte individual</td>
+<td>4. Aporte individual</td>
 <td>Cada integrante demuestra lo que hizo.</td>
 </tr>
 <tr>
-<td>Repositorio y estándares</td>
+<td>5. Repositorio y estándares</td>
 <td>Topics, organización, commits, documentación y reproducibilidad.</td>
 </tr>
 <tr>
-<td>MkDocs o equivalente</td>
+<td>6. MkDocs o equivalente</td>
 <td>Documentación publicada, navegable y alineada al producto.</td>
 </tr>
 <tr>
-<td>Pitch/demo ejecutiva</td>
+<td>7. Pitch/demo ejecutiva</td>
 <td>Introducción clara del problema, solución y valor, seguida de una demo funcional.</td>
 </tr>
 </tbody>
 </table>
+<p>La sustentación profesional forma parte de la evaluación porque el producto final no solo debe funcionar; también debe ser presentado, explicado y defendido con responsabilidad académica, ética, respeto, honestidad y coherencia con los valores y principios cristianos de la institución.</p>
 <h2 id="7-sustentacion">7. Sustentación<a class="headerlink" href="#7-sustentacion" title="Permanent link">&para;</a></h2>
 <p>La sustentación inicia con un video pitch breve o introducción ejecutiva de 1 a 3 minutos para presentar el problema, la solución, el valor del producto y la participación del equipo o estudiante.</p>
 <table>
@@ -3486,6 +3610,7 @@ grupo-&lt;numero&gt;-&lt;nombre-proyecto&gt;
 <th style="text-align: right;">Orden</th>
 <th>Slide o momento</th>
 <th>Propósito</th>
+<th>Competencia evidenciada</th>
 </tr>
 </thead>
 <tbody>
@@ -3493,61 +3618,205 @@ grupo-&lt;numero&gt;-&lt;nombre-proyecto&gt;
 <td style="text-align: right;">1</td>
 <td>Título del proyecto y equipo</td>
 <td>Identificar el proyecto, integrantes y dominio elegido.</td>
+<td>CE024</td>
 </tr>
 <tr>
 <td style="text-align: right;">2</td>
 <td>Video pitch o introducción ejecutiva</td>
 <td>Presentar problema, solución, valor y participación del equipo.</td>
+<td>CE024</td>
 </tr>
 <tr>
 <td style="text-align: right;">3</td>
-<td>Problema y alcance</td>
+<td>1. Problema y alcance</td>
 <td>Explicar necesidad, contexto, actores y límites del sistema.</td>
+<td>CE021</td>
 </tr>
 <tr>
 <td style="text-align: right;">4</td>
 <td>Requerimientos</td>
 <td>Presentar SRS, reglas, criterios de aceptación y trazabilidad.</td>
+<td>CE021</td>
 </tr>
 <tr>
 <td style="text-align: right;">5</td>
 <td>Modelo de datos</td>
 <td>Mostrar ER, modelo lógico, normalización y diccionario.</td>
+<td>CE022</td>
 </tr>
 <tr>
 <td style="text-align: right;">6</td>
 <td>Base de datos</td>
 <td>Presentar DDL, DML, integridad, consultas y reportes.</td>
+<td>CE022</td>
 </tr>
 <tr>
 <td style="text-align: right;">7</td>
 <td>Aplicación MVC</td>
 <td>Explicar rutas, controladores, servicios, vistas y persistencia.</td>
+<td>CE023</td>
 </tr>
 <tr>
 <td style="text-align: right;">8</td>
 <td>Integración</td>
 <td>Evidenciar relación entre requerimientos, tablas, módulos y pantallas.</td>
+<td>CE021 + CE022 + CE023</td>
 </tr>
 <tr>
 <td style="text-align: right;">9</td>
 <td>Validación y pruebas</td>
 <td>Mostrar scripts, capturas, datos, casos de prueba y resultados.</td>
+<td>CE024</td>
 </tr>
 <tr>
 <td style="text-align: right;">10</td>
 <td>Demo en vivo</td>
 <td>Ejecutar el flujo principal del sistema web.</td>
+<td>CE023 + CE024</td>
 </tr>
 <tr>
 <td style="text-align: right;">11</td>
-<td>Aporte individual</td>
+<td>4. Aporte individual</td>
 <td>Indicar qué hizo cada integrante por curso o componente.</td>
+<td>CE024</td>
 </tr>
 <tr>
 <td style="text-align: right;">12</td>
 <td>Repositorio, estándares y mejoras</td>
 <td>Mostrar topics, documentación publicada en MkDocs o equivalente, reproducibilidad, límites y mejora.</td>
+<td>CE024</td>
+</tr>
+</tbody>
+</table>
+<h2 id="anexo-plantilla-minima-de-documentacion-mkdocs-o-equivalente">Anexo. Plantilla mínima de documentación MkDocs o equivalente<a class="headerlink" href="#anexo-plantilla-minima-de-documentacion-mkdocs-o-equivalente" title="Permanent link">&para;</a></h2>
+<p>La documentación publicada no reemplaza al informe. Su función es permitir que otra persona comprenda, ejecute, revise y verifique el producto desde el repositorio.</p>
+<table>
+<thead>
+<tr>
+<th>Página o sección</th>
+<th>Contenido mínimo</th>
+<th>Evidencia esperada</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Inicio</td>
+<td>Nombre del proyecto, problema, solución, curso o cursos, integrantes y enlace al repositorio.</td>
+<td>Presentación clara del producto.</td>
+</tr>
+<tr>
+<td>Instalación o ejecución</td>
+<td>Requisitos, dependencias, configuración y comandos para ejecutar el proyecto.</td>
+<td>Instrucciones reproducibles.</td>
+</tr>
+<tr>
+<td>Uso del sistema</td>
+<td>Flujo principal, pantallas, comandos, endpoints, notebooks o casos de uso según corresponda.</td>
+<td>Guía breve para probar el producto.</td>
+</tr>
+<tr>
+<td>Arquitectura o estructura</td>
+<td>Diagrama, componentes, carpetas principales y decisiones técnicas.</td>
+<td>Vista técnica comprensible.</td>
+</tr>
+<tr>
+<td>Módulos o funcionalidades</td>
+<td>Descripción de las funciones principales del producto.</td>
+<td>Relación entre funcionalidades y problema.</td>
+</tr>
+<tr>
+<td>Datos</td>
+<td>Modelo, archivos, base de datos, datasets, fuentes o estructura de almacenamiento según el curso.</td>
+<td>Evidencia de gestión de datos.</td>
+</tr>
+<tr>
+<td>Pruebas y evidencias</td>
+<td>Casos de prueba, capturas, resultados, métricas, validaciones o salidas generadas.</td>
+<td>Verificación del funcionamiento.</td>
+</tr>
+<tr>
+<td>Equipo y aporte individual</td>
+<td>Integrantes, responsabilidades, aportes y evidencias de participación.</td>
+<td>Autoría verificable.</td>
+</tr>
+<tr>
+<td>5. Repositorio y estándares</td>
+<td>Topics académicos, estructura, commits, ramas si aplica y criterios de reproducibilidad.</td>
+<td>Cumplimiento de estándares técnicos.</td>
+</tr>
+<tr>
+<td>Limitaciones y mejoras</td>
+<td>Restricciones del producto y mejoras futuras priorizadas.</td>
+<td>Cierre reflexivo y realista.</td>
+</tr>
+</tbody>
+</table>
+<p>La documentación debe estar disponible desde las primeras presentaciones y crecer con el proyecto. Para FP puede ser una documentación sencilla; para proyectos integradores y cursos avanzados debe ser más completa y técnica.</p>
+<h2 id="anexo-plantilla-sugerida-de-informe-del-proyecto">Anexo. Plantilla sugerida de informe del proyecto<a class="headerlink" href="#anexo-plantilla-sugerida-de-informe-del-proyecto" title="Permanent link">&para;</a></h2>
+<p>El informe debe documentar el producto integrador como un solo sistema, no como tres entregables separados. Debe evidenciar la trazabilidad entre REQ, BD1 y LP1.</p>
+<table>
+<thead>
+<tr>
+<th>Sección</th>
+<th>Contenido mínimo</th>
+<th>Evidencia esperada</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Portada</td>
+<td>Nombre del proyecto, cursos, sección, integrantes, docentes y semestre.</td>
+<td>Datos completos del equipo.</td>
+</tr>
+<tr>
+<td>Resumen ejecutivo</td>
+<td>Problema, solución web MVC y valor para el negocio.</td>
+<td>Síntesis de 10 a 15 líneas.</td>
+</tr>
+<tr>
+<td>Competencia y trazabilidad</td>
+<td>Competencia/capacidad del PI y competencias relacionadas.</td>
+<td>CE021, CE022, CE023 y CE024 vinculadas al producto.</td>
+</tr>
+<tr>
+<td>Requerimientos</td>
+<td>RF, RNF, reglas, criterios de aceptación y trazabilidad.</td>
+<td>SRS, prototipos o vistas.</td>
+</tr>
+<tr>
+<td>Modelo de datos</td>
+<td>Modelo ER, modelo lógico, normalización y diccionario.</td>
+<td>Diagramas, diccionario y relación con requerimientos.</td>
+</tr>
+<tr>
+<td>Base de datos</td>
+<td>DDL, DML, restricciones, datos, consultas y reportes.</td>
+<td>Scripts, capturas y resultados.</td>
+</tr>
+<tr>
+<td>Aplicación MVC</td>
+<td>Rutas, controladores, servicios, vistas, seguridad y persistencia.</td>
+<td>Código, capturas y demo funcional.</td>
+</tr>
+<tr>
+<td>Integración y validación</td>
+<td>Relación SRS-BD-aplicación y pruebas end-to-end.</td>
+<td>Matriz de trazabilidad, pruebas y evidencias.</td>
+</tr>
+<tr>
+<td>Repositorio y documentación</td>
+<td>Repositorio, topics, estructura, instrucciones y documentación publicada.</td>
+<td>URL del repositorio y MkDocs o equivalente.</td>
+</tr>
+<tr>
+<td>4. Aporte individual</td>
+<td>Responsabilidad de cada integrante por curso o componente.</td>
+<td>Tabla de tareas, commits o evidencias por integrante.</td>
+</tr>
+<tr>
+<td>Limitaciones y mejoras</td>
+<td>Límites del sistema y mejoras posibles.</td>
+<td>Lista priorizada y realista.</td>
 </tr>
 </tbody>
 </table>
