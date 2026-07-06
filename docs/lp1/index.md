@@ -40,6 +40,8 @@ Desarrolla una aplicación web MVC empresarial aplicando rutas, controladores, s
 
 **Aplicación Web MVC con persistencia, relaciones, consultas y control de acceso.**
 
+Artefacto de referencia para el Proyecto Integrador: [LP1 - Producto de Unidad 2](../proyecto-integrador/u2/lp1-demo.md).
+
 | Sesión | Tema | Producto de sesión |
 |--------|------|--------------------|
 | **S6** | Arquitectura MVC: rutas, controladores, servicios, ORM, repositorios y registro/consulta de una entidad simple | Módulo MVC inicial con registro y consulta de una entidad simple. |

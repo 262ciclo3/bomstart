@@ -57,6 +57,8 @@ Implementar bases de datos relacionales mediante SQL, manipulando y consultando 
 
 **Base de datos relacional implementada con consultas funcionales.**
 
+Artefacto de referencia para el Proyecto Integrador: [BD1 - Producto de Unidad 2](../proyecto-integrador/u2/bd1-producto.md).
+
 ## Sesiones
 
 ### Sesion 7. Implementacion de Esquemas con SQL DDL

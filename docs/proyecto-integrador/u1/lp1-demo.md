@@ -43,6 +43,16 @@ La demo cumple el corte U1 si:
 - Actualiza la tabla y el resumen.
 - Mantiene coherencia con el brief, el prototipo y el modelo de datos.
 
+## Casos de prueba de la demo
+
+| Caso | Accion | Resultado esperado |
+|---|---|---|
+| Pedido valido | Completar todos los campos con cantidad mayor que cero y registrar. | Se agrega una fila a la tabla, se limpian los campos y se actualiza el resumen. |
+| Cliente vacio | Dejar el cliente vacio y registrar. | Se muestra un mensaje de validacion y no se registra el pedido. |
+| Cantidad cero | Ingresar cantidad `0` y registrar. | Se muestra el mensaje de cantidad invalida. |
+| Fecha vacia | Dejar la fecha sin completar y registrar. | Se muestra un mensaje de validacion y no se registra el pedido. |
+| Prioridad urgente | Registrar un pedido con prioridad urgente. | La prioridad aparece diferenciada visualmente en la tabla. |
+
 ## Como debe adaptarlo cada grupo
 
 Cada grupo debe cambiar el dominio, entidades y campos segun su proyecto, manteniendo la misma estructura:

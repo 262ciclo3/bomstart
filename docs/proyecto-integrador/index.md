@@ -154,6 +154,18 @@ LP1 entrega:
 | Evidencia de ejecución | LP1 muestra una página interactiva funcionando con datos temporales, mensajes y validaciones. |
 | Preparación para U2 | El corte deja listo el paso a SQL DDL/DML en BD1 y arquitectura MVC/persistencia en LP1. |
 
+### Entregables de Unidad 2
+
+La Unidad 2 debe cerrar con un **producto intermedio ejecutable**, no solo con documentos. En este punto el proyecto ya debe mostrar trazabilidad funcional, base de datos implementada y una aplicación MVC inicial con persistencia.
+
+Los artefactos desarrollados como ejemplo base se encuentran en [Unidad 2 - Producto integrado](u2/index.md).
+
+| Curso | Producto U2 del curso | Artefactos mínimos | Evidencia de integración |
+|---|---|---|---|
+| REQ | **Modelo funcional y requerimientos documentados con trazabilidad.** | Historias de usuario, casos de uso, reglas de negocio, RNF verificables y matriz de trazabilidad. | Cada requerimiento principal se vincula con tablas, módulos MVC y pruebas. |
+| BD1 | **Base de datos relacional implementada con consultas funcionales.** | Scripts DDL, DML, restricciones, datos de prueba, consultas y reportes básicos. | Las tablas y consultas soportan los casos de uso y pantallas de LP1. |
+| LP1 | **Aplicación MVC inicial con persistencia, consultas y control de acceso básico.** | Rutas/controladores/servicios/repositorios o estructura equivalente, validaciones, filtros, persistencia y gestión básica de acceso. | El flujo principal ejecuta operaciones usando datos persistidos y reglas definidas en REQ/BD1. |
+
 ## 5. Producto Final
 
 ### Repositorio académico y topics

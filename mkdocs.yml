@@ -39,6 +39,11 @@ nav:
           - Prototipos U1: proyecto-integrador/u1/prototipos-u1.md
           - BD1 Producto U1: proyecto-integrador/u1/bd1-producto.md
           - LP1 Demo U1: proyecto-integrador/u1/lp1-demo.md
+      - Unidad 2:
+          - Producto integrado U2: proyecto-integrador/u2/index.md
+          - REQ Producto U2: proyecto-integrador/u2/req-producto.md
+          - BD1 Producto U2: proyecto-integrador/u2/bd1-producto.md
+          - LP1 Demo U2: proyecto-integrador/u2/lp1-demo.md
   - REQ:
       - Contenido final: req/index.md
       - Silabos:

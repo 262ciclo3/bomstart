@@ -59,6 +59,8 @@ Modelar funcionalmente el sistema y documentar requerimientos funcionales, no fu
 
 **Modelo funcional y requerimientos documentados con trazabilidad.**
 
+Artefacto de referencia para el Proyecto Integrador: [REQ - Producto de Unidad 2](../proyecto-integrador/u2/req-producto.md).
+
 ## Sesiones
 
 ### Sesion 7. Historias de Usuario y Casos de Uso
