@@ -44,6 +44,13 @@ nav:
           - REQ Producto U2: proyecto-integrador/u2/req-producto.md
           - BD1 Producto U2: proyecto-integrador/u2/bd1-producto.md
           - LP1 Demo U2: proyecto-integrador/u2/lp1-demo.md
+      - Unidad 3:
+          - Producto integrado U3: proyecto-integrador/u3/index.md
+          - REQ Producto U3: proyecto-integrador/u3/req-producto.md
+          - BD1 Producto U3: proyecto-integrador/u3/bd1-producto.md
+          - LP1 Producto U3: proyecto-integrador/u3/lp1-producto.md
+          - Checklist final: proyecto-integrador/u3/checklist-final.md
+          - Guía de sustentación: proyecto-integrador/u3/guia-sustentacion.md
   - REQ:
       - Contenido final: req/index.md
       - Silabos:

@@ -166,6 +166,18 @@ Los artefactos desarrollados como ejemplo base se encuentran en [Unidad 2 - Prod
 | BD1 | **Base de datos relacional implementada con consultas funcionales.** | Scripts DDL, DML, restricciones, datos de prueba, consultas y reportes básicos. | Las tablas y consultas soportan los casos de uso y pantallas de LP1. |
 | LP1 | **Aplicación MVC inicial con persistencia, consultas y control de acceso básico.** | Rutas/controladores/servicios/repositorios o estructura equivalente, validaciones, filtros, persistencia y gestión básica de acceso. | El flujo principal ejecuta operaciones usando datos persistidos y reglas definidas en REQ/BD1. |
 
+### Entregables de Unidad 3
+
+La Unidad 3 cierra el producto final del ciclo. No repite el producto intermedio de U2; formaliza el SRS, valida la base relacional, consolida el sistema MVC y prepara la sustentación técnica.
+
+Los artefactos desarrollados como ejemplo base se encuentran en [Unidad 3 - Producto integrado](u3/index.md).
+
+| Curso | Producto U3 del curso | Artefactos mínimos | Evidencia de integración |
+|---|---|---|---|
+| REQ | **SRS documentado basado en IEEE 29148, validado y aceptado.** | SRS final, RF, RNF, reglas, casos de uso, prototipos, validación y trazabilidad. | Cada requerimiento tiene evidencia en BD1, LP1 y pruebas. |
+| BD1 | **Base de datos relacional implementada, integrada y validada.** | Modelo ER, modelo lógico, diccionario, DDL, DML, restricciones, consultas y reportes. | La base sostiene el sistema MVC y responde a los requerimientos. |
+| LP1 | **Sistema Web MVC Empresarial integrado, probado y sustentado.** | MVC, persistencia, formularios, consultas, seguridad básica, validaciones, pruebas y demo. | El sistema ejecuta el flujo principal usando la base y el SRS como fuente de verdad. |
+
 ## 5. Producto Final
 
 ### Repositorio académico y topics

@@ -64,6 +64,8 @@ Integra módulos funcionales, pruebas, correcciones y sustentación técnica par
 
 **Sistema Web MVC Empresarial.**
 
+Artefacto de referencia para el Proyecto Integrador: [LP1 - Producto de Unidad 3](../proyecto-integrador/u3/lp1-producto.md).
+
 | Sesión | Tema | Producto de sesión |
 |--------|------|--------------------|
 | **S13** | Integración funcional de módulos y consolidación del sistema | Sistema MVC consolidado con módulos integrados. |

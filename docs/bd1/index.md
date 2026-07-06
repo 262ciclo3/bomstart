@@ -80,6 +80,8 @@ Integrar el analisis del dominio, el modelado conceptual, el diseno logico, la i
 
 **Base de Datos Relacional Implementada y Validada**
 
+Artefacto de referencia para el Proyecto Integrador: [BD1 - Producto de Unidad 3](../proyecto-integrador/u3/bd1-producto.md).
+
 ## Sesiones
 
 ### Sesion 13. Integracion del Modelo Conceptual y Logico

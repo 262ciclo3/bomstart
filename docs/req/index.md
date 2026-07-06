@@ -8,6 +8,8 @@ Analizar necesidades organizacionales y definir requerimientos de software media
 
 **Especificacion de Requerimientos de Software (SRS) Documentada**
 
+Artefacto de referencia para el Proyecto Integrador: [REQ - Producto de Unidad 3](../proyecto-integrador/u3/req-producto.md).
+
 Incluye:
 
 * Identificacion y analisis de stakeholders.
