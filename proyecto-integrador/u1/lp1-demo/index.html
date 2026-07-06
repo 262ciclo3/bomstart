@@ -16,7 +16,7 @@
         <link rel="prev" href="../bd1-producto/">
       
       
-        <link rel="next" href="../../../req/">
+        <link rel="next" href="../../u2/">
       
       
         
@@ -730,6 +730,17 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#casos-de-prueba-de-la-demo" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Casos de prueba de la demo
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#como-debe-adaptarlo-cada-grupo" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -744,6 +755,181 @@
   
 </nav>
       
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+          
+          
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_3" id="__nav_2_3_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Unidad 2
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Unidad 2
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../u2/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Producto integrado U2
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../u2/req-producto/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    REQ Producto U2
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../u2/bd1-producto/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    BD1 Producto U2
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../u2/lp1-demo/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    LP1 Demo U2
+  
+
+    
+  </span>
+  
+  
+
+      </a>
     </li>
   
 
@@ -3338,6 +3524,43 @@
 <li>Actualiza la tabla y el resumen.</li>
 <li>Mantiene coherencia con el brief, el prototipo y el modelo de datos.</li>
 </ul>
+<h2 id="casos-de-prueba-de-la-demo">Casos de prueba de la demo<a class="headerlink" href="#casos-de-prueba-de-la-demo" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Caso</th>
+<th>Accion</th>
+<th>Resultado esperado</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Pedido valido</td>
+<td>Completar todos los campos con cantidad mayor que cero y registrar.</td>
+<td>Se agrega una fila a la tabla, se limpian los campos y se actualiza el resumen.</td>
+</tr>
+<tr>
+<td>Cliente vacio</td>
+<td>Dejar el cliente vacio y registrar.</td>
+<td>Se muestra un mensaje de validacion y no se registra el pedido.</td>
+</tr>
+<tr>
+<td>Cantidad cero</td>
+<td>Ingresar cantidad <code>0</code> y registrar.</td>
+<td>Se muestra el mensaje de cantidad invalida.</td>
+</tr>
+<tr>
+<td>Fecha vacia</td>
+<td>Dejar la fecha sin completar y registrar.</td>
+<td>Se muestra un mensaje de validacion y no se registra el pedido.</td>
+</tr>
+<tr>
+<td>Prioridad urgente</td>
+<td>Registrar un pedido con prioridad urgente.</td>
+<td>La prioridad aparece diferenciada visualmente en la tabla.</td>
+</tr>
+</tbody>
+</table>
 <h2 id="como-debe-adaptarlo-cada-grupo">Como debe adaptarlo cada grupo<a class="headerlink" href="#como-debe-adaptarlo-cada-grupo" title="Permanent link">&para;</a></h2>
 <p>Cada grupo debe cambiar el dominio, entidades y campos segun su proyecto, manteniendo la misma estructura:</p>
 <ul>

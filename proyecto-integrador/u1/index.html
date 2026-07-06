@@ -628,6 +628,39 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#pruebas-minimas-del-corte-u1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Pruebas minimas del corte U1
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#estado-de-aprobacion-del-corte-u1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Estado de aprobacion del corte U1
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#transicion-hacia-unidad-2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Transicion hacia Unidad 2
+      
+    </span>
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -736,6 +769,181 @@
     
   
     LP1 Demo U1
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+          
+          
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_3" id="__nav_2_3_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Unidad 2
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Unidad 2
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../u2/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Producto integrado U2
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../u2/req-producto/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    REQ Producto U2
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../u2/bd1-producto/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    BD1 Producto U2
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../u2/lp1-demo/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    LP1 Demo U2
   
 
     
@@ -3344,6 +3552,117 @@
 <li>Validaciones del lado cliente.</li>
 <li>Evidencia de trazabilidad entre requerimiento, dato y pantalla.</li>
 </ul>
+<h2 id="pruebas-minimas-del-corte-u1">Pruebas minimas del corte U1<a class="headerlink" href="#pruebas-minimas-del-corte-u1" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Caso</th>
+<th>Datos de entrada</th>
+<th>Resultado esperado</th>
+<th>Evidencia</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Pedido valido</td>
+<td>Cliente, producto, cantidad mayor que cero, fecha y prioridad.</td>
+<td>El pedido se registra, aparece en la tabla y actualiza el resumen.</td>
+<td>Captura o ejecucion en vivo.</td>
+</tr>
+<tr>
+<td>Cliente vacio</td>
+<td>Producto, cantidad, fecha y prioridad sin cliente.</td>
+<td>El sistema muestra mensaje de validacion y no registra el pedido.</td>
+<td>Captura del mensaje.</td>
+</tr>
+<tr>
+<td>Cantidad cero o negativa</td>
+<td>Cliente, producto, cantidad invalida, fecha y prioridad.</td>
+<td>El sistema indica que la cantidad debe ser mayor que cero.</td>
+<td>Captura del mensaje.</td>
+</tr>
+<tr>
+<td>Fecha vacia</td>
+<td>Cliente, producto, cantidad y prioridad sin fecha.</td>
+<td>El sistema solicita completar la fecha de entrega.</td>
+<td>Captura del mensaje.</td>
+</tr>
+<tr>
+<td>Pedido urgente</td>
+<td>Pedido valido con prioridad urgente.</td>
+<td>El pedido aparece diferenciado visualmente en el listado.</td>
+<td>Captura de la fila registrada.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="estado-de-aprobacion-del-corte-u1">Estado de aprobacion del corte U1<a class="headerlink" href="#estado-de-aprobacion-del-corte-u1" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Estado</th>
+<th>Significado</th>
+<th>Decision metodologica</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Aprobado para continuar a U2</td>
+<td>El dominio, requerimientos, modelo de datos, prototipo y demo son coherentes.</td>
+<td>El equipo puede iniciar DDL/DML, MVC y persistencia.</td>
+</tr>
+<tr>
+<td>Aprobado con observaciones</td>
+<td>El producto funciona, pero requiere ajustes puntuales de alcance, modelo, prototipo o validaciones.</td>
+<td>El equipo continua a U2 corrigiendo las observaciones en la primera semana.</td>
+</tr>
+<tr>
+<td>No aprobado</td>
+<td>Los productos de REQ, BD1 y LP1 no corresponden al mismo dominio o no existe evidencia ejecutable.</td>
+<td>El equipo debe rehacer el corte U1 antes de avanzar.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="transicion-hacia-unidad-2">Transicion hacia Unidad 2<a class="headerlink" href="#transicion-hacia-unidad-2" title="Permanent link">&para;</a></h2>
+<p>La Unidad 2 inicia solo cuando el corte U1 tiene un dominio suficientemente claro. La transicion esperada es:</p>
+<table>
+<thead>
+<tr>
+<th>Curso</th>
+<th>En U1 queda</th>
+<th>En U2 se convierte en</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>REQ</td>
+<td>Brief, RF/RNF, reglas, prototipo y validacion inicial.</td>
+<td>Historias de usuario, casos de uso, reglas detalladas, trazabilidad y requerimientos no funcionales verificables.</td>
+</tr>
+<tr>
+<td>BD1</td>
+<td>Modelo ER, modelo logico y diccionario de datos.</td>
+<td>Scripts DDL, datos de prueba DML, restricciones, consultas SQL y reportes.</td>
+</tr>
+<tr>
+<td>LP1</td>
+<td>Pagina HTML/CSS/JS interactiva con datos temporales.</td>
+<td>Aplicacion MVC con rutas, controladores, servicios, persistencia, relaciones, consultas y seguridad inicial.</td>
+</tr>
+</tbody>
+</table>
+<pre class="mermaid"><code>flowchart TB
+    A[U1: Dominio validado]
+    B[REQ U2: historias, casos de uso y trazabilidad]
+    C[BD1 U2: DDL, DML, consultas y reportes]
+    D[LP1 U2: MVC, persistencia y seguridad inicial]
+    E[Producto U2: sistema MVC persistente con base relacional]
+
+    A --&gt; B
+    A --&gt; C
+    A --&gt; D
+    B --&gt; E
+    C --&gt; E
+    D --&gt; E</code></pre>
 
 
 
