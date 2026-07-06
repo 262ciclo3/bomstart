@@ -34,6 +34,8 @@ Modelar la informacion de una organizacion mediante modelos conceptuales y logic
 
 **Modelo de datos conceptual y logico documentado.**
 
+Artefacto de referencia para el Proyecto Integrador: [BD1 - Producto de Unidad 1](../proyecto-integrador/u1/bd1-producto.md).
+
 ## Sesiones
 
 ### Sesion 1. Fundamentos de Bases de Datos

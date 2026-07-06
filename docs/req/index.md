@@ -36,6 +36,8 @@ Identificar necesidades del negocio y comprender el dominio del problema mediant
 
 **Requerimientos iniciales priorizados y prototipos validados.**
 
+Artefacto de referencia para el Proyecto Integrador: [REQ - Producto de Unidad 1](../proyecto-integrador/u1/req-producto.md).
+
 ## Sesiones
 
 ### Sesion 1. Fundamentos de Ingenieria de Requerimientos

@@ -63,12 +63,12 @@ Este alineamiento sirve como referencia metodológica para coordinar los avances
 
 | Sesiones | REQ | BD1 | LP1 | Integración esperada |
 |---|---|---|---|---|
-| S1-S2 | Problema, stakeholders, contexto y alcance. | Datos, entidades y modelo ER inicial. | Arquitectura web, HTTP e interfaz base. | Todos trabajan sobre el mismo dominio y una entidad principal. |
+| S1-S2 | Problema, stakeholders, contexto y alcance. | Datos, entidades del proceso principal y modelo ER inicial. | Arquitectura web, HTTP, interfaz base, navegación y vistas iniciales. | Todos trabajan sobre el mismo dominio, priorizando las entidades transaccionales del proceso principal. |
 | S3-S4 | Priorización y prototipo inicial. | Modelo ER avanzado y transformación al modelo lógico. | JavaScript, formularios e interacción web. | Los prototipos de REQ orientan los formularios de LP1; BD1 modela entidades y relaciones. |
-| S5-S6 | Validación inicial y evaluación U1. | Normalización, diccionario de datos y evaluación U1. | Evaluación U1 de la página web interactiva. | Primer corte integrado: requerimientos iniciales, modelo lógico e interfaz web inicial. |
-| S7-S8 | Historias de usuario, casos de uso y RNF. | Implementación DDL y manipulación DML. | Arquitectura MVC y persistencia. | LP1 inicia MVC y empieza a conectarse con la base construida en BD1. |
-| S9-S10 | Reglas de negocio y prototipos funcionales. | Consultas SQL y reportes. | Relaciones, consultas, filtros y paginación. | Las reglas de REQ se convierten en validaciones, consultas y flujos funcionales. |
-| S11-S12 | Trazabilidad y evaluación U2. | Comparación NoSQL y evaluación U2. | Seguridad, validaciones y optimización. | Segundo corte integrado: sistema MVC con persistencia, consultas, reglas y trazabilidad. |
+| S5-S6 | Validación inicial y evaluación U1. | Normalización, diccionario de datos y evaluación U1. | Evaluación U1 e inicio de arquitectura MVC. | Primer corte integrado: requerimientos iniciales, modelo lógico, interfaz web inicial y primer módulo MVC. |
+| S7-S8 | Historias, casos de uso y RNF que guían operaciones, persistencia y calidad del sistema. | Implementación DDL y manipulación DML con datos de prueba coherentes con los casos de uso. | Persistencia, transacciones y relaciones 1:1, 1:* y *:*. | LP1 implementa operaciones MVC persistentes a partir de casos de uso; BD1 ejecuta scripts DDL/DML coherentes con esos casos. |
+| S9-S10 | Reglas de negocio y prototipos funcionales. | Consultas SQL y reportes. | Consultas, filtros, paginación, autenticación, autorización y sesiones. | Las reglas de REQ se convierten en validaciones, consultas, permisos y flujos funcionales. |
+| S11-S12 | Trazabilidad y evaluación U2. | Comparación NoSQL como justificación técnica del modelo relacional del proyecto y evaluación U2. | Validaciones, manejo de errores, caché, optimización y evaluación U2. | Segundo corte integrado: se justifica técnicamente el uso de base relacional y se evidencian trazabilidad, seguridad, consultas y validaciones. |
 | S13-S15 | SRS IEEE 29148, validación y sustentación. | Integración, validación y sustentación de la base de datos. | Integración, pruebas y sustentación del sistema MVC. | Consolidación final del proyecto integrador. |
 | S16 | Evaluación final. | Evaluación final. | Evaluación final. | Cierre académico y evaluación individual o técnica. |
 
@@ -76,11 +76,83 @@ Este alineamiento sirve como referencia metodológica para coordinar los avances
 
 | Hito | Momento | Producto esperado |
 |---|---|---|
-| S2 | Brief del proyecto | Problema, contexto, alcance, actores, entidad o proceso principal y criterios de éxito. |
-| S6 | Dominio validado | Requerimientos iniciales, modelo lógico inicial e interfaz web base. |
+| S2 | Brief del proyecto | Problema, contexto, alcance, actores, entidades del proceso principal, modelo ER inicial, navegación/vistas iniciales y criterios de éxito. |
+| S6 | Dominio validado | Requerimientos iniciales validados, modelo lógico con diccionario, página web interactiva evaluada e inicio del primer módulo MVC. |
 | S12 | Producto intermedio | SRS trazable, base de datos implementada y aplicación MVC con persistencia, consultas y seguridad. |
 | S15 | Producto final | SRS final, base de datos validada y sistema web MVC integrado y sustentado. |
 | S16 | Cierre individual | Evaluación final y evidencias de dominio técnico individual. |
+
+### Entregables de Unidad 1
+
+La Unidad 1 no debe cerrar con tres tareas separadas. Debe cerrar con un **primer corte integrado del dominio**, donde cada curso entrega un producto propio, pero todos responden al mismo problema, alcance y proceso principal.
+
+Los artefactos desarrollados como ejemplo base se encuentran en [Unidad 1 - Producto integrado](u1/index.md).
+
+#### Producto integrado U1
+
+**Dominio validado para iniciar construcción MVC.**
+
+Este producto evidencia que el equipo ya sabe qué problema resolverá, qué proceso principal atenderá, qué entidades y datos lo sostienen, y cómo se verá el primer flujo en la interfaz web.
+
+```mermaid
+flowchart TB
+    A[REQ<br/>Problema, alcance y prototipo validado]
+    B[BD1<br/>Modelo conceptual y lógico documentado]
+    C[LP1<br/>Página web interactiva]
+    D[Producto integrado U1<br/>Dominio validado]
+
+    A --> D
+    B --> D
+    C --> D
+    A --> B
+    A --> C
+    B --> C
+```
+
+| Curso | Producto U1 del curso | Artefactos mínimos | Evidencia de integración |
+|---|---|---|---|
+| REQ | **Requerimientos iniciales priorizados y prototipos validados.** | Brief del proyecto, matriz de stakeholders, alcance, backlog priorizado, criterios de aceptación, prototipo inicial, matriz de observaciones y acuerdos. | Cada requerimiento priorizado indica qué entidad, dato, pantalla o flujo impacta en BD1 y LP1. |
+| BD1 | **Modelo de datos conceptual y lógico documentado.** | Inventario de datos, entidades maestras y transaccionales, modelo ER fundamental, modelo ER avanzado, modelo lógico, revisión de normalización y diccionario de datos inicial. | Cada tabla, campo o relación importante se vincula con un requerimiento de REQ y con un formulario, vista o validación de LP1. |
+| LP1 | **Página web interactiva con plantillas y formularios.** | Estructura del proyecto web, plantilla HTML/CSS/Bootstrap, navegación inicial, formulario del proceso principal, JavaScript, validaciones, mensajes y listado temporal. | La interfaz implementa el prototipo de REQ y usa campos derivados del modelo lógico de BD1, aunque todavía no exista persistencia real. |
+
+#### Artefactos esperados por curso
+
+REQ entrega:
+
+- `brief` del proyecto con problema, contexto, actores, alcance y fuera de alcance.
+- Backlog inicial con requerimientos funcionales y no funcionales priorizados.
+- Criterios de aceptación para los requerimientos principales.
+- Prototipo inicial del primer incremento funcional.
+- Matriz de validación con observaciones, acuerdos, responsables y estado.
+
+BD1 entrega:
+
+- Inventario de datos del proceso principal.
+- Modelo ER fundamental y modelo ER avanzado.
+- Identificación de entidades maestras, entidades transaccionales y entidades detalle o asociativas cuando corresponda.
+- Modelo lógico con tablas, claves primarias, claves foráneas y relaciones resueltas.
+- Diccionario de datos inicial con nombres, tipos esperados, claves, nulidad, descripción y reglas.
+
+LP1 entrega:
+
+- Página web base contextualizada al dominio del proyecto.
+- Menú o navegación inicial coherente con el alcance.
+- Vista o formulario del proceso principal.
+- Validaciones del lado cliente alineadas a reglas iniciales.
+- Procesamiento temporal en JavaScript mediante objeto/arreglo y tabla o lista renderizada.
+- Evidencias de ejecución con casos válidos e inválidos.
+
+#### Criterios mínimos del corte U1
+
+| Criterio | Qué debe evidenciarse |
+|---|---|
+| Coherencia de dominio | Los tres cursos trabajan el mismo problema, actores, alcance y proceso principal. |
+| Entidades del proceso | El proyecto identifica entidades maestras y, cuando corresponda, entidades transaccionales como venta, compra, reserva, cita, pedido, matrícula o atención. |
+| Trazabilidad inicial | Existe relación verificable entre requerimiento, entidad/tabla, campo, pantalla, validación o flujo. |
+| Prototipo implementable | El prototipo de REQ puede convertirse en formulario o vista inicial de LP1. |
+| Modelo útil para la aplicación | El modelo lógico de BD1 define campos y reglas que LP1 puede usar. |
+| Evidencia de ejecución | LP1 muestra una página interactiva funcionando con datos temporales, mensajes y validaciones. |
+| Preparación para U2 | El corte deja listo el paso a SQL DDL/DML en BD1 y arquitectura MVC/persistencia en LP1. |
 
 ## 5. Producto Final
 
@@ -197,7 +269,7 @@ La presentación puede organizarse con una secuencia breve de apoyo visual. El v
 | 8 | Integración | Evidenciar relación entre requerimientos, tablas, módulos y pantallas. | CE021 + CE022 + CE023 |
 | 9 | Validación y pruebas | Mostrar scripts, capturas, datos, casos de prueba y resultados. | CE024 |
 | 10 | Demo en vivo | Ejecutar el flujo principal del sistema web. | CE023 + CE024 |
-| 11 | 4. Aporte individual | Indicar qué hizo cada integrante por curso o componente. | CE024 |
+| 11 | Aporte individual | Indicar qué hizo cada integrante por curso o componente. | CE024 |
 | 12 | Repositorio, estándares y mejoras | Mostrar topics, documentación publicada en MkDocs o equivalente, reproducibilidad, límites y mejora. | CE024 |
 
 ## Anexo. Plantilla mínima de documentación MkDocs o equivalente
@@ -214,7 +286,7 @@ La documentación publicada no reemplaza al informe. Su función es permitir que
 | Datos | Modelo, archivos, base de datos, datasets, fuentes o estructura de almacenamiento según el curso. | Evidencia de gestión de datos. |
 | Pruebas y evidencias | Casos de prueba, capturas, resultados, métricas, validaciones o salidas generadas. | Verificación del funcionamiento. |
 | Equipo y aporte individual | Integrantes, responsabilidades, aportes y evidencias de participación. | Autoría verificable. |
-| 5. Repositorio y estándares | Topics académicos, estructura, commits, ramas si aplica y criterios de reproducibilidad. | Cumplimiento de estándares técnicos. |
+| Repositorio y estándares | Topics académicos, estructura, commits, ramas si aplica y criterios de reproducibilidad. | Cumplimiento de estándares técnicos. |
 | Limitaciones y mejoras | Restricciones del producto y mejoras futuras priorizadas. | Cierre reflexivo y realista. |
 
 La documentación debe estar disponible desde las primeras presentaciones y crecer con el proyecto. Para FP puede ser una documentación sencilla; para proyectos integradores y cursos avanzados debe ser más completa y técnica.
@@ -233,7 +305,7 @@ El informe debe documentar el producto integrador como un solo sistema, no como 
 | Aplicación MVC | Rutas, controladores, servicios, vistas, seguridad y persistencia. | Código, capturas y demo funcional. |
 | Integración y validación | Relación SRS-BD-aplicación y pruebas end-to-end. | Matriz de trazabilidad, pruebas y evidencias. |
 | Repositorio y documentación | Repositorio, topics, estructura, instrucciones y documentación publicada. | URL del repositorio y MkDocs o equivalente. |
-| 4. Aporte individual | Responsabilidad de cada integrante por curso o componente. | Tabla de tareas, commits o evidencias por integrante. |
+| Aporte individual | Responsabilidad de cada integrante por curso o componente. | Tabla de tareas, commits o evidencias por integrante. |
 | Limitaciones y mejoras | Límites del sistema y mejoras posibles. | Lista priorizada y realista. |
 
 

@@ -18,6 +18,8 @@ Construye interfaces web interactivas mediante arquitectura web, plantillas reut
 
 **Página web interactiva (plantillas + formularios).**
 
+Artefacto de referencia para el Proyecto Integrador: [LP1 - Producto de Unidad 1](../proyecto-integrador/u1/lp1-demo.md).
+
 | Sesión | Tema | Producto de sesión |
 |--------|------|--------------------|
 | **S1** | Arquitectura Web, HTTP y estructura de aplicaciones cliente-servidor | Mapa funcional de la arquitectura web y estructura inicial del proyecto cliente-servidor. |
@@ -97,3 +99,9 @@ Integra módulos funcionales, pruebas, correcciones y sustentación técnica par
 - Refinamiento del producto.
 - Sustentación técnica.
 - Evaluación final.
+
+---
+
+# Integración Curricular
+
+LP1 convierte el SRS y el modelo de datos en una aplicación web MVC funcional, usando los requerimientos definidos en REQ y la base de datos construida en BD1. Desde las primeras sesiones, la interfaz debe reflejar el alcance del proyecto y las entidades del proceso principal, especialmente las entidades transaccionales cuando el dominio incluya ventas, compras, reservas, citas, pedidos u operaciones similares.

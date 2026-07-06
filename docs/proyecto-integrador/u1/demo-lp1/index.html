@@ -1,0 +1,103 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>BOMstart U1 - Demo LP1</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="app-header">
+    <div>
+      <p class="eyebrow">Producto U1 - LP1</p>
+      <h1>Gestion inicial de pedidos</h1>
+      <p>Demo interactiva basada en los requerimientos de REQ y el modelo inicial de BD1.</p>
+    </div>
+  </header>
+
+  <main class="layout">
+    <section class="panel" aria-labelledby="form-title">
+      <h2 id="form-title">Registrar pedido</h2>
+      <form id="pedidoForm" novalidate>
+        <label>
+          Cliente
+          <input id="cliente" name="cliente" type="text" autocomplete="name" placeholder="Ej. Maria Quispe">
+        </label>
+
+        <label>
+          Producto
+          <input id="producto" name="producto" type="text" placeholder="Ej. Pack escolar">
+        </label>
+
+        <div class="grid-two">
+          <label>
+            Cantidad
+            <input id="cantidad" name="cantidad" type="number" min="1" step="1" placeholder="1">
+          </label>
+
+          <label>
+            Fecha de entrega
+            <input id="fecha" name="fecha" type="date">
+          </label>
+        </div>
+
+        <label>
+          Prioridad
+          <select id="prioridad" name="prioridad">
+            <option value="normal">Normal</option>
+            <option value="alta">Alta</option>
+            <option value="urgente">Urgente</option>
+          </select>
+        </label>
+
+        <p id="mensaje" class="message" role="status" aria-live="polite"></p>
+
+        <div class="actions">
+          <button type="submit">Registrar pedido</button>
+          <button type="button" class="secondary" id="limpiarBtn">Limpiar</button>
+        </div>
+      </form>
+    </section>
+
+    <section class="summary" aria-label="Resumen de pedidos">
+      <article>
+        <span id="totalPedidos">0</span>
+        <p>Pedidos registrados</p>
+      </article>
+      <article>
+        <span id="totalUnidades">0</span>
+        <p>Unidades solicitadas</p>
+      </article>
+      <article>
+        <span id="totalUrgentes">0</span>
+        <p>Pedidos urgentes</p>
+      </article>
+    </section>
+
+    <section class="panel table-panel" aria-labelledby="table-title">
+      <h2 id="table-title">Listado temporal</h2>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>#</th>
+              <th>Cliente</th>
+              <th>Producto</th>
+              <th>Cantidad</th>
+              <th>Fecha</th>
+              <th>Prioridad</th>
+            </tr>
+          </thead>
+          <tbody id="pedidosBody">
+            <tr>
+              <td colspan="6" class="empty">Aun no hay pedidos registrados.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>
