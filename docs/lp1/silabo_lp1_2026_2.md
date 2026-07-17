@@ -73,7 +73,7 @@
 
 ## II. Sumilla
 
-La asignatura de Lenguaje de Programación I es de naturaleza teórico-práctica y pertenece al área de especialidad de Ingeniería de Software. Tiene como propósito que el estudiante desarrolle un Sistema Web MVC Empresarial, integrando fundamentos del desarrollo web, interfaces con plantillas reutilizables, formularios, interactividad con JavaScript, arquitectura MVC, persistencia, relaciones de datos, consultas, control de acceso, validaciones, manejo de errores, optimización básica, pruebas funcionales y sustentación técnica. Los contenidos principales son: fundamentos del desarrollo web, desarrollo de aplicaciones web MVC y proyecto integrador web MVC.
+La asignatura de Lenguaje de Programación I es de naturaleza teórico-práctica y pertenece al área de especialidad de Ingeniería de Software. Tiene como propósito que el estudiante desarrolle un Sistema Web MVC Empresarial, integrando fundamentos del desarrollo web, interfaces con plantillas reutilizables, formularios, interactividad con JavaScript, arquitectura MVC, persistencia mediante DAO y conexión nativa a una base de datos, relaciones entre objetos, consultas, control de acceso, validaciones, manejo de errores, optimización básica, pruebas funcionales y sustentación técnica. El uso de un ORM es opcional y complementario al acceso nativo. Los contenidos principales son: fundamentos del desarrollo web, desarrollo de aplicaciones web MVC y proyecto integrador web MVC.
 
 ## III. Competencia del perfil de egreso en relación a la asignatura
 
@@ -96,12 +96,12 @@ La asignatura de Lenguaje de Programación I es de naturaleza teórico-práctica
     <td>Producto Académico</td>
   </tr>
   <tr>
-    <td>Al finalizar el curso, el estudiante desarrolla un sistema web MVC empresarial, integrando interfaces web, formularios, persistencia de datos, relaciones, consultas, control de acceso, validaciones, manejo de errores, optimización básica, pruebas funcionales y sustentación técnica.</td>
+    <td>Al finalizar el curso, el estudiante desarrolla un sistema web MVC empresarial, integrando interfaces web, formularios, persistencia de datos mediante DAO y conexión nativa a una base de datos, relaciones entre objetos, consultas, control de acceso, validaciones, manejo de errores, optimización básica, pruebas funcionales y sustentación técnica; pudiendo utilizar un ORM de manera opcional.</td>
     <td>Nombre: Sistema Web MVC Empresarial.</td>
   </tr>
   <tr>
     <td></td>
-    <td>Descripción: Aplicación web monolítica con persistencia, control de acceso, consultas y optimización básica.</td>
+    <td>Descripción: Aplicación web monolítica con persistencia mediante DAO y conexión nativa a una base de datos, control de acceso, consultas y optimización básica; con ORM opcional.</td>
   </tr>
 </table>
 
@@ -193,7 +193,7 @@ La asignatura de Lenguaje de Programación I es de naturaleza teórico-práctica
     <td colspan="3">Producto</td>
   </tr>
   <tr>
-    <td colspan="4">Desarrolla una aplicación web MVC empresarial aplicando rutas, controladores, servicios, ORM, repositorios, persistencia, relaciones de datos, consultas, autenticación, autorización, sesiones, validaciones y optimización básica.</td>
+    <td colspan="4">Desarrolla una aplicación web MVC empresarial aplicando rutas, controladores, servicios, DAO, conexión nativa a una base de datos, persistencia, relaciones entre objetos, consultas, autenticación, autorización, sesiones, validaciones y optimización básica. Puede incorporar un ORM como alternativa opcional y complementaria.</td>
     <td colspan="3">Nombre: Aplicación Web MVC con persistencia, relaciones, consultas y control de acceso.</td>
   </tr>
   <tr>
@@ -201,8 +201,8 @@ La asignatura de Lenguaje de Programación I es de naturaleza teórico-práctica
     <td colspan="3">Evidencia de aprendizaje</td>
   </tr>
   <tr>
-    <td colspan="4">1 Implementa rutas, controladores, servicios, ORM y repositorios.<br>2 Gestiona persistencia, transacciones y relaciones básicas o complejas.<br>3 Construye consultas, filtros, búsqueda, ordenamiento y paginación web.<br>4 Aplica autenticación, autorización y gestión de sesiones.<br>5 Incorpora validaciones, manejo de errores, seguimiento, caché y optimización básica.</td>
-    <td colspan="3">Aplicación Web MVC con módulos funcionales, persistencia, relaciones de datos, consultas, control de acceso, validaciones y optimización básica.</td>
+    <td colspan="4">1 Implementa rutas, controladores, servicios y DAO con acceso nativo a datos; puede utilizar un ORM de manera opcional.<br>2 Gestiona persistencia, transacciones, relaciones y colaboración entre objetos del dominio.<br>3 Construye consultas, filtros, búsqueda, ordenamiento y paginación web.<br>4 Aplica autenticación, autorización y gestión de sesiones.<br>5 Incorpora validaciones, manejo de errores, seguimiento, caché y optimización básica.</td>
+    <td colspan="3">Aplicación Web MVC con módulos funcionales, persistencia mediante DAO y acceso nativo a datos, relaciones entre objetos, consultas, control de acceso, validaciones y optimización básica; con ORM opcional.</td>
   </tr>
   <tr>
     <td colspan="7">Sesiones de aprendizaje</td>
@@ -219,34 +219,34 @@ La asignatura de Lenguaje de Programación I es de naturaleza teórico-práctica
   <tr>
     <td>6</td>
     <td>13/09/2026  19/09/2026</td>
-    <td><strong>Arquitectura MVC: rutas, controladores, servicios, ORM, repositorios y registro/consulta de una entidad simple:</strong><br>Separación de responsabilidades, flujo MVC, rutas, controladores, servicios, repositorios, ORM y operaciones iniciales sobre una entidad.</td>
+    <td><strong>Arquitectura MVC, patrón DAO y acceso nativo a datos:</strong><br>Separación de responsabilidades, flujo MVC, rutas, controladores, servicios, DAO, conexión nativa a una base de datos y operaciones de registro y consulta sobre una entidad simple.</td>
     <td>2</td>
     <td>2</td>
-    <td>Implementar un módulo MVC inicial con registro y consulta de una entidad.</td>
-    <td>Revisar separación de responsabilidades entre ruta, controlador, servicio, repositorio y vista.</td>
+    <td>Implementar un módulo MVC inicial con registro y consulta de una entidad mediante DAO y conexión nativa a la base de datos.</td>
+    <td>Revisar la separación de responsabilidades entre ruta, controlador, servicio, DAO y vista; comparar opcionalmente la solución nativa con una implementación mediante ORM.</td>
   </tr>
   <tr>
     <td>7</td>
     <td>20/09/2026  26/09/2026</td>
-    <td><strong>Persistencia de datos, operaciones transaccionales y relaciones básicas (1:1 y 1:*): ORM / Nativos:</strong><br>Persistencia, transacciones, relaciones uno a uno, relaciones uno a muchos, reglas de integridad y operaciones de negocio.</td>
+    <td><strong>Colaboración entre objetos y operaciones de negocio con persistencia:</strong><br>Asociaciones entre objetos, objetos que contienen referencias o colecciones de otros objetos, reglas del dominio, operaciones transaccionales y conservación de la consistencia mediante DAO y conexión nativa a la base de datos. Las correspondencias uno a uno y uno a muchos se abordan al persistir el modelo; el ORM es opcional.</td>
     <td>2</td>
     <td>2</td>
-    <td>Implementar persistencia, transacciones y relaciones básicas.</td>
-    <td>Probar escenarios de creación, consulta y actualización con relaciones.</td>
+    <td>Implementar la colaboración entre objetos del dominio y conservar su estado mediante DAO y operaciones transaccionales con acceso nativo a datos.</td>
+    <td>Probar escenarios de creación, consulta y actualización de objetos relacionados; documentar opcionalmente su implementación mediante ORM.</td>
   </tr>
   <tr>
     <td>8</td>
     <td>27/09/2026  03/10/2026</td>
-    <td><strong>Relaciones de datos complejas (*:*), integridad referencial y operaciones integradas:</strong><br>Relaciones muchos a muchos, tablas intermedias, integridad referencial y operaciones integradas sobre el dominio.</td>
+    <td><strong>Objetos de asociación y operaciones de dominio integradas:</strong><br>Colaboración entre colecciones de objetos mediante un objeto de asociación con atributos y comportamiento propios, reglas de negocio, consistencia e implementación persistente mediante DAO y acceso nativo a datos. La correspondencia muchos a muchos se aborda al almacenar el modelo; el ORM es opcional.</td>
     <td>2</td>
     <td>2</td>
-    <td>Implementar una relación muchos a muchos y operaciones integradas.</td>
-    <td>Verificar integridad referencial y documentar reglas de negocio asociadas.</td>
+    <td>Implementar un objeto de asociación y las operaciones integradas del dominio, conservando su estado mediante DAO y conexión nativa a la base de datos.</td>
+    <td>Verificar la consistencia de los objetos relacionados y documentar las reglas de negocio asociadas; contrastar opcionalmente la solución con ORM.</td>
   </tr>
   <tr>
     <td>9</td>
     <td>04/10/2026  10/10/2026</td>
-    <td><strong>Consultas, filtros, búsqueda, ordenamiento y paginación web:</strong><br>Consultas parametrizadas, filtros combinados, búsqueda, ordenamiento, paginación y presentación de resultados en vistas web.</td>
+    <td><strong>Consultas, filtros, búsqueda, ordenamiento y paginación web:</strong><br>Consultas parametrizadas mediante DAO y acceso nativo a datos, filtros combinados, búsqueda, ordenamiento, paginación y presentación de resultados en vistas web. El uso equivalente de consultas mediante ORM es opcional.</td>
     <td>2</td>
     <td>2</td>
     <td>Construir vistas de consulta con filtros, búsqueda, ordenamiento y paginación.</td>
@@ -273,10 +273,10 @@ La asignatura de Lenguaje de Programación I es de naturaleza teórico-práctica
   <tr>
     <td>12</td>
     <td>25/10/2026  31/10/2026</td>
-    <td><strong>Evaluación U2:</strong><br>Sustentación de la aplicación MVC con persistencia, relaciones, consultas y control de acceso.</td>
+    <td><strong>Evaluación U2:</strong><br>Sustentación de la aplicación MVC con persistencia mediante DAO y conexión nativa a la base de datos, relaciones entre objetos, consultas y control de acceso. El uso de ORM es opcional.</td>
     <td>2</td>
     <td>2</td>
-    <td>Sustentar la aplicación MVC con persistencia, relaciones, consultas y control de acceso.</td>
+    <td>Sustentar la aplicación MVC demostrando el DAO, la conexión nativa, la persistencia, las relaciones entre objetos, las consultas y el control de acceso.</td>
     <td>Registrar observaciones para la integración final.</td>
   </tr>
 </table>
@@ -378,7 +378,9 @@ La asignatura de Lenguaje de Programación I es de naturaleza teórico-práctica
   <tr><td>2</td><td>Laboratorios</td></tr>
   <tr><td>3</td><td>Repositorio académico del curso</td></tr>
   <tr><td>4</td><td>Framework web definido para el curso</td></tr>
-  <tr><td>5</td><td>Internet y recursos virtuales</td></tr>
+  <tr><td>5</td><td>Controlador o biblioteca de conexión nativa a la base de datos</td></tr>
+  <tr><td>6</td><td>ORM opcional</td></tr>
+  <tr><td>7</td><td>Internet y recursos virtuales</td></tr>
 </table>
 
 ## VIII. Evaluación
@@ -431,3 +433,5 @@ La asignatura de Lenguaje de Programación I es de naturaleza teórico-práctica
 3. Fowler, M. *Patterns of Enterprise Application Architecture*.
 4. Gamma, E., Helm, R., Johnson, R., & Vlissides, J. *Design Patterns*.
 5. Documentación oficial del framework web utilizado en el curso.
+6. Documentación oficial del controlador o biblioteca de conexión nativa a la base de datos.
+7. Documentación oficial del ORM seleccionado, cuando se utilice de manera opcional.
