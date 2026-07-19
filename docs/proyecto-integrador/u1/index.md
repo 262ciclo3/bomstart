@@ -2,7 +2,9 @@
 
 ## Corte U1
 
-El corte de Unidad 1 demuestra que el equipo ya tiene un dominio validado para iniciar la construccion MVC. No es todavia el sistema final; es el primer producto integrado donde REQ, BD1 y LP1 trabajan sobre el mismo problema.
+El corte de Unidad 1 demuestra que el equipo conserva el dominio construido en POO y lo amplía de forma coordinada con REQ, BD1 y LP1 antes de iniciar la construcción MVC. No es todavía el sistema final.
+
+En el caso de referencia, LP1 recupera `Producto` en S1 y agrega `Categoria` en S2. La relación es `Categoria 1 : * Producto`: una categoría agrupa muchos productos y cada producto pertenece a una categoría.
 
 ## Dominio de ejemplo
 
@@ -17,7 +19,7 @@ Una tienda registra pedidos de clientes de forma manual. Esto genera errores en 
 | REQ | Requerimientos iniciales priorizados y prototipos validados. | [Producto REQ U1](req-producto.md) |
 | REQ + LP1 | Esbozo funcional y prototipo de pantalla. | [Prototipos U1](prototipos-u1.md) |
 | BD1 | Modelo de datos conceptual y logico documentado. | [Producto BD1 U1](bd1-producto.md) |
-| LP1 | Pagina web interactiva con plantillas, formulario y validaciones. | [Producto LP1 U1](lp1-demo.md) |
+| LP1 | Página web interactiva que continúa con Producto, incorpora Categoria y luego integra formularios y validaciones. | [Producto LP1 U1](lp1-demo.md) |
 
 ## Integracion esperada
 
@@ -25,9 +27,13 @@ Una tienda registra pedidos de clientes de forma manual. Esto genera errores en 
 flowchart TB
     A[REQ: problema, actores, RF, RNF y prototipo]
     B[BD1: entidades, relaciones, modelo logico y diccionario]
-    C[LP1: pagina web interactiva y validaciones]
+    P[POO: Producto, Venta, DetalleVenta y Usuario]
+    C[LP1: Producto web y nueva Categoria]
     D[Corte U1: dominio validado]
 
+    P --> A
+    P --> B
+    P --> C
     A --> B
     A --> C
     B --> C

@@ -4,11 +4,24 @@ CREATE TABLE cliente (
     documento VARCHAR(20)
 );
 
+CREATE TABLE categoria (
+    id_categoria INTEGER PRIMARY KEY,
+    nombre VARCHAR(80) NOT NULL UNIQUE,
+    descripcion VARCHAR(200)
+);
+
 CREATE TABLE producto (
     id_producto INTEGER PRIMARY KEY,
     nombre VARCHAR(100) NOT NULL,
-    categoria VARCHAR(50),
-    precio_referencial DECIMAL(10, 2) DEFAULT 0
+    precio DECIMAL(10, 2) NOT NULL DEFAULT 0,
+    stock INTEGER NOT NULL DEFAULT 0,
+    id_categoria INTEGER NOT NULL,
+    CONSTRAINT fk_producto_categoria
+        FOREIGN KEY (id_categoria) REFERENCES categoria(id_categoria),
+    CONSTRAINT ck_producto_precio
+        CHECK (precio >= 0),
+    CONSTRAINT ck_producto_stock
+        CHECK (stock >= 0)
 );
 
 CREATE TABLE pedido (

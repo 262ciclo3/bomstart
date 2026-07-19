@@ -13,6 +13,7 @@ Este producto transforma los requerimientos iniciales de REQ en una estructura d
 | nombre_cliente | Nombre de la persona que realiza el pedido. | RF-01 |
 | documento_cliente | Documento de identificacion del cliente. | RF-01 |
 | nombre_producto | Producto solicitado. | RF-01 |
+| nombre_categoria | Clasificacion del producto. | Continuidad LP1 S02 |
 | cantidad | Numero de unidades solicitadas. | RF-01, RF-03 |
 | fecha_entrega | Fecha tentativa de atencion o entrega. | RF-01 |
 | prioridad | Nivel de prioridad del pedido. | RN-03 |
@@ -24,6 +25,7 @@ Este producto transforma los requerimientos iniciales de REQ en una estructura d
 |---|---|---|
 | Maestra | Cliente | Permite identificar quien solicita el pedido. |
 | Maestra | Producto | Permite reconocer que se esta solicitando. |
+| Maestra | Categoria | Organiza los productos sin repetir su clasificación como texto libre. |
 | Transaccional | Pedido | Representa la operacion principal del sistema. |
 | Detalle | DetallePedido | Permite que un pedido pueda crecer a varios productos en unidades posteriores. |
 
@@ -34,6 +36,7 @@ erDiagram
     CLIENTE ||--o{ PEDIDO : realiza
     PEDIDO ||--|{ DETALLE_PEDIDO : contiene
     PRODUCTO ||--o{ DETALLE_PEDIDO : se_solicita_en
+    CATEGORIA ||--o{ PRODUCTO : clasifica
 
     CLIENTE {
         int id_cliente
@@ -44,7 +47,15 @@ erDiagram
     PRODUCTO {
         int id_producto
         string nombre
-        string categoria
+        decimal precio
+        int stock
+        int id_categoria
+    }
+
+    CATEGORIA {
+        int id_categoria
+        string nombre
+        string descripcion
     }
 
     PEDIDO {
@@ -72,7 +83,12 @@ erDiagram
 | cliente | documento | VARCHAR(20) |  | Si | Opcional en U1. |
 | producto | id_producto | INT | PK | No | Identificador autogenerado. |
 | producto | nombre | VARCHAR(100) |  | No | Debe contener texto. |
-| producto | categoria | VARCHAR(50) |  | Si | Clasificacion opcional. |
+| producto | precio | DECIMAL(10,2) |  | No | Debe ser mayor o igual que cero. |
+| producto | stock | INT |  | No | Debe ser mayor o igual que cero. |
+| producto | id_categoria | INT | FK | No | Referencia a la categoría del producto. |
+| categoria | id_categoria | INT | PK | No | Identificador autogenerado. |
+| categoria | nombre | VARCHAR(80) |  | No | Nombre único de la categoría. |
+| categoria | descripcion | VARCHAR(200) |  | Si | Descripción opcional. |
 | pedido | id_pedido | INT | PK | No | Identificador autogenerado. |
 | pedido | id_cliente | INT | FK | No | Referencia a cliente. |
 | pedido | fecha_entrega | DATE |  | No | Fecha de atencion o entrega. |
@@ -89,7 +105,7 @@ erDiagram
 |---|---|
 | Primera forma normal | Los campos contienen valores atomicos. No se guardan varios productos en una sola columna. |
 | Segunda forma normal | Los datos de cliente y producto se separan del pedido para evitar repeticion. |
-| Tercera forma normal | La prioridad y el estado pertenecen al pedido; los datos del producto no dependen del cliente. |
+| Tercera forma normal | La categoría se separa de producto para evitar repetir su nombre; la prioridad y el estado pertenecen al pedido. |
 
 ## 6. Relacion con LP1
 
@@ -97,6 +113,7 @@ erDiagram
 |---|---|---|
 | Cliente | cliente.nombre | Obligatorio. |
 | Producto | producto.nombre | Obligatorio. |
+| Categoria del producto | categoria.id_categoria / producto.id_categoria | Debe seleccionar una categoría existente. |
 | Cantidad | detalle_pedido.cantidad | Entero mayor que cero. |
 | Fecha de entrega | pedido.fecha_entrega | Obligatoria. |
 | Prioridad | pedido.prioridad | Valor permitido: normal, alta, urgente. |
@@ -107,6 +124,7 @@ En Unidad 2, este modelo debe convertirse en scripts SQL:
 
 - `CREATE TABLE cliente`.
 - `CREATE TABLE producto`.
+- `CREATE TABLE categoria` antes de `producto`.
 - `CREATE TABLE pedido`.
 - `CREATE TABLE detalle_pedido`.
 - Claves primarias y foraneas.

@@ -21,6 +21,7 @@ erDiagram
     CLIENTE ||--o{ PEDIDO : realiza
     PEDIDO ||--|{ DETALLE_PEDIDO : contiene
     PRODUCTO ||--o{ DETALLE_PEDIDO : aparece_en
+    CATEGORIA ||--o{ PRODUCTO : clasifica
 
     CLIENTE {
         int id_cliente PK
@@ -31,8 +32,15 @@ erDiagram
     PRODUCTO {
         int id_producto PK
         string nombre
-        string categoria
-        decimal precio_referencial
+        decimal precio
+        int stock
+        int id_categoria FK
+    }
+
+    CATEGORIA {
+        int id_categoria PK
+        string nombre
+        string descripcion
     }
 
     PEDIDO {
@@ -61,6 +69,7 @@ erDiagram
 | Prioridad controlada. | `CHECK (prioridad IN ('normal','alta','urgente'))`. |
 | Estado controlado. | `CHECK (estado IN ('pendiente','atendido','anulado'))`. |
 | Integridad detalle-pedido-producto. | Claves foraneas en `detalle_pedido`. |
+| Cada producto pertenece a una categoría válida. | `producto.id_categoria NOT NULL` y clave foránea. |
 
 ## 4. Consultas funcionales
 
@@ -78,6 +87,7 @@ erDiagram
 |---|---|
 | cliente | Tres clientes de prueba. |
 | producto | Tres productos de prueba. |
+| categoria | Dos categorías de prueba. |
 | pedido | Pedidos con estados pendiente, atendido y anulado. |
 | detalle_pedido | Cantidades validas asociadas a productos. |
 
@@ -88,5 +98,6 @@ erDiagram
 | `pedido.estado` | HU-03, RF-06 | Accion atender/anular. |
 | `pedido.prioridad` | RN-03, RN-04 | Filtro y distintivo visual. |
 | `detalle_pedido.cantidad` | RF-03 | Validacion de cantidad. |
+| `producto.id_categoria` | Continuidad POO–LP1 S02 | Selector y vista de categoría por producto. |
 | Consulta de listado | RF-04 | Vista de pedidos. |
 | Consulta de resumen | HU-04 | Dashboard del modulo. |

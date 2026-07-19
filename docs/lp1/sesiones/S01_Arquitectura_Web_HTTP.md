@@ -6,21 +6,21 @@ Tiempo: 20 min.
 
 ### 1.1 Propósito
 
-Comprender cómo funciona una aplicación web cliente-servidor, reconocer el rol de HTTP y crear la estructura inicial del proyecto web que evolucionará hacia un Sistema Web MVC Empresarial.
+Comprender cómo funciona una aplicación web cliente-servidor, reconocer el rol de HTTP y crear la estructura inicial del proyecto web tomando `Producto` como continuidad directa del modelo desarrollado en POO.
 
 ### 1.2 Resultado de aprendizaje
 
-El estudiante explica el flujo básico de una solicitud web, diferencia cliente y servidor, reconoce recursos web iniciales y prepara la estructura base del proyecto que será usado durante el curso.
+El estudiante explica el flujo básico de una solicitud web, diferencia cliente y servidor y representa `Producto` (`nombre`, `precio` y `stock`) como primer recurso del proyecto que será usado durante el curso.
 
 ### 1.3 Producto de sesión
 
-Estructura inicial de la aplicación web y descripción del flujo cliente-servidor mediante una página base ejecutable.
+Proyecto web inicial con una página ejecutable de productos y una descripción del flujo cliente-servidor asociado al recurso `Producto`.
 
 ### 1.4 Motivación de la sesión
 
 #### 1.4.1 Caso: primera versión visible del sistema
 
-El equipo ya empieza a definir un problema desde REQ y datos iniciales desde BD1. LP1 debe convertir ese dominio en una experiencia web progresiva: primero una página base, luego formularios, después MVC, persistencia, seguridad y consultas.
+El estudiante no empieza el dominio desde cero: en POO ya modeló `Venta`, `DetalleVenta`, `Producto` y `Usuario`. LP1 cambia el canal de interacción, no el objeto de negocio. En S1, `Producto` pasa a ser el primer recurso visible de la aplicación web; después se agregarán interfaz, interacción, MVC, persistencia, seguridad y consultas.
 
 Preguntas para los estudiantes:
 
@@ -28,21 +28,21 @@ Preguntas para los estudiantes:
 2. ¿Qué información debe solicitar el navegador?
 3. ¿Qué responde el servidor?
 4. ¿Qué recurso es HTML, CSS o JavaScript?
-5. ¿Cómo se relaciona esta página inicial con el proyecto integrador?
+5. ¿Qué se conserva del objeto `Producto` construido en POO al representarlo en la web?
 
 ### 1.5 Ubicación en el curso
 
 - Unidad: U1 - Fundamentos del Desarrollo Web.
 - Producto de unidad: página web interactiva con plantillas y formularios.
 - Producto del curso: Sistema Web MVC Empresarial.
-- Avance del producto en esta sesión: estructura inicial del proyecto web y primera página base.
+- Avance del producto en esta sesión: estructura inicial del proyecto web y primera representación de `Producto`.
 
 Roadmap del producto de la unidad:
 
 ```mermaid
 flowchart TB
-    S1["S1<br/>Arquitectura web<br/>HTTP y estructura"]
-    S2["S2<br/>HTML, CSS y<br/>plantillas Bootstrap"]
+    S1["S1<br/>Producto como<br/>recurso web"]
+    S2["S2<br/>Nueva Categoria<br/>e interfaz Bootstrap"]
     S3["S3<br/>JavaScript, DOM<br/>eventos y validación"]
     S4["S4<br/>Formularios e<br/>interacción web"]
     S5["S5<br/>Producto U1"]
@@ -76,12 +76,13 @@ Conceptos de la sesión:
 - Estructura de proyecto web.
 - Página inicial.
 - Relación entre interfaz, datos y requerimientos.
+- Continuidad de un objeto de dominio entre una aplicación orientada a objetos y una aplicación web.
 
 Alcance metodológico de S1:
 
 ```text
-En S1 no se construye todavía una aplicación MVC completa.
-Se entiende el flujo web y se crea una estructura base.
+En S1 no se rediseña el dominio ni se construye todavía una aplicación MVC.
+Se entiende el flujo web y se representa Producto en una estructura base.
 
 Las plantillas visuales se fortalecen en S2, la interacción con
 JavaScript en S3, los formularios en S4 y MVC inicia en S6.
@@ -91,10 +92,11 @@ JavaScript en S3, los formularios en S4 y MVC inicia en S6.
 
 ```mermaid
 flowchart TB
-    A[Navegador] -->|Solicitud HTTP| B[Servidor]
+    P[POO: Producto<br/>nombre, precio, stock] --> C[Página de productos]
+    A[Navegador] -->|Solicitud HTTP: GET /productos| B[Servidor]
     B -->|Respuesta HTML/CSS/JS| A
-    A --> C[Página inicial]
-    C --> D[Formulario futuro]
+    A --> C
+    C --> D[S2: Categoria y plantilla]
     D --> E[MVC desde S6]
     E --> F[Base de datos de BD1]
     G[Requerimientos de REQ] --> C
@@ -105,15 +107,16 @@ Lectura del diagrama:
 
 - El navegador representa el cliente.
 - El servidor entrega recursos.
-- La página inicial debe estar conectada con el dominio del proyecto.
+- La página inicial representa `Producto`, ya conocido por el estudiante desde POO.
+- La ruta `/productos` se usa para razonar sobre HTTP; no exige todavía un controlador MVC ni persistencia.
 - En S6 esta base crecerá hacia MVC.
 
 ### 2.3 Flujo de trabajo
 
-1. Identificar el dominio del equipo.
+1. Recuperar la clase `Producto` desarrollada en POO y sus atributos `nombre`, `precio` y `stock`.
 2. Crear la carpeta del proyecto web.
 3. Crear estructura inicial de archivos.
-4. Crear una página `index.html`.
+4. Crear una página `index.html` que represente una consulta de productos.
 5. Agregar una hoja de estilos.
 6. Agregar un archivo JavaScript básico.
 7. Abrir la página en el navegador.
@@ -127,7 +130,7 @@ Lectura del diagrama:
 | La página no abre | Ruta incorrecta o archivo mal nombrado | Revisar ubicación y nombre de `index.html` |
 | No carga el CSS | Enlace incorrecto | Verificar `href` y carpeta `css` |
 | No ejecuta JavaScript | Enlace incorrecto o error de consola | Revisar `src` y consola del navegador |
-| La página no tiene relación con el proyecto | Se hizo una página genérica | Usar el dominio definido por el equipo |
+| La página no conserva el trabajo de POO | Se creó otra entidad sin necesidad | Recuperar `Producto` y sus atributos `nombre`, `precio` y `stock` |
 | No se entiende cliente-servidor | Solo se abrió el archivo sin analizar flujo | Revisar recursos desde DevTools |
 | Se intenta hacer MVC desde S1 | Se adelantó contenido | Mantener S1 como estructura base y flujo HTTP |
 
@@ -168,14 +171,18 @@ Ejemplo base:
 </head>
 <body>
     <header>
-        <h1>Sistema Web MVC Empresarial</h1>
-        <p>Dominio del proyecto: completar según el equipo.</p>
+        <h1>Productos</h1>
+        <p>Primer recurso web recuperado del modelo desarrollado en POO.</p>
     </header>
 
     <main>
         <section>
-            <h2>Problema inicial</h2>
-            <p>Resumen breve del problema definido en REQ.</p>
+            <h2>Listado inicial</h2>
+            <article>
+                <h3>Teclado mecánico</h3>
+                <p>Precio: S/ 120.00</p>
+                <p>Stock: 10</p>
+            </article>
         </section>
     </main>
 
@@ -212,7 +219,7 @@ header {
 Archivo `js/app.js`:
 
 ```javascript
-console.log("Proyecto LP1 iniciado");
+console.log("Recurso Producto cargado");
 ```
 
 ### 3.5 Verificar recursos en el navegador
@@ -225,16 +232,17 @@ console.log("Proyecto LP1 iniciado");
 4. Identificar `index.html`, `styles.css` y `app.js`.
 5. Explicar qué solicitó el navegador y qué recurso recibió.
 
-### 3.6 Relacionar la página con REQ y BD1
+### 3.6 Relacionar la página con POO, REQ y BD1
 
 **Producto del paso:** página contextualizada.
 
 | Elemento | Fuente |
 |---|---|
-| Nombre del proyecto | Equipo |
+| `Producto`, `nombre`, `precio` y `stock` | POO |
 | Problema inicial | REQ |
-| Datos visibles | BD1 |
-| Módulo futuro | LP1 |
+| Definición de datos que se persistirán después | BD1 |
+| Representación como recurso web | LP1 S1 |
+| Nueva entidad `Categoria` | LP1 S2 |
 
 ### 3.7 Preparar el avance hacia S2
 
@@ -246,6 +254,8 @@ Checklist:
 - Existe carpeta `css`.
 - Existe carpeta `js`.
 - La página tiene relación con el dominio.
+- La página muestra productos con nombre, precio y stock.
+- Se ha reservado la incorporación de Categoria para S2.
 - Se registró evidencia de ejecución.
 - Se explicó el flujo cliente-servidor.
 
@@ -279,9 +289,9 @@ Completa y evidencia estas tareas:
 2. Implementar `index.html`.
 3. Implementar `css/styles.css`.
 4. Implementar `js/app.js`.
-5. Personalizar la página con el dominio del equipo.
+5. Representar `Producto` con nombre, precio y stock, conservando el modelo de POO.
 6. Verificar recursos desde el navegador.
-7. Explicar el flujo cliente-servidor.
+7. Explicar el flujo cliente-servidor de una solicitud conceptual `GET /productos`.
 
 #### 4.1.3 Evidencia técnica
 
@@ -303,7 +313,7 @@ Describe al menos un error o hallazgo: qué recurso no cargaba o qué problema a
 Responde en 5 a 8 líneas:
 
 ```text
-¿Por qué una aplicación web necesita separar estructura, estilo y comportamiento?
+¿Qué cambia y qué se conserva cuando el objeto Producto desarrollado en POO se representa como recurso web?
 ```
 
 ### 4.2 Criterios mínimos de aceptación
@@ -313,7 +323,7 @@ La evidencia individual se considera completa si:
 - El archivo respeta el nombre solicitado.
 - Incluye estructura de carpetas.
 - `index.html`, `styles.css` y `app.js` están conectados.
-- La página se relaciona con el dominio del proyecto.
+- La página recupera `Producto` y sus atributos del trabajo de POO.
 - Se evidencia ejecución en navegador.
 - Se explica el flujo cliente-servidor.
 - Incluye error o hallazgo técnico.
@@ -332,7 +342,7 @@ Al finalizar la sesión, el estudiante debe demostrar que:
 - Reconoce recursos HTML, CSS y JavaScript.
 - Crea una estructura inicial de proyecto web.
 - Ejecuta una página base en navegador.
-- Relaciona la página inicial con REQ y BD1.
+- Explica la continuidad de `Producto` desde POO hacia LP1 y su relación posterior con REQ y BD1.
 
 ### 5.2 Evidencia del producto de sesión
 
@@ -350,8 +360,8 @@ S01_LP1_Equipo##_ApellidoNombre.pdf
 2. ¿Qué recurso solicita primero el navegador?
 3. ¿Para qué sirve HTTP?
 4. ¿Qué hace HTML, qué hace CSS y qué hace JavaScript?
-5. ¿Cómo se relaciona tu página con el problema definido en REQ?
-6. ¿Qué datos de BD1 podrían aparecer luego en un formulario?
+5. ¿Por qué `Producto` es continuidad del curso de POO y no una entidad nueva de LP1?
+6. ¿Por qué Categoria se incorpora en S2 y no en esta sesión?
 
 ### 5.4 Rúbrica de evaluación
 
@@ -359,7 +369,7 @@ S01_LP1_Equipo##_ApellidoNombre.pdf
 |---|---:|---|---|---|---|---:|
 | 1. Flujo web | 2 | Explica claramente cliente, servidor, solicitud, respuesta y recursos. | Explica el flujo básico. | Explicación parcial o confusa. | No explica el flujo web. | |
 | 2. Estructura del proyecto | 2 | Organiza correctamente archivos y carpetas. | Presenta estructura funcional. | Estructura incompleta o desordenada. | No presenta estructura funcional. | |
-| 3. Página base | 2 | Página ejecutable, contextualizada y conectada con CSS y JS. | Página ejecutable con recursos principales. | Página incompleta o poco contextualizada. | No ejecuta una página funcional. | |
+| 3. Producto como recurso web | 2 | Página ejecutable que representa con claridad nombre, precio y stock y conserva el modelo de POO. | Página ejecutable de productos con sus datos principales. | Representación incompleta o poco conectada con POO. | No representa Producto. | |
 | 4. Evidencia técnica | 2 | Evidencia ejecución, recursos y diagnóstico con claridad. | Presenta evidencias suficientes. | Evidencias incompletas o poco claras. | No presenta evidencia técnica. | |
 | 5. Error o hallazgo | 1 | Analiza un problema real y explica diagnóstico y solución. | Presenta un problema y solución. | Menciona problema sin análisis. | No presenta hallazgo. | |
 | 6. Orden y reflexión | 1 | PDF ordenado, legible y reflexión técnica clara. | Evidencia suficiente y reflexión comprensible. | Evidencia incompleta o reflexión superficial. | Evidencia desordenada o sin reflexión. | |

@@ -6,27 +6,27 @@ Tiempo: 20 min.
 
 ### 1.1 Propósito
 
-Agregar interactividad a la interfaz inicial mediante JavaScript, DOM, eventos y validaciones del lado del cliente, usando los requerimientos priorizados en REQ y las reglas de datos del modelo ER avanzado de BD1.
+Agregar interactividad mediante JavaScript, DOM, eventos y validaciones al formulario de `Producto` construido sobre las vistas de productos y categorías de S2.
 
 ### 1.2 Resultado de aprendizaje
 
-El estudiante manipula elementos del DOM, captura eventos, valida entradas de formularios y muestra retroalimentación al usuario en una vista relacionada con el proceso principal del proyecto.
+El estudiante manipula el DOM, captura eventos y valida nombre, precio, stock y categoría del producto, mostrando retroalimentación clara al usuario.
 
 ### 1.3 Producto de sesión
 
-Formulario interactivo con validación básica en navegador, mensajes de error o confirmación y manipulación inicial de datos en pantalla.
+Formulario interactivo de Producto con selección de Categoria, validaciones en el navegador, mensajes y listado temporal.
 
 ### 1.4 Motivación de la sesión
 
 #### 1.4.1 Caso: la interfaz debe responder al usuario
 
-En S2 la interfaz ya mostró navegación y vistas iniciales. En S3 deja de ser solo maqueta: el usuario escribe datos, el sistema valida y la página responde sin esperar todavía una base de datos real.
+En S2 la interfaz ya mostró productos, categorías y su relación. En S3 deja de ser solo maqueta: el usuario registra temporalmente un producto, selecciona una categoría y recibe validaciones sin esperar todavía una base de datos real.
 
 Preguntas para los estudiantes:
 
 1. ¿Qué requerimiento Must de REQ necesita interacción primero?
-2. ¿Qué entidad o transacción de BD1 aporta los campos del formulario?
-3. ¿Qué campos son obligatorios?
+2. ¿Cómo se evita ingresar una categoría inexistente?
+3. ¿Qué reglas corresponden a nombre, precio y stock?
 4. ¿Qué reglas deben validarse antes de enviar datos?
 5. ¿Qué mensaje debe ver el usuario si algo está mal?
 
@@ -92,8 +92,8 @@ MVC con persistencia inicia en S6.
 
 ```mermaid
 flowchart TB
-    A[REQ S03: requerimiento priorizado] --> B[Formulario inicial]
-    C[BD1 S03: campos y restricciones] --> B
+    A[S1: Producto] --> B[Formulario de producto]
+    C[S2: categorías disponibles] --> B
     B --> D[Evento submit o click]
     D --> E[Validación JavaScript]
     E --> F[Mensajes al usuario]
@@ -109,8 +109,8 @@ Lectura del diagrama:
 
 ### 2.3 Flujo de trabajo
 
-1. Revisar requerimiento Must definido por REQ S03.
-2. Revisar campos y restricciones de BD1 S03.
+1. Recuperar `Producto` de S1 y las categorías incorporadas en S2.
+2. Definir reglas: nombre obligatorio, precio y stock no negativos, y categoría seleccionada.
 3. Crear o ajustar formulario en HTML.
 4. Seleccionar elementos del DOM.
 5. Capturar evento `submit` o `click`.
@@ -140,10 +140,10 @@ Tiempo: 2h.
 
 | Insumo | Fuente | Aplicación en LP1 |
 |---|---|---|
-| Requerimiento Must | REQ S03 | Flujo o formulario a validar |
-| Entidad/transacción | BD1 S03 | Campos del formulario |
-| Restricción semántica | BD1 S03 | Regla de validación |
-| Criterio de aceptación | REQ S03 | Resultado esperado |
+| `Producto` | POO / LP1 S1 | Nombre, precio y stock |
+| `Categoria` | LP1 S2 | Opciones válidas del selector |
+| Restricciones | Validación con BD1 | Nombre obligatorio; precio y stock no negativos |
+| Criterio de aceptación | REQ | Resultado esperado para el usuario |
 
 ### 3.2 Crear formulario base
 
@@ -152,16 +152,27 @@ Tiempo: 2h.
 Ejemplo:
 
 ```html
-<form id="formProceso" class="row g-3">
+<form id="formProducto" class="row g-3">
     <div class="col-md-6">
-        <label class="form-label">Cliente</label>
-        <input id="cliente" type="text" class="form-control">
-        <div class="invalid-feedback">Ingrese el cliente.</div>
+        <label class="form-label">Nombre</label>
+        <input id="nombre" type="text" class="form-control">
+        <div class="invalid-feedback">Ingrese el nombre.</div>
     </div>
     <div class="col-md-3">
-        <label class="form-label">Cantidad</label>
-        <input id="cantidad" type="number" class="form-control">
-        <div class="invalid-feedback">La cantidad debe ser mayor que cero.</div>
+        <label class="form-label">Precio</label>
+        <input id="precio" type="number" min="0" step="0.01" class="form-control">
+    </div>
+    <div class="col-md-3">
+        <label class="form-label">Stock</label>
+        <input id="stock" type="number" min="0" step="1" class="form-control">
+    </div>
+    <div class="col-md-6">
+        <label class="form-label">Categoría</label>
+        <select id="categoria" class="form-select">
+            <option value="">Seleccione</option>
+            <option value="1">Útiles</option>
+            <option value="2">Accesorios</option>
+        </select>
     </div>
     <div class="col-md-3 d-flex align-items-end">
         <button class="btn btn-primary w-100" type="submit">Registrar</button>
@@ -176,9 +187,11 @@ Ejemplo:
 **Producto del paso:** referencias JavaScript.
 
 ```javascript
-const formProceso = document.querySelector("#formProceso");
-const cliente = document.querySelector("#cliente");
-const cantidad = document.querySelector("#cantidad");
+const formProducto = document.querySelector("#formProducto");
+const nombre = document.querySelector("#nombre");
+const precio = document.querySelector("#precio");
+const stock = document.querySelector("#stock");
+const categoria = document.querySelector("#categoria");
 const mensaje = document.querySelector("#mensaje");
 ```
 
@@ -187,7 +200,7 @@ const mensaje = document.querySelector("#mensaje");
 **Producto del paso:** formulario controlado con JavaScript.
 
 ```javascript
-formProceso.addEventListener("submit", function (event) {
+formProducto.addEventListener("submit", function (event) {
     event.preventDefault();
     validarFormulario();
 });
@@ -201,18 +214,32 @@ formProceso.addEventListener("submit", function (event) {
 function validarFormulario() {
     let valido = true;
 
-    if (cliente.value.trim() === "") {
-        cliente.classList.add("is-invalid");
+    if (nombre.value.trim() === "") {
+        nombre.classList.add("is-invalid");
         valido = false;
     } else {
-        cliente.classList.remove("is-invalid");
+        nombre.classList.remove("is-invalid");
     }
 
-    if (Number(cantidad.value) <= 0) {
-        cantidad.classList.add("is-invalid");
+    if (precio.value === "" || Number(precio.value) < 0) {
+        precio.classList.add("is-invalid");
         valido = false;
     } else {
-        cantidad.classList.remove("is-invalid");
+        precio.classList.remove("is-invalid");
+    }
+
+    if (stock.value === "" || !Number.isInteger(Number(stock.value)) || Number(stock.value) < 0) {
+        stock.classList.add("is-invalid");
+        valido = false;
+    } else {
+        stock.classList.remove("is-invalid");
+    }
+
+    if (categoria.value === "") {
+        categoria.classList.add("is-invalid");
+        valido = false;
+    } else {
+        categoria.classList.remove("is-invalid");
     }
 
     if (valido) {
@@ -231,8 +258,10 @@ function validarFormulario() {
 <table class="table mt-4">
     <thead>
         <tr>
-            <th>Cliente</th>
-            <th>Cantidad</th>
+            <th>Producto</th>
+            <th>Precio</th>
+            <th>Stock</th>
+            <th>Categoría</th>
         </tr>
     </thead>
     <tbody id="tablaTemporal"></tbody>
@@ -245,8 +274,10 @@ const tablaTemporal = document.querySelector("#tablaTemporal");
 function agregarFilaTemporal() {
     tablaTemporal.innerHTML += `
         <tr>
-            <td>${cliente.value}</td>
-            <td>${cantidad.value}</td>
+            <td>${nombre.value}</td>
+            <td>${precio.value}</td>
+            <td>${stock.value}</td>
+            <td>${categoria.options[categoria.selectedIndex].text}</td>
         </tr>
     `;
 }
@@ -260,9 +291,10 @@ La función puede llamarse cuando `valido` sea verdadero.
 
 | Caso | Entrada | Resultado esperado |
 |---|---|---|
-| Campo vacío | cliente vacío | Mensaje de error |
-| Cantidad inválida | 0 o negativo | Mensaje de error |
-| Datos válidos | cliente y cantidad válida | Confirmación y fila temporal |
+| Nombre vacío | nombre vacío | Mensaje de error |
+| Precio o stock inválido | valor negativo o stock decimal | Mensaje de error |
+| Categoría vacía | no seleccionar categoría | Mensaje de error |
+| Datos válidos | nombre, precio, stock y categoría válidos | Confirmación y fila temporal |
 
 ## 4. Crea: actividad autónoma
 

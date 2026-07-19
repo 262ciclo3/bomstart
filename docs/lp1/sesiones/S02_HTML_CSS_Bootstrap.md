@@ -6,28 +6,28 @@ Tiempo: 20 min.
 
 ### 1.1 Propósito
 
-Construir una interfaz web base con HTML, CSS y Bootstrap, alineada al alcance definido en REQ y a las entidades iniciales modeladas en BD1.
+Ampliar la interfaz de productos construida en S1 mediante HTML, CSS y Bootstrap, incorporando `Categoria` y representando la relación `Categoria 1 : * Producto`.
 
 ### 1.2 Resultado de aprendizaje
 
-El estudiante construye una plantilla web reutilizable, organiza navegación inicial y representa visualmente el dominio del proyecto mediante páginas o secciones coherentes con stakeholders, alcance y datos principales.
+El estudiante construye una plantilla web reutilizable, organiza la navegación de productos y categorías, y muestra que cada producto pertenece a una categoría y que una categoría puede agrupar muchos productos.
 
 ### 1.3 Producto de sesión
 
-Plantilla web base con navegación, layout reutilizable y vistas iniciales del proyecto integrador.
+Plantilla web responsive con navegación y vistas iniciales de productos y categorías; el listado de productos muestra la categoría correspondiente.
 
 ### 1.4 Motivación de la sesión
 
 #### 1.4.1 Caso: del alcance a la primera interfaz
 
-En S1 se creó una página base. En S2 la página deja de ser genérica y empieza a parecerse al sistema real. La navegación debe responder al alcance de REQ y los formularios futuros deben considerar las entidades identificadas por BD1.
+En S1 se recuperó `Producto` del modelo de POO y se representó como recurso web. En S2 el dominio crece con una entidad necesaria para organizar el catálogo: `Categoria`. Este incremento debe verse en el menú, en las vistas y en la asociación mostrada para cada producto.
 
 Preguntas para los estudiantes:
 
 1. ¿Qué opciones debe tener el menú según el alcance?
 2. ¿Qué vista necesita el stakeholder principal?
-3. ¿Qué entidad de BD1 aparecerá primero en pantalla?
-4. ¿Qué datos deberían verse como campos o columnas?
+3. ¿Por qué Categoria debe ser una entidad y no un texto repetido sin control?
+4. ¿Cómo se muestra la categoría a la que pertenece cada producto?
 5. ¿Qué elementos visuales se repetirán en todo el sistema?
 
 ### 1.5 Ubicación en el curso
@@ -35,14 +35,14 @@ Preguntas para los estudiantes:
 - Unidad: U1 - Fundamentos del Desarrollo Web.
 - Producto de unidad: página web interactiva con plantillas y formularios.
 - Producto del curso: Sistema Web MVC Empresarial.
-- Avance del producto en esta sesión: plantilla base, navegación y vistas iniciales alineadas al dominio.
+- Avance del producto en esta sesión: plantilla base, navegación y vistas de `Producto` y la nueva entidad `Categoria`.
 
 Roadmap del producto de la unidad:
 
 ```mermaid
 flowchart TB
-    S1["S1<br/>Arquitectura web<br/>HTTP y estructura"]
-    S2["S2<br/>HTML, CSS y<br/>plantillas Bootstrap"]
+    S1["S1<br/>Producto como<br/>recurso web"]
+    S2["S2<br/>Categoria 1 : * Producto<br/>Bootstrap"]
     S3["S3<br/>JavaScript, DOM<br/>eventos y validación"]
     S4["S4<br/>Formularios e<br/>interacción web"]
     S5["S5<br/>Producto U1"]
@@ -76,11 +76,12 @@ Conceptos de la sesión:
 - Plantilla reutilizable.
 - Navegación inicial.
 - Coherencia visual con el dominio.
+- Representación visual de una relación uno a muchos.
 
 Alcance metodológico de S2:
 
 ```text
-En S2 se construye una plantilla navegable y vistas iniciales.
+En S2 se construye una plantilla navegable para Producto y Categoria.
 No se implementa todavía lógica fuerte de JavaScript ni persistencia.
 
 La interacción con DOM y validaciones se trabaja en S3.
@@ -92,8 +93,9 @@ MVC inicia en S6.
 
 ```mermaid
 flowchart TB
-    A[REQ S02: alcance y stakeholders] --> B[Menú y secciones]
-    C[BD1 S02: entidades y atributos] --> D[Vistas, tablas y campos]
+    A[S1: Producto<br/>nombre, precio, stock] --> B[Vista de productos]
+    C[Nueva entidad: Categoria<br/>nombre, descripción] --> D[Vista de categorías]
+    D -->|1 categoría agrupa muchos| B
     B --> E[Plantilla Bootstrap]
     D --> E
     E --> F[Página web base del proyecto]
@@ -102,20 +104,20 @@ flowchart TB
 
 Lectura del diagrama:
 
-- REQ define qué debe aparecer en la navegación.
-- BD1 sugiere qué datos se mostrarán en tablas o formularios.
-- LP1 convierte esas decisiones en una interfaz inicial.
+- `Producto` mantiene los datos trabajados en POO y representados en S1.
+- `Categoria` se incorpora como nuevo incremento de LP1.
+- La interfaz expresa la asociación, aunque la persistencia se implemente posteriormente.
 
 ### 2.3 Flujo de trabajo
 
-1. Revisar alcance y stakeholder principal de REQ S02.
-2. Revisar entidades del proceso principal y atributos de BD1 S02.
+1. Revisar `Producto` y sus atributos recuperados de POO en S1.
+2. Definir `Categoria` con nombre y descripción y establecer la relación `1 : *` con `Producto`.
 3. Diseñar navegación mínima.
 4. Integrar Bootstrap.
 5. Crear layout base.
 6. Crear una vista de inicio contextualizada.
-7. Crear vistas iniciales para entidades del proceso principal.
-8. Preparar espacio para formulario futuro.
+7. Crear vistas iniciales de categorías y productos.
+8. Preparar un formulario de producto con selección de categoría.
 9. Registrar evidencia de ejecución.
 
 ### 2.4 Errores frecuentes y diagnóstico
@@ -124,9 +126,9 @@ Lectura del diagrama:
 |---|---|---|
 | La interfaz parece genérica | No se usó el dominio del proyecto | Incluir problema, actor y entidades del proceso principal |
 | Menú con demasiadas opciones | No se respetó el alcance de REQ | Mantener solo vistas necesarias para el primer incremento |
-| La tabla no coincide con BD1 | No se revisaron atributos | Usar nombres de atributos del modelo ER inicial |
+| Producto no muestra categoría | La nueva relación no llegó a la interfaz | Agregar la columna y el selector de Categoria |
 | Bootstrap no carga | CDN mal copiado o sin conexión | Verificar enlace y consola del navegador |
-| Todo está en una sola sección | Falta diseño de navegación | Separar inicio, entidades del proceso y consulta inicial |
+| Categoria se guarda como texto libre repetido | No se representó como entidad | Usar una vista de categorías y seleccionar una al mostrar o registrar el producto |
 | Se intenta conectar base de datos | Se adelantó contenido de S6 | En S2 solo se maqueta la interfaz |
 
 ## 3. Aplica: actividad práctica guiada
@@ -141,8 +143,9 @@ Tiempo: 2h.
 |---|---|---|
 | Stakeholder principal | REQ S02 | |
 | Alcance principal | REQ S02 | |
-| Entidad principal | BD1 S02 | |
-| Atributos visibles | BD1 S02 | |
+| `Producto`: nombre, precio y stock | POO / LP1 S1 | |
+| `Categoria`: nombre y descripción | LP1 S2 | |
+| Relación `Categoria 1 : * Producto` | LP1 S2 / validación con BD1 | |
 
 ### 3.2 Integrar Bootstrap
 
@@ -176,8 +179,8 @@ Ejemplo:
         <div class="collapse navbar-collapse" id="menuPrincipal">
             <ul class="navbar-nav ms-auto">
                 <li class="nav-item"><a class="nav-link" href="#inicio">Inicio</a></li>
-                <li class="nav-item"><a class="nav-link" href="#entidad">Entidad principal</a></li>
-                <li class="nav-item"><a class="nav-link" href="#consulta">Consulta</a></li>
+                <li class="nav-item"><a class="nav-link" href="#productos">Productos</a></li>
+                <li class="nav-item"><a class="nav-link" href="#categorias">Categorías</a></li>
             </ul>
         </div>
     </div>
@@ -195,48 +198,62 @@ Ejemplo:
 </section>
 ```
 
-### 3.5 Crear vista de entidades del proceso principal
+### 3.5 Crear las vistas de productos y categorías
 
-**Producto del paso:** tabla o tarjeta basada en BD1.
+**Producto del paso:** representación visible de la relación `Categoria 1 : * Producto`.
 
 ```html
-<section id="entidad" class="container py-4">
-    <h2 class="h4">Entidad principal</h2>
+<section id="productos" class="container py-4">
+    <h2 class="h4">Productos</h2>
     <div class="table-responsive">
         <table class="table table-bordered table-hover align-middle">
             <thead class="table-light">
                 <tr>
-                    <th>Código</th>
                     <th>Nombre</th>
-                    <th>Estado</th>
+                    <th>Precio</th>
+                    <th>Stock</th>
+                    <th>Categoría</th>
                 </tr>
             </thead>
             <tbody>
                 <tr>
-                    <td>E001</td>
-                    <td>Registro de ejemplo</td>
-                    <td>Activo</td>
+                    <td>Teclado mecánico</td>
+                    <td>S/ 120.00</td>
+                    <td>10</td>
+                    <td>Periféricos</td>
                 </tr>
             </tbody>
         </table>
     </div>
 </section>
+
+<section id="categorias" class="container py-4">
+    <h2 class="h4">Categorías</h2>
+    <article class="card card-body">
+        <h3 class="h5">Periféricos</h3>
+        <p class="mb-0">Dispositivos complementarios para computadoras.</p>
+    </article>
+</section>
 ```
 
-### 3.6 Preparar espacio para formulario futuro
+### 3.6 Preparar el formulario de producto con categoría
 
-**Producto del paso:** formulario maqueta para S3-S4.
+**Producto del paso:** formulario maqueta para S3-S4 con selección de una categoría existente.
 
 ```html
-<section id="consulta" class="container py-4">
-    <h2 class="h4">Consulta inicial</h2>
+<section id="nuevo-producto" class="container py-4">
+    <h2 class="h4">Nuevo producto</h2>
     <form class="row g-3">
-        <div class="col-md-8">
-            <label class="form-label">Buscar</label>
-            <input type="text" class="form-control" placeholder="Ingrese texto de búsqueda">
+        <div class="col-md-6">
+            <label class="form-label" for="nombreProducto">Nombre</label>
+            <input id="nombreProducto" type="text" class="form-control">
         </div>
-        <div class="col-md-4 d-flex align-items-end">
-            <button class="btn btn-primary w-100" type="button">Buscar</button>
+        <div class="col-md-6">
+            <label class="form-label" for="categoriaProducto">Categoría</label>
+            <select id="categoriaProducto" class="form-select">
+                <option value="">Seleccione</option>
+                <option>Periféricos</option>
+            </select>
         </div>
     </form>
 </section>
@@ -249,8 +266,9 @@ Ejemplo:
 | Pregunta | Respuesta |
 |---|---|
 | ¿El menú respeta el alcance de REQ? | |
-| ¿Las entidades del proceso principal aparecen en una vista? | |
-| ¿Los campos visibles vienen de BD1? | |
+| ¿Producto conserva nombre, precio y stock del modelo de POO? | |
+| ¿Categoria tiene una vista propia? | |
+| ¿Cada producto muestra o selecciona una categoría? | |
 | ¿La página puede evolucionar a formulario en S3-S4? | |
 
 ## 4. Crea: actividad autónoma
@@ -282,10 +300,10 @@ Completa y evidencia estas tareas:
 1. Integrar Bootstrap en el proyecto.
 2. Crear navegación inicial según alcance de REQ.
 3. Crear vista de inicio contextualizada.
-4. Crear vistas de entidades del proceso principal usando atributos de BD1.
-5. Preparar una maqueta de búsqueda o formulario inicial.
+4. Crear vistas de `Producto` y `Categoria`.
+5. Mostrar la categoría de cada producto y preparar un selector de categoría.
 6. Revisar responsividad básica.
-7. Explicar cómo la interfaz usa REQ y BD1.
+7. Explicar la continuidad POO–LP1 y cómo BD1 formalizará la relación para su persistencia posterior.
 
 #### 4.1.3 Evidencia técnica
 
@@ -307,7 +325,7 @@ Describe un problema visual o técnico: Bootstrap no cargaba, menú no respondí
 Responde en 5 a 8 líneas:
 
 ```text
-¿Por qué la interfaz inicial debe respetar el alcance de REQ y el modelo de datos de BD1?
+¿Cómo demuestra la interfaz que LP1 continúa Producto desde POO y agrega Categoria sin adelantar persistencia?
 ```
 
 ### 4.2 Criterios mínimos de aceptación
@@ -318,7 +336,8 @@ La evidencia individual se considera completa si:
 - Integra Bootstrap correctamente.
 - Incluye navegación inicial.
 - La interfaz refleja el dominio del proyecto.
-- La vista de entidad usa datos de BD1.
+- La vista de Producto conserva nombre, precio y stock.
+- Existe una vista de Categoria y cada producto muestra o selecciona una categoría.
 - Incluye maqueta de consulta o formulario.
 - Explica integración con REQ y BD1.
 - Cada evidencia tiene una descripción breve.
@@ -334,7 +353,7 @@ Al finalizar la sesión, el estudiante debe demostrar que:
 - Usa HTML semántico y Bootstrap básico.
 - Construye una navegación inicial.
 - Organiza una plantilla reutilizable.
-- Representa entidades del proceso principal en vistas iniciales.
+- Representa `Producto`, `Categoria` y su relación uno a muchos en vistas iniciales.
 - Relaciona campos visibles con atributos de BD1.
 - Explica cómo la interfaz responde al alcance de REQ.
 
@@ -351,8 +370,8 @@ S02_LP1_Equipo##_ApellidoNombre.pdf
 ### 5.3 Preguntas de defensa y reflexión
 
 1. ¿Qué opción del menú responde directamente al alcance de REQ?
-2. ¿Qué entidad de BD1 aparece en tu interfaz?
-3. ¿Qué atributos de BD1 se muestran como campos o columnas?
+2. ¿Qué atributos de Producto provienen del trabajo realizado en POO?
+3. ¿Cómo se representa que una categoría agrupa muchos productos?
 4. ¿Qué parte de la plantilla será reutilizable?
 5. ¿Qué se debe mejorar en S3 con JavaScript?
 6. ¿Qué pantalla no incluiste porque está fuera del alcance?
@@ -364,7 +383,7 @@ S02_LP1_Equipo##_ApellidoNombre.pdf
 | 1. Estructura HTML | 2 | Usa estructura semántica clara, ordenada y contextualizada. | Presenta estructura funcional. | Estructura parcial o desordenada. | No presenta HTML funcional. | |
 | 2. Bootstrap y diseño | 2 | Integra Bootstrap y logra una interfaz limpia y responsiva. | Usa Bootstrap de forma funcional. | Uso limitado o con errores visuales. | No integra Bootstrap. | |
 | 3. Navegación y plantilla | 2 | Menú y layout responden al alcance y son reutilizables. | Presenta navegación funcional. | Navegación incompleta o poco alineada. | No presenta navegación. | |
-| 4. Integración REQ-BD1 | 2 | Vistas y campos reflejan alcance, entidad y atributos correctamente. | Relación general con REQ y BD1. | Relación parcial o poco clara. | No evidencia integración. | |
+| 4. Continuidad del dominio | 2 | Producto conserva el modelo de POO y la interfaz representa claramente `Categoria 1 : * Producto`. | Presenta productos, categorías y su asociación. | La relación es parcial o poco clara. | No evidencia continuidad ni relación. | |
 | 5. Hallazgo técnico | 1 | Analiza problema visual/técnico y explica solución. | Presenta problema y solución. | Menciona problema sin análisis. | No presenta hallazgo. | |
 | 6. Orden y reflexión | 1 | Evidencia ordenada, legible y reflexión técnica clara. | Evidencia suficiente y reflexión comprensible. | Evidencia incompleta o reflexión superficial. | Evidencia desordenada o sin reflexión. | |
 

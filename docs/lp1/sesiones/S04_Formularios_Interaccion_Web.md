@@ -22,6 +22,8 @@ Página web interactiva integrada con formularios, validaciones, mensajes y list
 
 En S2 se creó la interfaz base y en S3 se agregaron eventos y validaciones. En S4 se consolida una versión interactiva del flujo priorizado: el usuario llena datos, el sistema valida, muestra mensajes y actualiza una vista temporal.
 
+Para mantener la continuidad, el proceso utiliza productos ya asociados a categorías; no vuelve a capturar la categoría como texto libre.
+
 Preguntas para los estudiantes:
 
 1. ¿Qué prototipo de REQ se implementará en HTML?
@@ -159,7 +161,15 @@ Tiempo: 2h.
     </div>
     <div class="col-md-3">
         <label class="form-label">Producto</label>
-        <input id="producto" class="form-control" type="text">
+        <select id="producto" class="form-select">
+            <option value="">Seleccione</option>
+            <option value="Pack escolar" data-categoria="Útiles">Pack escolar</option>
+            <option value="Mochila urbana" data-categoria="Accesorios">Mochila urbana</option>
+        </select>
+    </div>
+    <div class="col-md-3">
+        <label class="form-label">Categoría</label>
+        <input id="categoria" class="form-control" type="text" readonly>
     </div>
     <div class="col-md-3">
         <label class="form-label">Cantidad</label>
@@ -189,13 +199,19 @@ const registros = [];
 const formRegistro = document.querySelector("#formRegistro");
 const cliente = document.querySelector("#cliente");
 const producto = document.querySelector("#producto");
+const categoria = document.querySelector("#categoria");
 const cantidad = document.querySelector("#cantidad");
 const mensaje = document.querySelector("#mensaje");
+
+producto.addEventListener("change", function () {
+    const opcion = producto.options[producto.selectedIndex];
+    categoria.value = opcion.dataset.categoria || "";
+});
 
 formRegistro.addEventListener("submit", function (event) {
     event.preventDefault();
 
-    if (cliente.value.trim() === "" || producto.value.trim() === "" || Number(cantidad.value) <= 0) {
+    if (cliente.value.trim() === "" || producto.value === "" || categoria.value === "" || Number(cantidad.value) <= 0) {
         mensaje.innerHTML = `<div class="alert alert-danger">Complete los datos correctamente.</div>`;
         return;
     }
@@ -203,12 +219,14 @@ formRegistro.addEventListener("submit", function (event) {
     const registro = {
         cliente: cliente.value.trim(),
         producto: producto.value.trim(),
+        categoria: categoria.value,
         cantidad: Number(cantidad.value)
     };
 
     registros.push(registro);
     renderizarRegistros();
     formRegistro.reset();
+    categoria.value = "";
     mensaje.innerHTML = `<div class="alert alert-success">Registro agregado temporalmente.</div>`;
 });
 ```
@@ -223,6 +241,7 @@ formRegistro.addEventListener("submit", function (event) {
         <tr>
             <th>Cliente</th>
             <th>Producto</th>
+            <th>Categoría</th>
             <th>Cantidad</th>
         </tr>
     </thead>
@@ -241,6 +260,7 @@ function renderizarRegistros() {
             <tr>
                 <td>${registro.cliente}</td>
                 <td>${registro.producto}</td>
+                <td>${registro.categoria}</td>
                 <td>${registro.cantidad}</td>
             </tr>
         `;

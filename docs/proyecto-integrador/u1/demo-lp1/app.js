@@ -7,6 +7,8 @@ const pedidosBody = document.querySelector("#pedidosBody");
 const totalPedidos = document.querySelector("#totalPedidos");
 const totalUnidades = document.querySelector("#totalUnidades");
 const totalUrgentes = document.querySelector("#totalUrgentes");
+const productoSelect = document.querySelector("#producto");
+const categoriaInput = document.querySelector("#categoria");
 
 function mostrarMensaje(texto, tipo) {
   mensaje.textContent = texto;
@@ -17,6 +19,7 @@ function obtenerPedido() {
   return {
     cliente: document.querySelector("#cliente").value.trim(),
     producto: document.querySelector("#producto").value.trim(),
+    categoria: document.querySelector("#categoria").value,
     cantidad: Number(document.querySelector("#cantidad").value),
     fecha: document.querySelector("#fecha").value,
     prioridad: document.querySelector("#prioridad").value
@@ -24,8 +27,8 @@ function obtenerPedido() {
 }
 
 function validarPedido(pedido) {
-  if (!pedido.cliente || !pedido.producto || !pedido.fecha) {
-    return "Completa cliente, producto y fecha de entrega.";
+  if (!pedido.cliente || !pedido.producto || !pedido.categoria || !pedido.fecha) {
+    return "Completa cliente, producto, categoría y fecha de entrega.";
   }
 
   if (!Number.isInteger(pedido.cantidad) || pedido.cantidad <= 0) {
@@ -37,7 +40,7 @@ function validarPedido(pedido) {
 
 function renderPedidos() {
   if (pedidos.length === 0) {
-    pedidosBody.innerHTML = '<tr><td colspan="6" class="empty">Aun no hay pedidos registrados.</td></tr>';
+    pedidosBody.innerHTML = '<tr><td colspan="7" class="empty">Aun no hay pedidos registrados.</td></tr>';
     return;
   }
 
@@ -46,6 +49,7 @@ function renderPedidos() {
       <td>${index + 1}</td>
       <td>${pedido.cliente}</td>
       <td>${pedido.producto}</td>
+      <td>${pedido.categoria}</td>
       <td>${pedido.cantidad}</td>
       <td>${pedido.fecha}</td>
       <td><span class="badge ${pedido.prioridad}">${pedido.prioridad}</span></td>
@@ -82,5 +86,11 @@ form.addEventListener("submit", (event) => {
 
 limpiarBtn.addEventListener("click", () => {
   form.reset();
+  categoriaInput.value = "";
   mostrarMensaje("", "");
+});
+
+productoSelect.addEventListener("change", () => {
+  const opcion = productoSelect.options[productoSelect.selectedIndex];
+  categoriaInput.value = opcion.dataset.categoria || "";
 });
