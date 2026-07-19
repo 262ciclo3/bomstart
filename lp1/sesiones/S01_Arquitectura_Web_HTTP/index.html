@@ -3248,10 +3248,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#36-relacionar-la-pagina-con-req-y-bd1" class="md-nav__link">
+  <a href="#36-relacionar-la-pagina-con-poo-req-y-bd1" class="md-nav__link">
     <span class="md-ellipsis">
       
-        3.6 Relacionar la página con REQ y BD1
+        3.6 Relacionar la página con POO, REQ y BD1
       
     </span>
   </a>
@@ -4026,33 +4026,33 @@
 <h2 id="1-introduccion">1. Introducción<a class="headerlink" href="#1-introduccion" title="Permanent link">&para;</a></h2>
 <p>Tiempo: 20 min.</p>
 <h3 id="11-proposito">1.1 Propósito<a class="headerlink" href="#11-proposito" title="Permanent link">&para;</a></h3>
-<p>Comprender cómo funciona una aplicación web cliente-servidor, reconocer el rol de HTTP y crear la estructura inicial del proyecto web que evolucionará hacia un Sistema Web MVC Empresarial.</p>
+<p>Comprender cómo funciona una aplicación web cliente-servidor, reconocer el rol de HTTP y crear la estructura inicial del proyecto web tomando <code>Producto</code> como continuidad directa del modelo desarrollado en POO.</p>
 <h3 id="12-resultado-de-aprendizaje">1.2 Resultado de aprendizaje<a class="headerlink" href="#12-resultado-de-aprendizaje" title="Permanent link">&para;</a></h3>
-<p>El estudiante explica el flujo básico de una solicitud web, diferencia cliente y servidor, reconoce recursos web iniciales y prepara la estructura base del proyecto que será usado durante el curso.</p>
+<p>El estudiante explica el flujo básico de una solicitud web, diferencia cliente y servidor y representa <code>Producto</code> (<code>nombre</code>, <code>precio</code> y <code>stock</code>) como primer recurso del proyecto que será usado durante el curso.</p>
 <h3 id="13-producto-de-sesion">1.3 Producto de sesión<a class="headerlink" href="#13-producto-de-sesion" title="Permanent link">&para;</a></h3>
-<p>Estructura inicial de la aplicación web y descripción del flujo cliente-servidor mediante una página base ejecutable.</p>
+<p>Proyecto web inicial con una página ejecutable de productos y una descripción del flujo cliente-servidor asociado al recurso <code>Producto</code>.</p>
 <h3 id="14-motivacion-de-la-sesion">1.4 Motivación de la sesión<a class="headerlink" href="#14-motivacion-de-la-sesion" title="Permanent link">&para;</a></h3>
 <h4 id="141-caso-primera-version-visible-del-sistema">1.4.1 Caso: primera versión visible del sistema<a class="headerlink" href="#141-caso-primera-version-visible-del-sistema" title="Permanent link">&para;</a></h4>
-<p>El equipo ya empieza a definir un problema desde REQ y datos iniciales desde BD1. LP1 debe convertir ese dominio en una experiencia web progresiva: primero una página base, luego formularios, después MVC, persistencia, seguridad y consultas.</p>
+<p>El estudiante no empieza el dominio desde cero: en POO ya modeló <code>Venta</code>, <code>DetalleVenta</code>, <code>Producto</code> y <code>Usuario</code>. LP1 cambia el canal de interacción, no el objeto de negocio. En S1, <code>Producto</code> pasa a ser el primer recurso visible de la aplicación web; después se agregarán interfaz, interacción, MVC, persistencia, seguridad y consultas.</p>
 <p>Preguntas para los estudiantes:</p>
 <ol>
 <li>¿Qué ve el usuario cuando entra al sistema?</li>
 <li>¿Qué información debe solicitar el navegador?</li>
 <li>¿Qué responde el servidor?</li>
 <li>¿Qué recurso es HTML, CSS o JavaScript?</li>
-<li>¿Cómo se relaciona esta página inicial con el proyecto integrador?</li>
+<li>¿Qué se conserva del objeto <code>Producto</code> construido en POO al representarlo en la web?</li>
 </ol>
 <h3 id="15-ubicacion-en-el-curso">1.5 Ubicación en el curso<a class="headerlink" href="#15-ubicacion-en-el-curso" title="Permanent link">&para;</a></h3>
 <ul>
 <li>Unidad: U1 - Fundamentos del Desarrollo Web.</li>
 <li>Producto de unidad: página web interactiva con plantillas y formularios.</li>
 <li>Producto del curso: Sistema Web MVC Empresarial.</li>
-<li>Avance del producto en esta sesión: estructura inicial del proyecto web y primera página base.</li>
+<li>Avance del producto en esta sesión: estructura inicial del proyecto web y primera representación de <code>Producto</code>.</li>
 </ul>
 <p>Roadmap del producto de la unidad:</p>
 <pre class="mermaid"><code>flowchart TB
-    S1["S1&lt;br/&gt;Arquitectura web&lt;br/&gt;HTTP y estructura"]
-    S2["S2&lt;br/&gt;HTML, CSS y&lt;br/&gt;plantillas Bootstrap"]
+    S1["S1&lt;br/&gt;Producto como&lt;br/&gt;recurso web"]
+    S2["S2&lt;br/&gt;Nueva Categoria&lt;br/&gt;e interfaz Bootstrap"]
     S3["S3&lt;br/&gt;JavaScript, DOM&lt;br/&gt;eventos y validación"]
     S4["S4&lt;br/&gt;Formularios e&lt;br/&gt;interacción web"]
     S5["S5&lt;br/&gt;Producto U1"]
@@ -4080,20 +4080,22 @@
 <li>Estructura de proyecto web.</li>
 <li>Página inicial.</li>
 <li>Relación entre interfaz, datos y requerimientos.</li>
+<li>Continuidad de un objeto de dominio entre una aplicación orientada a objetos y una aplicación web.</li>
 </ul>
 <p>Alcance metodológico de S1:</p>
-<div class="highlight"><pre><span></span><code>En S1 no se construye todavía una aplicación MVC completa.
-Se entiende el flujo web y se crea una estructura base.
+<div class="highlight"><pre><span></span><code>En S1 no se rediseña el dominio ni se construye todavía una aplicación MVC.
+Se entiende el flujo web y se representa Producto en una estructura base.
 
 Las plantillas visuales se fortalecen en S2, la interacción con
 JavaScript en S3, los formularios en S4 y MVC inicia en S6.
 </code></pre></div>
 <h3 id="22-arquitectura-de-la-sesion">2.2 Arquitectura de la sesión<a class="headerlink" href="#22-arquitectura-de-la-sesion" title="Permanent link">&para;</a></h3>
 <pre class="mermaid"><code>flowchart TB
-    A[Navegador] --&gt;|Solicitud HTTP| B[Servidor]
+    P[POO: Producto&lt;br/&gt;nombre, precio, stock] --&gt; C[Página de productos]
+    A[Navegador] --&gt;|Solicitud HTTP: GET /productos| B[Servidor]
     B --&gt;|Respuesta HTML/CSS/JS| A
-    A --&gt; C[Página inicial]
-    C --&gt; D[Formulario futuro]
+    A --&gt; C
+    C --&gt; D[S2: Categoria y plantilla]
     D --&gt; E[MVC desde S6]
     E --&gt; F[Base de datos de BD1]
     G[Requerimientos de REQ] --&gt; C
@@ -4102,15 +4104,16 @@ JavaScript en S3, los formularios en S4 y MVC inicia en S6.
 <ul>
 <li>El navegador representa el cliente.</li>
 <li>El servidor entrega recursos.</li>
-<li>La página inicial debe estar conectada con el dominio del proyecto.</li>
+<li>La página inicial representa <code>Producto</code>, ya conocido por el estudiante desde POO.</li>
+<li>La ruta <code>/productos</code> se usa para razonar sobre HTTP; no exige todavía un controlador MVC ni persistencia.</li>
 <li>En S6 esta base crecerá hacia MVC.</li>
 </ul>
 <h3 id="23-flujo-de-trabajo">2.3 Flujo de trabajo<a class="headerlink" href="#23-flujo-de-trabajo" title="Permanent link">&para;</a></h3>
 <ol>
-<li>Identificar el dominio del equipo.</li>
+<li>Recuperar la clase <code>Producto</code> desarrollada en POO y sus atributos <code>nombre</code>, <code>precio</code> y <code>stock</code>.</li>
 <li>Crear la carpeta del proyecto web.</li>
 <li>Crear estructura inicial de archivos.</li>
-<li>Crear una página <code>index.html</code>.</li>
+<li>Crear una página <code>index.html</code> que represente una consulta de productos.</li>
 <li>Agregar una hoja de estilos.</li>
 <li>Agregar un archivo JavaScript básico.</li>
 <li>Abrir la página en el navegador.</li>
@@ -4143,9 +4146,9 @@ JavaScript en S3, los formularios en S4 y MVC inicia en S6.
 <td>Revisar <code>src</code> y consola del navegador</td>
 </tr>
 <tr>
-<td>La página no tiene relación con el proyecto</td>
-<td>Se hizo una página genérica</td>
-<td>Usar el dominio definido por el equipo</td>
+<td>La página no conserva el trabajo de POO</td>
+<td>Se creó otra entidad sin necesidad</td>
+<td>Recuperar <code>Producto</code> y sus atributos <code>nombre</code>, <code>precio</code> y <code>stock</code></td>
 </tr>
 <tr>
 <td>No se entiende cliente-servidor</td>
@@ -4185,14 +4188,18 @@ JavaScript en S3, los formularios en S4 y MVC inicia en S6.
 <span class="p">&lt;/</span><span class="nt">head</span><span class="p">&gt;</span>
 <span class="p">&lt;</span><span class="nt">body</span><span class="p">&gt;</span>
     <span class="p">&lt;</span><span class="nt">header</span><span class="p">&gt;</span>
-        <span class="p">&lt;</span><span class="nt">h1</span><span class="p">&gt;</span>Sistema Web MVC Empresarial<span class="p">&lt;/</span><span class="nt">h1</span><span class="p">&gt;</span>
-        <span class="p">&lt;</span><span class="nt">p</span><span class="p">&gt;</span>Dominio del proyecto: completar según el equipo.<span class="p">&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
+        <span class="p">&lt;</span><span class="nt">h1</span><span class="p">&gt;</span>Productos<span class="p">&lt;/</span><span class="nt">h1</span><span class="p">&gt;</span>
+        <span class="p">&lt;</span><span class="nt">p</span><span class="p">&gt;</span>Primer recurso web recuperado del modelo desarrollado en POO.<span class="p">&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
     <span class="p">&lt;/</span><span class="nt">header</span><span class="p">&gt;</span>
 
     <span class="p">&lt;</span><span class="nt">main</span><span class="p">&gt;</span>
         <span class="p">&lt;</span><span class="nt">section</span><span class="p">&gt;</span>
-            <span class="p">&lt;</span><span class="nt">h2</span><span class="p">&gt;</span>Problema inicial<span class="p">&lt;/</span><span class="nt">h2</span><span class="p">&gt;</span>
-            <span class="p">&lt;</span><span class="nt">p</span><span class="p">&gt;</span>Resumen breve del problema definido en REQ.<span class="p">&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
+            <span class="p">&lt;</span><span class="nt">h2</span><span class="p">&gt;</span>Listado inicial<span class="p">&lt;/</span><span class="nt">h2</span><span class="p">&gt;</span>
+            <span class="p">&lt;</span><span class="nt">article</span><span class="p">&gt;</span>
+                <span class="p">&lt;</span><span class="nt">h3</span><span class="p">&gt;</span>Teclado mecánico<span class="p">&lt;/</span><span class="nt">h3</span><span class="p">&gt;</span>
+                <span class="p">&lt;</span><span class="nt">p</span><span class="p">&gt;</span>Precio: S/ 120.00<span class="p">&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
+                <span class="p">&lt;</span><span class="nt">p</span><span class="p">&gt;</span>Stock: 10<span class="p">&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
+            <span class="p">&lt;/</span><span class="nt">article</span><span class="p">&gt;</span>
         <span class="p">&lt;/</span><span class="nt">section</span><span class="p">&gt;</span>
     <span class="p">&lt;/</span><span class="nt">main</span><span class="p">&gt;</span>
 
@@ -4219,7 +4226,7 @@ JavaScript en S3, los formularios en S4 y MVC inicia en S6.
 <h3 id="34-agregar-javascript-basico">3.4 Agregar JavaScript básico<a class="headerlink" href="#34-agregar-javascript-basico" title="Permanent link">&para;</a></h3>
 <p><strong>Producto del paso:</strong> archivo <code>app.js</code> conectado.</p>
 <p>Archivo <code>js/app.js</code>:</p>
-<div class="highlight"><pre><span></span><code><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;Proyecto LP1 iniciado&quot;</span><span class="p">);</span>
+<div class="highlight"><pre><span></span><code><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;Recurso Producto cargado&quot;</span><span class="p">);</span>
 </code></pre></div>
 <h3 id="35-verificar-recursos-en-el-navegador">3.5 Verificar recursos en el navegador<a class="headerlink" href="#35-verificar-recursos-en-el-navegador" title="Permanent link">&para;</a></h3>
 <p><strong>Producto del paso:</strong> evidencia del flujo web.</p>
@@ -4230,7 +4237,7 @@ JavaScript en S3, los formularios en S4 y MVC inicia en S6.
 <li>Identificar <code>index.html</code>, <code>styles.css</code> y <code>app.js</code>.</li>
 <li>Explicar qué solicitó el navegador y qué recurso recibió.</li>
 </ol>
-<h3 id="36-relacionar-la-pagina-con-req-y-bd1">3.6 Relacionar la página con REQ y BD1<a class="headerlink" href="#36-relacionar-la-pagina-con-req-y-bd1" title="Permanent link">&para;</a></h3>
+<h3 id="36-relacionar-la-pagina-con-poo-req-y-bd1">3.6 Relacionar la página con POO, REQ y BD1<a class="headerlink" href="#36-relacionar-la-pagina-con-poo-req-y-bd1" title="Permanent link">&para;</a></h3>
 <p><strong>Producto del paso:</strong> página contextualizada.</p>
 <table>
 <thead>
@@ -4241,20 +4248,24 @@ JavaScript en S3, los formularios en S4 y MVC inicia en S6.
 </thead>
 <tbody>
 <tr>
-<td>Nombre del proyecto</td>
-<td>Equipo</td>
+<td><code>Producto</code>, <code>nombre</code>, <code>precio</code> y <code>stock</code></td>
+<td>POO</td>
 </tr>
 <tr>
 <td>Problema inicial</td>
 <td>REQ</td>
 </tr>
 <tr>
-<td>Datos visibles</td>
+<td>Definición de datos que se persistirán después</td>
 <td>BD1</td>
 </tr>
 <tr>
-<td>Módulo futuro</td>
-<td>LP1</td>
+<td>Representación como recurso web</td>
+<td>LP1 S1</td>
+</tr>
+<tr>
+<td>Nueva entidad <code>Categoria</code></td>
+<td>LP1 S2</td>
 </tr>
 </tbody>
 </table>
@@ -4266,6 +4277,8 @@ JavaScript en S3, los formularios en S4 y MVC inicia en S6.
 <li>Existe carpeta <code>css</code>.</li>
 <li>Existe carpeta <code>js</code>.</li>
 <li>La página tiene relación con el dominio.</li>
+<li>La página muestra productos con nombre, precio y stock.</li>
+<li>Se ha reservado la incorporación de Categoria para S2.</li>
 <li>Se registró evidencia de ejecución.</li>
 <li>Se explicó el flujo cliente-servidor.</li>
 </ul>
@@ -4291,9 +4304,9 @@ JavaScript en S3, los formularios en S4 y MVC inicia en S6.
 <li>Implementar <code>index.html</code>.</li>
 <li>Implementar <code>css/styles.css</code>.</li>
 <li>Implementar <code>js/app.js</code>.</li>
-<li>Personalizar la página con el dominio del equipo.</li>
+<li>Representar <code>Producto</code> con nombre, precio y stock, conservando el modelo de POO.</li>
 <li>Verificar recursos desde el navegador.</li>
-<li>Explicar el flujo cliente-servidor.</li>
+<li>Explicar el flujo cliente-servidor de una solicitud conceptual <code>GET /productos</code>.</li>
 </ol>
 <h4 id="413-evidencia-tecnica">4.1.3 Evidencia técnica<a class="headerlink" href="#413-evidencia-tecnica" title="Permanent link">&para;</a></h4>
 <p>Incluye:</p>
@@ -4309,7 +4322,7 @@ JavaScript en S3, los formularios en S4 y MVC inicia en S6.
 <p>Describe al menos un error o hallazgo: qué recurso no cargaba o qué problema apareció, cómo lo diagnosticaste, cómo lo corregiste y qué aprendiste sobre rutas, navegador o recursos web.</p>
 <h4 id="415-reflexion-tecnica-breve">4.1.5 Reflexión técnica breve<a class="headerlink" href="#415-reflexion-tecnica-breve" title="Permanent link">&para;</a></h4>
 <p>Responde en 5 a 8 líneas:</p>
-<div class="highlight"><pre><span></span><code>¿Por qué una aplicación web necesita separar estructura, estilo y comportamiento?
+<div class="highlight"><pre><span></span><code>¿Qué cambia y qué se conserva cuando el objeto Producto desarrollado en POO se representa como recurso web?
 </code></pre></div>
 <h3 id="42-criterios-minimos-de-aceptacion">4.2 Criterios mínimos de aceptación<a class="headerlink" href="#42-criterios-minimos-de-aceptacion" title="Permanent link">&para;</a></h3>
 <p>La evidencia individual se considera completa si:</p>
@@ -4317,7 +4330,7 @@ JavaScript en S3, los formularios en S4 y MVC inicia en S6.
 <li>El archivo respeta el nombre solicitado.</li>
 <li>Incluye estructura de carpetas.</li>
 <li><code>index.html</code>, <code>styles.css</code> y <code>app.js</code> están conectados.</li>
-<li>La página se relaciona con el dominio del proyecto.</li>
+<li>La página recupera <code>Producto</code> y sus atributos del trabajo de POO.</li>
 <li>Se evidencia ejecución en navegador.</li>
 <li>Se explica el flujo cliente-servidor.</li>
 <li>Incluye error o hallazgo técnico.</li>
@@ -4333,7 +4346,7 @@ JavaScript en S3, los formularios en S4 y MVC inicia en S6.
 <li>Reconoce recursos HTML, CSS y JavaScript.</li>
 <li>Crea una estructura inicial de proyecto web.</li>
 <li>Ejecuta una página base en navegador.</li>
-<li>Relaciona la página inicial con REQ y BD1.</li>
+<li>Explica la continuidad de <code>Producto</code> desde POO hacia LP1 y su relación posterior con REQ y BD1.</li>
 </ul>
 <h3 id="52-evidencia-del-producto-de-sesion">5.2 Evidencia del producto de sesión<a class="headerlink" href="#52-evidencia-del-producto-de-sesion" title="Permanent link">&para;</a></h3>
 <p>Cada estudiante entrega un PDF individual siguiendo la plantilla de la sección 4.1.</p>
@@ -4346,8 +4359,8 @@ JavaScript en S3, los formularios en S4 y MVC inicia en S6.
 <li>¿Qué recurso solicita primero el navegador?</li>
 <li>¿Para qué sirve HTTP?</li>
 <li>¿Qué hace HTML, qué hace CSS y qué hace JavaScript?</li>
-<li>¿Cómo se relaciona tu página con el problema definido en REQ?</li>
-<li>¿Qué datos de BD1 podrían aparecer luego en un formulario?</li>
+<li>¿Por qué <code>Producto</code> es continuidad del curso de POO y no una entidad nueva de LP1?</li>
+<li>¿Por qué Categoria se incorpora en S2 y no en esta sesión?</li>
 </ol>
 <h3 id="54-rubrica-de-evaluacion">5.4 Rúbrica de evaluación<a class="headerlink" href="#54-rubrica-de-evaluacion" title="Permanent link">&para;</a></h3>
 <table>
@@ -4382,12 +4395,12 @@ JavaScript en S3, los formularios en S4 y MVC inicia en S6.
 <td style="text-align: right;"></td>
 </tr>
 <tr>
-<td>3. Página base</td>
+<td>3. Producto como recurso web</td>
 <td style="text-align: right;">2</td>
-<td>Página ejecutable, contextualizada y conectada con CSS y JS.</td>
-<td>Página ejecutable con recursos principales.</td>
-<td>Página incompleta o poco contextualizada.</td>
-<td>No ejecuta una página funcional.</td>
+<td>Página ejecutable que representa con claridad nombre, precio y stock y conserva el modelo de POO.</td>
+<td>Página ejecutable de productos con sus datos principales.</td>
+<td>Representación incompleta o poco conectada con POO.</td>
+<td>No representa Producto.</td>
 <td style="text-align: right;"></td>
 </tr>
 <tr>

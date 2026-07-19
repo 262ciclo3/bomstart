@@ -686,6 +686,17 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#incremento-inicial-de-lp1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Incremento inicial de LP1
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#demo-ejecutable" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -3694,7 +3705,30 @@
 <h1 id="lp1-producto-de-unidad-1">LP1 - Producto de Unidad 1<a class="headerlink" href="#lp1-producto-de-unidad-1" title="Permanent link">&para;</a></h1>
 <h2 id="producto">Producto<a class="headerlink" href="#producto" title="Permanent link">&para;</a></h2>
 <p><strong>Pagina web interactiva con plantillas, formulario, JavaScript, DOM, eventos y validaciones.</strong></p>
-<p>La demo implementa el primer flujo definido por REQ y usa los campos derivados del modelo logico de BD1. Todavia no utiliza base de datos ni arquitectura MVC; eso corresponde a la Unidad 2.</p>
+<p>La demo implementa el primer flujo definido por REQ y usa los campos derivados del modelo lógico de BD1. Como continuidad de POO, parte de <code>Producto</code> (<code>nombre</code>, <code>precio</code> y <code>stock</code>) e incorpora <code>Categoria</code> como nuevo incremento de LP1. Todavía no utiliza base de datos ni arquitectura MVC; eso corresponde a la Unidad 2.</p>
+<h2 id="incremento-inicial-de-lp1">Incremento inicial de LP1<a class="headerlink" href="#incremento-inicial-de-lp1" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Sesión</th>
+<th>Incremento del dominio</th>
+<th>Evidencia web</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>S1</td>
+<td>Se recupera <code>Producto</code> del modelo desarrollado en POO.</td>
+<td>Estructura del proyecto y representación inicial del recurso Producto.</td>
+</tr>
+<tr>
+<td>S2</td>
+<td>Se agrega <code>Categoria</code> y la relación <code>Categoria 1 : * Producto</code>.</td>
+<td>Navegación y vistas responsive de categorías y productos; cada producto muestra su categoría.</td>
+</tr>
+</tbody>
+</table>
+<p>En estas sesiones la relación se representa con HTML, CSS y Bootstrap. La persistencia, los controladores y el acceso a datos se incorporan en U2.</p>
 <h2 id="demo-ejecutable">Demo ejecutable<a class="headerlink" href="#demo-ejecutable" title="Permanent link">&para;</a></h2>
 <p><a href="../demo-lp1/">Abrir demo LP1 U1</a></p>
 <p>Antes de implementar, el flujo y el esbozo de pantalla se validan en <a href="../prototipos-u1/">Prototipos U1</a>.</p>
@@ -3702,7 +3736,9 @@
 <ul>
 <li>Estructura HTML semantica.</li>
 <li>Estilos CSS separados.</li>
+<li>Catálogo de productos con nombre, precio, stock y categoría.</li>
 <li>Formulario del proceso principal.</li>
+<li>Selección de una categoría existente para el producto.</li>
 <li>Validaciones del lado cliente.</li>
 <li>Manejo de eventos con JavaScript.</li>
 <li>Registro temporal de pedidos en memoria del navegador.</li>
@@ -3723,6 +3759,11 @@
 <td>Formulario de pedido</td>
 <td>RF-01</td>
 <td>pedido, cliente, producto, detalle_pedido</td>
+</tr>
+<tr>
+<td>Selector de categoría</td>
+<td>Continuidad LP1 S02</td>
+<td>categoria y producto.id_categoria</td>
 </tr>
 <tr>
 <td>Validacion de campos obligatorios</td>
@@ -3749,7 +3790,7 @@
 <h2 id="criterio-de-aceptacion-de-la-demo">Criterio de aceptacion de la demo<a class="headerlink" href="#criterio-de-aceptacion-de-la-demo" title="Permanent link">&para;</a></h2>
 <p>La demo cumple el corte U1 si:</p>
 <ul>
-<li>Registra pedidos validos sin recargar la pagina.</li>
+<li>Registra pedidos válidos con producto y categoría sin recargar la página.</li>
 <li>Bloquea datos incompletos o cantidad invalida.</li>
 <li>Muestra mensajes claros al usuario.</li>
 <li>Actualiza la tabla y el resumen.</li>
@@ -3769,6 +3810,11 @@
 <td>Pedido valido</td>
 <td>Completar todos los campos con cantidad mayor que cero y registrar.</td>
 <td>Se agrega una fila a la tabla, se limpian los campos y se actualiza el resumen.</td>
+</tr>
+<tr>
+<td>Categoria vacía</td>
+<td>No seleccionar categoría y registrar.</td>
+<td>Se muestra un mensaje de validación y no se registra el pedido.</td>
 </tr>
 <tr>
 <td>Cliente vacio</td>

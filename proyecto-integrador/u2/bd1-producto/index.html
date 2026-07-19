@@ -3723,6 +3723,7 @@
     CLIENTE ||--o{ PEDIDO : realiza
     PEDIDO ||--|{ DETALLE_PEDIDO : contiene
     PRODUCTO ||--o{ DETALLE_PEDIDO : aparece_en
+    CATEGORIA ||--o{ PRODUCTO : clasifica
 
     CLIENTE {
         int id_cliente PK
@@ -3733,8 +3734,15 @@
     PRODUCTO {
         int id_producto PK
         string nombre
-        string categoria
-        decimal precio_referencial
+        decimal precio
+        int stock
+        int id_categoria FK
+    }
+
+    CATEGORIA {
+        int id_categoria PK
+        string nombre
+        string descripcion
     }
 
     PEDIDO {
@@ -3780,6 +3788,10 @@
 <tr>
 <td>Integridad detalle-pedido-producto.</td>
 <td>Claves foraneas en <code>detalle_pedido</code>.</td>
+</tr>
+<tr>
+<td>Cada producto pertenece a una categoría válida.</td>
+<td><code>producto.id_categoria NOT NULL</code> y clave foránea.</td>
 </tr>
 </tbody>
 </table>
@@ -3838,6 +3850,10 @@
 <td>Tres productos de prueba.</td>
 </tr>
 <tr>
+<td>categoria</td>
+<td>Dos categorías de prueba.</td>
+</tr>
+<tr>
 <td>pedido</td>
 <td>Pedidos con estados pendiente, atendido y anulado.</td>
 </tr>
@@ -3871,6 +3887,11 @@
 <td><code>detalle_pedido.cantidad</code></td>
 <td>RF-03</td>
 <td>Validacion de cantidad.</td>
+</tr>
+<tr>
+<td><code>producto.id_categoria</code></td>
+<td>Continuidad POO–LP1 S02</td>
+<td>Selector y vista de categoría por producto.</td>
 </tr>
 <tr>
 <td>Consulta de listado</td>

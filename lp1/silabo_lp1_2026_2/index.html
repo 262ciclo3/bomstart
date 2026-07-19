@@ -3651,7 +3651,7 @@
 </table>
 
 <h2 id="ii-sumilla">II. Sumilla<a class="headerlink" href="#ii-sumilla" title="Permanent link">&para;</a></h2>
-<p>La asignatura de Lenguaje de Programación I es de naturaleza teórico-práctica y pertenece al área de especialidad de Ingeniería de Software. Tiene como propósito que el estudiante desarrolle un Sistema Web MVC Empresarial, integrando fundamentos del desarrollo web, interfaces con plantillas reutilizables, formularios, interactividad con JavaScript, arquitectura MVC, persistencia mediante DAO y conexión nativa a una base de datos, relaciones entre objetos, consultas, control de acceso, validaciones, manejo de errores, optimización básica, pruebas funcionales y sustentación técnica. El uso de un ORM es opcional y complementario al acceso nativo. Los contenidos principales son: fundamentos del desarrollo web, desarrollo de aplicaciones web MVC y proyecto integrador web MVC.</p>
+<p>La asignatura de Lenguaje de Programación I es de naturaleza teórico-práctica y pertenece al área de especialidad de Ingeniería de Software. Tiene como propósito que el estudiante desarrolle un Sistema Web MVC Empresarial, integrando fundamentos del desarrollo web, interfaces con plantillas reutilizables, formularios, interactividad con JavaScript, arquitectura MVC, persistencia mediante DAO y conexión nativa a una base de datos, CRUD, objetos relacionados, operaciones cabecera–detalle, consultas, reportes, control de acceso, validaciones, manejo de errores, pruebas funcionales y sustentación técnica. El uso de un ORM es opcional y complementario al acceso nativo. Los contenidos principales son: fundamentos del desarrollo web, desarrollo de aplicaciones web MVC y proyecto integrador web MVC.</p>
 <h2 id="iii-competencia-del-perfil-de-egreso-en-relacion-a-la-asignatura">III. Competencia del perfil de egreso en relación a la asignatura<a class="headerlink" href="#iii-competencia-del-perfil-de-egreso-en-relacion-a-la-asignatura" title="Permanent link">&para;</a></h2>
 <table>
   <tr><td colspan="2">General</td></tr>
@@ -3671,12 +3671,12 @@
     <td>Producto Académico</td>
   </tr>
   <tr>
-    <td>Al finalizar el curso, el estudiante desarrolla un sistema web MVC empresarial, integrando interfaces web, formularios, persistencia de datos mediante DAO y conexión nativa a una base de datos, relaciones entre objetos, consultas, control de acceso, validaciones, manejo de errores, optimización básica, pruebas funcionales y sustentación técnica; pudiendo utilizar un ORM de manera opcional.</td>
+    <td>Al finalizar el curso, el estudiante desarrolla un sistema web MVC empresarial, integrando interfaces web, formularios, persistencia mediante DAO y conexión nativa, CRUD, objetos relacionados, operaciones cabecera–detalle, consultas, reportes, control de acceso, validaciones, manejo de errores, pruebas funcionales y sustentación técnica; pudiendo utilizar un ORM de manera opcional.</td>
     <td>Nombre: Sistema Web MVC Empresarial.</td>
   </tr>
   <tr>
     <td></td>
-    <td>Descripción: Aplicación web monolítica con persistencia mediante DAO y conexión nativa a una base de datos, control de acceso, consultas y optimización básica; con ORM opcional.</td>
+    <td>Descripción: Aplicación web monolítica con persistencia mediante DAO y conexión nativa, CRUD, objetos relacionados, operación cabecera–detalle, consultas, reportes y control de acceso; con ORM opcional.</td>
   </tr>
 </table>
 
@@ -3714,20 +3714,20 @@
   <tr>
     <td>1</td>
     <td>10/08/2026  15/08/2026</td>
-    <td><strong>Arquitectura Web, HTTP y estructura de aplicaciones cliente-servidor:</strong><br>Arquitectura web, flujo request-response, HTTP, cliente, servidor, rutas básicas y estructura inicial de una aplicación web.</td>
+    <td><strong>Arquitectura Web, HTTP y estructura de aplicaciones cliente-servidor:</strong><br>Arquitectura web, flujo request-response, HTTP, cliente, servidor, rutas básicas, estructura inicial de una aplicación web y continuidad de una entidad desarrollada previamente.</td>
     <td>2</td>
     <td>2</td>
-    <td>Reconocer el flujo HTTP y estructurar el proyecto web inicial.</td>
-    <td>Revisar ejemplos de arquitectura cliente-servidor y documentar el flujo request-response del proyecto.</td>
+    <td>Reconocer el flujo HTTP, estructurar el proyecto web inicial y representar una entidad del dominio como primer recurso web.</td>
+    <td>Documentar el flujo request-response del recurso inicial y explicar su continuidad respecto del modelo construido previamente.</td>
   </tr>
   <tr>
     <td>2</td>
     <td>16/08/2026  22/08/2026</td>
-    <td><strong>Interfaces web con HTML, CSS y plantillas reutilizables (Bootstrap):</strong><br>Estructura semántica, estilos, componentes visuales, diseño responsive y reutilización de plantillas.</td>
+    <td><strong>Interfaces web con HTML, CSS y plantillas reutilizables (Bootstrap):</strong><br>Estructura semántica, estilos, componentes visuales, diseño responsive, reutilización de plantillas e incorporación de una entidad de clasificación relacionada con la entidad inicial.</td>
     <td>2</td>
     <td>2</td>
-    <td>Construir una interfaz base responsive usando plantillas reutilizables.</td>
-    <td>Mejorar la interfaz aplicando componentes Bootstrap y criterios de usabilidad.</td>
+    <td>Construir vistas responsive de objetos relacionados usando plantillas reutilizables y representar su asociación.</td>
+    <td>Mejorar la interfaz y documentar la relación entre la entidad inicial y su entidad de clasificación.</td>
   </tr>
   <tr>
     <td>3</td>
@@ -3735,8 +3735,8 @@
     <td><strong>Interactividad web con JavaScript, DOM, eventos y validación de formularios:</strong><br>Manipulación del DOM, captura de eventos, validaciones del lado del cliente y retroalimentación visual.</td>
     <td>2</td>
     <td>2</td>
-    <td>Implementar validaciones y eventos sobre formularios del proyecto.</td>
-    <td>Practicar manipulación DOM y validaciones adicionales.</td>
+    <td>Implementar eventos y validaciones sobre el formulario de la entidad inicial, incluida la selección de un objeto relacionado existente.</td>
+    <td>Practicar manipulación DOM y probar datos válidos e inválidos del formulario y su asociación.</td>
   </tr>
   <tr>
     <td>4</td>
@@ -3750,7 +3750,16 @@
   <tr>
     <td>5</td>
     <td>06/09/2026  12/09/2026</td>
-    <td><strong>Evaluación U1:</strong><br>Sustentación de la página web interactiva con plantillas, formularios e interactividad.</td>
+    <td><strong>Integración y refinamiento de la página web interactiva:</strong><br>Integración del flujo web, formularios, validaciones, mensajes, estilos responsive y preparación de evidencias.</td>
+    <td>2</td>
+    <td>2</td>
+    <td>Integrar y probar la página web interactiva como producto de unidad.</td>
+    <td>Corregir observaciones y organizar las evidencias para la evaluación.</td>
+  </tr>
+  <tr>
+    <td>6</td>
+    <td>13/09/2026  19/09/2026</td>
+    <td><strong>Evaluación U1:</strong><br>Sustentación de la página web interactiva con plantillas, formularios, validaciones e interactividad.</td>
     <td>2</td>
     <td>2</td>
     <td>Sustentar la página web interactiva.</td>
@@ -3765,16 +3774,16 @@
     <td colspan="3">Producto</td>
   </tr>
   <tr>
-    <td colspan="4">Desarrolla una aplicación web MVC empresarial aplicando rutas, controladores, servicios, DAO, conexión nativa a una base de datos, persistencia, relaciones entre objetos, consultas, autenticación, autorización, sesiones, validaciones y optimización básica. Puede incorporar un ORM como alternativa opcional y complementaria.</td>
-    <td colspan="3">Nombre: Aplicación Web MVC con persistencia, relaciones, consultas y control de acceso.</td>
+    <td colspan="4">Desarrolla una aplicación web MVC empresarial aplicando estructura por capas, JDBC, DAO, CRUD, validaciones, manejo de errores, presentación web, objetos relacionados y operaciones del dominio con cabecera–detalle. Puede incorporar un ORM como alternativa opcional y complementaria.</td>
+    <td colspan="3">Nombre: Aplicación Web MVC con persistencia mediante JDBC y DAO, CRUD validado, objetos relacionados y una operación del dominio con cabecera–detalle.</td>
   </tr>
   <tr>
     <td colspan="4">Criterios de evaluación del producto</td>
     <td colspan="3">Evidencia de aprendizaje</td>
   </tr>
   <tr>
-    <td colspan="4">1 Implementa rutas, controladores, servicios y DAO con acceso nativo a datos; puede utilizar un ORM de manera opcional.<br>2 Gestiona persistencia, transacciones, relaciones y colaboración entre objetos del dominio.<br>3 Construye consultas, filtros, búsqueda, ordenamiento y paginación web.<br>4 Aplica autenticación, autorización y gestión de sesiones.<br>5 Incorpora validaciones, manejo de errores, seguimiento, caché y optimización básica.</td>
-    <td colspan="3">Aplicación Web MVC con módulos funcionales, persistencia mediante DAO y acceso nativo a datos, relaciones entre objetos, consultas, control de acceso, validaciones y optimización básica; con ORM opcional.</td>
+    <td colspan="4">1 Crea y configura un proyecto Web MVC conectado mediante JDBC y demuestra el flujo completo mediante un primer listado.<br>2 Implementa un CRUD mediante modelos, DAO, servicios, controladores, formularios y vistas.<br>3 Aplica transversalmente validaciones, manejo de errores, mensajes y presentación responsive.<br>4 Gestiona objetos relacionados y sus reglas de asociación.<br>5 Implementa una operación del dominio con cabecera–detalle, cálculos, consistencia y persistencia atómica.</td>
+    <td colspan="3">Aplicación Web MVC ejecutable y conectada, con CRUD validado, presentación consistente, objetos relacionados y una operación cabecera–detalle persistida mediante JDBC y DAO; con ORM opcional.</td>
   </tr>
   <tr>
     <td colspan="7">Sesiones de aprendizaje</td>
@@ -3789,66 +3798,57 @@
     <td>Actividad autónoma</td>
   </tr>
   <tr>
-    <td>6</td>
-    <td>13/09/2026  19/09/2026</td>
-    <td><strong>Arquitectura MVC, patrón DAO y acceso nativo a datos:</strong><br>Separación de responsabilidades, flujo MVC, rutas, controladores, servicios, DAO, conexión nativa a una base de datos y operaciones de registro y consulta sobre una entidad simple.</td>
-    <td>2</td>
-    <td>2</td>
-    <td>Implementar un módulo MVC inicial con registro y consulta de una entidad mediante DAO y conexión nativa a la base de datos.</td>
-    <td>Revisar la separación de responsabilidades entre ruta, controlador, servicio, DAO y vista; comparar opcionalmente la solución nativa con una implementación mediante ORM.</td>
-  </tr>
-  <tr>
     <td>7</td>
     <td>20/09/2026  26/09/2026</td>
-    <td><strong>Colaboración entre objetos y operaciones de negocio con persistencia:</strong><br>Asociaciones entre objetos, objetos que contienen referencias o colecciones de otros objetos, reglas del dominio, operaciones transaccionales y conservación de la consistencia mediante DAO y conexión nativa a la base de datos. Las correspondencias uno a uno y uno a muchos se abordan al persistir el modelo; el ORM es opcional.</td>
+    <td><strong>Creación del proyecto Web MVC y primer listado:</strong><br>Estructura del proyecto, dependencias, configuración por ambientes, JDBC, fuente de datos, modelo, DAO de consulta, controlador de verificación, ruta de listado y vista inicial.</td>
     <td>2</td>
     <td>2</td>
-    <td>Implementar la colaboración entre objetos del dominio y conservar su estado mediante DAO y operaciones transaccionales con acceso nativo a datos.</td>
-    <td>Probar escenarios de creación, consulta y actualización de objetos relacionados; documentar opcionalmente su implementación mediante ORM.</td>
+    <td>Crear el proyecto Web MVC, verificar la conexión y presentar en una vista el listado de una entidad obtenido desde la base de datos.</td>
+    <td>Documentar la configuración por ambientes y el flujo base de datos–DAO–servicio–controlador–vista.</td>
   </tr>
   <tr>
     <td>8</td>
     <td>27/09/2026  03/10/2026</td>
-    <td><strong>Objetos de asociación y operaciones de dominio integradas:</strong><br>Colaboración entre colecciones de objetos mediante un objeto de asociación con atributos y comportamiento propios, reglas de negocio, consistencia e implementación persistente mediante DAO y acceso nativo a datos. La correspondencia muchos a muchos se aborda al almacenar el modelo; el ORM es opcional.</td>
+    <td><strong>Modelo, DAO y CRUD Web MVC:</strong><br>Operaciones de registro, consulta, actualización y eliminación mediante JDBC, DAO, servicios, controladores, formularios y vistas. Las validaciones y los errores controlados se aplican desde este incremento.</td>
     <td>2</td>
     <td>2</td>
-    <td>Implementar un objeto de asociación y las operaciones integradas del dominio, conservando su estado mediante DAO y conexión nativa a la base de datos.</td>
-    <td>Verificar la consistencia de los objetos relacionados y documentar las reglas de negocio asociadas; contrastar opcionalmente la solución con ORM.</td>
+    <td>Implementar el CRUD completo de una entidad principal mediante JDBC y DAO.</td>
+    <td>Probar cada operación con casos correctos e inválidos y revisar la separación de responsabilidades.</td>
   </tr>
   <tr>
     <td>9</td>
     <td>04/10/2026  10/10/2026</td>
-    <td><strong>Consultas, filtros, búsqueda, ordenamiento y paginación web:</strong><br>Consultas parametrizadas mediante DAO y acceso nativo a datos, filtros combinados, búsqueda, ordenamiento, paginación y presentación de resultados en vistas web. El uso equivalente de consultas mediante ORM es opcional.</td>
+    <td><strong>Validación, manejo de errores y presentación del CRUD MVC:</strong><br>Validaciones del lado servidor, excepciones controladas, mensajes de confirmación y error, páginas de error, layout reutilizable, hojas de estilos y diseño responsive.</td>
     <td>2</td>
     <td>2</td>
-    <td>Construir vistas de consulta con filtros, búsqueda, ordenamiento y paginación.</td>
-    <td>Probar combinaciones de filtros y criterios de ordenamiento.</td>
+    <td>Robustecer el CRUD mediante validaciones, manejo de errores y una presentación web consistente.</td>
+    <td>Documentar casos inválidos, respuestas del sistema y mejoras de usabilidad aplicadas.</td>
   </tr>
   <tr>
     <td>10</td>
     <td>11/10/2026  17/10/2026</td>
-    <td><strong>Control de acceso, autenticación, autorización y gestión de sesiones:</strong><br>Registro o autenticación de usuarios, sesión activa, autorización básica, rutas protegidas y control de acceso por perfil.</td>
+    <td><strong>Gestión de objetos relacionados en aplicaciones MVC:</strong><br>Incorporación de un objeto de clasificación, asociación con la entidad principal, navegación entre objetos, selección en formularios, presentación de datos relacionados y validación de reglas de asociación.</td>
     <td>2</td>
     <td>2</td>
-    <td>Implementar autenticación, autorización básica y sesiones.</td>
-    <td>Revisar flujos de inicio/cierre de sesión y protección de rutas.</td>
+    <td>Implementar un módulo MVC que registre, consulte y presente objetos relacionados.</td>
+    <td>Probar asociaciones válidas e inválidas y documentar las reglas que mantienen su consistencia.</td>
   </tr>
   <tr>
     <td>11</td>
     <td>18/10/2026  24/10/2026</td>
-    <td><strong>Validaciones, manejo de errores, seguimiento de solicitudes, caché y optimización de aplicaciones web:</strong><br>Validaciones del lado servidor, errores controlados, trazabilidad de solicitudes, caché y optimización básica de la aplicación.</td>
+    <td><strong>Procesamiento de operaciones del dominio con cabecera–detalle:</strong><br>Formulario compuesto, colección dinámica de detalles, cantidades, precios, subtotales, total, actualización de existencias y registro atómico mediante JDBC y DAO.</td>
     <td>2</td>
     <td>2</td>
-    <td>Agregar validaciones, manejo de errores, trazas y optimización básica.</td>
-    <td>Analizar errores frecuentes, registrar mejoras y probar tiempos de respuesta.</td>
+    <td>Implementar el registro y consulta de una operación cabecera–detalle con cálculos, control de existencias y persistencia atómica.</td>
+    <td>Probar detalles vacíos, cantidades inválidas, existencias insuficientes y recuperación ante errores.</td>
   </tr>
   <tr>
     <td>12</td>
     <td>25/10/2026  31/10/2026</td>
-    <td><strong>Evaluación U2:</strong><br>Sustentación de la aplicación MVC con persistencia mediante DAO y conexión nativa a la base de datos, relaciones entre objetos, consultas y control de acceso. El uso de ORM es opcional.</td>
+    <td><strong>Evaluación U2:</strong><br>Sustentación de la aplicación Web MVC con conexión mediante JDBC, CRUD validado, presentación web, objetos relacionados y una operación del dominio con cabecera–detalle.</td>
     <td>2</td>
     <td>2</td>
-    <td>Sustentar la aplicación MVC demostrando el DAO, la conexión nativa, la persistencia, las relaciones entre objetos, las consultas y el control de acceso.</td>
+    <td>Sustentar la aplicación MVC demostrando conexión, DAO, CRUD, validaciones, manejo de errores, objetos relacionados y operación cabecera–detalle.</td>
     <td>Registrar observaciones para la integración final.</td>
   </tr>
 </table>
@@ -3860,7 +3860,7 @@
     <td colspan="3">Producto</td>
   </tr>
   <tr>
-    <td colspan="4">Integra módulos funcionales, pruebas, correcciones y sustentación técnica para consolidar un sistema web MVC empresarial alineado al proyecto integrador del ciclo.</td>
+    <td colspan="4">Integra consultas, reportes, autenticación, autorización, sesiones, pruebas, correcciones y sustentación técnica para consolidar un sistema web MVC empresarial alineado al proyecto integrador del ciclo.</td>
     <td colspan="3">Nombre: Sistema Web MVC Empresarial.</td>
   </tr>
   <tr>
@@ -3868,8 +3868,8 @@
     <td colspan="3">Evidencia de aprendizaje</td>
   </tr>
   <tr>
-    <td colspan="4">1 Integra módulos funcionales del sistema web MVC.<br>2 Ejecuta pruebas funcionales y registra incidencias.<br>3 Corrige errores y refina la experiencia de uso.<br>4 Sustenta técnicamente la arquitectura, módulos y decisiones del proyecto.<br>5 Presenta el sistema web MVC empresarial completo.</td>
-    <td colspan="3">Sistema Web MVC Empresarial integrado, probado, refinado y sustentado técnicamente.</td>
+    <td colspan="4">1 Implementa consultas parametrizadas, filtros, ordenamiento, agregaciones y reportes en vistas web.<br>2 Aplica autenticación, autorización básica, gestión de sesiones y protección de rutas.<br>3 Integra y prueba los módulos funcionales, registra incidencias y corrige errores.<br>4 Sustenta técnicamente la arquitectura, los módulos y las decisiones del proyecto.<br>5 Presenta el sistema web MVC empresarial completo.</td>
+    <td colspan="3">Sistema Web MVC Empresarial con consultas, reportes, control de acceso, módulos integrados, pruebas y sustentación técnica.</td>
   </tr>
   <tr>
     <td colspan="7">Sesiones de aprendizaje</td>
@@ -3886,20 +3886,20 @@
   <tr>
     <td>13</td>
     <td>01/11/2026  07/11/2026</td>
-    <td><strong>Integración funcional de módulos y consolidación del sistema:</strong><br>Integración de módulos, revisión de dependencias, flujo funcional completo, consistencia de datos y consolidación del sistema web MVC.</td>
+    <td><strong>Autenticación, autorización y gestión de sesiones:</strong><br>Usuarios, hash de contraseñas, inicio y cierre de sesión, roles básicos, filtros o interceptores, rutas protegidas y navegación según permisos.</td>
     <td>2</td>
     <td>2</td>
-    <td>Integrar módulos y consolidar el flujo completo del sistema.</td>
-    <td>Verificar dependencias entre módulos y completar documentación técnica.</td>
+    <td>Implementar autenticación, autorización básica y protección de rutas mediante sesiones.</td>
+    <td>Probar credenciales válidas e inválidas, cierre y expiración de sesión, rutas permitidas y accesos denegados.</td>
   </tr>
   <tr>
     <td>14</td>
     <td>08/11/2026  14/11/2026</td>
-    <td><strong>Pruebas funcionales, corrección de errores y refinamiento:</strong><br>Pruebas funcionales, registro de incidencias, corrección de errores, refinamiento de vistas, formularios, navegación y flujo principal.</td>
+    <td><strong>Consultas del dominio y reportes web:</strong><br>Consultas parametrizadas mediante DAO, búsqueda, filtros, ordenamiento, agregaciones, resúmenes y presentación de resultados en vistas MVC protegidas según el usuario o rol activo.</td>
     <td>2</td>
     <td>2</td>
-    <td>Ejecutar pruebas funcionales, corregir errores y refinar el producto.</td>
-    <td>Preparar evidencias de pruebas y lista de correcciones realizadas.</td>
+    <td>Implementar consultas y reportes protegidos sobre la información generada por las operaciones del dominio.</td>
+    <td>Probar filtros, ordenamiento, agregaciones, casos sin resultados y acceso autorizado a los reportes.</td>
   </tr>
   <tr>
     <td>15</td>
@@ -3972,7 +3972,7 @@
   <tr>
     <td>30/10/2026</td>
     <td>Unidad 2: Desarrollo de Aplicaciones Web MVC</td>
-    <td>Aplicación Web MVC con persistencia, relaciones, consultas y control de acceso.</td>
+    <td>Aplicación Web MVC con JDBC y DAO, CRUD validado, objetos relacionados y una operación del dominio con cabecera–detalle.</td>
     <td>Evaluación del producto</td>
     <td>20%</td>
   </tr>

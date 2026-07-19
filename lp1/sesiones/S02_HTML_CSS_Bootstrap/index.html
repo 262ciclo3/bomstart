@@ -3265,10 +3265,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#35-crear-vista-de-entidades-del-proceso-principal" class="md-nav__link">
+  <a href="#35-crear-las-vistas-de-productos-y-categorias" class="md-nav__link">
     <span class="md-ellipsis">
       
-        3.5 Crear vista de entidades del proceso principal
+        3.5 Crear las vistas de productos y categorías
       
     </span>
   </a>
@@ -3276,10 +3276,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#36-preparar-espacio-para-formulario-futuro" class="md-nav__link">
+  <a href="#36-preparar-el-formulario-de-producto-con-categoria" class="md-nav__link">
     <span class="md-ellipsis">
       
-        3.6 Preparar espacio para formulario futuro
+        3.6 Preparar el formulario de producto con categoría
       
     </span>
   </a>
@@ -4026,20 +4026,20 @@
 <h2 id="1-introduccion">1. Introducción<a class="headerlink" href="#1-introduccion" title="Permanent link">&para;</a></h2>
 <p>Tiempo: 20 min.</p>
 <h3 id="11-proposito">1.1 Propósito<a class="headerlink" href="#11-proposito" title="Permanent link">&para;</a></h3>
-<p>Construir una interfaz web base con HTML, CSS y Bootstrap, alineada al alcance definido en REQ y a las entidades iniciales modeladas en BD1.</p>
+<p>Ampliar la interfaz de productos construida en S1 mediante HTML, CSS y Bootstrap, incorporando <code>Categoria</code> y representando la relación <code>Categoria 1 : * Producto</code>.</p>
 <h3 id="12-resultado-de-aprendizaje">1.2 Resultado de aprendizaje<a class="headerlink" href="#12-resultado-de-aprendizaje" title="Permanent link">&para;</a></h3>
-<p>El estudiante construye una plantilla web reutilizable, organiza navegación inicial y representa visualmente el dominio del proyecto mediante páginas o secciones coherentes con stakeholders, alcance y datos principales.</p>
+<p>El estudiante construye una plantilla web reutilizable, organiza la navegación de productos y categorías, y muestra que cada producto pertenece a una categoría y que una categoría puede agrupar muchos productos.</p>
 <h3 id="13-producto-de-sesion">1.3 Producto de sesión<a class="headerlink" href="#13-producto-de-sesion" title="Permanent link">&para;</a></h3>
-<p>Plantilla web base con navegación, layout reutilizable y vistas iniciales del proyecto integrador.</p>
+<p>Plantilla web responsive con navegación y vistas iniciales de productos y categorías; el listado de productos muestra la categoría correspondiente.</p>
 <h3 id="14-motivacion-de-la-sesion">1.4 Motivación de la sesión<a class="headerlink" href="#14-motivacion-de-la-sesion" title="Permanent link">&para;</a></h3>
 <h4 id="141-caso-del-alcance-a-la-primera-interfaz">1.4.1 Caso: del alcance a la primera interfaz<a class="headerlink" href="#141-caso-del-alcance-a-la-primera-interfaz" title="Permanent link">&para;</a></h4>
-<p>En S1 se creó una página base. En S2 la página deja de ser genérica y empieza a parecerse al sistema real. La navegación debe responder al alcance de REQ y los formularios futuros deben considerar las entidades identificadas por BD1.</p>
+<p>En S1 se recuperó <code>Producto</code> del modelo de POO y se representó como recurso web. En S2 el dominio crece con una entidad necesaria para organizar el catálogo: <code>Categoria</code>. Este incremento debe verse en el menú, en las vistas y en la asociación mostrada para cada producto.</p>
 <p>Preguntas para los estudiantes:</p>
 <ol>
 <li>¿Qué opciones debe tener el menú según el alcance?</li>
 <li>¿Qué vista necesita el stakeholder principal?</li>
-<li>¿Qué entidad de BD1 aparecerá primero en pantalla?</li>
-<li>¿Qué datos deberían verse como campos o columnas?</li>
+<li>¿Por qué Categoria debe ser una entidad y no un texto repetido sin control?</li>
+<li>¿Cómo se muestra la categoría a la que pertenece cada producto?</li>
 <li>¿Qué elementos visuales se repetirán en todo el sistema?</li>
 </ol>
 <h3 id="15-ubicacion-en-el-curso">1.5 Ubicación en el curso<a class="headerlink" href="#15-ubicacion-en-el-curso" title="Permanent link">&para;</a></h3>
@@ -4047,12 +4047,12 @@
 <li>Unidad: U1 - Fundamentos del Desarrollo Web.</li>
 <li>Producto de unidad: página web interactiva con plantillas y formularios.</li>
 <li>Producto del curso: Sistema Web MVC Empresarial.</li>
-<li>Avance del producto en esta sesión: plantilla base, navegación y vistas iniciales alineadas al dominio.</li>
+<li>Avance del producto en esta sesión: plantilla base, navegación y vistas de <code>Producto</code> y la nueva entidad <code>Categoria</code>.</li>
 </ul>
 <p>Roadmap del producto de la unidad:</p>
 <pre class="mermaid"><code>flowchart TB
-    S1["S1&lt;br/&gt;Arquitectura web&lt;br/&gt;HTTP y estructura"]
-    S2["S2&lt;br/&gt;HTML, CSS y&lt;br/&gt;plantillas Bootstrap"]
+    S1["S1&lt;br/&gt;Producto como&lt;br/&gt;recurso web"]
+    S2["S2&lt;br/&gt;Categoria 1 : * Producto&lt;br/&gt;Bootstrap"]
     S3["S3&lt;br/&gt;JavaScript, DOM&lt;br/&gt;eventos y validación"]
     S4["S4&lt;br/&gt;Formularios e&lt;br/&gt;interacción web"]
     S5["S5&lt;br/&gt;Producto U1"]
@@ -4080,9 +4080,10 @@
 <li>Plantilla reutilizable.</li>
 <li>Navegación inicial.</li>
 <li>Coherencia visual con el dominio.</li>
+<li>Representación visual de una relación uno a muchos.</li>
 </ul>
 <p>Alcance metodológico de S2:</p>
-<div class="highlight"><pre><span></span><code>En S2 se construye una plantilla navegable y vistas iniciales.
+<div class="highlight"><pre><span></span><code>En S2 se construye una plantilla navegable para Producto y Categoria.
 No se implementa todavía lógica fuerte de JavaScript ni persistencia.
 
 La interacción con DOM y validaciones se trabaja en S3.
@@ -4091,28 +4092,29 @@ MVC inicia en S6.
 </code></pre></div>
 <h3 id="22-arquitectura-de-la-sesion">2.2 Arquitectura de la sesión<a class="headerlink" href="#22-arquitectura-de-la-sesion" title="Permanent link">&para;</a></h3>
 <pre class="mermaid"><code>flowchart TB
-    A[REQ S02: alcance y stakeholders] --&gt; B[Menú y secciones]
-    C[BD1 S02: entidades y atributos] --&gt; D[Vistas, tablas y campos]
+    A[S1: Producto&lt;br/&gt;nombre, precio, stock] --&gt; B[Vista de productos]
+    C[Nueva entidad: Categoria&lt;br/&gt;nombre, descripción] --&gt; D[Vista de categorías]
+    D --&gt;|1 categoría agrupa muchos| B
     B --&gt; E[Plantilla Bootstrap]
     D --&gt; E
     E --&gt; F[Página web base del proyecto]
     F --&gt; G[S3: interacción y validación]</code></pre>
 <p>Lectura del diagrama:</p>
 <ul>
-<li>REQ define qué debe aparecer en la navegación.</li>
-<li>BD1 sugiere qué datos se mostrarán en tablas o formularios.</li>
-<li>LP1 convierte esas decisiones en una interfaz inicial.</li>
+<li><code>Producto</code> mantiene los datos trabajados en POO y representados en S1.</li>
+<li><code>Categoria</code> se incorpora como nuevo incremento de LP1.</li>
+<li>La interfaz expresa la asociación, aunque la persistencia se implemente posteriormente.</li>
 </ul>
 <h3 id="23-flujo-de-trabajo">2.3 Flujo de trabajo<a class="headerlink" href="#23-flujo-de-trabajo" title="Permanent link">&para;</a></h3>
 <ol>
-<li>Revisar alcance y stakeholder principal de REQ S02.</li>
-<li>Revisar entidades del proceso principal y atributos de BD1 S02.</li>
+<li>Revisar <code>Producto</code> y sus atributos recuperados de POO en S1.</li>
+<li>Definir <code>Categoria</code> con nombre y descripción y establecer la relación <code>1 : *</code> con <code>Producto</code>.</li>
 <li>Diseñar navegación mínima.</li>
 <li>Integrar Bootstrap.</li>
 <li>Crear layout base.</li>
 <li>Crear una vista de inicio contextualizada.</li>
-<li>Crear vistas iniciales para entidades del proceso principal.</li>
-<li>Preparar espacio para formulario futuro.</li>
+<li>Crear vistas iniciales de categorías y productos.</li>
+<li>Preparar un formulario de producto con selección de categoría.</li>
 <li>Registrar evidencia de ejecución.</li>
 </ol>
 <h3 id="24-errores-frecuentes-y-diagnostico">2.4 Errores frecuentes y diagnóstico<a class="headerlink" href="#24-errores-frecuentes-y-diagnostico" title="Permanent link">&para;</a></h3>
@@ -4136,9 +4138,9 @@ MVC inicia en S6.
 <td>Mantener solo vistas necesarias para el primer incremento</td>
 </tr>
 <tr>
-<td>La tabla no coincide con BD1</td>
-<td>No se revisaron atributos</td>
-<td>Usar nombres de atributos del modelo ER inicial</td>
+<td>Producto no muestra categoría</td>
+<td>La nueva relación no llegó a la interfaz</td>
+<td>Agregar la columna y el selector de Categoria</td>
 </tr>
 <tr>
 <td>Bootstrap no carga</td>
@@ -4146,9 +4148,9 @@ MVC inicia en S6.
 <td>Verificar enlace y consola del navegador</td>
 </tr>
 <tr>
-<td>Todo está en una sola sección</td>
-<td>Falta diseño de navegación</td>
-<td>Separar inicio, entidades del proceso y consulta inicial</td>
+<td>Categoria se guarda como texto libre repetido</td>
+<td>No se representó como entidad</td>
+<td>Usar una vista de categorías y seleccionar una al mostrar o registrar el producto</td>
 </tr>
 <tr>
 <td>Se intenta conectar base de datos</td>
@@ -4181,13 +4183,18 @@ MVC inicia en S6.
 <td></td>
 </tr>
 <tr>
-<td>Entidad principal</td>
-<td>BD1 S02</td>
+<td><code>Producto</code>: nombre, precio y stock</td>
+<td>POO / LP1 S1</td>
 <td></td>
 </tr>
 <tr>
-<td>Atributos visibles</td>
-<td>BD1 S02</td>
+<td><code>Categoria</code>: nombre y descripción</td>
+<td>LP1 S2</td>
+<td></td>
+</tr>
+<tr>
+<td>Relación <code>Categoria 1 : * Producto</code></td>
+<td>LP1 S2 / validación con BD1</td>
 <td></td>
 </tr>
 </tbody>
@@ -4212,8 +4219,8 @@ MVC inicia en S6.
         <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;collapse navbar-collapse&quot;</span> <span class="na">id</span><span class="o">=</span><span class="s">&quot;menuPrincipal&quot;</span><span class="p">&gt;</span>
             <span class="p">&lt;</span><span class="nt">ul</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;navbar-nav ms-auto&quot;</span><span class="p">&gt;</span>
                 <span class="p">&lt;</span><span class="nt">li</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;nav-item&quot;</span><span class="p">&gt;&lt;</span><span class="nt">a</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;nav-link&quot;</span> <span class="na">href</span><span class="o">=</span><span class="s">&quot;#inicio&quot;</span><span class="p">&gt;</span>Inicio<span class="p">&lt;/</span><span class="nt">a</span><span class="p">&gt;&lt;/</span><span class="nt">li</span><span class="p">&gt;</span>
-                <span class="p">&lt;</span><span class="nt">li</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;nav-item&quot;</span><span class="p">&gt;&lt;</span><span class="nt">a</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;nav-link&quot;</span> <span class="na">href</span><span class="o">=</span><span class="s">&quot;#entidad&quot;</span><span class="p">&gt;</span>Entidad principal<span class="p">&lt;/</span><span class="nt">a</span><span class="p">&gt;&lt;/</span><span class="nt">li</span><span class="p">&gt;</span>
-                <span class="p">&lt;</span><span class="nt">li</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;nav-item&quot;</span><span class="p">&gt;&lt;</span><span class="nt">a</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;nav-link&quot;</span> <span class="na">href</span><span class="o">=</span><span class="s">&quot;#consulta&quot;</span><span class="p">&gt;</span>Consulta<span class="p">&lt;/</span><span class="nt">a</span><span class="p">&gt;&lt;/</span><span class="nt">li</span><span class="p">&gt;</span>
+                <span class="p">&lt;</span><span class="nt">li</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;nav-item&quot;</span><span class="p">&gt;&lt;</span><span class="nt">a</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;nav-link&quot;</span> <span class="na">href</span><span class="o">=</span><span class="s">&quot;#productos&quot;</span><span class="p">&gt;</span>Productos<span class="p">&lt;/</span><span class="nt">a</span><span class="p">&gt;&lt;/</span><span class="nt">li</span><span class="p">&gt;</span>
+                <span class="p">&lt;</span><span class="nt">li</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;nav-item&quot;</span><span class="p">&gt;&lt;</span><span class="nt">a</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;nav-link&quot;</span> <span class="na">href</span><span class="o">=</span><span class="s">&quot;#categorias&quot;</span><span class="p">&gt;</span>Categorías<span class="p">&lt;/</span><span class="nt">a</span><span class="p">&gt;&lt;/</span><span class="nt">li</span><span class="p">&gt;</span>
             <span class="p">&lt;/</span><span class="nt">ul</span><span class="p">&gt;</span>
         <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
     <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
@@ -4226,41 +4233,55 @@ MVC inicia en S6.
     <span class="p">&lt;</span><span class="nt">p</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;text-muted&quot;</span><span class="p">&gt;</span>Describe aquí el problema definido en REQ y el valor esperado para el usuario.<span class="p">&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
 <span class="p">&lt;/</span><span class="nt">section</span><span class="p">&gt;</span>
 </code></pre></div>
-<h3 id="35-crear-vista-de-entidades-del-proceso-principal">3.5 Crear vista de entidades del proceso principal<a class="headerlink" href="#35-crear-vista-de-entidades-del-proceso-principal" title="Permanent link">&para;</a></h3>
-<p><strong>Producto del paso:</strong> tabla o tarjeta basada en BD1.</p>
-<div class="highlight"><pre><span></span><code><span class="p">&lt;</span><span class="nt">section</span> <span class="na">id</span><span class="o">=</span><span class="s">&quot;entidad&quot;</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;container py-4&quot;</span><span class="p">&gt;</span>
-    <span class="p">&lt;</span><span class="nt">h2</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;h4&quot;</span><span class="p">&gt;</span>Entidad principal<span class="p">&lt;/</span><span class="nt">h2</span><span class="p">&gt;</span>
+<h3 id="35-crear-las-vistas-de-productos-y-categorias">3.5 Crear las vistas de productos y categorías<a class="headerlink" href="#35-crear-las-vistas-de-productos-y-categorias" title="Permanent link">&para;</a></h3>
+<p><strong>Producto del paso:</strong> representación visible de la relación <code>Categoria 1 : * Producto</code>.</p>
+<div class="highlight"><pre><span></span><code><span class="p">&lt;</span><span class="nt">section</span> <span class="na">id</span><span class="o">=</span><span class="s">&quot;productos&quot;</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;container py-4&quot;</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">h2</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;h4&quot;</span><span class="p">&gt;</span>Productos<span class="p">&lt;/</span><span class="nt">h2</span><span class="p">&gt;</span>
     <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;table-responsive&quot;</span><span class="p">&gt;</span>
         <span class="p">&lt;</span><span class="nt">table</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;table table-bordered table-hover align-middle&quot;</span><span class="p">&gt;</span>
             <span class="p">&lt;</span><span class="nt">thead</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;table-light&quot;</span><span class="p">&gt;</span>
                 <span class="p">&lt;</span><span class="nt">tr</span><span class="p">&gt;</span>
-                    <span class="p">&lt;</span><span class="nt">th</span><span class="p">&gt;</span>Código<span class="p">&lt;/</span><span class="nt">th</span><span class="p">&gt;</span>
                     <span class="p">&lt;</span><span class="nt">th</span><span class="p">&gt;</span>Nombre<span class="p">&lt;/</span><span class="nt">th</span><span class="p">&gt;</span>
-                    <span class="p">&lt;</span><span class="nt">th</span><span class="p">&gt;</span>Estado<span class="p">&lt;/</span><span class="nt">th</span><span class="p">&gt;</span>
+                    <span class="p">&lt;</span><span class="nt">th</span><span class="p">&gt;</span>Precio<span class="p">&lt;/</span><span class="nt">th</span><span class="p">&gt;</span>
+                    <span class="p">&lt;</span><span class="nt">th</span><span class="p">&gt;</span>Stock<span class="p">&lt;/</span><span class="nt">th</span><span class="p">&gt;</span>
+                    <span class="p">&lt;</span><span class="nt">th</span><span class="p">&gt;</span>Categoría<span class="p">&lt;/</span><span class="nt">th</span><span class="p">&gt;</span>
                 <span class="p">&lt;/</span><span class="nt">tr</span><span class="p">&gt;</span>
             <span class="p">&lt;/</span><span class="nt">thead</span><span class="p">&gt;</span>
             <span class="p">&lt;</span><span class="nt">tbody</span><span class="p">&gt;</span>
                 <span class="p">&lt;</span><span class="nt">tr</span><span class="p">&gt;</span>
-                    <span class="p">&lt;</span><span class="nt">td</span><span class="p">&gt;</span>E001<span class="p">&lt;/</span><span class="nt">td</span><span class="p">&gt;</span>
-                    <span class="p">&lt;</span><span class="nt">td</span><span class="p">&gt;</span>Registro de ejemplo<span class="p">&lt;/</span><span class="nt">td</span><span class="p">&gt;</span>
-                    <span class="p">&lt;</span><span class="nt">td</span><span class="p">&gt;</span>Activo<span class="p">&lt;/</span><span class="nt">td</span><span class="p">&gt;</span>
+                    <span class="p">&lt;</span><span class="nt">td</span><span class="p">&gt;</span>Teclado mecánico<span class="p">&lt;/</span><span class="nt">td</span><span class="p">&gt;</span>
+                    <span class="p">&lt;</span><span class="nt">td</span><span class="p">&gt;</span>S/ 120.00<span class="p">&lt;/</span><span class="nt">td</span><span class="p">&gt;</span>
+                    <span class="p">&lt;</span><span class="nt">td</span><span class="p">&gt;</span>10<span class="p">&lt;/</span><span class="nt">td</span><span class="p">&gt;</span>
+                    <span class="p">&lt;</span><span class="nt">td</span><span class="p">&gt;</span>Periféricos<span class="p">&lt;/</span><span class="nt">td</span><span class="p">&gt;</span>
                 <span class="p">&lt;/</span><span class="nt">tr</span><span class="p">&gt;</span>
             <span class="p">&lt;/</span><span class="nt">tbody</span><span class="p">&gt;</span>
         <span class="p">&lt;/</span><span class="nt">table</span><span class="p">&gt;</span>
     <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
 <span class="p">&lt;/</span><span class="nt">section</span><span class="p">&gt;</span>
+
+<span class="p">&lt;</span><span class="nt">section</span> <span class="na">id</span><span class="o">=</span><span class="s">&quot;categorias&quot;</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;container py-4&quot;</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">h2</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;h4&quot;</span><span class="p">&gt;</span>Categorías<span class="p">&lt;/</span><span class="nt">h2</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">article</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;card card-body&quot;</span><span class="p">&gt;</span>
+        <span class="p">&lt;</span><span class="nt">h3</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;h5&quot;</span><span class="p">&gt;</span>Periféricos<span class="p">&lt;/</span><span class="nt">h3</span><span class="p">&gt;</span>
+        <span class="p">&lt;</span><span class="nt">p</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;mb-0&quot;</span><span class="p">&gt;</span>Dispositivos complementarios para computadoras.<span class="p">&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
+    <span class="p">&lt;/</span><span class="nt">article</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">section</span><span class="p">&gt;</span>
 </code></pre></div>
-<h3 id="36-preparar-espacio-para-formulario-futuro">3.6 Preparar espacio para formulario futuro<a class="headerlink" href="#36-preparar-espacio-para-formulario-futuro" title="Permanent link">&para;</a></h3>
-<p><strong>Producto del paso:</strong> formulario maqueta para S3-S4.</p>
-<div class="highlight"><pre><span></span><code><span class="p">&lt;</span><span class="nt">section</span> <span class="na">id</span><span class="o">=</span><span class="s">&quot;consulta&quot;</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;container py-4&quot;</span><span class="p">&gt;</span>
-    <span class="p">&lt;</span><span class="nt">h2</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;h4&quot;</span><span class="p">&gt;</span>Consulta inicial<span class="p">&lt;/</span><span class="nt">h2</span><span class="p">&gt;</span>
+<h3 id="36-preparar-el-formulario-de-producto-con-categoria">3.6 Preparar el formulario de producto con categoría<a class="headerlink" href="#36-preparar-el-formulario-de-producto-con-categoria" title="Permanent link">&para;</a></h3>
+<p><strong>Producto del paso:</strong> formulario maqueta para S3-S4 con selección de una categoría existente.</p>
+<div class="highlight"><pre><span></span><code><span class="p">&lt;</span><span class="nt">section</span> <span class="na">id</span><span class="o">=</span><span class="s">&quot;nuevo-producto&quot;</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;container py-4&quot;</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">h2</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;h4&quot;</span><span class="p">&gt;</span>Nuevo producto<span class="p">&lt;/</span><span class="nt">h2</span><span class="p">&gt;</span>
     <span class="p">&lt;</span><span class="nt">form</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;row g-3&quot;</span><span class="p">&gt;</span>
-        <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;col-md-8&quot;</span><span class="p">&gt;</span>
-            <span class="p">&lt;</span><span class="nt">label</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;form-label&quot;</span><span class="p">&gt;</span>Buscar<span class="p">&lt;/</span><span class="nt">label</span><span class="p">&gt;</span>
-            <span class="p">&lt;</span><span class="nt">input</span> <span class="na">type</span><span class="o">=</span><span class="s">&quot;text&quot;</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;form-control&quot;</span> <span class="na">placeholder</span><span class="o">=</span><span class="s">&quot;Ingrese texto de búsqueda&quot;</span><span class="p">&gt;</span>
+        <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;col-md-6&quot;</span><span class="p">&gt;</span>
+            <span class="p">&lt;</span><span class="nt">label</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;form-label&quot;</span> <span class="na">for</span><span class="o">=</span><span class="s">&quot;nombreProducto&quot;</span><span class="p">&gt;</span>Nombre<span class="p">&lt;/</span><span class="nt">label</span><span class="p">&gt;</span>
+            <span class="p">&lt;</span><span class="nt">input</span> <span class="na">id</span><span class="o">=</span><span class="s">&quot;nombreProducto&quot;</span> <span class="na">type</span><span class="o">=</span><span class="s">&quot;text&quot;</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;form-control&quot;</span><span class="p">&gt;</span>
         <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
-        <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;col-md-4 d-flex align-items-end&quot;</span><span class="p">&gt;</span>
-            <span class="p">&lt;</span><span class="nt">button</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;btn btn-primary w-100&quot;</span> <span class="na">type</span><span class="o">=</span><span class="s">&quot;button&quot;</span><span class="p">&gt;</span>Buscar<span class="p">&lt;/</span><span class="nt">button</span><span class="p">&gt;</span>
+        <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;col-md-6&quot;</span><span class="p">&gt;</span>
+            <span class="p">&lt;</span><span class="nt">label</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;form-label&quot;</span> <span class="na">for</span><span class="o">=</span><span class="s">&quot;categoriaProducto&quot;</span><span class="p">&gt;</span>Categoría<span class="p">&lt;/</span><span class="nt">label</span><span class="p">&gt;</span>
+            <span class="p">&lt;</span><span class="nt">select</span> <span class="na">id</span><span class="o">=</span><span class="s">&quot;categoriaProducto&quot;</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;form-select&quot;</span><span class="p">&gt;</span>
+                <span class="p">&lt;</span><span class="nt">option</span> <span class="na">value</span><span class="o">=</span><span class="s">&quot;&quot;</span><span class="p">&gt;</span>Seleccione<span class="p">&lt;/</span><span class="nt">option</span><span class="p">&gt;</span>
+                <span class="p">&lt;</span><span class="nt">option</span><span class="p">&gt;</span>Periféricos<span class="p">&lt;/</span><span class="nt">option</span><span class="p">&gt;</span>
+            <span class="p">&lt;/</span><span class="nt">select</span><span class="p">&gt;</span>
         <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
     <span class="p">&lt;/</span><span class="nt">form</span><span class="p">&gt;</span>
 <span class="p">&lt;/</span><span class="nt">section</span><span class="p">&gt;</span>
@@ -4280,11 +4301,15 @@ MVC inicia en S6.
 <td></td>
 </tr>
 <tr>
-<td>¿Las entidades del proceso principal aparecen en una vista?</td>
+<td>¿Producto conserva nombre, precio y stock del modelo de POO?</td>
 <td></td>
 </tr>
 <tr>
-<td>¿Los campos visibles vienen de BD1?</td>
+<td>¿Categoria tiene una vista propia?</td>
+<td></td>
+</tr>
+<tr>
+<td>¿Cada producto muestra o selecciona una categoría?</td>
 <td></td>
 </tr>
 <tr>
@@ -4314,10 +4339,10 @@ MVC inicia en S6.
 <li>Integrar Bootstrap en el proyecto.</li>
 <li>Crear navegación inicial según alcance de REQ.</li>
 <li>Crear vista de inicio contextualizada.</li>
-<li>Crear vistas de entidades del proceso principal usando atributos de BD1.</li>
-<li>Preparar una maqueta de búsqueda o formulario inicial.</li>
+<li>Crear vistas de <code>Producto</code> y <code>Categoria</code>.</li>
+<li>Mostrar la categoría de cada producto y preparar un selector de categoría.</li>
 <li>Revisar responsividad básica.</li>
-<li>Explicar cómo la interfaz usa REQ y BD1.</li>
+<li>Explicar la continuidad POO–LP1 y cómo BD1 formalizará la relación para su persistencia posterior.</li>
 </ol>
 <h4 id="413-evidencia-tecnica">4.1.3 Evidencia técnica<a class="headerlink" href="#413-evidencia-tecnica" title="Permanent link">&para;</a></h4>
 <p>Incluye:</p>
@@ -4333,7 +4358,7 @@ MVC inicia en S6.
 <p>Describe un problema visual o técnico: Bootstrap no cargaba, menú no respondía, tabla se veía mal en móvil o campos no coincidían con BD1.</p>
 <h4 id="415-reflexion-tecnica-breve">4.1.5 Reflexión técnica breve<a class="headerlink" href="#415-reflexion-tecnica-breve" title="Permanent link">&para;</a></h4>
 <p>Responde en 5 a 8 líneas:</p>
-<div class="highlight"><pre><span></span><code>¿Por qué la interfaz inicial debe respetar el alcance de REQ y el modelo de datos de BD1?
+<div class="highlight"><pre><span></span><code>¿Cómo demuestra la interfaz que LP1 continúa Producto desde POO y agrega Categoria sin adelantar persistencia?
 </code></pre></div>
 <h3 id="42-criterios-minimos-de-aceptacion">4.2 Criterios mínimos de aceptación<a class="headerlink" href="#42-criterios-minimos-de-aceptacion" title="Permanent link">&para;</a></h3>
 <p>La evidencia individual se considera completa si:</p>
@@ -4342,7 +4367,8 @@ MVC inicia en S6.
 <li>Integra Bootstrap correctamente.</li>
 <li>Incluye navegación inicial.</li>
 <li>La interfaz refleja el dominio del proyecto.</li>
-<li>La vista de entidad usa datos de BD1.</li>
+<li>La vista de Producto conserva nombre, precio y stock.</li>
+<li>Existe una vista de Categoria y cada producto muestra o selecciona una categoría.</li>
 <li>Incluye maqueta de consulta o formulario.</li>
 <li>Explica integración con REQ y BD1.</li>
 <li>Cada evidencia tiene una descripción breve.</li>
@@ -4355,7 +4381,7 @@ MVC inicia en S6.
 <li>Usa HTML semántico y Bootstrap básico.</li>
 <li>Construye una navegación inicial.</li>
 <li>Organiza una plantilla reutilizable.</li>
-<li>Representa entidades del proceso principal en vistas iniciales.</li>
+<li>Representa <code>Producto</code>, <code>Categoria</code> y su relación uno a muchos en vistas iniciales.</li>
 <li>Relaciona campos visibles con atributos de BD1.</li>
 <li>Explica cómo la interfaz responde al alcance de REQ.</li>
 </ul>
@@ -4367,8 +4393,8 @@ MVC inicia en S6.
 <h3 id="53-preguntas-de-defensa-y-reflexion">5.3 Preguntas de defensa y reflexión<a class="headerlink" href="#53-preguntas-de-defensa-y-reflexion" title="Permanent link">&para;</a></h3>
 <ol>
 <li>¿Qué opción del menú responde directamente al alcance de REQ?</li>
-<li>¿Qué entidad de BD1 aparece en tu interfaz?</li>
-<li>¿Qué atributos de BD1 se muestran como campos o columnas?</li>
+<li>¿Qué atributos de Producto provienen del trabajo realizado en POO?</li>
+<li>¿Cómo se representa que una categoría agrupa muchos productos?</li>
 <li>¿Qué parte de la plantilla será reutilizable?</li>
 <li>¿Qué se debe mejorar en S3 con JavaScript?</li>
 <li>¿Qué pantalla no incluiste porque está fuera del alcance?</li>
@@ -4415,12 +4441,12 @@ MVC inicia en S6.
 <td style="text-align: right;"></td>
 </tr>
 <tr>
-<td>4. Integración REQ-BD1</td>
+<td>4. Continuidad del dominio</td>
 <td style="text-align: right;">2</td>
-<td>Vistas y campos reflejan alcance, entidad y atributos correctamente.</td>
-<td>Relación general con REQ y BD1.</td>
-<td>Relación parcial o poco clara.</td>
-<td>No evidencia integración.</td>
+<td>Producto conserva el modelo de POO y la interfaz representa claramente <code>Categoria 1 : * Producto</code>.</td>
+<td>Presenta productos, categorías y su asociación.</td>
+<td>La relación es parcial o poco clara.</td>
+<td>No evidencia continuidad ni relación.</td>
 <td style="text-align: right;"></td>
 </tr>
 <tr>

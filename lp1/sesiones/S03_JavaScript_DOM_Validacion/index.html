@@ -4026,19 +4026,19 @@
 <h2 id="1-introduccion">1. Introducción<a class="headerlink" href="#1-introduccion" title="Permanent link">&para;</a></h2>
 <p>Tiempo: 20 min.</p>
 <h3 id="11-proposito">1.1 Propósito<a class="headerlink" href="#11-proposito" title="Permanent link">&para;</a></h3>
-<p>Agregar interactividad a la interfaz inicial mediante JavaScript, DOM, eventos y validaciones del lado del cliente, usando los requerimientos priorizados en REQ y las reglas de datos del modelo ER avanzado de BD1.</p>
+<p>Agregar interactividad mediante JavaScript, DOM, eventos y validaciones al formulario de <code>Producto</code> construido sobre las vistas de productos y categorías de S2.</p>
 <h3 id="12-resultado-de-aprendizaje">1.2 Resultado de aprendizaje<a class="headerlink" href="#12-resultado-de-aprendizaje" title="Permanent link">&para;</a></h3>
-<p>El estudiante manipula elementos del DOM, captura eventos, valida entradas de formularios y muestra retroalimentación al usuario en una vista relacionada con el proceso principal del proyecto.</p>
+<p>El estudiante manipula el DOM, captura eventos y valida nombre, precio, stock y categoría del producto, mostrando retroalimentación clara al usuario.</p>
 <h3 id="13-producto-de-sesion">1.3 Producto de sesión<a class="headerlink" href="#13-producto-de-sesion" title="Permanent link">&para;</a></h3>
-<p>Formulario interactivo con validación básica en navegador, mensajes de error o confirmación y manipulación inicial de datos en pantalla.</p>
+<p>Formulario interactivo de Producto con selección de Categoria, validaciones en el navegador, mensajes y listado temporal.</p>
 <h3 id="14-motivacion-de-la-sesion">1.4 Motivación de la sesión<a class="headerlink" href="#14-motivacion-de-la-sesion" title="Permanent link">&para;</a></h3>
 <h4 id="141-caso-la-interfaz-debe-responder-al-usuario">1.4.1 Caso: la interfaz debe responder al usuario<a class="headerlink" href="#141-caso-la-interfaz-debe-responder-al-usuario" title="Permanent link">&para;</a></h4>
-<p>En S2 la interfaz ya mostró navegación y vistas iniciales. En S3 deja de ser solo maqueta: el usuario escribe datos, el sistema valida y la página responde sin esperar todavía una base de datos real.</p>
+<p>En S2 la interfaz ya mostró productos, categorías y su relación. En S3 deja de ser solo maqueta: el usuario registra temporalmente un producto, selecciona una categoría y recibe validaciones sin esperar todavía una base de datos real.</p>
 <p>Preguntas para los estudiantes:</p>
 <ol>
 <li>¿Qué requerimiento Must de REQ necesita interacción primero?</li>
-<li>¿Qué entidad o transacción de BD1 aporta los campos del formulario?</li>
-<li>¿Qué campos son obligatorios?</li>
+<li>¿Cómo se evita ingresar una categoría inexistente?</li>
+<li>¿Qué reglas corresponden a nombre, precio y stock?</li>
 <li>¿Qué reglas deben validarse antes de enviar datos?</li>
 <li>¿Qué mensaje debe ver el usuario si algo está mal?</li>
 </ol>
@@ -4091,8 +4091,8 @@ MVC con persistencia inicia en S6.
 </code></pre></div>
 <h3 id="22-arquitectura-de-la-sesion">2.2 Arquitectura de la sesión<a class="headerlink" href="#22-arquitectura-de-la-sesion" title="Permanent link">&para;</a></h3>
 <pre class="mermaid"><code>flowchart TB
-    A[REQ S03: requerimiento priorizado] --&gt; B[Formulario inicial]
-    C[BD1 S03: campos y restricciones] --&gt; B
+    A[S1: Producto] --&gt; B[Formulario de producto]
+    C[S2: categorías disponibles] --&gt; B
     B --&gt; D[Evento submit o click]
     D --&gt; E[Validación JavaScript]
     E --&gt; F[Mensajes al usuario]
@@ -4106,8 +4106,8 @@ MVC con persistencia inicia en S6.
 </ul>
 <h3 id="23-flujo-de-trabajo">2.3 Flujo de trabajo<a class="headerlink" href="#23-flujo-de-trabajo" title="Permanent link">&para;</a></h3>
 <ol>
-<li>Revisar requerimiento Must definido por REQ S03.</li>
-<li>Revisar campos y restricciones de BD1 S03.</li>
+<li>Recuperar <code>Producto</code> de S1 y las categorías incorporadas en S2.</li>
+<li>Definir reglas: nombre obligatorio, precio y stock no negativos, y categoría seleccionada.</li>
 <li>Crear o ajustar formulario en HTML.</li>
 <li>Seleccionar elementos del DOM.</li>
 <li>Capturar evento <code>submit</code> o <code>click</code>.</li>
@@ -4172,40 +4172,51 @@ MVC con persistencia inicia en S6.
 </thead>
 <tbody>
 <tr>
-<td>Requerimiento Must</td>
-<td>REQ S03</td>
-<td>Flujo o formulario a validar</td>
+<td><code>Producto</code></td>
+<td>POO / LP1 S1</td>
+<td>Nombre, precio y stock</td>
 </tr>
 <tr>
-<td>Entidad/transacción</td>
-<td>BD1 S03</td>
-<td>Campos del formulario</td>
+<td><code>Categoria</code></td>
+<td>LP1 S2</td>
+<td>Opciones válidas del selector</td>
 </tr>
 <tr>
-<td>Restricción semántica</td>
-<td>BD1 S03</td>
-<td>Regla de validación</td>
+<td>Restricciones</td>
+<td>Validación con BD1</td>
+<td>Nombre obligatorio; precio y stock no negativos</td>
 </tr>
 <tr>
 <td>Criterio de aceptación</td>
-<td>REQ S03</td>
-<td>Resultado esperado</td>
+<td>REQ</td>
+<td>Resultado esperado para el usuario</td>
 </tr>
 </tbody>
 </table>
 <h3 id="32-crear-formulario-base">3.2 Crear formulario base<a class="headerlink" href="#32-crear-formulario-base" title="Permanent link">&para;</a></h3>
 <p><strong>Producto del paso:</strong> formulario asociado al proceso principal.</p>
 <p>Ejemplo:</p>
-<div class="highlight"><pre><span></span><code><span class="p">&lt;</span><span class="nt">form</span> <span class="na">id</span><span class="o">=</span><span class="s">&quot;formProceso&quot;</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;row g-3&quot;</span><span class="p">&gt;</span>
+<div class="highlight"><pre><span></span><code><span class="p">&lt;</span><span class="nt">form</span> <span class="na">id</span><span class="o">=</span><span class="s">&quot;formProducto&quot;</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;row g-3&quot;</span><span class="p">&gt;</span>
     <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;col-md-6&quot;</span><span class="p">&gt;</span>
-        <span class="p">&lt;</span><span class="nt">label</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;form-label&quot;</span><span class="p">&gt;</span>Cliente<span class="p">&lt;/</span><span class="nt">label</span><span class="p">&gt;</span>
-        <span class="p">&lt;</span><span class="nt">input</span> <span class="na">id</span><span class="o">=</span><span class="s">&quot;cliente&quot;</span> <span class="na">type</span><span class="o">=</span><span class="s">&quot;text&quot;</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;form-control&quot;</span><span class="p">&gt;</span>
-        <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;invalid-feedback&quot;</span><span class="p">&gt;</span>Ingrese el cliente.<span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+        <span class="p">&lt;</span><span class="nt">label</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;form-label&quot;</span><span class="p">&gt;</span>Nombre<span class="p">&lt;/</span><span class="nt">label</span><span class="p">&gt;</span>
+        <span class="p">&lt;</span><span class="nt">input</span> <span class="na">id</span><span class="o">=</span><span class="s">&quot;nombre&quot;</span> <span class="na">type</span><span class="o">=</span><span class="s">&quot;text&quot;</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;form-control&quot;</span><span class="p">&gt;</span>
+        <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;invalid-feedback&quot;</span><span class="p">&gt;</span>Ingrese el nombre.<span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
     <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
     <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;col-md-3&quot;</span><span class="p">&gt;</span>
-        <span class="p">&lt;</span><span class="nt">label</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;form-label&quot;</span><span class="p">&gt;</span>Cantidad<span class="p">&lt;/</span><span class="nt">label</span><span class="p">&gt;</span>
-        <span class="p">&lt;</span><span class="nt">input</span> <span class="na">id</span><span class="o">=</span><span class="s">&quot;cantidad&quot;</span> <span class="na">type</span><span class="o">=</span><span class="s">&quot;number&quot;</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;form-control&quot;</span><span class="p">&gt;</span>
-        <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;invalid-feedback&quot;</span><span class="p">&gt;</span>La cantidad debe ser mayor que cero.<span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+        <span class="p">&lt;</span><span class="nt">label</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;form-label&quot;</span><span class="p">&gt;</span>Precio<span class="p">&lt;/</span><span class="nt">label</span><span class="p">&gt;</span>
+        <span class="p">&lt;</span><span class="nt">input</span> <span class="na">id</span><span class="o">=</span><span class="s">&quot;precio&quot;</span> <span class="na">type</span><span class="o">=</span><span class="s">&quot;number&quot;</span> <span class="na">min</span><span class="o">=</span><span class="s">&quot;0&quot;</span> <span class="na">step</span><span class="o">=</span><span class="s">&quot;0.01&quot;</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;form-control&quot;</span><span class="p">&gt;</span>
+    <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;col-md-3&quot;</span><span class="p">&gt;</span>
+        <span class="p">&lt;</span><span class="nt">label</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;form-label&quot;</span><span class="p">&gt;</span>Stock<span class="p">&lt;/</span><span class="nt">label</span><span class="p">&gt;</span>
+        <span class="p">&lt;</span><span class="nt">input</span> <span class="na">id</span><span class="o">=</span><span class="s">&quot;stock&quot;</span> <span class="na">type</span><span class="o">=</span><span class="s">&quot;number&quot;</span> <span class="na">min</span><span class="o">=</span><span class="s">&quot;0&quot;</span> <span class="na">step</span><span class="o">=</span><span class="s">&quot;1&quot;</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;form-control&quot;</span><span class="p">&gt;</span>
+    <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;col-md-6&quot;</span><span class="p">&gt;</span>
+        <span class="p">&lt;</span><span class="nt">label</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;form-label&quot;</span><span class="p">&gt;</span>Categoría<span class="p">&lt;/</span><span class="nt">label</span><span class="p">&gt;</span>
+        <span class="p">&lt;</span><span class="nt">select</span> <span class="na">id</span><span class="o">=</span><span class="s">&quot;categoria&quot;</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;form-select&quot;</span><span class="p">&gt;</span>
+            <span class="p">&lt;</span><span class="nt">option</span> <span class="na">value</span><span class="o">=</span><span class="s">&quot;&quot;</span><span class="p">&gt;</span>Seleccione<span class="p">&lt;/</span><span class="nt">option</span><span class="p">&gt;</span>
+            <span class="p">&lt;</span><span class="nt">option</span> <span class="na">value</span><span class="o">=</span><span class="s">&quot;1&quot;</span><span class="p">&gt;</span>Útiles<span class="p">&lt;/</span><span class="nt">option</span><span class="p">&gt;</span>
+            <span class="p">&lt;</span><span class="nt">option</span> <span class="na">value</span><span class="o">=</span><span class="s">&quot;2&quot;</span><span class="p">&gt;</span>Accesorios<span class="p">&lt;/</span><span class="nt">option</span><span class="p">&gt;</span>
+        <span class="p">&lt;/</span><span class="nt">select</span><span class="p">&gt;</span>
     <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
     <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;col-md-3 d-flex align-items-end&quot;</span><span class="p">&gt;</span>
         <span class="p">&lt;</span><span class="nt">button</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;btn btn-primary w-100&quot;</span> <span class="na">type</span><span class="o">=</span><span class="s">&quot;submit&quot;</span><span class="p">&gt;</span>Registrar<span class="p">&lt;/</span><span class="nt">button</span><span class="p">&gt;</span>
@@ -4216,14 +4227,16 @@ MVC con persistencia inicia en S6.
 </code></pre></div>
 <h3 id="33-seleccionar-elementos-del-dom">3.3 Seleccionar elementos del DOM<a class="headerlink" href="#33-seleccionar-elementos-del-dom" title="Permanent link">&para;</a></h3>
 <p><strong>Producto del paso:</strong> referencias JavaScript.</p>
-<div class="highlight"><pre><span></span><code><span class="kd">const</span><span class="w"> </span><span class="nx">formProceso</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">document</span><span class="p">.</span><span class="nx">querySelector</span><span class="p">(</span><span class="s2">&quot;#formProceso&quot;</span><span class="p">);</span>
-<span class="kd">const</span><span class="w"> </span><span class="nx">cliente</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">document</span><span class="p">.</span><span class="nx">querySelector</span><span class="p">(</span><span class="s2">&quot;#cliente&quot;</span><span class="p">);</span>
-<span class="kd">const</span><span class="w"> </span><span class="nx">cantidad</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">document</span><span class="p">.</span><span class="nx">querySelector</span><span class="p">(</span><span class="s2">&quot;#cantidad&quot;</span><span class="p">);</span>
+<div class="highlight"><pre><span></span><code><span class="kd">const</span><span class="w"> </span><span class="nx">formProducto</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">document</span><span class="p">.</span><span class="nx">querySelector</span><span class="p">(</span><span class="s2">&quot;#formProducto&quot;</span><span class="p">);</span>
+<span class="kd">const</span><span class="w"> </span><span class="nx">nombre</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">document</span><span class="p">.</span><span class="nx">querySelector</span><span class="p">(</span><span class="s2">&quot;#nombre&quot;</span><span class="p">);</span>
+<span class="kd">const</span><span class="w"> </span><span class="nx">precio</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">document</span><span class="p">.</span><span class="nx">querySelector</span><span class="p">(</span><span class="s2">&quot;#precio&quot;</span><span class="p">);</span>
+<span class="kd">const</span><span class="w"> </span><span class="nx">stock</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">document</span><span class="p">.</span><span class="nx">querySelector</span><span class="p">(</span><span class="s2">&quot;#stock&quot;</span><span class="p">);</span>
+<span class="kd">const</span><span class="w"> </span><span class="nx">categoria</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">document</span><span class="p">.</span><span class="nx">querySelector</span><span class="p">(</span><span class="s2">&quot;#categoria&quot;</span><span class="p">);</span>
 <span class="kd">const</span><span class="w"> </span><span class="nx">mensaje</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">document</span><span class="p">.</span><span class="nx">querySelector</span><span class="p">(</span><span class="s2">&quot;#mensaje&quot;</span><span class="p">);</span>
 </code></pre></div>
 <h3 id="34-capturar-evento-y-prevenir-recarga">3.4 Capturar evento y prevenir recarga<a class="headerlink" href="#34-capturar-evento-y-prevenir-recarga" title="Permanent link">&para;</a></h3>
 <p><strong>Producto del paso:</strong> formulario controlado con JavaScript.</p>
-<div class="highlight"><pre><span></span><code><span class="nx">formProceso</span><span class="p">.</span><span class="nx">addEventListener</span><span class="p">(</span><span class="s2">&quot;submit&quot;</span><span class="p">,</span><span class="w"> </span><span class="kd">function</span><span class="w"> </span><span class="p">(</span><span class="nx">event</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<div class="highlight"><pre><span></span><code><span class="nx">formProducto</span><span class="p">.</span><span class="nx">addEventListener</span><span class="p">(</span><span class="s2">&quot;submit&quot;</span><span class="p">,</span><span class="w"> </span><span class="kd">function</span><span class="w"> </span><span class="p">(</span><span class="nx">event</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 <span class="w">    </span><span class="nx">event</span><span class="p">.</span><span class="nx">preventDefault</span><span class="p">();</span>
 <span class="w">    </span><span class="nx">validarFormulario</span><span class="p">();</span>
 <span class="p">});</span>
@@ -4233,18 +4246,32 @@ MVC con persistencia inicia en S6.
 <div class="highlight"><pre><span></span><code><span class="kd">function</span><span class="w"> </span><span class="nx">validarFormulario</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
 <span class="w">    </span><span class="kd">let</span><span class="w"> </span><span class="nx">valido</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">true</span><span class="p">;</span>
 
-<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">cliente</span><span class="p">.</span><span class="nx">value</span><span class="p">.</span><span class="nx">trim</span><span class="p">()</span><span class="w"> </span><span class="o">===</span><span class="w"> </span><span class="s2">&quot;&quot;</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<span class="w">        </span><span class="nx">cliente</span><span class="p">.</span><span class="nx">classList</span><span class="p">.</span><span class="nx">add</span><span class="p">(</span><span class="s2">&quot;is-invalid&quot;</span><span class="p">);</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">nombre</span><span class="p">.</span><span class="nx">value</span><span class="p">.</span><span class="nx">trim</span><span class="p">()</span><span class="w"> </span><span class="o">===</span><span class="w"> </span><span class="s2">&quot;&quot;</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nx">nombre</span><span class="p">.</span><span class="nx">classList</span><span class="p">.</span><span class="nx">add</span><span class="p">(</span><span class="s2">&quot;is-invalid&quot;</span><span class="p">);</span>
 <span class="w">        </span><span class="nx">valido</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">false</span><span class="p">;</span>
 <span class="w">    </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="p">{</span>
-<span class="w">        </span><span class="nx">cliente</span><span class="p">.</span><span class="nx">classList</span><span class="p">.</span><span class="nx">remove</span><span class="p">(</span><span class="s2">&quot;is-invalid&quot;</span><span class="p">);</span>
+<span class="w">        </span><span class="nx">nombre</span><span class="p">.</span><span class="nx">classList</span><span class="p">.</span><span class="nx">remove</span><span class="p">(</span><span class="s2">&quot;is-invalid&quot;</span><span class="p">);</span>
 <span class="w">    </span><span class="p">}</span>
 
-<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nb">Number</span><span class="p">(</span><span class="nx">cantidad</span><span class="p">.</span><span class="nx">value</span><span class="p">)</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="mf">0</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<span class="w">        </span><span class="nx">cantidad</span><span class="p">.</span><span class="nx">classList</span><span class="p">.</span><span class="nx">add</span><span class="p">(</span><span class="s2">&quot;is-invalid&quot;</span><span class="p">);</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">precio</span><span class="p">.</span><span class="nx">value</span><span class="w"> </span><span class="o">===</span><span class="w"> </span><span class="s2">&quot;&quot;</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="nb">Number</span><span class="p">(</span><span class="nx">precio</span><span class="p">.</span><span class="nx">value</span><span class="p">)</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mf">0</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nx">precio</span><span class="p">.</span><span class="nx">classList</span><span class="p">.</span><span class="nx">add</span><span class="p">(</span><span class="s2">&quot;is-invalid&quot;</span><span class="p">);</span>
 <span class="w">        </span><span class="nx">valido</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">false</span><span class="p">;</span>
 <span class="w">    </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="p">{</span>
-<span class="w">        </span><span class="nx">cantidad</span><span class="p">.</span><span class="nx">classList</span><span class="p">.</span><span class="nx">remove</span><span class="p">(</span><span class="s2">&quot;is-invalid&quot;</span><span class="p">);</span>
+<span class="w">        </span><span class="nx">precio</span><span class="p">.</span><span class="nx">classList</span><span class="p">.</span><span class="nx">remove</span><span class="p">(</span><span class="s2">&quot;is-invalid&quot;</span><span class="p">);</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">stock</span><span class="p">.</span><span class="nx">value</span><span class="w"> </span><span class="o">===</span><span class="w"> </span><span class="s2">&quot;&quot;</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="o">!</span><span class="nb">Number</span><span class="p">.</span><span class="nx">isInteger</span><span class="p">(</span><span class="nb">Number</span><span class="p">(</span><span class="nx">stock</span><span class="p">.</span><span class="nx">value</span><span class="p">))</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="nb">Number</span><span class="p">(</span><span class="nx">stock</span><span class="p">.</span><span class="nx">value</span><span class="p">)</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mf">0</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nx">stock</span><span class="p">.</span><span class="nx">classList</span><span class="p">.</span><span class="nx">add</span><span class="p">(</span><span class="s2">&quot;is-invalid&quot;</span><span class="p">);</span>
+<span class="w">        </span><span class="nx">valido</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">false</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nx">stock</span><span class="p">.</span><span class="nx">classList</span><span class="p">.</span><span class="nx">remove</span><span class="p">(</span><span class="s2">&quot;is-invalid&quot;</span><span class="p">);</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">categoria</span><span class="p">.</span><span class="nx">value</span><span class="w"> </span><span class="o">===</span><span class="w"> </span><span class="s2">&quot;&quot;</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nx">categoria</span><span class="p">.</span><span class="nx">classList</span><span class="p">.</span><span class="nx">add</span><span class="p">(</span><span class="s2">&quot;is-invalid&quot;</span><span class="p">);</span>
+<span class="w">        </span><span class="nx">valido</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">false</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nx">categoria</span><span class="p">.</span><span class="nx">classList</span><span class="p">.</span><span class="nx">remove</span><span class="p">(</span><span class="s2">&quot;is-invalid&quot;</span><span class="p">);</span>
 <span class="w">    </span><span class="p">}</span>
 
 <span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">valido</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
@@ -4259,8 +4286,10 @@ MVC con persistencia inicia en S6.
 <div class="highlight"><pre><span></span><code><span class="p">&lt;</span><span class="nt">table</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;table mt-4&quot;</span><span class="p">&gt;</span>
     <span class="p">&lt;</span><span class="nt">thead</span><span class="p">&gt;</span>
         <span class="p">&lt;</span><span class="nt">tr</span><span class="p">&gt;</span>
-            <span class="p">&lt;</span><span class="nt">th</span><span class="p">&gt;</span>Cliente<span class="p">&lt;/</span><span class="nt">th</span><span class="p">&gt;</span>
-            <span class="p">&lt;</span><span class="nt">th</span><span class="p">&gt;</span>Cantidad<span class="p">&lt;/</span><span class="nt">th</span><span class="p">&gt;</span>
+            <span class="p">&lt;</span><span class="nt">th</span><span class="p">&gt;</span>Producto<span class="p">&lt;/</span><span class="nt">th</span><span class="p">&gt;</span>
+            <span class="p">&lt;</span><span class="nt">th</span><span class="p">&gt;</span>Precio<span class="p">&lt;/</span><span class="nt">th</span><span class="p">&gt;</span>
+            <span class="p">&lt;</span><span class="nt">th</span><span class="p">&gt;</span>Stock<span class="p">&lt;/</span><span class="nt">th</span><span class="p">&gt;</span>
+            <span class="p">&lt;</span><span class="nt">th</span><span class="p">&gt;</span>Categoría<span class="p">&lt;/</span><span class="nt">th</span><span class="p">&gt;</span>
         <span class="p">&lt;/</span><span class="nt">tr</span><span class="p">&gt;</span>
     <span class="p">&lt;/</span><span class="nt">thead</span><span class="p">&gt;</span>
     <span class="p">&lt;</span><span class="nt">tbody</span> <span class="na">id</span><span class="o">=</span><span class="s">&quot;tablaTemporal&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">tbody</span><span class="p">&gt;</span>
@@ -4271,8 +4300,10 @@ MVC con persistencia inicia en S6.
 <span class="kd">function</span><span class="w"> </span><span class="nx">agregarFilaTemporal</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
 <span class="w">    </span><span class="nx">tablaTemporal</span><span class="p">.</span><span class="nx">innerHTML</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="sb">`</span>
 <span class="sb">        &lt;tr&gt;</span>
-<span class="sb">            &lt;td&gt;</span><span class="si">${</span><span class="nx">cliente</span><span class="p">.</span><span class="nx">value</span><span class="si">}</span><span class="sb">&lt;/td&gt;</span>
-<span class="sb">            &lt;td&gt;</span><span class="si">${</span><span class="nx">cantidad</span><span class="p">.</span><span class="nx">value</span><span class="si">}</span><span class="sb">&lt;/td&gt;</span>
+<span class="sb">            &lt;td&gt;</span><span class="si">${</span><span class="nx">nombre</span><span class="p">.</span><span class="nx">value</span><span class="si">}</span><span class="sb">&lt;/td&gt;</span>
+<span class="sb">            &lt;td&gt;</span><span class="si">${</span><span class="nx">precio</span><span class="p">.</span><span class="nx">value</span><span class="si">}</span><span class="sb">&lt;/td&gt;</span>
+<span class="sb">            &lt;td&gt;</span><span class="si">${</span><span class="nx">stock</span><span class="p">.</span><span class="nx">value</span><span class="si">}</span><span class="sb">&lt;/td&gt;</span>
+<span class="sb">            &lt;td&gt;</span><span class="si">${</span><span class="nx">categoria</span><span class="p">.</span><span class="nx">options</span><span class="p">[</span><span class="nx">categoria</span><span class="p">.</span><span class="nx">selectedIndex</span><span class="p">].</span><span class="nx">text</span><span class="si">}</span><span class="sb">&lt;/td&gt;</span>
 <span class="sb">        &lt;/tr&gt;</span>
 <span class="sb">    `</span><span class="p">;</span>
 <span class="p">}</span>
@@ -4290,18 +4321,23 @@ MVC con persistencia inicia en S6.
 </thead>
 <tbody>
 <tr>
-<td>Campo vacío</td>
-<td>cliente vacío</td>
+<td>Nombre vacío</td>
+<td>nombre vacío</td>
 <td>Mensaje de error</td>
 </tr>
 <tr>
-<td>Cantidad inválida</td>
-<td>0 o negativo</td>
+<td>Precio o stock inválido</td>
+<td>valor negativo o stock decimal</td>
+<td>Mensaje de error</td>
+</tr>
+<tr>
+<td>Categoría vacía</td>
+<td>no seleccionar categoría</td>
 <td>Mensaje de error</td>
 </tr>
 <tr>
 <td>Datos válidos</td>
-<td>cliente y cantidad válida</td>
+<td>nombre, precio, stock y categoría válidos</td>
 <td>Confirmación y fila temporal</td>
 </tr>
 </tbody>

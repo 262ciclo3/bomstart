@@ -3629,7 +3629,7 @@
 <h1 id="lp1-lenguaje-de-programacion-i">LP1 - Lenguaje de Programación I<a class="headerlink" href="#lp1-lenguaje-de-programacion-i" title="Permanent link">&para;</a></h1>
 <h2 id="producto-del-curso">Producto del curso<a class="headerlink" href="#producto-del-curso" title="Permanent link">&para;</a></h2>
 <p><strong>Sistema Web MVC Empresarial.</strong></p>
-<p>Aplicación web monolítica con persistencia, control de acceso, consultas y optimización básica.</p>
+<p>Aplicación web monolítica con JDBC, DAO, CRUD, objetos relacionados, operación cabecera–detalle, consultas, reportes y control de acceso.</p>
 <hr />
 <h1 id="unidad-1-fundamentos-del-desarrollo-web">UNIDAD 1 - Fundamentos del Desarrollo Web<a class="headerlink" href="#unidad-1-fundamentos-del-desarrollo-web" title="Permanent link">&para;</a></h1>
 <h3 id="resultado-de-aprendizaje">Resultado de aprendizaje<a class="headerlink" href="#resultado-de-aprendizaje" title="Permanent link">&para;</a></h3>
@@ -3637,6 +3637,24 @@
 <h3 id="producto-de-la-unidad">Producto de la unidad<a class="headerlink" href="#producto-de-la-unidad" title="Permanent link">&para;</a></h3>
 <p><strong>Página web interactiva (plantillas + formularios).</strong></p>
 <p>Artefacto de referencia para el Proyecto Integrador: <a href="../proyecto-integrador/u1/lp1-demo/">LP1 - Producto de Unidad 1</a>.</p>
+<h3 id="continuidad-desde-programacion-orientada-a-objetos">Continuidad desde Programación Orientada a Objetos<a class="headerlink" href="#continuidad-desde-programacion-orientada-a-objetos" title="Permanent link">&para;</a></h3>
+<p>LP1 no reinicia el dominio. Toma como punto de partida el modelo construido en POO, donde ya existen <code>Venta</code>, <code>DetalleVenta</code>, <code>Producto</code> y <code>Usuario</code>.</p>
+<ul>
+<li>En <strong>S1</strong>, <code>Producto</code> (<code>nombre</code>, <code>precio</code> y <code>stock</code>) se convierte en el primer recurso representado en la aplicación web.</li>
+<li>En <strong>S2</strong>, se incorpora <code>Categoria</code> y se establece que una categoría agrupa muchos productos, mientras cada producto pertenece a una categoría.</li>
+<li>En U1 la relación se representa en la interfaz; su persistencia y tratamiento mediante MVC corresponden a U2.</li>
+</ul>
+<pre class="mermaid"><code>classDiagram
+    class Categoria {
+        String nombre
+        String descripcion
+    }
+    class Producto {
+        String nombre
+        double precio
+        int stock
+    }
+    Categoria "1" --&gt; "*" Producto : clasifica</code></pre>
 <table>
 <thead>
 <tr>
@@ -3649,12 +3667,12 @@
 <tr>
 <td><strong>S1</strong></td>
 <td>Arquitectura Web, HTTP y estructura de aplicaciones cliente-servidor</td>
-<td>Mapa funcional de la arquitectura web y estructura inicial del proyecto cliente-servidor.</td>
+<td>Proyecto web inicial y flujo HTTP del recurso <code>Producto</code>, recuperado del modelo desarrollado en POO.</td>
 </tr>
 <tr>
 <td><strong>S2</strong></td>
 <td>Interfaces web con HTML, CSS y plantillas reutilizables (Bootstrap)</td>
-<td>Interfaz web base con diseño responsive y plantillas reutilizables.</td>
+<td>Interfaz responsive de productos y categorías, con representación de la relación <code>Categoria 1 : * Producto</code>.</td>
 </tr>
 <tr>
 <td><strong>S3</strong></td>
@@ -3668,6 +3686,11 @@
 </tr>
 <tr>
 <td><strong>S5</strong></td>
+<td>Integración y refinamiento de la página web interactiva</td>
+<td>Flujo web integrado de <code>Producto</code> y <code>Categoria</code>, con validaciones, estilos y evidencia de funcionamiento.</td>
+</tr>
+<tr>
+<td><strong>S6</strong></td>
 <td>Evaluación U1</td>
 <td><strong>Producto U1:</strong> página web interactiva sustentada.</td>
 </tr>
@@ -3676,9 +3699,9 @@
 <hr />
 <h1 id="unidad-2-desarrollo-de-aplicaciones-web-mvc">UNIDAD 2 - Desarrollo de Aplicaciones Web MVC<a class="headerlink" href="#unidad-2-desarrollo-de-aplicaciones-web-mvc" title="Permanent link">&para;</a></h1>
 <h3 id="resultado-de-aprendizaje_1">Resultado de aprendizaje<a class="headerlink" href="#resultado-de-aprendizaje_1" title="Permanent link">&para;</a></h3>
-<p>Desarrolla una aplicación web MVC empresarial aplicando rutas, controladores, servicios, ORM, repositorios, persistencia, relaciones de datos, consultas, autenticación, autorización, sesiones, validaciones y optimización básica.</p>
+<p>Desarrolla una aplicación web MVC empresarial aplicando rutas, controladores, servicios, JDBC, DAO, CRUD, validaciones, manejo de errores, objetos relacionados y operaciones del dominio con cabecera–detalle.</p>
 <h3 id="producto-de-la-unidad_1">Producto de la unidad<a class="headerlink" href="#producto-de-la-unidad_1" title="Permanent link">&para;</a></h3>
-<p><strong>Aplicación Web MVC con persistencia, relaciones, consultas y control de acceso.</strong></p>
+<p><strong>Aplicación Web MVC con persistencia mediante JDBC y DAO, CRUD validado, objetos relacionados y una operación del dominio con cabecera–detalle.</strong></p>
 <p>Artefacto de referencia para el Proyecto Integrador: <a href="../proyecto-integrador/u2/lp1-demo/">LP1 - Producto de Unidad 2</a>.</p>
 <table>
 <thead>
@@ -3690,46 +3713,41 @@
 </thead>
 <tbody>
 <tr>
-<td><strong>S6</strong></td>
-<td>Arquitectura MVC: rutas, controladores, servicios, ORM, repositorios y registro/consulta de una entidad simple</td>
-<td>Módulo MVC inicial con registro y consulta de una entidad simple.</td>
-</tr>
-<tr>
 <td><strong>S7</strong></td>
-<td>Persistencia de datos, operaciones transaccionales y relaciones básicas (1:1 y 1:*): ORM / Nativos</td>
-<td>Módulo persistente con operaciones transaccionales y relaciones básicas.</td>
+<td>Creación del proyecto Web MVC y primer listado</td>
+<td>Proyecto MVC ejecutable, conectado mediante JDBC y con listado de <code>Producto</code> desde la base de datos.</td>
 </tr>
 <tr>
 <td><strong>S8</strong></td>
-<td>Relaciones de datos complejas (<em>:</em>), integridad referencial y operaciones integradas</td>
-<td>Módulo con relación muchos a muchos, integridad referencial y operaciones integradas.</td>
+<td>Modelo, DAO y CRUD Web MVC</td>
+<td>CRUD completo de <code>Producto</code> mediante JDBC, DAO, servicios, controladores, formularios y vistas.</td>
 </tr>
 <tr>
 <td><strong>S9</strong></td>
-<td>Consultas, filtros, búsqueda, ordenamiento y paginación web</td>
-<td>Vistas de consulta con filtros, búsqueda, ordenamiento y paginación.</td>
+<td>Validación, manejo de errores y presentación del CRUD MVC</td>
+<td>CRUD de <code>Producto</code> validado, con errores controlados, mensajes, layout y hojas de estilos.</td>
 </tr>
 <tr>
 <td><strong>S10</strong></td>
-<td>Control de acceso, autenticación, autorización y gestión de sesiones</td>
-<td>Sistema con autenticación, autorización básica y gestión de sesión.</td>
+<td>Gestión de objetos relacionados en MVC</td>
+<td>Módulo de <code>Categoria–Producto</code>, con asignación, navegación y presentación de objetos relacionados.</td>
 </tr>
 <tr>
 <td><strong>S11</strong></td>
-<td>Validaciones, manejo de errores, seguimiento de solicitudes, caché y optimización de aplicaciones web</td>
-<td>Aplicación MVC validada, con manejo de errores, seguimiento de solicitudes y optimización básica.</td>
+<td>Procesamiento de operaciones del dominio con cabecera–detalle</td>
+<td>Registro y consulta de <code>Venta–DetalleVenta</code>, con cálculos, control de stock y persistencia atómica.</td>
 </tr>
 <tr>
 <td><strong>S12</strong></td>
 <td>Evaluación U2</td>
-<td><strong>Producto U2:</strong> aplicación Web MVC con persistencia, relaciones, consultas y control de acceso.</td>
+<td><strong>Producto U2:</strong> aplicación Web MVC con <code>Producto</code>, <code>Categoria–Producto</code> y <code>Venta–DetalleVenta</code>.</td>
 </tr>
 </tbody>
 </table>
 <hr />
 <h1 id="unidad-3-proyecto-integrador-web-mvc">UNIDAD 3 - Proyecto Integrador Web MVC<a class="headerlink" href="#unidad-3-proyecto-integrador-web-mvc" title="Permanent link">&para;</a></h1>
 <h3 id="resultado-de-aprendizaje_2">Resultado de aprendizaje<a class="headerlink" href="#resultado-de-aprendizaje_2" title="Permanent link">&para;</a></h3>
-<p>Integra módulos funcionales, pruebas, correcciones y sustentación técnica para consolidar un sistema web MVC empresarial alineado al proyecto integrador del ciclo.</p>
+<p>Integra consultas, reportes, seguridad, pruebas, correcciones y sustentación técnica para consolidar un sistema web MVC empresarial alineado al proyecto integrador del ciclo.</p>
 <h3 id="producto-de-la-unidad_2">Producto de la unidad<a class="headerlink" href="#producto-de-la-unidad_2" title="Permanent link">&para;</a></h3>
 <p><strong>Sistema Web MVC Empresarial.</strong></p>
 <p>Artefacto de referencia para el Proyecto Integrador: <a href="../proyecto-integrador/u3/lp1-producto/">LP1 - Producto de Unidad 3</a>.</p>
@@ -3744,13 +3762,13 @@
 <tbody>
 <tr>
 <td><strong>S13</strong></td>
-<td>Integración funcional de módulos y consolidación del sistema</td>
-<td>Sistema MVC consolidado con módulos integrados.</td>
+<td>Autenticación, autorización y gestión de sesiones</td>
+<td>Sistema MVC protegido mediante <code>Usuario</code>, sesiones, roles y rutas autorizadas.</td>
 </tr>
 <tr>
 <td><strong>S14</strong></td>
-<td>Pruebas funcionales, corrección de errores y refinamiento</td>
-<td>Sistema probado, corregido y refinado para presentación final.</td>
+<td>Consultas del dominio y reportes web</td>
+<td>Consultas y reportes protegidos de <code>Producto</code>, <code>Categoria</code>, <code>Venta</code> y <code>DetalleVenta</code>, según el usuario o rol activo.</td>
 </tr>
 <tr>
 <td><strong>S15</strong></td>
@@ -3770,35 +3788,34 @@
 <ul>
 <li>Arquitectura web y flujo HTTP.</li>
 <li>Estructura cliente-servidor.</li>
+<li>Continuidad del dominio de POO mediante <code>Producto</code>.</li>
+<li>Incorporación de <code>Categoria</code> y su relación uno a muchos con <code>Producto</code>.</li>
 <li>Interfaces con HTML, CSS y Bootstrap.</li>
 <li>Plantillas reutilizables.</li>
 <li>JavaScript, DOM, eventos y validaciones.</li>
 <li>Formularios integrados.</li>
+<li>Integración, refinamiento y evaluación del producto web.</li>
 </ul>
 <h2 id="unidad-2">Unidad 2<a class="headerlink" href="#unidad-2" title="Permanent link">&para;</a></h2>
 <ul>
-<li>Arquitectura MVC.</li>
-<li>Rutas, controladores, servicios, ORM y repositorios.</li>
-<li>Registro y consulta de entidades.</li>
-<li>Persistencia y transacciones.</li>
-<li>Relaciones 1:1, 1:<em> y </em>:*.</li>
-<li>Filtros, búsqueda, ordenamiento y paginación.</li>
-<li>Autenticación, autorización y sesiones.</li>
-<li>Validaciones, errores, seguimiento, caché y optimización básica.</li>
+<li>Proyecto Web MVC ejecutable y conectado mediante JDBC.</li>
+<li>Primer listado de <code>Producto</code> como corte vertical de la arquitectura.</li>
+<li>DAO y CRUD Web MVC completo de <code>Producto</code>.</li>
+<li>Validaciones, manejo de errores y hojas de estilos.</li>
+<li>Gestión de <code>Categoria–Producto</code> como objetos relacionados.</li>
+<li>Procesamiento de <code>Venta–DetalleVenta</code> como operación del dominio.</li>
 </ul>
 <h2 id="unidad-3">Unidad 3<a class="headerlink" href="#unidad-3" title="Permanent link">&para;</a></h2>
 <ul>
-<li>Integración funcional de módulos.</li>
-<li>Consolidación del sistema.</li>
-<li>Pruebas funcionales.</li>
-<li>Corrección de errores.</li>
-<li>Refinamiento del producto.</li>
+<li>Autenticación, autorización y sesiones.</li>
+<li>Consultas del dominio y reportes web protegidos.</li>
+<li>Integración, pruebas y refinamiento transversal del producto.</li>
 <li>Sustentación técnica.</li>
 <li>Evaluación final.</li>
 </ul>
 <hr />
 <h1 id="integracion-curricular">Integración Curricular<a class="headerlink" href="#integracion-curricular" title="Permanent link">&para;</a></h1>
-<p>LP1 convierte el SRS y el modelo de datos en una aplicación web MVC funcional, usando los requerimientos definidos en REQ y la base de datos construida en BD1. Desde las primeras sesiones, la interfaz debe reflejar el alcance del proyecto y las entidades del proceso principal, especialmente las entidades transaccionales cuando el dominio incluya ventas, compras, reservas, citas, pedidos u operaciones similares.</p>
+<p>LP1 continúa el dominio desarrollado en POO y lo convierte progresivamente en una aplicación web MVC funcional. Para el caso de referencia, recupera <code>Producto</code> en S1 y agrega <code>Categoria</code> en S2; REQ precisa el alcance y BD1 formaliza el modelo de datos que se persistirá después. Desde las primeras sesiones, la interfaz debe reflejar las entidades y reglas ya trabajadas, sin rehacer el análisis ni adelantar persistencia antes de U2.</p>
 
 
 

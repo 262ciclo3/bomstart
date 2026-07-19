@@ -3,10 +3,14 @@ INSERT INTO cliente (id_cliente, nombre, documento) VALUES
 (2, 'Jose Mamani', '70010002'),
 (3, 'Ana Torres', '70010003');
 
-INSERT INTO producto (id_producto, nombre, categoria, precio_referencial) VALUES
-(1, 'Pack escolar', 'Utiles', 45.00),
-(2, 'Caja de lapiceros', 'Utiles', 18.50),
-(3, 'Mochila urbana', 'Accesorios', 89.90);
+INSERT INTO categoria (id_categoria, nombre, descripcion) VALUES
+(1, 'Utiles', 'Articulos para estudio y oficina'),
+(2, 'Accesorios', 'Complementos de uso personal');
+
+INSERT INTO producto (id_producto, nombre, precio, stock, id_categoria) VALUES
+(1, 'Pack escolar', 45.00, 20, 1),
+(2, 'Caja de lapiceros', 18.50, 35, 1),
+(3, 'Mochila urbana', 89.90, 12, 2);
 
 INSERT INTO pedido (id_pedido, id_cliente, fecha_entrega, prioridad, estado) VALUES
 (1, 1, '2026-08-20', 'urgente', 'pendiente'),

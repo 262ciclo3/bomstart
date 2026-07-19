@@ -11,11 +11,32 @@
     <div>
       <p class="eyebrow">Producto U1 - LP1</p>
       <h1>Gestion inicial de pedidos</h1>
-      <p>Demo interactiva basada en los requerimientos de REQ y el modelo inicial de BD1.</p>
+      <p>Continuidad del dominio de POO, ampliada en LP1 y alineada con REQ y BD1.</p>
     </div>
   </header>
 
   <main class="layout">
+    <section class="panel table-panel" aria-labelledby="catalogo-title">
+      <h2 id="catalogo-title">Catálogo inicial</h2>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>Producto</th>
+              <th>Precio</th>
+              <th>Stock</th>
+              <th>Categoría</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td>Pack escolar</td><td>S/ 45.00</td><td>20</td><td>Útiles</td></tr>
+            <tr><td>Caja de lapiceros</td><td>S/ 18.50</td><td>35</td><td>Útiles</td></tr>
+            <tr><td>Mochila urbana</td><td>S/ 89.90</td><td>12</td><td>Accesorios</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
     <section class="panel" aria-labelledby="form-title">
       <h2 id="form-title">Registrar pedido</h2>
       <form id="pedidoForm" novalidate>
@@ -26,7 +47,17 @@
 
         <label>
           Producto
-          <input id="producto" name="producto" type="text" placeholder="Ej. Pack escolar">
+          <select id="producto" name="producto">
+            <option value="">Seleccione un producto</option>
+            <option value="Pack escolar" data-categoria="Útiles">Pack escolar</option>
+            <option value="Caja de lapiceros" data-categoria="Útiles">Caja de lapiceros</option>
+            <option value="Mochila urbana" data-categoria="Accesorios">Mochila urbana</option>
+          </select>
+        </label>
+
+        <label>
+          Categoría del producto
+          <input id="categoria" name="categoria" type="text" readonly placeholder="Se completa según el producto">
         </label>
 
         <div class="grid-two">
@@ -83,6 +114,7 @@
               <th>#</th>
               <th>Cliente</th>
               <th>Producto</th>
+              <th>Categoría</th>
               <th>Cantidad</th>
               <th>Fecha</th>
               <th>Prioridad</th>
@@ -90,7 +122,7 @@
           </thead>
           <tbody id="pedidosBody">
             <tr>
-              <td colspan="6" class="empty">Aun no hay pedidos registrados.</td>
+              <td colspan="7" class="empty">Aun no hay pedidos registrados.</td>
             </tr>
           </tbody>
         </table>

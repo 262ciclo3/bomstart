@@ -3715,7 +3715,8 @@
 
 <h1 id="unidad-1-producto-integrado">Unidad 1 - Producto integrado<a class="headerlink" href="#unidad-1-producto-integrado" title="Permanent link">&para;</a></h1>
 <h2 id="corte-u1">Corte U1<a class="headerlink" href="#corte-u1" title="Permanent link">&para;</a></h2>
-<p>El corte de Unidad 1 demuestra que el equipo ya tiene un dominio validado para iniciar la construccion MVC. No es todavia el sistema final; es el primer producto integrado donde REQ, BD1 y LP1 trabajan sobre el mismo problema.</p>
+<p>El corte de Unidad 1 demuestra que el equipo conserva el dominio construido en POO y lo amplía de forma coordinada con REQ, BD1 y LP1 antes de iniciar la construcción MVC. No es todavía el sistema final.</p>
+<p>En el caso de referencia, LP1 recupera <code>Producto</code> en S1 y agrega <code>Categoria</code> en S2. La relación es <code>Categoria 1 : * Producto</code>: una categoría agrupa muchos productos y cada producto pertenece a una categoría.</p>
 <h2 id="dominio-de-ejemplo">Dominio de ejemplo<a class="headerlink" href="#dominio-de-ejemplo" title="Permanent link">&para;</a></h2>
 <p><strong>Gestion inicial de pedidos para una tienda local.</strong></p>
 <p>Una tienda registra pedidos de clientes de forma manual. Esto genera errores en cantidades, datos incompletos y poca visibilidad del estado de atencion. El equipo propone una aplicacion web empresarial que permita registrar, consultar y dar seguimiento inicial a pedidos.</p>
@@ -3746,7 +3747,7 @@
 </tr>
 <tr>
 <td>LP1</td>
-<td>Pagina web interactiva con plantillas, formulario y validaciones.</td>
+<td>Página web interactiva que continúa con Producto, incorpora Categoria y luego integra formularios y validaciones.</td>
 <td><a href="lp1-demo/">Producto LP1 U1</a></td>
 </tr>
 </tbody>
@@ -3755,9 +3756,13 @@
 <pre class="mermaid"><code>flowchart TB
     A[REQ: problema, actores, RF, RNF y prototipo]
     B[BD1: entidades, relaciones, modelo logico y diccionario]
-    C[LP1: pagina web interactiva y validaciones]
+    P[POO: Producto, Venta, DetalleVenta y Usuario]
+    C[LP1: Producto web y nueva Categoria]
     D[Corte U1: dominio validado]
 
+    P --&gt; A
+    P --&gt; B
+    P --&gt; C
     A --&gt; B
     A --&gt; C
     B --&gt; C

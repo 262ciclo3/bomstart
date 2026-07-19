@@ -3732,6 +3732,11 @@
 <td>RF-01</td>
 </tr>
 <tr>
+<td>nombre_categoria</td>
+<td>Clasificacion del producto.</td>
+<td>Continuidad LP1 S02</td>
+</tr>
+<tr>
 <td>cantidad</td>
 <td>Numero de unidades solicitadas.</td>
 <td>RF-01, RF-03</td>
@@ -3774,6 +3779,11 @@
 <td>Permite reconocer que se esta solicitando.</td>
 </tr>
 <tr>
+<td>Maestra</td>
+<td>Categoria</td>
+<td>Organiza los productos sin repetir su clasificación como texto libre.</td>
+</tr>
+<tr>
 <td>Transaccional</td>
 <td>Pedido</td>
 <td>Representa la operacion principal del sistema.</td>
@@ -3790,6 +3800,7 @@
     CLIENTE ||--o{ PEDIDO : realiza
     PEDIDO ||--|{ DETALLE_PEDIDO : contiene
     PRODUCTO ||--o{ DETALLE_PEDIDO : se_solicita_en
+    CATEGORIA ||--o{ PRODUCTO : clasifica
 
     CLIENTE {
         int id_cliente
@@ -3800,7 +3811,15 @@
     PRODUCTO {
         int id_producto
         string nombre
-        string categoria
+        decimal precio
+        int stock
+        int id_categoria
+    }
+
+    CATEGORIA {
+        int id_categoria
+        string nombre
+        string descripcion
     }
 
     PEDIDO {
@@ -3872,11 +3891,51 @@
 </tr>
 <tr>
 <td>producto</td>
+<td>precio</td>
+<td>DECIMAL(10,2)</td>
+<td></td>
+<td>No</td>
+<td>Debe ser mayor o igual que cero.</td>
+</tr>
+<tr>
+<td>producto</td>
+<td>stock</td>
+<td>INT</td>
+<td></td>
+<td>No</td>
+<td>Debe ser mayor o igual que cero.</td>
+</tr>
+<tr>
+<td>producto</td>
+<td>id_categoria</td>
+<td>INT</td>
+<td>FK</td>
+<td>No</td>
+<td>Referencia a la categoría del producto.</td>
+</tr>
+<tr>
 <td>categoria</td>
-<td>VARCHAR(50)</td>
+<td>id_categoria</td>
+<td>INT</td>
+<td>PK</td>
+<td>No</td>
+<td>Identificador autogenerado.</td>
+</tr>
+<tr>
+<td>categoria</td>
+<td>nombre</td>
+<td>VARCHAR(80)</td>
+<td></td>
+<td>No</td>
+<td>Nombre único de la categoría.</td>
+</tr>
+<tr>
+<td>categoria</td>
+<td>descripcion</td>
+<td>VARCHAR(200)</td>
 <td></td>
 <td>Si</td>
-<td>Clasificacion opcional.</td>
+<td>Descripción opcional.</td>
 </tr>
 <tr>
 <td>pedido</td>
@@ -3971,7 +4030,7 @@
 </tr>
 <tr>
 <td>Tercera forma normal</td>
-<td>La prioridad y el estado pertenecen al pedido; los datos del producto no dependen del cliente.</td>
+<td>La categoría se separa de producto para evitar repetir su nombre; la prioridad y el estado pertenecen al pedido.</td>
 </tr>
 </tbody>
 </table>
@@ -3996,6 +4055,11 @@
 <td>Obligatorio.</td>
 </tr>
 <tr>
+<td>Categoria del producto</td>
+<td>categoria.id_categoria / producto.id_categoria</td>
+<td>Debe seleccionar una categoría existente.</td>
+</tr>
+<tr>
 <td>Cantidad</td>
 <td>detalle_pedido.cantidad</td>
 <td>Entero mayor que cero.</td>
@@ -4017,6 +4081,7 @@
 <ul>
 <li><code>CREATE TABLE cliente</code>.</li>
 <li><code>CREATE TABLE producto</code>.</li>
+<li><code>CREATE TABLE categoria</code> antes de <code>producto</code>.</li>
 <li><code>CREATE TABLE pedido</code>.</li>
 <li><code>CREATE TABLE detalle_pedido</code>.</li>
 <li>Claves primarias y foraneas.</li>
