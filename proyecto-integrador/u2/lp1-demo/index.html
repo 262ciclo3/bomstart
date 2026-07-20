@@ -3438,14 +3438,14 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../lp1/sesiones/S11_Validaciones_Errores_Optimizacion/" class="md-nav__link">
+      <a href="../../../lp1/sesiones/S11_Consultas_Reportes_Web/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    S11 - Validaciones, errores y optimización
+    S11 - Consultas del dominio y reportes web
   
 
     
@@ -3693,8 +3693,8 @@
 
 <h1 id="lp1-producto-de-unidad-2">LP1 - Producto de Unidad 2<a class="headerlink" href="#lp1-producto-de-unidad-2" title="Permanent link">&para;</a></h1>
 <h2 id="producto">Producto<a class="headerlink" href="#producto" title="Permanent link">&para;</a></h2>
-<p><strong>Aplicacion MVC inicial con persistencia, consultas, validaciones y control de acceso basico.</strong></p>
-<p>La demo representa el salto desde la pagina interactiva de U1 hacia una aplicacion organizada por responsabilidades. Para que pueda publicarse en MkDocs sin servidor, usa <code>localStorage</code> como persistencia academica. En una implementacion real de LP1, esta capa se reemplaza por ORM, repositorios y base de datos.</p>
+<p><strong>Aplicacion MVC con persistencia, CRUD validado, objetos relacionados, operacion cabecera-detalle, consultas y reportes.</strong></p>
+<p>La demo representa el salto desde la pagina interactiva de U1 hacia una aplicacion organizada por responsabilidades. Para que pueda publicarse en MkDocs sin servidor, usa <code>localStorage</code> como persistencia academica. En la implementacion real de LP1, esta capa se reemplaza por DAO, conexion nativa mediante JDBC y base de datos; el ORM es opcional y complementario.</p>
 <h2 id="demo-ejecutable">Demo ejecutable<a class="headerlink" href="#demo-ejecutable" title="Permanent link">&para;</a></h2>
 <p><a href="../demo-lp1-mvc/">Abrir demo LP1 U2</a></p>
 <h2 id="arquitectura-de-referencia">Arquitectura de referencia<a class="headerlink" href="#arquitectura-de-referencia" title="Permanent link">&para;</a></h2>
@@ -3713,7 +3713,6 @@
 <li>Listado con filtros por estado y prioridad.</li>
 <li>Cambio de estado de pedido.</li>
 <li>Resumen de pedidos, unidades y urgentes.</li>
-<li>Control de acceso basico para simular modulo protegido.</li>
 </ul>
 <h2 id="trazabilidad-con-req-y-bd1">Trazabilidad con REQ y BD1<a class="headerlink" href="#trazabilidad-con-req-y-bd1" title="Permanent link">&para;</a></h2>
 <table>
@@ -3725,11 +3724,6 @@
 </tr>
 </thead>
 <tbody>
-<tr>
-<td>Acceso al modulo</td>
-<td>HU-05</td>
-<td>usuario o control de acceso futuro</td>
-</tr>
 <tr>
 <td>Registro de pedido</td>
 <td>HU-01</td>
@@ -3772,16 +3766,6 @@
 </tr>
 </thead>
 <tbody>
-<tr>
-<td>Acceso correcto</td>
-<td>Ingresar usuario <code>admin</code> y clave <code>admin123</code>.</td>
-<td>Se muestra el modulo de pedidos.</td>
-</tr>
-<tr>
-<td>Acceso incorrecto</td>
-<td>Ingresar credenciales invalidas.</td>
-<td>Se muestra mensaje de acceso no valido.</td>
-</tr>
 <tr>
 <td>Registrar pedido</td>
 <td>Completar datos validos y guardar.</td>

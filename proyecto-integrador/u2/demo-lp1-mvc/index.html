@@ -13,28 +13,10 @@
       <h1>Pedidos MVC inicial</h1>
       <p>Demo con controlador, servicio, repositorio y persistencia local.</p>
     </div>
-    <button id="logoutBtn" class="ghost hidden">Salir</button>
   </header>
 
   <main class="shell">
-    <section id="loginPanel" class="panel login-panel">
-      <h2>Acceso al modulo</h2>
-      <p class="hint">Usuario: <strong>admin</strong> / Clave: <strong>admin123</strong></p>
-      <form id="loginForm" novalidate>
-        <label>
-          Usuario
-          <input id="usuario" type="text" autocomplete="username">
-        </label>
-        <label>
-          Clave
-          <input id="clave" type="password" autocomplete="current-password">
-        </label>
-        <p id="loginMensaje" class="message" role="status" aria-live="polite"></p>
-        <button type="submit">Ingresar</button>
-      </form>
-    </section>
-
-    <section id="appPanel" class="hidden">
+    <section id="appPanel">
       <section class="summary" aria-label="Resumen">
         <article><span id="totalPedidos">0</span><p>Pedidos</p></article>
         <article><span id="totalPendientes">0</span><p>Pendientes</p></article>
