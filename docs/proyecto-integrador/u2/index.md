@@ -16,7 +16,7 @@ El producto no tiene que estar completo como entrega final, pero debe permitir e
 |---|---|---|
 | REQ | Modelo funcional y requerimientos documentados con trazabilidad. | [Producto REQ U2](req-producto.md) |
 | BD1 | Base de datos relacional implementada con consultas funcionales. | [Producto BD1 U2](bd1-producto.md) |
-| LP1 | Aplicacion MVC inicial con persistencia, consultas, validaciones y control de acceso basico. | [Producto LP1 U2](lp1-demo.md) |
+| LP1 | Aplicacion MVC con persistencia, CRUD validado, objetos relacionados, operacion cabecera-detalle, consultas y reportes. | [Producto LP1 U2](lp1-demo.md) |
 
 ## Integracion esperada
 
@@ -24,7 +24,7 @@ El producto no tiene que estar completo como entrega final, pero debe permitir e
 flowchart TB
     A[REQ U2<br/>Historias, casos de uso, reglas y trazabilidad]
     B[BD1 U2<br/>DDL, DML, restricciones, consultas y reportes]
-    C[LP1 U2<br/>MVC, persistencia, filtros, validaciones y seguridad inicial]
+    C[LP1 U2<br/>MVC, persistencia, operaciones, consultas y reportes]
     D[Producto integrado U2<br/>Sistema MVC inicial persistente]
 
     A --> B
@@ -73,7 +73,7 @@ flowchart TB
 |---|---|---|
 | REQ | Historias, casos de uso, reglas, RNF y trazabilidad. | SRS formal basado en IEEE 29148, validado y aceptado. |
 | BD1 | Base implementada con DDL/DML, consultas y reportes. | Base de datos integrada, validada y sustentada como soporte del sistema. |
-| LP1 | Aplicacion MVC inicial con persistencia, consultas y seguridad basica. | Sistema MVC empresarial consolidado, probado y sustentado. |
+| LP1 | Aplicacion MVC con persistencia, operaciones, consultas y reportes. | Sistema MVC empresarial protegido, consolidado, probado y sustentado. |
 
 ```mermaid
 flowchart TB

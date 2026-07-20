@@ -88,14 +88,14 @@ La Unidad 2 inicia solo cuando el corte U1 tiene un dominio suficientemente clar
 |---|---|---|
 | REQ | Brief, RF/RNF, reglas, prototipo y validacion inicial. | Historias de usuario, casos de uso, reglas detalladas, trazabilidad y requerimientos no funcionales verificables. |
 | BD1 | Modelo ER, modelo logico y diccionario de datos. | Scripts DDL, datos de prueba DML, restricciones, consultas SQL y reportes. |
-| LP1 | Pagina HTML/CSS/JS interactiva con datos temporales. | Aplicacion MVC con rutas, controladores, servicios, persistencia, relaciones, consultas y seguridad inicial. |
+| LP1 | Pagina HTML/CSS/JS interactiva con datos temporales. | Aplicacion MVC con rutas, controladores, servicios, persistencia, relaciones, operaciones, consultas y reportes. |
 
 ```mermaid
 flowchart TB
     A[U1: Dominio validado]
     B[REQ U2: historias, casos de uso y trazabilidad]
     C[BD1 U2: DDL, DML, consultas y reportes]
-    D[LP1 U2: MVC, persistencia y seguridad inicial]
+    D[LP1 U2: MVC, persistencia, operaciones y consultas]
     E[Producto U2: sistema MVC persistente con base relacional]
 
     A --> B

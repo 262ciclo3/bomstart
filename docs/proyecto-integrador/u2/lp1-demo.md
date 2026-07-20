@@ -2,9 +2,9 @@
 
 ## Producto
 
-**Aplicacion MVC inicial con persistencia, consultas, validaciones y control de acceso basico.**
+**Aplicacion MVC con persistencia, CRUD validado, objetos relacionados, operacion cabecera-detalle, consultas y reportes.**
 
-La demo representa el salto desde la pagina interactiva de U1 hacia una aplicacion organizada por responsabilidades. Para que pueda publicarse en MkDocs sin servidor, usa `localStorage` como persistencia academica. En una implementacion real de LP1, esta capa se reemplaza por ORM, repositorios y base de datos.
+La demo representa el salto desde la pagina interactiva de U1 hacia una aplicacion organizada por responsabilidades. Para que pueda publicarse en MkDocs sin servidor, usa `localStorage` como persistencia academica. En la implementacion real de LP1, esta capa se reemplaza por DAO, conexion nativa mediante JDBC y base de datos; el ORM es opcional y complementario.
 
 ## Demo ejecutable
 
@@ -30,13 +30,11 @@ flowchart TB
 - Listado con filtros por estado y prioridad.
 - Cambio de estado de pedido.
 - Resumen de pedidos, unidades y urgentes.
-- Control de acceso basico para simular modulo protegido.
 
 ## Trazabilidad con REQ y BD1
 
 | Elemento LP1 | Origen REQ | Origen BD1 |
 |---|---|---|
-| Acceso al modulo | HU-05 | usuario o control de acceso futuro |
 | Registro de pedido | HU-01 | pedido, cliente, producto, detalle_pedido |
 | Validacion de campos | RF-02, RN-01 | `NOT NULL` |
 | Validacion de cantidad | RF-03, RN-02 | `CHECK (cantidad > 0)` |
@@ -48,8 +46,6 @@ flowchart TB
 
 | Caso | Accion | Resultado esperado |
 |---|---|---|
-| Acceso correcto | Ingresar usuario `admin` y clave `admin123`. | Se muestra el modulo de pedidos. |
-| Acceso incorrecto | Ingresar credenciales invalidas. | Se muestra mensaje de acceso no valido. |
 | Registrar pedido | Completar datos validos y guardar. | El pedido queda en estado pendiente y aparece en la tabla. |
 | Persistencia | Recargar la pagina despues de registrar. | Los pedidos registrados siguen visibles. |
 | Filtrar | Seleccionar estado o prioridad. | La tabla muestra solo coincidencias. |

@@ -65,10 +65,10 @@ Este alineamiento sirve como referencia metodológica para coordinar los avances
 |---|---|---|---|---|
 | S1-S2 | Problema, stakeholders, contexto y alcance. | Datos, entidades del proceso principal y modelo ER inicial. | Arquitectura web, HTTP, interfaz base, navegación y vistas iniciales. | Todos trabajan sobre el mismo dominio, priorizando las entidades transaccionales del proceso principal. |
 | S3-S4 | Priorización y prototipo inicial. | Modelo ER avanzado y transformación al modelo lógico. | JavaScript, formularios e interacción web. | Los prototipos de REQ orientan los formularios de LP1; BD1 modela entidades y relaciones. |
-| S5-S6 | Validación inicial y evaluación U1. | Normalización, diccionario de datos y evaluación U1. | Evaluación U1 e inicio de arquitectura MVC. | Primer corte integrado: requerimientos iniciales, modelo lógico, interfaz web inicial y primer módulo MVC. |
-| S7-S8 | Historias, casos de uso y RNF que guían operaciones, persistencia y calidad del sistema. | Implementación DDL y manipulación DML con datos de prueba coherentes con los casos de uso. | Persistencia, transacciones y relaciones 1:1, 1:* y *:*. | LP1 implementa operaciones MVC persistentes a partir de casos de uso; BD1 ejecuta scripts DDL/DML coherentes con esos casos. |
-| S9-S10 | Reglas de negocio y prototipos funcionales. | Consultas SQL y reportes. | Consultas, filtros, paginación, autenticación, autorización y sesiones. | Las reglas de REQ se convierten en validaciones, consultas, permisos y flujos funcionales. |
-| S11-S12 | Trazabilidad y evaluación U2. | Comparación NoSQL como justificación técnica del modelo relacional del proyecto y evaluación U2. | Validaciones, manejo de errores, caché, optimización y evaluación U2. | Segundo corte integrado: se justifica técnicamente el uso de base relacional y se evidencian trazabilidad, seguridad, consultas y validaciones. |
+| S5-S6 | Validación inicial y evaluación U1. | Normalización, diccionario de datos y evaluación U1. | Evaluación U1 e inicio del proyecto MVC con conexión y primer listado. | Primer corte integrado: requerimientos iniciales, modelo lógico e interfaz web; LP1 inicia el primer corte vertical MVC. |
+| S7-S8 | Historias, casos de uso y RNF que guían operaciones, persistencia y calidad del sistema. | Implementación DDL y manipulación DML con datos de prueba coherentes con los casos de uso. | CRUD persistente, validaciones, manejo de errores y presentación web. | LP1 implementa operaciones MVC persistentes a partir de casos de uso; BD1 ejecuta scripts DDL/DML coherentes con esos casos. |
+| S9-S10 | Reglas de negocio y prototipos funcionales. | Consultas SQL y reportes. | Objetos relacionados y operación del dominio con cabecera–detalle. | Las reglas de REQ se convierten en asociaciones, validaciones y flujos transaccionales persistentes. |
+| S11-S12 | Trazabilidad y evaluación U2. | Comparación NoSQL como justificación técnica del modelo relacional del proyecto y evaluación U2. | Consultas, reportes y evaluación de la aplicación MVC. | Segundo corte integrado: se evidencian trazabilidad, persistencia, operaciones del dominio, consultas, reportes y validaciones. |
 | S13-S15 | SRS IEEE 29148, validación y sustentación. | Integración, validación y sustentación de la base de datos. | Integración, pruebas y sustentación del sistema MVC. | Consolidación final del proyecto integrador. |
 | S16 | Evaluación final. | Evaluación final. | Evaluación final. | Cierre académico y evaluación individual o técnica. |
 
@@ -78,7 +78,7 @@ Este alineamiento sirve como referencia metodológica para coordinar los avances
 |---|---|---|
 | S2 | Brief del proyecto | Problema, contexto, alcance, actores, entidades del proceso principal, modelo ER inicial, navegación/vistas iniciales y criterios de éxito. |
 | S6 | Dominio validado | Requerimientos iniciales validados, modelo lógico con diccionario, página web interactiva evaluada e inicio del primer módulo MVC. |
-| S12 | Producto intermedio | SRS trazable, base de datos implementada y aplicación MVC con persistencia, consultas y seguridad. |
+| S12 | Producto intermedio | SRS trazable, base de datos implementada y aplicación MVC con persistencia, operación cabecera–detalle, consultas y reportes. |
 | S15 | Producto final | SRS final, base de datos validada y sistema web MVC integrado y sustentado. |
 | S16 | Cierre individual | Evaluación final y evidencias de dominio técnico individual. |
 
@@ -164,7 +164,7 @@ Los artefactos desarrollados como ejemplo base se encuentran en [Unidad 2 - Prod
 |---|---|---|---|
 | REQ | **Modelo funcional y requerimientos documentados con trazabilidad.** | Historias de usuario, casos de uso, reglas de negocio, RNF verificables y matriz de trazabilidad. | Cada requerimiento principal se vincula con tablas, módulos MVC y pruebas. |
 | BD1 | **Base de datos relacional implementada con consultas funcionales.** | Scripts DDL, DML, restricciones, datos de prueba, consultas y reportes básicos. | Las tablas y consultas soportan los casos de uso y pantallas de LP1. |
-| LP1 | **Aplicación MVC inicial con persistencia, consultas y control de acceso básico.** | Rutas/controladores/servicios/repositorios o estructura equivalente, validaciones, filtros, persistencia y gestión básica de acceso. | El flujo principal ejecuta operaciones usando datos persistidos y reglas definidas en REQ/BD1. |
+| LP1 | **Aplicación MVC con persistencia, operación cabecera–detalle, consultas y reportes.** | Rutas, controladores, servicios, DAO, validaciones, filtros, reportes y persistencia mediante conexión nativa. | El flujo principal ejecuta operaciones y consultas usando datos persistidos y reglas definidas en REQ/BD1. |
 
 ### Entregables de Unidad 3
 

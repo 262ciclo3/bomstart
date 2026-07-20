@@ -6,7 +6,7 @@ Tiempo: 20 min.
 
 ### 1.1 Propósito
 
-Evaluar la aplicación MVC con persistencia, relaciones, consultas, seguridad, validaciones y optimización básica.
+Evaluar la aplicación MVC con persistencia mediante JDBC y DAO, CRUD validado, objetos relacionados, operación cabecera–detalle, consultas y reportes web.
 
 ### 1.2 Resultado de aprendizaje
 
@@ -14,7 +14,7 @@ El estudiante sustenta el sistema web MVC desarrollado, demuestra evidencias fun
 
 ### 1.3 Producto de sesión
 
-Producto U2: aplicación Web MVC con persistencia, relaciones, consultas y control de acceso.
+Producto U2: aplicación Web MVC con persistencia, CRUD validado, objetos relacionados, operación cabecera–detalle, consultas y reportes; todavía sin control de acceso.
 
 ### 1.4 Motivación de la sesión
 
@@ -47,8 +47,8 @@ flowchart TB
 - Arquitectura MVC
 - Persistencia
 - Relaciones básicas y complejas
-- Consultas/filtros/paginación
-- Autenticación/autorización
+- Consultas, filtros y ordenamiento
+- Agregaciones y reportes web
 - Validaciones servidor
 - Manejo de errores
 - Relación con REQ
@@ -64,8 +64,8 @@ Tiempo: 3h.
 1. Ejecutar aplicación.
 2. Mostrar estructura MVC.
 3. Demostrar flujo principal.
-4. Demostrar datos y consultas.
-5. Demostrar seguridad o validaciones.
+4. Demostrar la operación cabecera–detalle.
+5. Demostrar consultas, reportes y validaciones.
 6. Explicar integración con REQ y BD1.
 7. Sustentar aporte individual.
 
@@ -92,8 +92,8 @@ S##_LP1_Equipo##_ApellidoNombre.pdf
 - Arquitectura MVC
 - Persistencia
 - Relaciones básicas y complejas
-- Consultas/filtros/paginación
-- Autenticación/autorización
+- Consultas, filtros y ordenamiento
+- Agregaciones y reportes web
 - Validaciones servidor
 - Manejo de errores
 - Relación con REQ
@@ -121,7 +121,7 @@ Tiempo: 20 min.
 
 ### 5.2 Evidencia del producto de sesión
 
-Producto U2: aplicación Web MVC con persistencia, relaciones, consultas y control de acceso.
+Producto U2: aplicación Web MVC con persistencia, CRUD validado, objetos relacionados, operación cabecera–detalle, consultas y reportes.
 
 ### 5.3 Preguntas de defensa y reflexión
 

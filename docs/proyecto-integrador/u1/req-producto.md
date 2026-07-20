@@ -109,5 +109,5 @@ Cliente | Producto | Cantidad | Fecha | Prioridad
 | Observacion | Acuerdo | Estado |
 |---|---|---|
 | El usuario necesita ver rapidamente los pedidos urgentes. | Agregar prioridad y resaltar prioridad urgente. | Aprobado |
-| No se requiere login en U1. | La autenticacion se trabajara en LP1 Unidad 2. | Aprobado |
+| No se requiere login en U1. | La autenticacion se trabajara en LP1 Unidad 3. | Aprobado |
 | El producto debe estar preparado para base de datos. | BD1 definira modelo logico y diccionario desde U1. | Aprobado |

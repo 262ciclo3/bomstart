@@ -65,22 +65,8 @@ const PedidoService = {
 };
 
 const View = {
-  loginPanel: document.querySelector("#loginPanel"),
-  appPanel: document.querySelector("#appPanel"),
-  logoutBtn: document.querySelector("#logoutBtn"),
-  loginMensaje: document.querySelector("#loginMensaje"),
   pedidoMensaje: document.querySelector("#pedidoMensaje"),
   pedidosBody: document.querySelector("#pedidosBody"),
-  mostrarApp() {
-    this.loginPanel.classList.add("hidden");
-    this.appPanel.classList.remove("hidden");
-    this.logoutBtn.classList.remove("hidden");
-  },
-  mostrarLogin() {
-    this.loginPanel.classList.remove("hidden");
-    this.appPanel.classList.add("hidden");
-    this.logoutBtn.classList.add("hidden");
-  },
   mensaje(elemento, texto, tipo) {
     elemento.textContent = texto;
     elemento.className = `message ${tipo || ""}`;
@@ -115,8 +101,6 @@ const View = {
 
 const PedidoController = {
   iniciar() {
-    document.querySelector("#loginForm").addEventListener("submit", this.login);
-    document.querySelector("#logoutBtn").addEventListener("click", this.logout);
     document.querySelector("#pedidoForm").addEventListener("submit", this.registrar);
     document.querySelector("#filtroEstado").addEventListener("change", this.refrescar);
     document.querySelector("#filtroPrioridad").addEventListener("change", this.refrescar);
@@ -124,27 +108,7 @@ const PedidoController = {
     document.querySelector("#clearBtn").addEventListener("click", this.limpiarDatos);
     document.querySelector("#pedidosBody").addEventListener("click", this.accionTabla);
 
-    if (sessionStorage.getItem("bomstart_u2_auth") === "ok") {
-      View.mostrarApp();
-      this.refrescar();
-    }
-  },
-  login(event) {
-    event.preventDefault();
-    const usuario = document.querySelector("#usuario").value.trim();
-    const clave = document.querySelector("#clave").value;
-    if (usuario === "admin" && clave === "admin123") {
-      sessionStorage.setItem("bomstart_u2_auth", "ok");
-      View.mostrarApp();
-      PedidoController.refrescar();
-      View.mensaje(View.loginMensaje, "", "");
-    } else {
-      View.mensaje(View.loginMensaje, "Credenciales no validas.", "error");
-    }
-  },
-  logout() {
-    sessionStorage.removeItem("bomstart_u2_auth");
-    View.mostrarLogin();
+    this.refrescar();
   },
   obtenerPedido() {
     return {

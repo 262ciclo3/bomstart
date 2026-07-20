@@ -123,7 +123,7 @@ La asignatura de Lenguaje de Programación I es de naturaleza teórico-práctica
     <td colspan="3">Evidencia de aprendizaje</td>
   </tr>
   <tr>
-    <td colspan="4">1 Explica la arquitectura web, HTTP y la estructura cliente-servidor.<br>2 Construye interfaces web con HTML, CSS y plantillas reutilizables.<br>3 Aplica JavaScript, DOM, eventos y validación de formularios.<br>4 Integra formularios y procesamiento básico de datos.<br>5 Sustenta la página web interactiva como producto de unidad.</td>
+    <td colspan="4">1 Explica la arquitectura web, HTTP y la estructura cliente-servidor.<br>2 Construye interfaces web con HTML, CSS y plantillas reutilizables.<br>3 Aplica JavaScript, DOM, eventos y validación de formularios.<br>4 Integra formularios, procesamiento básico de datos y presentación responsive.<br>5 Sustenta la página web interactiva como producto de unidad.</td>
     <td colspan="3">Página web interactiva con estructura cliente-servidor, plantillas reutilizables, formularios, validaciones e interacción con JavaScript.</td>
   </tr>
   <tr>
@@ -177,19 +177,10 @@ La asignatura de Lenguaje de Programación I es de naturaleza teórico-práctica
   <tr>
     <td>5</td>
     <td>06/09/2026  12/09/2026</td>
-    <td><strong>Integración y refinamiento de la página web interactiva:</strong><br>Integración del flujo web, formularios, validaciones, mensajes, estilos responsive y preparación de evidencias.</td>
+    <td><strong>Evaluación U1:</strong><br>Integración y sustentación de la página web interactiva con plantillas, formularios, validaciones, interactividad, mensajes y presentación responsive.</td>
     <td>2</td>
     <td>2</td>
-    <td>Integrar y probar la página web interactiva como producto de unidad.</td>
-    <td>Corregir observaciones y organizar las evidencias para la evaluación.</td>
-  </tr>
-  <tr>
-    <td>6</td>
-    <td>13/09/2026  19/09/2026</td>
-    <td><strong>Evaluación U1:</strong><br>Sustentación de la página web interactiva con plantillas, formularios, validaciones e interactividad.</td>
-    <td>2</td>
-    <td>2</td>
-    <td>Sustentar la página web interactiva.</td>
+    <td>Integrar, probar y sustentar la página web interactiva como producto de unidad.</td>
     <td>Registrar observaciones y mejoras para la Unidad 2.</td>
   </tr>
 </table>
@@ -202,16 +193,16 @@ La asignatura de Lenguaje de Programación I es de naturaleza teórico-práctica
     <td colspan="3">Producto</td>
   </tr>
   <tr>
-    <td colspan="4">Desarrolla una aplicación web MVC empresarial aplicando estructura por capas, JDBC, DAO, CRUD, validaciones, manejo de errores, presentación web, objetos relacionados y operaciones del dominio con cabecera–detalle. Puede incorporar un ORM como alternativa opcional y complementaria.</td>
-    <td colspan="3">Nombre: Aplicación Web MVC con persistencia mediante JDBC y DAO, CRUD validado, objetos relacionados y una operación del dominio con cabecera–detalle.</td>
+    <td colspan="4">Desarrolla una aplicación web MVC empresarial aplicando estructura por capas, JDBC, DAO, CRUD, validaciones, manejo de errores, presentación web, objetos relacionados, operaciones del dominio con cabecera–detalle, consultas y reportes. Puede incorporar un ORM como alternativa opcional y complementaria.</td>
+    <td colspan="3">Nombre: Aplicación Web MVC con persistencia mediante JDBC y DAO, CRUD validado, objetos relacionados, una operación del dominio con cabecera–detalle, consultas y reportes.</td>
   </tr>
   <tr>
     <td colspan="4">Criterios de evaluación del producto</td>
     <td colspan="3">Evidencia de aprendizaje</td>
   </tr>
   <tr>
-    <td colspan="4">1 Crea y configura un proyecto Web MVC conectado mediante JDBC y demuestra el flujo completo mediante un primer listado.<br>2 Implementa un CRUD mediante modelos, DAO, servicios, controladores, formularios y vistas.<br>3 Aplica transversalmente validaciones, manejo de errores, mensajes y presentación responsive.<br>4 Gestiona objetos relacionados y sus reglas de asociación.<br>5 Implementa una operación del dominio con cabecera–detalle, cálculos, consistencia y persistencia atómica.</td>
-    <td colspan="3">Aplicación Web MVC ejecutable y conectada, con CRUD validado, presentación consistente, objetos relacionados y una operación cabecera–detalle persistida mediante JDBC y DAO; con ORM opcional.</td>
+    <td colspan="4">1 Crea y configura un proyecto Web MVC conectado mediante JDBC y demuestra el flujo completo mediante un primer listado.<br>2 Implementa un CRUD mediante modelos, DAO, servicios, controladores, formularios y vistas.<br>3 Aplica transversalmente validaciones, manejo de errores, mensajes y presentación responsive.<br>4 Gestiona objetos relacionados y sus reglas de asociación.<br>5 Implementa una operación del dominio con cabecera–detalle, cálculos, consistencia y persistencia atómica.<br>6 Construye consultas parametrizadas, filtros, ordenamiento, agregaciones y reportes en vistas MVC.</td>
+    <td colspan="3">Aplicación Web MVC ejecutable y conectada, con CRUD validado, presentación consistente, objetos relacionados, operación cabecera–detalle, consultas y reportes persistidos mediante JDBC y DAO; con ORM opcional.</td>
   </tr>
   <tr>
     <td colspan="7">Sesiones de aprendizaje</td>
@@ -226,8 +217,8 @@ La asignatura de Lenguaje de Programación I es de naturaleza teórico-práctica
     <td>Actividad autónoma</td>
   </tr>
   <tr>
-    <td>7</td>
-    <td>20/09/2026  26/09/2026</td>
+    <td>6</td>
+    <td>13/09/2026  19/09/2026</td>
     <td><strong>Creación del proyecto Web MVC y primer listado:</strong><br>Estructura del proyecto, dependencias, configuración por ambientes, JDBC, fuente de datos, modelo, DAO de consulta, controlador de verificación, ruta de listado y vista inicial.</td>
     <td>2</td>
     <td>2</td>
@@ -235,8 +226,8 @@ La asignatura de Lenguaje de Programación I es de naturaleza teórico-práctica
     <td>Documentar la configuración por ambientes y el flujo base de datos–DAO–servicio–controlador–vista.</td>
   </tr>
   <tr>
-    <td>8</td>
-    <td>27/09/2026  03/10/2026</td>
+    <td>7</td>
+    <td>20/09/2026  26/09/2026</td>
     <td><strong>Modelo, DAO y CRUD Web MVC:</strong><br>Operaciones de registro, consulta, actualización y eliminación mediante JDBC, DAO, servicios, controladores, formularios y vistas. Las validaciones y los errores controlados se aplican desde este incremento.</td>
     <td>2</td>
     <td>2</td>
@@ -244,8 +235,8 @@ La asignatura de Lenguaje de Programación I es de naturaleza teórico-práctica
     <td>Probar cada operación con casos correctos e inválidos y revisar la separación de responsabilidades.</td>
   </tr>
   <tr>
-    <td>9</td>
-    <td>04/10/2026  10/10/2026</td>
+    <td>8</td>
+    <td>27/09/2026  03/10/2026</td>
     <td><strong>Validación, manejo de errores y presentación del CRUD MVC:</strong><br>Validaciones del lado servidor, excepciones controladas, mensajes de confirmación y error, páginas de error, layout reutilizable, hojas de estilos y diseño responsive.</td>
     <td>2</td>
     <td>2</td>
@@ -253,8 +244,8 @@ La asignatura de Lenguaje de Programación I es de naturaleza teórico-práctica
     <td>Documentar casos inválidos, respuestas del sistema y mejoras de usabilidad aplicadas.</td>
   </tr>
   <tr>
-    <td>10</td>
-    <td>11/10/2026  17/10/2026</td>
+    <td>9</td>
+    <td>04/10/2026  10/10/2026</td>
     <td><strong>Gestión de objetos relacionados en aplicaciones MVC:</strong><br>Incorporación de un objeto de clasificación, asociación con la entidad principal, navegación entre objetos, selección en formularios, presentación de datos relacionados y validación de reglas de asociación.</td>
     <td>2</td>
     <td>2</td>
@@ -262,8 +253,8 @@ La asignatura de Lenguaje de Programación I es de naturaleza teórico-práctica
     <td>Probar asociaciones válidas e inválidas y documentar las reglas que mantienen su consistencia.</td>
   </tr>
   <tr>
-    <td>11</td>
-    <td>18/10/2026  24/10/2026</td>
+    <td>10</td>
+    <td>11/10/2026  17/10/2026</td>
     <td><strong>Procesamiento de operaciones del dominio con cabecera–detalle:</strong><br>Formulario compuesto, colección dinámica de detalles, cantidades, precios, subtotales, total, actualización de existencias y registro atómico mediante JDBC y DAO.</td>
     <td>2</td>
     <td>2</td>
@@ -271,12 +262,21 @@ La asignatura de Lenguaje de Programación I es de naturaleza teórico-práctica
     <td>Probar detalles vacíos, cantidades inválidas, existencias insuficientes y recuperación ante errores.</td>
   </tr>
   <tr>
+    <td>11</td>
+    <td>18/10/2026  24/10/2026</td>
+    <td><strong>Consultas del dominio y reportes web:</strong><br>Consultas parametrizadas mediante DAO, búsqueda, filtros, ordenamiento, agregaciones, resúmenes y presentación de resultados en vistas MVC.</td>
+    <td>2</td>
+    <td>2</td>
+    <td>Implementar consultas y reportes sobre la información generada por las operaciones del dominio.</td>
+    <td>Probar filtros, ordenamiento, agregaciones, casos sin resultados y consistencia de los resúmenes.</td>
+  </tr>
+  <tr>
     <td>12</td>
     <td>25/10/2026  31/10/2026</td>
-    <td><strong>Evaluación U2:</strong><br>Sustentación de la aplicación Web MVC con conexión mediante JDBC, CRUD validado, presentación web, objetos relacionados y una operación del dominio con cabecera–detalle.</td>
+    <td><strong>Evaluación U2:</strong><br>Sustentación de la aplicación Web MVC con conexión mediante JDBC, CRUD validado, presentación web, objetos relacionados, una operación del dominio con cabecera–detalle, consultas y reportes.</td>
     <td>2</td>
     <td>2</td>
-    <td>Sustentar la aplicación MVC demostrando conexión, DAO, CRUD, validaciones, manejo de errores, objetos relacionados y operación cabecera–detalle.</td>
+    <td>Sustentar la aplicación MVC demostrando conexión, DAO, CRUD, validaciones, manejo de errores, objetos relacionados, operación cabecera–detalle, consultas y reportes.</td>
     <td>Registrar observaciones para la integración final.</td>
   </tr>
 </table>
@@ -289,7 +289,7 @@ La asignatura de Lenguaje de Programación I es de naturaleza teórico-práctica
     <td colspan="3">Producto</td>
   </tr>
   <tr>
-    <td colspan="4">Integra consultas, reportes, autenticación, autorización, sesiones, pruebas, correcciones y sustentación técnica para consolidar un sistema web MVC empresarial alineado al proyecto integrador del ciclo.</td>
+    <td colspan="4">Integra autenticación, autorización, sesiones, módulos funcionales, pruebas, correcciones y sustentación técnica para consolidar un sistema web MVC empresarial alineado al proyecto integrador del ciclo.</td>
     <td colspan="3">Nombre: Sistema Web MVC Empresarial.</td>
   </tr>
   <tr>
@@ -297,7 +297,7 @@ La asignatura de Lenguaje de Programación I es de naturaleza teórico-práctica
     <td colspan="3">Evidencia de aprendizaje</td>
   </tr>
   <tr>
-    <td colspan="4">1 Implementa consultas parametrizadas, filtros, ordenamiento, agregaciones y reportes en vistas web.<br>2 Aplica autenticación, autorización básica, gestión de sesiones y protección de rutas.<br>3 Integra y prueba los módulos funcionales, registra incidencias y corrige errores.<br>4 Sustenta técnicamente la arquitectura, los módulos y las decisiones del proyecto.<br>5 Presenta el sistema web MVC empresarial completo.</td>
+    <td colspan="4">1 Aplica autenticación, autorización básica, gestión de sesiones y protección de rutas.<br>2 Integra los módulos funcionales, incluidas las consultas y reportes construidos en U2.<br>3 Ejecuta pruebas funcionales, registra incidencias y corrige errores.<br>4 Sustenta técnicamente la arquitectura, los módulos y las decisiones del proyecto.<br>5 Presenta el sistema web MVC empresarial completo.</td>
     <td colspan="3">Sistema Web MVC Empresarial con consultas, reportes, control de acceso, módulos integrados, pruebas y sustentación técnica.</td>
   </tr>
   <tr>
@@ -324,11 +324,11 @@ La asignatura de Lenguaje de Programación I es de naturaleza teórico-práctica
   <tr>
     <td>14</td>
     <td>08/11/2026  14/11/2026</td>
-    <td><strong>Consultas del dominio y reportes web:</strong><br>Consultas parametrizadas mediante DAO, búsqueda, filtros, ordenamiento, agregaciones, resúmenes y presentación de resultados en vistas MVC protegidas según el usuario o rol activo.</td>
+    <td><strong>Integración, pruebas y refinamiento del sistema:</strong><br>Integración funcional de módulos, protección de consultas y reportes según el usuario o rol activo, pruebas de flujos completos, registro de incidencias, corrección de errores y refinamiento de la aplicación.</td>
     <td>2</td>
     <td>2</td>
-    <td>Implementar consultas y reportes protegidos sobre la información generada por las operaciones del dominio.</td>
-    <td>Probar filtros, ordenamiento, agregaciones, casos sin resultados y acceso autorizado a los reportes.</td>
+    <td>Integrar y probar los módulos del sistema, corregir fallos y verificar el acceso autorizado a las funciones protegidas.</td>
+    <td>Documentar incidencias, correcciones, pruebas de regresión y evidencias de la versión candidata.</td>
   </tr>
   <tr>
     <td>15</td>

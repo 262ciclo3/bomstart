@@ -98,4 +98,4 @@ Listado temporal:
 - Los campos del prototipo existen en el modelo de datos inicial.
 - Las validaciones del prototipo responden a reglas o requerimientos.
 - La pantalla puede implementarse en LP1 sin inventar campos fuera de REQ y BD1.
-- El prototipo permite explicar que falta para Unidad 2: persistencia, MVC, seguridad y consultas.
+- El prototipo permite explicar qué falta para Unidad 2: persistencia, MVC, operaciones del dominio, consultas y reportes; la seguridad se incorpora en U3.
