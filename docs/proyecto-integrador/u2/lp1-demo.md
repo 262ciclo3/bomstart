@@ -14,9 +14,9 @@ La demo representa el salto desde la pagina interactiva de U1 hacia una aplicaci
 
 ```mermaid
 flowchart TB
-    A[Vista HTML] --> B[PedidoController]
-    B --> C[PedidoService]
-    C --> D[PedidoRepository]
+    A[Vista HTML] --> B[VentaController]
+    B --> C[VentaService]
+    C --> D[VentaDAO]
     D --> E[(Persistencia<br/>localStorage / BD)]
     C --> F[Reglas y validaciones]
     B --> G[Render de tabla, filtros y resumen]
@@ -24,33 +24,33 @@ flowchart TB
 
 ## Que demuestra
 
-- Separacion conceptual entre vista, controlador, servicio y repositorio.
-- Persistencia de pedidos despues de recargar la pagina.
-- Registro de pedidos con validaciones.
-- Listado con filtros por estado y prioridad.
-- Cambio de estado de pedido.
-- Resumen de pedidos, unidades y urgentes.
+- Separación conceptual entre vista, controlador, servicio y DAO.
+- Persistencia de ventas con cabecera y colección de detalles.
+- Validación de cliente, productos, cantidades, stock y total.
+- Listado y filtro por estado.
+- Anulación de una venta.
+- Resumen de ventas, unidades e importe.
 
 ## Trazabilidad con REQ y BD1
 
 | Elemento LP1 | Origen REQ | Origen BD1 |
 |---|---|---|
-| Registro de pedido | HU-01 | pedido, cliente, producto, detalle_pedido |
-| Validacion de campos | RF-02, RN-01 | `NOT NULL` |
-| Validacion de cantidad | RF-03, RN-02 | `CHECK (cantidad > 0)` |
-| Filtro por estado | HU-02 | `pedido.estado` |
-| Cambio de estado | HU-03 | `pedido.estado` |
-| Resumen | HU-04 | consultas agregadas |
+| CRUD Producto | HU-01 | producto, categoria |
+| Registro de venta | HU-02 | venta, detalle_venta, producto |
+| Validación de cantidad y stock | RN-03 | `CHECK`, stock y servicio |
+| Filtro por estado | HU-03 | venta.estado |
+| Anulación | HU-04 | venta.estado y producto.stock |
+| Resumen | HU-05 | consultas agregadas |
 
 ## Casos de prueba de la demo
 
 | Caso | Accion | Resultado esperado |
 |---|---|---|
-| Registrar pedido | Completar datos validos y guardar. | El pedido queda en estado pendiente y aparece en la tabla. |
-| Persistencia | Recargar la pagina despues de registrar. | Los pedidos registrados siguen visibles. |
-| Filtrar | Seleccionar estado o prioridad. | La tabla muestra solo coincidencias. |
-| Atender pedido | Presionar atender en un pedido pendiente. | El estado cambia a atendido y se actualiza el resumen. |
-| Datos invalidos | Guardar con cantidad cero o campos vacios. | El sistema muestra mensaje de validacion. |
+| Registrar venta | Ingresar cliente y dos detalles válidos. | La venta ACTIVA aparece con total consistente. |
+| Persistencia | Recargar la página después de registrar. | Las ventas siguen visibles. |
+| Filtrar | Seleccionar ACTIVA o ANULADA. | La tabla muestra sólo coincidencias. |
+| Anular venta | Presionar anular en una venta activa. | El estado cambia y el resumen excluye la venta anulada. |
+| Datos inválidos | Confirmar sin cliente, sin detalles o con cantidad inválida. | El sistema muestra validación y no registra. |
 
 ## Como debe adaptarlo cada grupo
 

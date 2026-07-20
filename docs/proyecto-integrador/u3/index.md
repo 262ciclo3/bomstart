@@ -55,7 +55,7 @@ flowchart TB
 | Enfoque | Producto intermedio funcional. | Producto final validado y sustentado. |
 | REQ | Historias, casos, reglas y trazabilidad parcial. | SRS formal completo y aceptado. |
 | BD1 | Base implementada con consultas funcionales. | Base integrada, validada y documentada. |
-| LP1 | Aplicación MVC inicial con persistencia y seguridad básica. | Sistema MVC consolidado, probado y refinado. |
+| LP1 | Aplicación MVC con persistencia, `Venta–DetalleVenta`, consultas y reportes, todavía sin seguridad. | Sistema MVC con autenticación, sesión, permisos, módulos protegidos, pruebas y refinamiento. |
 | Evidencia | Funciona el flujo principal. | El producto está completo, probado, documentado y defendible. |
 
 ## Criterios de aprobación U3

@@ -35,10 +35,12 @@
 | Ítem | Cumple | Evidencia |
 |---|---|---|
 | Sistema MVC funcional. |  |  |
-| Persistencia integrada. |  |  |
+| Persistencia mediante JDBC y DAO. |  |  |
 | Formularios y validaciones. |  |  |
-| Consultas, filtros o paginación. |  |  |
-| Seguridad básica o control de acceso según alcance. |  |  |
+| CRUD de Producto y gestión de Categoria–Producto. |  |  |
+| Venta–DetalleVenta con stock y total consistentes. |  |  |
+| Consultas, filtros, agregaciones y reportes. |  |  |
+| Login, sesión, roles y rutas protegidas. |  |  |
 | Pruebas y correcciones. |  |  |
 
 ## 5. Sustentación

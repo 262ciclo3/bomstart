@@ -2,7 +2,7 @@
 
 ## Corte U2
 
-El corte de Unidad 2 demuestra que el dominio validado en U1 ya se transforma en un producto funcional intermedio. En este punto, REQ formaliza historias, casos de uso, reglas y trazabilidad; BD1 implementa la base de datos con SQL; LP1 construye una aplicacion MVC inicial con persistencia, consultas y validaciones.
+El corte de Unidad 2 demuestra que el dominio validado en U1 ya se transforma en un producto funcional intermedio. En este punto, REQ formaliza historias, casos de uso, reglas y trazabilidad; BD1 implementa la base de datos con SQL; LP1 construye una aplicación MVC con JDBC, DAO, CRUD, objetos relacionados, `Venta–DetalleVenta`, consultas, reportes y validaciones.
 
 ## Producto integrado U2
 
@@ -25,7 +25,7 @@ flowchart TB
     A[REQ U2<br/>Historias, casos de uso, reglas y trazabilidad]
     B[BD1 U2<br/>DDL, DML, restricciones, consultas y reportes]
     C[LP1 U2<br/>MVC, persistencia, operaciones, consultas y reportes]
-    D[Producto integrado U2<br/>Sistema MVC inicial persistente]
+    D[Producto integrado U2<br/>Sistema MVC persistente con Venta-DetalleVenta]
 
     A --> B
     A --> C
@@ -52,11 +52,11 @@ flowchart TB
 
 | Caso | Entrada o accion | Resultado esperado | Curso que aporta evidencia |
 |---|---|---|---|
-| Registrar pedido persistente | Cliente, producto, cantidad, fecha y prioridad validos. | El pedido se guarda y permanece despues de recargar la aplicacion. | LP1 + BD1 |
-| Rechazar cantidad invalida | Cantidad cero o negativa. | La aplicacion bloquea el registro y muestra mensaje. | REQ + LP1 |
-| Consultar pedidos por estado | Filtrar por pendiente, atendido o anulado. | La lista muestra solo pedidos del estado seleccionado. | BD1 + LP1 |
-| Atender pedido | Cambiar estado de pendiente a atendido. | El estado se actualiza y el resumen cambia. | LP1 |
-| Reporte basico | Ejecutar consulta de pedidos por prioridad o estado. | Se obtiene una salida verificable. | BD1 |
+| Registrar venta persistente | Cliente y dos productos con cantidades válidas. | La cabecera y los detalles se guardan atómicamente y el stock se actualiza. | LP1 + BD1 |
+| Rechazar cantidad inválida | Cantidad cero, negativa o superior al stock. | La aplicación bloquea el registro y no guarda datos parciales. | REQ + LP1 + BD1 |
+| Consultar ventas por estado | Filtrar por activa o anulada. | La lista muestra sólo ventas coincidentes y permite consultar sus detalles. | BD1 + LP1 |
+| Anular venta | Anular una venta activa. | El estado cambia y el stock se repone de manera consistente. | LP1 + BD1 |
+| Reporte básico | Consultar ventas por fecha, producto o categoría. | Se obtiene un resumen verificable y consistente con los detalles. | BD1 + LP1 |
 | Trazabilidad | Seleccionar un RF y mostrar tabla, modulo y prueba asociada. | El equipo explica de donde sale y donde se implementa. | REQ + BD1 + LP1 |
 
 ## Estado de aprobacion del corte U2

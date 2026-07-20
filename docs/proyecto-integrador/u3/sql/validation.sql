@@ -1,28 +1,23 @@
-﻿-- Validación de integridad referencial
-SELECT table_name, constraint_name, constraint_type, status
-FROM information_schema.table_constraints
-WHERE constraint_schema = DATABASE()
-ORDER BY table_name, constraint_type;
+-- Ventas cuyos totales no coinciden con la suma de sus detalles
+SELECT v.id_venta, v.total, COALESCE(SUM(dv.subtotal), 0) AS total_detalles
+FROM venta v
+LEFT JOIN detalle_venta dv ON dv.id_venta = v.id_venta
+GROUP BY v.id_venta, v.total
+HAVING v.total <> COALESCE(SUM(dv.subtotal), 0);
 
--- Registros principales para demo
-SELECT * FROM pedido ORDER BY id_pedido DESC;
+-- Detalles inválidos
+SELECT *
+FROM detalle_venta
+WHERE cantidad <= 0
+   OR precio_unitario < 0
+   OR subtotal <> cantidad * precio_unitario;
 
--- Detalle de pedidos con cliente y producto
-SELECT
-    p.id_pedido,
-    c.nombre AS cliente,
-    pr.nombre AS producto,
-    dp.cantidad,
-    p.fecha_entrega,
-    p.prioridad,
-    p.estado
-FROM pedido p
-JOIN cliente c ON c.id_cliente = p.id_cliente
-JOIN detalle_pedido dp ON dp.id_pedido = p.id_pedido
-JOIN producto pr ON pr.id_producto = dp.id_producto
-ORDER BY p.fecha_entrega DESC;
+-- Ventas sin usuario: permitidas en U2, deben quedar resueltas al integrar S13/U3
+SELECT id_venta, cliente, fecha
+FROM venta
+WHERE id_usuario IS NULL;
 
--- Validación de totales por estado
-SELECT estado, COUNT(*) AS total_pedidos
-FROM pedido
-GROUP BY estado;
+-- Productos con stock inválido
+SELECT id_producto, nombre, stock
+FROM producto
+WHERE stock < 0;

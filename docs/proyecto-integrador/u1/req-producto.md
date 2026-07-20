@@ -2,112 +2,58 @@
 
 ## Producto
 
-**Requerimientos iniciales priorizados y prototipos validados.**
-
-Este producto deja claro que el equipo comprende el problema, conoce a los actores, delimita el alcance y puede explicar que funcionalidades iniciales necesita el sistema.
+**Requerimientos iniciales priorizados y prototipos validados para la gestión comercial.**
 
 ## 1. Brief del proyecto
 
-| Elemento | Definicion |
+| Elemento | Definición |
 |---|---|
-| Nombre del proyecto | Gestion inicial de pedidos para una tienda local |
-| Problema | La tienda registra pedidos manualmente, lo que genera datos incompletos, errores en cantidades y dificultad para saber que pedidos estan pendientes o atendidos. |
-| Objetivo | Construir una aplicacion web que permita registrar pedidos, validar datos basicos, consultar pedidos registrados y preparar la base para una gestion MVC con persistencia. |
-| Proceso principal | Registro y seguimiento inicial de pedidos. |
-| Entidad transaccional principal | Pedido. |
-| Entidades de apoyo | Cliente y producto. |
-| Usuarios principales | Administrador, vendedor y encargado de atencion. |
-| Alcance U1 | Registro interactivo de pedidos en una pagina web, con validaciones y listado temporal. |
-| Fuera de alcance U1 | Persistencia real en base de datos, autenticacion, reportes avanzados y gestion completa de inventario. |
+| Nombre | CoMarket: gestión de productos y ventas |
+| Problema | La tienda registra productos y ventas manualmente, lo que provoca datos incompletos, errores de stock y totales inconsistentes. |
+| Objetivo | Construir una aplicación web que gestione productos y ventas con reglas verificables y continuidad hacia MVC y base de datos. |
+| Proceso principal | Registrar y consultar una venta con uno o más detalles. |
+| Entidades heredadas de POO | `Producto`, `Venta`, `DetalleVenta` y `Usuario`. |
+| Incremento de LP1 | `Categoria`, asociada con `Producto`. |
+| Actores | Administrador y vendedor. |
+| Alcance U1 | Catálogo interactivo de productos y categorías con validaciones y datos temporales. |
+| Fuera de alcance U1 | Persistencia real, operación transaccional completa, autenticación y reportes. |
 
-## 2. Stakeholders
+## 2. Requerimientos iniciales
 
-| Stakeholder | Necesidad | Interes en el sistema |
-|---|---|---|
-| Administrador | Tener visibilidad de pedidos registrados. | Controlar el flujo de atencion. |
-| Vendedor | Registrar pedidos rapidamente y sin errores basicos. | Reducir omisiones en los datos. |
-| Encargado de atencion | Ver pedidos pendientes y priorizarlos. | Organizar la atencion diaria. |
-| Cliente | Que su pedido sea registrado correctamente. | Recibir una atencion oportuna. |
-
-## 3. Alcance funcional inicial
-
-El primer incremento del sistema permite:
-
-- Registrar un pedido con datos del cliente, producto, cantidad, fecha y prioridad.
-- Validar que los campos obligatorios esten completos.
-- Validar que la cantidad sea mayor que cero.
-- Mostrar los pedidos registrados en una tabla temporal.
-- Calcular el total de pedidos y unidades registradas.
-- Preparar los campos que luego usara BD1 para el modelo logico.
-
-## 4. Requerimientos funcionales priorizados
-
-| Codigo | Requerimiento funcional | Prioridad | Criterio de aceptacion |
+| Código | Requerimiento | Prioridad | Criterio de aceptación |
 |---|---|---|---|
-| RF-01 | El sistema debe registrar un pedido con cliente, producto, cantidad, fecha y prioridad. | Alta | Al completar datos validos, el pedido aparece en el listado temporal. |
-| RF-02 | El sistema debe validar campos obligatorios antes de registrar el pedido. | Alta | Si falta un campo obligatorio, se muestra un mensaje y no se registra el pedido. |
-| RF-03 | El sistema debe validar que la cantidad sea mayor que cero. | Alta | Si la cantidad es cero o negativa, se muestra un mensaje de error. |
-| RF-04 | El sistema debe listar los pedidos registrados durante la sesion. | Media | Cada pedido registrado aparece en una tabla con sus datos principales. |
-| RF-05 | El sistema debe mostrar resumen de pedidos y unidades. | Media | El resumen se actualiza despues de cada registro valido. |
+| RF-01 | Registrar temporalmente un producto con nombre, precio, stock y categoría. | Alta | El producto válido aparece en el listado. |
+| RF-02 | Validar campos obligatorios. | Alta | Los datos incompletos no se registran y generan un mensaje. |
+| RF-03 | Validar precio y stock. | Alta | Precio y stock no son negativos; el stock es entero. |
+| RF-04 | Mostrar productos con su categoría. | Alta | Cada fila identifica la categoría asociada. |
+| RF-05 | Preparar el flujo de venta. | Media | El prototipo identifica cliente, fecha, detalles, total y estado. |
 
-## 5. Requerimientos no funcionales iniciales
+## 3. Reglas iniciales
 
-| Codigo | Requerimiento no funcional | Criterio de aceptacion |
-|---|---|---|
-| RNF-01 | La interfaz debe ser clara y usable en pantalla de escritorio y movil. | El formulario y la tabla se visualizan correctamente en diferentes anchos de pantalla. |
-| RNF-02 | La validacion debe responder sin recargar la pagina. | Los mensajes aparecen inmediatamente al enviar el formulario. |
-| RNF-03 | El codigo debe estar organizado para evolucionar a MVC. | HTML, CSS y JavaScript se encuentran separados. |
-
-## 6. Reglas de negocio iniciales
-
-| Codigo | Regla |
+| Código | Regla |
 |---|---|
-| RN-01 | Un pedido debe tener un cliente identificado. |
-| RN-02 | Un pedido debe contener un producto y una cantidad mayor que cero. |
-| RN-03 | La prioridad puede ser normal, alta o urgente. |
-| RN-04 | Un pedido urgente debe poder distinguirse visualmente en el listado. |
+| RN-01 | Todo producto tiene nombre, precio, stock y una categoría existente. |
+| RN-02 | El precio y el stock no pueden ser negativos. |
+| RN-03 | Una venta contiene al menos un detalle. |
+| RN-04 | Cada detalle referencia un producto y una cantidad mayor que cero. |
+| RN-05 | El total de la venta es la suma de los subtotales. |
+| RN-06 | La seguridad se implementará en LP1 U3; no forma parte de U1 ni U2. |
 
-## 7. Prototipo textual
+## 4. Trazabilidad inicial
 
-Pantalla: **Registro de pedidos**
-
-El esbozo funcional y los diagramas del prototipo se encuentran en [Prototipos U1](prototipos-u1.md).
-
-```text
----------------------------------------------------------
-Gestion de pedidos
----------------------------------------------------------
-Cliente:        [________________________]
-Producto:       [________________________]
-Cantidad:       [____]
-Fecha entrega:  [____/____/____]
-Prioridad:      [Normal v]
-
-[Registrar pedido] [Limpiar]
-
-Resumen:
-Pedidos registrados: 0
-Unidades solicitadas: 0
-
-Listado:
-Cliente | Producto | Cantidad | Fecha | Prioridad
----------------------------------------------------------
-```
-
-## 8. Matriz de trazabilidad U1
-
-| Requerimiento | Dato o entidad BD1 | Elemento LP1 |
+| Requerimiento | Dato o entidad BD1 | Evidencia LP1 |
 |---|---|---|
-| RF-01 | Pedido, Cliente, Producto | Formulario de registro |
-| RF-02 | Campos obligatorios del diccionario | Validacion JavaScript |
-| RF-03 | pedido.cantidad | Validacion numerica |
-| RF-04 | Pedido | Tabla de pedidos |
-| RF-05 | Pedido.cantidad | Tarjetas de resumen |
+| RF-01 | producto | Formulario de producto |
+| RF-02 | restricciones `NOT NULL` | Mensajes de validación |
+| RF-03 | producto.precio, producto.stock | Validación numérica |
+| RF-04 | categoria, producto.id_categoria | Selector y tabla de productos |
+| RF-05 | venta, detalle_venta | Prototipo del flujo transaccional |
 
-## 9. Validacion inicial
+## 5. Validación del corte
 
-| Observacion | Acuerdo | Estado |
-|---|---|---|
-| El usuario necesita ver rapidamente los pedidos urgentes. | Agregar prioridad y resaltar prioridad urgente. | Aprobado |
-| No se requiere login en U1. | La autenticacion se trabajara en LP1 Unidad 3. | Aprobado |
-| El producto debe estar preparado para base de datos. | BD1 definira modelo logico y diccionario desde U1. | Aprobado |
+| Observación | Decisión |
+|---|---|
+| Se conserva el dominio construido en POO. | Aprobado |
+| LP1 agrega `Categoria` sin reemplazar las entidades existentes. | Aprobado |
+| La persistencia se inicia en U2 mediante JDBC y DAO. | Aprobado |
+| La autenticación se implementa en U3. | Aprobado |

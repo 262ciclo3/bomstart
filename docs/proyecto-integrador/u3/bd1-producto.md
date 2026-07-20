@@ -27,8 +27,9 @@
 
 | BD1 | REQ | LP1 |
 |---|---|---|
-| Tabla principal | RF principal | Módulo MVC de registro. |
-| Tabla detalle o relación | Caso de uso transaccional | Formulario o acción integrada. |
+| producto y categoria | RF de catálogo | CRUD y objetos relacionados. |
+| venta y detalle_venta | Caso de uso transaccional | Formulario cabecera–detalle. |
+| usuario y venta.id_usuario | Requerimiento de seguridad | Sesión y trazabilidad de la venta. |
 | Restricciones | Reglas de negocio | Validaciones de entrada. |
 | Consultas SQL | Requerimientos de consulta | Vistas de listado y filtro. |
 | Reportes/agregaciones | Necesidad de información | Vista o pantalla de reporte. |

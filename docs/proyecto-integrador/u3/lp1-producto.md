@@ -8,11 +8,12 @@
 
 | Componente | Evidencia esperada |
 |---|---|
-| Arquitectura MVC | Rutas, controladores, servicios, modelos, repositorios o equivalentes. |
-| Persistencia | Conexión a base de datos y operaciones sobre entidades del proyecto. |
-| Formularios | Registro, edición o flujo transaccional principal. |
-| Consultas | Listado, búsqueda, filtros, ordenamiento o paginación. |
-| Seguridad básica | Login, sesión, roles o protección de rutas según alcance. |
+| Arquitectura MVC | Rutas, controladores, servicios, entidades y DAO. |
+| Persistencia | Conexión nativa mediante JDBC y operaciones DAO. |
+| Catálogo | CRUD de `Producto` y gestión de `Categoria–Producto`. |
+| Operación | Registro y anulación de `Venta–DetalleVenta` con consistencia de stock y total. |
+| Consultas | Búsqueda, filtros, ordenamiento, agregaciones y reportes web. |
+| Seguridad | Login, hash de contraseñas, sesión, roles y protección de rutas. |
 | Validaciones | Validaciones de entrada y mensajes de error. |
 | Reportes | Consulta o salida relevante para el negocio. |
 | Pruebas | Casos válidos, inválidos, integración y correcciones. |
@@ -21,10 +22,10 @@
 
 | Tipo | Caso | Resultado esperado |
 |---|---|---|
-| Funcional | Registrar entidad o transacción principal. | Se guarda y aparece en el listado. |
+| Funcional | Registrar una venta con dos detalles. | Cabecera, detalles, stock y total quedan consistentes. |
 | Validación | Enviar datos incompletos o inválidos. | Se muestra error y no se guarda. |
 | Consulta | Buscar o filtrar registros. | La vista muestra resultados correctos. |
-| Integración | Ejecutar flujo MVC con base de datos. | La base refleja la operación. |
+| Integración | Ejecutar `Venta–DetalleVenta` desde la vista hasta la base. | La base refleja toda la operación o ninguna parte. |
 | Seguridad | Ingresar sin sesión a ruta protegida. | Acceso bloqueado o redirigido. |
 | Reporte | Generar consulta/resumen. | Totales o resultados correctos. |
 
@@ -39,4 +40,4 @@
 
 ## Cierre LP1
 
-LP1 está completo cuando el sistema MVC permite ejecutar el flujo principal, usar datos persistidos, consultar información, validar errores y sustentar cómo cada módulo responde al SRS y a la base de datos.
+LP1 está completo cuando el sistema MVC permite gestionar `Producto–Categoria`, registrar y anular `Venta–DetalleVenta`, usar datos persistidos mediante JDBC y DAO, consultar información, autenticar usuarios, proteger rutas, validar errores y sustentar cómo cada módulo responde al SRS y a la base de datos.

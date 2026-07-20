@@ -1,101 +1,60 @@
-# Prototipos U1
+# Prototipos U1 - CoMarket
 
-## Proposito
+## Propósito
 
-Los prototipos de Unidad 1 permiten validar el flujo principal antes de implementar. No son disenos finales de interfaz; son esbozos funcionales para que REQ, BD1 y LP1 trabajen sobre la misma solucion.
+Validar el catálogo de `Producto–Categoria` que LP1 implementa en U1 y anticipar, sin persistencia, el flujo `Venta–DetalleVenta` que se construirá en U2.
 
-## Flujo funcional inicial
-
-```mermaid
-flowchart TB
-    A[Inicio] --> B[Ingresar datos del pedido]
-    B --> C{Datos completos?}
-    C -- No --> D[Mostrar mensaje de validacion]
-    D --> B
-    C -- Si --> E{Cantidad mayor que cero?}
-    E -- No --> F[Mostrar error de cantidad]
-    F --> B
-    E -- Si --> G[Registrar pedido temporal]
-    G --> H[Actualizar resumen]
-    H --> I[Mostrar pedido en listado]
-    I --> J[Fin del flujo U1]
-```
-
-## Esbozo de pantalla principal
-
-```mermaid
-flowchart TB
-    subgraph P["Pantalla: Gestion inicial de pedidos"]
-        H["Encabezado<br/>Gestion inicial de pedidos<br/>Descripcion breve del modulo"]
-        F["Formulario<br/>Cliente<br/>Producto<br/>Cantidad<br/>Fecha de entrega<br/>Prioridad"]
-        A["Acciones<br/>Registrar pedido<br/>Limpiar"]
-        R["Resumen<br/>Pedidos registrados<br/>Unidades solicitadas<br/>Pedidos urgentes"]
-        T["Listado temporal<br/>Cliente | Producto | Cantidad | Fecha | Prioridad"]
-    end
-
-    H --> F
-    F --> A
-    A --> R
-    R --> T
-```
-
-## Esbozo de comportamiento
+## 1. Flujo implementable en U1
 
 ```mermaid
 flowchart LR
-    A[Usuario completa formulario] --> B[JavaScript captura submit]
-    B --> C[Validar campos obligatorios]
-    C --> D[Validar cantidad]
-    D --> E[Crear objeto pedido]
-    E --> F[Agregar a arreglo temporal]
-    F --> G[Renderizar tabla]
-    G --> H[Actualizar resumen]
+    A[Ingresar producto] --> B[Seleccionar categoría]
+    B --> C{Datos válidos}
+    C -- No --> D[Mostrar mensaje]
+    C -- Sí --> E[Agregar al listado temporal]
+    E --> F[Actualizar resumen]
 ```
 
-## Prototipo textual
+## 2. Esbozo del catálogo
 
 ```text
----------------------------------------------------------
-Gestion inicial de pedidos
----------------------------------------------------------
-Cliente:        [________________________]
-Producto:       [________________________]
-Cantidad:       [____]
-Fecha entrega:  [____/____/____]
-Prioridad:      [Normal v]
+CoMarket - Productos
 
-[Registrar pedido] [Limpiar]
+Nombre:    [________________]
+Precio:    [________]
+Stock:     [________]
+Categoría: [Seleccione      v]
 
-Resumen:
-+----------------------+----------------------+----------------+
-| Pedidos registrados  | Unidades solicitadas | Urgentes       |
-| 0                    | 0                    | 0              |
-+----------------------+----------------------+----------------+
+[Registrar producto] [Limpiar]
 
-Listado temporal:
-+----+----------+----------+----------+------------+----------+
-| #  | Cliente  | Producto | Cantidad | Fecha      | Prioridad |
-+----+----------+----------+----------+------------+----------+
-|    |          |          |          |            |          |
-+----+----------+----------+----------+------------+----------+
+| Producto | Precio | Stock | Categoría |
 ```
 
-## Relacion con REQ, BD1 y LP1
+## 3. Flujo preparado para U2
 
-| Elemento del prototipo | REQ | BD1 | LP1 |
+```mermaid
+flowchart LR
+    A[Ingresar cliente y fecha] --> B[Agregar productos y cantidades]
+    B --> C[Calcular subtotales y total]
+    C --> D[Validar stock]
+    D --> E[Registrar Venta y DetalleVenta]
+```
+
+Este segundo flujo sólo se valida como prototipo en U1. Su persistencia atómica corresponde a LP1 S10.
+
+## 4. Trazabilidad
+
+| Elemento | REQ | BD1 | LP1 U1 |
 |---|---|---|---|
-| Cliente | RF-01, RN-01 | cliente.nombre | Campo de texto obligatorio |
-| Producto | RF-01, RN-02 | producto.nombre | Campo de texto obligatorio |
-| Cantidad | RF-01, RF-03 | detalle_pedido.cantidad | Campo numerico validado |
-| Fecha de entrega | RF-01 | pedido.fecha_entrega | Campo tipo fecha |
-| Prioridad | RN-03, RN-04 | pedido.prioridad | Selector y distintivo visual |
-| Listado temporal | RF-04 | pedido, detalle_pedido | Tabla renderizada con DOM |
-| Resumen | RF-05 | pedido.cantidad | Tarjetas calculadas con JavaScript |
+| Nombre, precio y stock | RF-01, RF-03 | producto | Formulario y validación |
+| Categoría | RF-04 | categoria, producto.id_categoria | Selector y tabla |
+| Cliente y fecha | RF-05 | venta | Prototipo U2 |
+| Producto y cantidad | RN-04 | detalle_venta | Prototipo U2 |
+| Subtotal y total | RN-05 | detalle_venta.subtotal, venta.total | Prototipo U2 |
 
-## Criterios de validacion del prototipo
+## 5. Criterios de aceptación
 
-- El flujo permite registrar el proceso principal definido en el brief.
-- Los campos del prototipo existen en el modelo de datos inicial.
-- Las validaciones del prototipo responden a reglas o requerimientos.
-- La pantalla puede implementarse en LP1 sin inventar campos fuera de REQ y BD1.
-- El prototipo permite explicar qué falta para Unidad 2: persistencia, MVC, operaciones del dominio, consultas y reportes; la seguridad se incorpora en U3.
+- El catálogo puede implementarse sin base de datos en LP1 U1.
+- `Categoria` amplía `Producto` sin romper la continuidad con POO.
+- El prototipo de venta usa las entidades que BD1 formalizará.
+- No se exige login ni persistencia real en este corte.

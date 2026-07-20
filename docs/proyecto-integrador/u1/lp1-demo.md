@@ -26,31 +26,31 @@ Antes de implementar, el flujo y el esbozo de pantalla se validan en [Prototipos
 - Estructura HTML semantica.
 - Estilos CSS separados.
 - Catálogo de productos con nombre, precio, stock y categoría.
-- Formulario del proceso principal.
+- Formulario temporal de `Producto`.
 - Selección de una categoría existente para el producto.
 - Validaciones del lado cliente.
 - Manejo de eventos con JavaScript.
-- Registro temporal de pedidos en memoria del navegador.
+- Registro temporal de productos en memoria del navegador.
 - Renderizado de una tabla mediante DOM.
-- Resumen de pedidos y unidades.
+- Resumen de productos, stock y categorías utilizadas.
 
 ## Trazabilidad con REQ y BD1
 
 | Elemento LP1 | Origen REQ | Origen BD1 |
 |---|---|---|
-| Formulario de pedido | RF-01 | pedido, cliente, producto, detalle_pedido |
+| Formulario de producto | RF-01 | producto |
 | Selector de categoría | Continuidad LP1 S02 | categoria y producto.id_categoria |
 | Validacion de campos obligatorios | RF-02 | Campos con nulo = No |
-| Validacion de cantidad | RF-03 | detalle_pedido.cantidad |
-| Tabla de pedidos | RF-04 | pedido y detalle_pedido |
-| Resumen de pedidos | RF-05 | pedido.cantidad |
+| Validación de precio y stock | RF-03 | producto.precio y producto.stock |
+| Tabla de productos | RF-04 | producto y categoria |
+| Resumen del catálogo | RF-05 | producto.stock y producto.id_categoria |
 
 ## Criterio de aceptacion de la demo
 
 La demo cumple el corte U1 si:
 
-- Registra pedidos válidos con producto y categoría sin recargar la página.
-- Bloquea datos incompletos o cantidad invalida.
+- Registra productos válidos con categoría sin recargar la página.
+- Bloquea nombres vacíos, precios negativos, stock inválido o categoría ausente.
 - Muestra mensajes claros al usuario.
 - Actualiza la tabla y el resumen.
 - Mantiene coherencia con el brief, el prototipo y el modelo de datos.
@@ -59,19 +59,18 @@ La demo cumple el corte U1 si:
 
 | Caso | Accion | Resultado esperado |
 |---|---|---|
-| Pedido valido | Completar todos los campos con cantidad mayor que cero y registrar. | Se agrega una fila a la tabla, se limpian los campos y se actualiza el resumen. |
-| Categoria vacía | No seleccionar categoría y registrar. | Se muestra un mensaje de validación y no se registra el pedido. |
-| Cliente vacio | Dejar el cliente vacio y registrar. | Se muestra un mensaje de validacion y no se registra el pedido. |
-| Cantidad cero | Ingresar cantidad `0` y registrar. | Se muestra el mensaje de cantidad invalida. |
-| Fecha vacia | Dejar la fecha sin completar y registrar. | Se muestra un mensaje de validacion y no se registra el pedido. |
-| Prioridad urgente | Registrar un pedido con prioridad urgente. | La prioridad aparece diferenciada visualmente en la tabla. |
+| Producto válido | Completar nombre, precio, stock y categoría. | Se agrega una fila, se limpia el formulario y se actualiza el resumen. |
+| Categoría vacía | No seleccionar categoría. | Se muestra un mensaje y no se registra el producto. |
+| Nombre vacío | Dejar el nombre vacío. | Se muestra un mensaje y no se registra el producto. |
+| Precio negativo | Ingresar precio menor que cero. | Se rechaza el registro. |
+| Stock inválido | Ingresar stock negativo o decimal. | Se rechaza el registro. |
 
 ## Como debe adaptarlo cada grupo
 
 Cada grupo debe cambiar el dominio, entidades y campos segun su proyecto, manteniendo la misma estructura:
 
-- Una entidad transaccional principal.
-- Dos o mas datos asociados al proceso.
+- Una entidad principal ya trabajada en POO.
+- Un objeto relacionado incorporado en LP1.
 - Reglas de validacion visibles.
 - Listado temporal.
 - Evidencia de que REQ, BD1 y LP1 trabajan sobre el mismo flujo.

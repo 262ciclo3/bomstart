@@ -1,9 +1,3 @@
-CREATE TABLE cliente (
-    id_cliente INTEGER PRIMARY KEY,
-    nombre VARCHAR(100) NOT NULL,
-    documento VARCHAR(20)
-);
-
 CREATE TABLE categoria (
     id_categoria INTEGER PRIMARY KEY,
     nombre VARCHAR(80) NOT NULL UNIQUE,
@@ -13,41 +7,48 @@ CREATE TABLE categoria (
 CREATE TABLE producto (
     id_producto INTEGER PRIMARY KEY,
     nombre VARCHAR(100) NOT NULL,
-    precio DECIMAL(10, 2) NOT NULL DEFAULT 0,
-    stock INTEGER NOT NULL DEFAULT 0,
+    precio DECIMAL(10, 2) NOT NULL,
+    stock INTEGER NOT NULL,
     id_categoria INTEGER NOT NULL,
     CONSTRAINT fk_producto_categoria
         FOREIGN KEY (id_categoria) REFERENCES categoria(id_categoria),
-    CONSTRAINT ck_producto_precio
-        CHECK (precio >= 0),
-    CONSTRAINT ck_producto_stock
-        CHECK (stock >= 0)
+    CONSTRAINT ck_producto_precio CHECK (precio >= 0),
+    CONSTRAINT ck_producto_stock CHECK (stock >= 0)
 );
 
-CREATE TABLE pedido (
-    id_pedido INTEGER PRIMARY KEY,
-    id_cliente INTEGER NOT NULL,
-    fecha_entrega DATE NOT NULL,
-    prioridad VARCHAR(20) NOT NULL DEFAULT 'normal',
-    estado VARCHAR(20) NOT NULL DEFAULT 'pendiente',
-    creado_en TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-    CONSTRAINT fk_pedido_cliente
-        FOREIGN KEY (id_cliente) REFERENCES cliente(id_cliente),
-    CONSTRAINT ck_pedido_prioridad
-        CHECK (prioridad IN ('normal', 'alta', 'urgente')),
-    CONSTRAINT ck_pedido_estado
-        CHECK (estado IN ('pendiente', 'atendido', 'anulado'))
+CREATE TABLE usuario (
+    id_usuario INTEGER PRIMARY KEY,
+    username VARCHAR(60) NOT NULL UNIQUE,
+    password_hash VARCHAR(255) NOT NULL,
+    rol VARCHAR(30) NOT NULL,
+    activo BOOLEAN NOT NULL DEFAULT TRUE
 );
 
-CREATE TABLE detalle_pedido (
+CREATE TABLE venta (
+    id_venta INTEGER PRIMARY KEY,
+    cliente VARCHAR(120) NOT NULL,
+    fecha TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    estado VARCHAR(20) NOT NULL DEFAULT 'ACTIVA',
+    total DECIMAL(12, 2) NOT NULL DEFAULT 0,
+    id_usuario INTEGER,
+    CONSTRAINT fk_venta_usuario
+        FOREIGN KEY (id_usuario) REFERENCES usuario(id_usuario),
+    CONSTRAINT ck_venta_estado CHECK (estado IN ('ACTIVA', 'ANULADA')),
+    CONSTRAINT ck_venta_total CHECK (total >= 0)
+);
+
+CREATE TABLE detalle_venta (
     id_detalle INTEGER PRIMARY KEY,
-    id_pedido INTEGER NOT NULL,
+    id_venta INTEGER NOT NULL,
     id_producto INTEGER NOT NULL,
     cantidad INTEGER NOT NULL,
-    CONSTRAINT fk_detalle_pedido
-        FOREIGN KEY (id_pedido) REFERENCES pedido(id_pedido),
+    precio_unitario DECIMAL(10, 2) NOT NULL,
+    subtotal DECIMAL(12, 2) NOT NULL,
+    CONSTRAINT fk_detalle_venta
+        FOREIGN KEY (id_venta) REFERENCES venta(id_venta),
     CONSTRAINT fk_detalle_producto
         FOREIGN KEY (id_producto) REFERENCES producto(id_producto),
-    CONSTRAINT ck_detalle_cantidad
-        CHECK (cantidad > 0)
+    CONSTRAINT ck_detalle_cantidad CHECK (cantidad > 0),
+    CONSTRAINT ck_detalle_precio CHECK (precio_unitario >= 0),
+    CONSTRAINT ck_detalle_subtotal CHECK (subtotal >= 0)
 );

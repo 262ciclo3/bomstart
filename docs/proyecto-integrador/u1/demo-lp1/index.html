@@ -3,133 +3,59 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>BOMstart U1 - Demo LP1</title>
+  <title>BOMstart U1 - Producto y categoría</title>
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
   <header class="app-header">
     <div>
       <p class="eyebrow">Producto U1 - LP1</p>
-      <h1>Gestion inicial de pedidos</h1>
-      <p>Continuidad del dominio de POO, ampliada en LP1 y alineada con REQ y BD1.</p>
+      <h1>Catálogo interactivo</h1>
+      <p>Continúa con Producto de POO e incorpora Categoria como incremento de LP1.</p>
     </div>
   </header>
 
   <main class="layout">
-    <section class="panel table-panel" aria-labelledby="catalogo-title">
-      <h2 id="catalogo-title">Catálogo inicial</h2>
-      <div class="table-wrap">
-        <table>
-          <thead>
-            <tr>
-              <th>Producto</th>
-              <th>Precio</th>
-              <th>Stock</th>
-              <th>Categoría</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr><td>Pack escolar</td><td>S/ 45.00</td><td>20</td><td>Útiles</td></tr>
-            <tr><td>Caja de lapiceros</td><td>S/ 18.50</td><td>35</td><td>Útiles</td></tr>
-            <tr><td>Mochila urbana</td><td>S/ 89.90</td><td>12</td><td>Accesorios</td></tr>
-          </tbody>
-        </table>
-      </div>
-    </section>
-
     <section class="panel" aria-labelledby="form-title">
-      <h2 id="form-title">Registrar pedido</h2>
-      <form id="pedidoForm" novalidate>
-        <label>
-          Cliente
-          <input id="cliente" name="cliente" type="text" autocomplete="name" placeholder="Ej. Maria Quispe">
-        </label>
-
-        <label>
-          Producto
-          <select id="producto" name="producto">
-            <option value="">Seleccione un producto</option>
-            <option value="Pack escolar" data-categoria="Útiles">Pack escolar</option>
-            <option value="Caja de lapiceros" data-categoria="Útiles">Caja de lapiceros</option>
-            <option value="Mochila urbana" data-categoria="Accesorios">Mochila urbana</option>
-          </select>
-        </label>
-
-        <label>
-          Categoría del producto
-          <input id="categoria" name="categoria" type="text" readonly placeholder="Se completa según el producto">
-        </label>
-
+      <h2 id="form-title">Registrar producto</h2>
+      <form id="productoForm" novalidate>
+        <label>Nombre <input id="nombre" type="text" placeholder="Ej. Pack escolar"></label>
         <div class="grid-two">
-          <label>
-            Cantidad
-            <input id="cantidad" name="cantidad" type="number" min="1" step="1" placeholder="1">
-          </label>
-
-          <label>
-            Fecha de entrega
-            <input id="fecha" name="fecha" type="date">
-          </label>
+          <label>Precio <input id="precio" type="number" min="0" step="0.01"></label>
+          <label>Stock <input id="stock" type="number" min="0" step="1"></label>
         </div>
-
         <label>
-          Prioridad
-          <select id="prioridad" name="prioridad">
-            <option value="normal">Normal</option>
-            <option value="alta">Alta</option>
-            <option value="urgente">Urgente</option>
+          Categoría
+          <select id="categoria">
+            <option value="">Seleccione una categoría</option>
+            <option value="Útiles">Útiles</option>
+            <option value="Accesorios">Accesorios</option>
           </select>
         </label>
-
         <p id="mensaje" class="message" role="status" aria-live="polite"></p>
-
         <div class="actions">
-          <button type="submit">Registrar pedido</button>
+          <button type="submit">Registrar producto</button>
           <button type="button" class="secondary" id="limpiarBtn">Limpiar</button>
         </div>
       </form>
     </section>
 
-    <section class="summary" aria-label="Resumen de pedidos">
-      <article>
-        <span id="totalPedidos">0</span>
-        <p>Pedidos registrados</p>
-      </article>
-      <article>
-        <span id="totalUnidades">0</span>
-        <p>Unidades solicitadas</p>
-      </article>
-      <article>
-        <span id="totalUrgentes">0</span>
-        <p>Pedidos urgentes</p>
-      </article>
+    <section class="summary" aria-label="Resumen del catálogo">
+      <article><span id="totalProductos">0</span><p>Productos</p></article>
+      <article><span id="totalStock">0</span><p>Unidades en stock</p></article>
+      <article><span id="totalCategorias">0</span><p>Categorías usadas</p></article>
     </section>
 
     <section class="panel table-panel" aria-labelledby="table-title">
-      <h2 id="table-title">Listado temporal</h2>
+      <h2 id="table-title">Listado temporal de productos</h2>
       <div class="table-wrap">
         <table>
-          <thead>
-            <tr>
-              <th>#</th>
-              <th>Cliente</th>
-              <th>Producto</th>
-              <th>Categoría</th>
-              <th>Cantidad</th>
-              <th>Fecha</th>
-              <th>Prioridad</th>
-            </tr>
-          </thead>
-          <tbody id="pedidosBody">
-            <tr>
-              <td colspan="7" class="empty">Aun no hay pedidos registrados.</td>
-            </tr>
-          </tbody>
+          <thead><tr><th>#</th><th>Producto</th><th>Precio</th><th>Stock</th><th>Categoría</th></tr></thead>
+          <tbody id="productosBody"></tbody>
         </table>
       </div>
     </section>
   </main>
-
   <script src="app.js"></script>
 </body>
 </html>

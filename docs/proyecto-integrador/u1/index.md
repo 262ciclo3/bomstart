@@ -8,9 +8,9 @@ En el caso de referencia, LP1 recupera `Producto` en S1 y agrega `Categoria` en 
 
 ## Dominio de ejemplo
 
-**Gestion inicial de pedidos para una tienda local.**
+**Gestión comercial inicial para una tienda local.**
 
-Una tienda registra pedidos de clientes de forma manual. Esto genera errores en cantidades, datos incompletos y poca visibilidad del estado de atencion. El equipo propone una aplicacion web empresarial que permita registrar, consultar y dar seguimiento inicial a pedidos.
+Una tienda registra productos y ventas de forma manual. Esto genera errores en cantidades, precios, stock y totales. El equipo propone una aplicación web empresarial que continúe el dominio de POO, incorpore `Categoria` y permita preparar el flujo `Venta–DetalleVenta` que se persistirá en U2.
 
 ## Productos por curso
 
@@ -66,11 +66,11 @@ Estos archivos sirven como referencia minima para que cada grupo construya su pr
 
 | Caso | Datos de entrada | Resultado esperado | Evidencia |
 |---|---|---|---|
-| Pedido valido | Cliente, producto, cantidad mayor que cero, fecha y prioridad. | El pedido se registra, aparece en la tabla y actualiza el resumen. | Captura o ejecucion en vivo. |
-| Cliente vacio | Producto, cantidad, fecha y prioridad sin cliente. | El sistema muestra mensaje de validacion y no registra el pedido. | Captura del mensaje. |
-| Cantidad cero o negativa | Cliente, producto, cantidad invalida, fecha y prioridad. | El sistema indica que la cantidad debe ser mayor que cero. | Captura del mensaje. |
-| Fecha vacia | Cliente, producto, cantidad y prioridad sin fecha. | El sistema solicita completar la fecha de entrega. | Captura del mensaje. |
-| Pedido urgente | Pedido valido con prioridad urgente. | El pedido aparece diferenciado visualmente en el listado. | Captura de la fila registrada. |
+| Producto válido | Nombre, precio, stock y categoría válidos. | El producto aparece en el listado temporal con su categoría. | Captura o ejecución en vivo. |
+| Nombre vacío | Precio, stock y categoría sin nombre. | El sistema muestra un mensaje y no registra el producto. | Captura del mensaje. |
+| Precio inválido | Precio negativo. | El sistema rechaza el registro. | Captura del mensaje. |
+| Stock inválido | Stock negativo o no entero. | El sistema rechaza el registro. | Captura del mensaje. |
+| Categoría no seleccionada | Producto sin categoría. | El sistema solicita elegir una categoría existente. | Captura del mensaje. |
 
 ## Estado de aprobacion del corte U1
 

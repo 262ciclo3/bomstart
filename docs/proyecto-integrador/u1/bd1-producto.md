@@ -2,131 +2,70 @@
 
 ## Producto
 
-**Modelo de datos conceptual y logico documentado.**
+**Modelo conceptual y lógico inicial de CoMarket.**
 
-Este producto transforma los requerimientos iniciales de REQ en una estructura de datos coherente para que LP1 pueda construir formularios, validaciones y, posteriormente, persistencia MVC.
+El modelo conserva `Producto`, `Venta`, `DetalleVenta` y `Usuario` de POO e incorpora `Categoria` como incremento coordinado con LP1.
 
-## 1. Inventario de datos
+## 1. Entidades
 
-| Dato | Descripcion | Origen |
+| Tipo | Entidad | Responsabilidad |
 |---|---|---|
-| nombre_cliente | Nombre de la persona que realiza el pedido. | RF-01 |
-| documento_cliente | Documento de identificacion del cliente. | RF-01 |
-| nombre_producto | Producto solicitado. | RF-01 |
-| nombre_categoria | Clasificacion del producto. | Continuidad LP1 S02 |
-| cantidad | Numero de unidades solicitadas. | RF-01, RF-03 |
-| fecha_entrega | Fecha tentativa de atencion o entrega. | RF-01 |
-| prioridad | Nivel de prioridad del pedido. | RN-03 |
-| estado | Situacion del pedido. | RF-04 |
+| Maestra | Categoria | Clasifica productos. |
+| Maestra | Producto | Conserva nombre, precio y stock. |
+| Seguridad | Usuario | Identifica quién registra operaciones en U3. |
+| Transaccional | Venta | Conserva cliente, fecha, estado y total. |
+| Detalle | DetalleVenta | Relaciona una venta con sus productos, cantidades y subtotales. |
 
-## 2. Entidades identificadas
-
-| Tipo | Entidad | Justificacion |
-|---|---|---|
-| Maestra | Cliente | Permite identificar quien solicita el pedido. |
-| Maestra | Producto | Permite reconocer que se esta solicitando. |
-| Maestra | Categoria | Organiza los productos sin repetir su clasificación como texto libre. |
-| Transaccional | Pedido | Representa la operacion principal del sistema. |
-| Detalle | DetallePedido | Permite que un pedido pueda crecer a varios productos en unidades posteriores. |
-
-## 3. Modelo conceptual ER
+## 2. Modelo conceptual
 
 ```mermaid
 erDiagram
-    CLIENTE ||--o{ PEDIDO : realiza
-    PEDIDO ||--|{ DETALLE_PEDIDO : contiene
-    PRODUCTO ||--o{ DETALLE_PEDIDO : se_solicita_en
     CATEGORIA ||--o{ PRODUCTO : clasifica
-
-    CLIENTE {
-        int id_cliente
-        string nombre
-        string documento
-    }
-
-    PRODUCTO {
-        int id_producto
-        string nombre
-        decimal precio
-        int stock
-        int id_categoria
-    }
-
-    CATEGORIA {
-        int id_categoria
-        string nombre
-        string descripcion
-    }
-
-    PEDIDO {
-        int id_pedido
-        date fecha_entrega
-        string prioridad
-        string estado
-        int id_cliente
-    }
-
-    DETALLE_PEDIDO {
-        int id_detalle
-        int cantidad
-        int id_pedido
-        int id_producto
-    }
+    USUARIO ||--o{ VENTA : registra
+    VENTA ||--|{ DETALLE_VENTA : contiene
+    PRODUCTO ||--o{ DETALLE_VENTA : participa
 ```
 
-## 4. Modelo logico inicial
+La relación `Usuario–Venta` se modela desde BD1, pero el login y la asignación automática del usuario se implementan en LP1 U3.
 
-| Tabla | Campo | Tipo sugerido | Clave | Nulo | Regla |
-|---|---|---|---|---|---|
-| cliente | id_cliente | INT | PK | No | Identificador autogenerado. |
-| cliente | nombre | VARCHAR(100) |  | No | Debe contener texto. |
-| cliente | documento | VARCHAR(20) |  | Si | Opcional en U1. |
-| producto | id_producto | INT | PK | No | Identificador autogenerado. |
-| producto | nombre | VARCHAR(100) |  | No | Debe contener texto. |
-| producto | precio | DECIMAL(10,2) |  | No | Debe ser mayor o igual que cero. |
-| producto | stock | INT |  | No | Debe ser mayor o igual que cero. |
-| producto | id_categoria | INT | FK | No | Referencia a la categoría del producto. |
-| categoria | id_categoria | INT | PK | No | Identificador autogenerado. |
-| categoria | nombre | VARCHAR(80) |  | No | Nombre único de la categoría. |
-| categoria | descripcion | VARCHAR(200) |  | Si | Descripción opcional. |
-| pedido | id_pedido | INT | PK | No | Identificador autogenerado. |
-| pedido | id_cliente | INT | FK | No | Referencia a cliente. |
-| pedido | fecha_entrega | DATE |  | No | Fecha de atencion o entrega. |
-| pedido | prioridad | VARCHAR(20) |  | No | Normal, alta o urgente. |
-| pedido | estado | VARCHAR(20) |  | No | Pendiente por defecto. |
-| detalle_pedido | id_detalle | INT | PK | No | Identificador autogenerado. |
-| detalle_pedido | id_pedido | INT | FK | No | Referencia a pedido. |
-| detalle_pedido | id_producto | INT | FK | No | Referencia a producto. |
-| detalle_pedido | cantidad | INT |  | No | Debe ser mayor que cero. |
+## 3. Modelo lógico inicial
 
-## 5. Normalizacion inicial
-
-| Revision | Resultado |
+| Tabla | Campos principales |
 |---|---|
-| Primera forma normal | Los campos contienen valores atomicos. No se guardan varios productos en una sola columna. |
-| Segunda forma normal | Los datos de cliente y producto se separan del pedido para evitar repeticion. |
-| Tercera forma normal | La categoría se separa de producto para evitar repetir su nombre; la prioridad y el estado pertenecen al pedido. |
+| categoria | id_categoria, nombre, descripcion |
+| producto | id_producto, nombre, precio, stock, id_categoria |
+| usuario | id_usuario, username, password_hash, rol, activo |
+| venta | id_venta, cliente, fecha, estado, total, id_usuario |
+| detalle_venta | id_detalle, id_venta, id_producto, cantidad, precio_unitario, subtotal |
 
-## 6. Relacion con LP1
+## 4. Reglas de integridad
 
-| Campo del formulario LP1 | Tabla/campo BD1 | Regla de validacion |
+- `producto.id_categoria` referencia una categoría existente.
+- Precio y stock no son negativos.
+- Una venta activa debe contener al menos un detalle.
+- Cantidad y precio unitario producen el subtotal del detalle.
+- El total de venta coincide con la suma de subtotales.
+- El estado de venta sólo puede ser `ACTIVA` o `ANULADA`.
+- `venta.id_usuario` puede quedar pendiente durante U2 y se vuelve obligatorio al integrar seguridad en U3.
+
+## 5. Diccionario mínimo
+
+| Campo | Tipo lógico | Nulo | Regla |
+|---|---|---|---|
+| producto.nombre | VARCHAR(100) | No | Texto no vacío |
+| producto.precio | DECIMAL(10,2) | No | Mayor o igual a cero |
+| producto.stock | INTEGER | No | Mayor o igual a cero |
+| venta.cliente | VARCHAR(120) | No | Texto no vacío |
+| venta.fecha | TIMESTAMP | No | Fecha de registro |
+| venta.estado | VARCHAR(20) | No | ACTIVA o ANULADA |
+| detalle_venta.cantidad | INTEGER | No | Mayor que cero |
+| detalle_venta.precio_unitario | DECIMAL(10,2) | No | Mayor o igual a cero |
+| detalle_venta.subtotal | DECIMAL(12,2) | No | cantidad × precio_unitario |
+
+## 6. Relación con LP1
+
+| BD1 | LP1 U1 | LP1 U2/U3 |
 |---|---|---|
-| Cliente | cliente.nombre | Obligatorio. |
-| Producto | producto.nombre | Obligatorio. |
-| Categoria del producto | categoria.id_categoria / producto.id_categoria | Debe seleccionar una categoría existente. |
-| Cantidad | detalle_pedido.cantidad | Entero mayor que cero. |
-| Fecha de entrega | pedido.fecha_entrega | Obligatoria. |
-| Prioridad | pedido.prioridad | Valor permitido: normal, alta, urgente. |
-
-## 7. Preparacion para Unidad 2
-
-En Unidad 2, este modelo debe convertirse en scripts SQL:
-
-- `CREATE TABLE cliente`.
-- `CREATE TABLE producto`.
-- `CREATE TABLE categoria` antes de `producto`.
-- `CREATE TABLE pedido`.
-- `CREATE TABLE detalle_pedido`.
-- Claves primarias y foraneas.
-- Restricciones para cantidad positiva, estado y prioridad.
-- Datos de prueba coherentes con los casos de uso de REQ.
+| producto y categoria | Formulario y listado temporal | CRUD persistente mediante JDBC y DAO |
+| venta y detalle_venta | Prototipo | Operación transaccional cabecera–detalle |
+| usuario | Fuera de alcance | Autenticación y sesión en U3 |

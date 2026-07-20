@@ -3,100 +3,81 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>BOMstart U2 - Demo MVC</title>
+  <title>CoMarket U2 - Venta y detalle</title>
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
   <header class="topbar">
     <div>
       <p class="eyebrow">Producto U2 - LP1</p>
-      <h1>Pedidos MVC inicial</h1>
-      <p>Demo con controlador, servicio, repositorio y persistencia local.</p>
+      <h1>Venta–DetalleVenta</h1>
+      <p>Demo académica del flujo MVC con persistencia local, consultas y reportes.</p>
     </div>
   </header>
 
   <main class="shell">
-    <section id="appPanel">
-      <section class="summary" aria-label="Resumen">
-        <article><span id="totalPedidos">0</span><p>Pedidos</p></article>
-        <article><span id="totalPendientes">0</span><p>Pendientes</p></article>
-        <article><span id="totalUnidades">0</span><p>Unidades</p></article>
-        <article><span id="totalUrgentes">0</span><p>Urgentes</p></article>
-      </section>
+    <section class="summary" aria-label="Resumen">
+      <article><span id="totalVentas">0</span><p>Ventas activas</p></article>
+      <article><span id="importeVentas">S/ 0.00</span><p>Importe vendido</p></article>
+      <article><span id="unidadesVendidas">0</span><p>Unidades vendidas</p></article>
+    </section>
 
-      <section class="grid">
-        <article class="panel">
-          <h2>Registrar pedido</h2>
-          <form id="pedidoForm" novalidate>
-            <label>Cliente <input id="cliente" type="text" placeholder="Maria Quispe"></label>
-            <label>Producto <input id="producto" type="text" placeholder="Pack escolar"></label>
-            <div class="two">
-              <label>Cantidad <input id="cantidad" type="number" min="1" step="1"></label>
-              <label>Fecha <input id="fecha" type="date"></label>
-            </div>
+    <section class="grid">
+      <article class="panel">
+        <h2>Nueva venta</h2>
+        <form id="ventaForm" novalidate>
+          <label>Cliente <input id="cliente" type="text" placeholder="María Quispe"></label>
+          <div class="two">
             <label>
-              Prioridad
-              <select id="prioridad">
-                <option value="normal">Normal</option>
-                <option value="alta">Alta</option>
-                <option value="urgente">Urgente</option>
+              Producto
+              <select id="producto">
+                <option value="">Seleccione</option>
+                <option value="1">Pack escolar — S/ 45.00</option>
+                <option value="2">Caja de lapiceros — S/ 18.50</option>
+                <option value="3">Mochila urbana — S/ 89.90</option>
               </select>
             </label>
-            <p id="pedidoMensaje" class="message" role="status" aria-live="polite"></p>
-            <button type="submit">Guardar pedido</button>
-          </form>
-        </article>
-
-        <article class="panel">
-          <h2>Consultas</h2>
-          <div class="filters">
-            <label>
-              Estado
-              <select id="filtroEstado">
-                <option value="todos">Todos</option>
-                <option value="pendiente">Pendiente</option>
-                <option value="atendido">Atendido</option>
-                <option value="anulado">Anulado</option>
-              </select>
-            </label>
-            <label>
-              Prioridad
-              <select id="filtroPrioridad">
-                <option value="todas">Todas</option>
-                <option value="normal">Normal</option>
-                <option value="alta">Alta</option>
-                <option value="urgente">Urgente</option>
-              </select>
-            </label>
+            <label>Cantidad <input id="cantidad" type="number" min="1" step="1" value="1"></label>
           </div>
-          <button id="seedBtn" class="secondary" type="button">Cargar datos de prueba</button>
-          <button id="clearBtn" class="danger" type="button">Limpiar datos</button>
-        </article>
-      </section>
+          <button id="agregarDetalleBtn" class="secondary" type="button">Agregar detalle</button>
+          <div class="table-wrap">
+            <table>
+              <thead><tr><th>Producto</th><th>Cant.</th><th>Precio</th><th>Subtotal</th><th></th></tr></thead>
+              <tbody id="detallesBody"></tbody>
+            </table>
+          </div>
+          <p><strong>Total:</strong> <span id="totalActual">S/ 0.00</span></p>
+          <p id="ventaMensaje" class="message" role="status" aria-live="polite"></p>
+          <button type="submit">Confirmar venta</button>
+        </form>
+      </article>
 
-      <section class="panel table-panel">
-        <h2>Pedidos persistidos</h2>
-        <div class="table-wrap">
-          <table>
-            <thead>
-              <tr>
-                <th>#</th>
-                <th>Cliente</th>
-                <th>Producto</th>
-                <th>Cantidad</th>
-                <th>Fecha</th>
-                <th>Prioridad</th>
-                <th>Estado</th>
-                <th>Accion</th>
-              </tr>
-            </thead>
-            <tbody id="pedidosBody"></tbody>
-          </table>
-        </div>
-      </section>
+      <article class="panel">
+        <h2>Consultas y reporte</h2>
+        <label>
+          Estado
+          <select id="filtroEstado">
+            <option value="TODAS">Todas</option>
+            <option value="ACTIVA">Activas</option>
+            <option value="ANULADA">Anuladas</option>
+          </select>
+        </label>
+        <button id="seedBtn" class="secondary" type="button">Cargar datos de prueba</button>
+        <button id="clearBtn" class="danger" type="button">Limpiar datos</button>
+        <p class="hint">La seguridad no forma parte de U2; se integra en S13.</p>
+      </article>
+    </section>
+
+    <section class="panel table-panel">
+      <h2>Ventas persistidas</h2>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>#</th><th>Cliente</th><th>Fecha</th><th>Detalles</th><th>Total</th><th>Estado</th><th>Acción</th></tr></thead>
+          <tbody id="ventasBody"></tbody>
+        </table>
+      </div>
     </section>
   </main>
-
   <script src="app.js"></script>
 </body>
 </html>

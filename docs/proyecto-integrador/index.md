@@ -43,7 +43,7 @@ No se considera proyecto integrador:
 |---|---|---|
 | REQ | Problema, alcance, stakeholders, requerimientos, reglas, prototipos y trazabilidad. | SRS documentado basado en IEEE 29148. |
 | BD1 | Modelo ER, modelo lógico, normalización, diccionario, scripts, integridad y consultas. | Base de datos relacional implementada y validada. |
-| LP1 | Interfaz, formularios, MVC, persistencia, seguridad, consultas y optimización básica. | Sistema Web MVC Empresarial. |
+| LP1 | Interfaz, formularios, MVC, persistencia nativa con JDBC y DAO, operaciones `Venta–DetalleVenta`, consultas, reportes, seguridad y pruebas. | Sistema Web MVC Empresarial. |
 
 ```mermaid
 flowchart TB
@@ -69,7 +69,7 @@ Este alineamiento sirve como referencia metodológica para coordinar los avances
 | S7-S8 | Historias, casos de uso y RNF que guían operaciones, persistencia y calidad del sistema. | Implementación DDL y manipulación DML con datos de prueba coherentes con los casos de uso. | CRUD persistente, validaciones, manejo de errores y presentación web. | LP1 implementa operaciones MVC persistentes a partir de casos de uso; BD1 ejecuta scripts DDL/DML coherentes con esos casos. |
 | S9-S10 | Reglas de negocio y prototipos funcionales. | Consultas SQL y reportes. | Objetos relacionados y operación del dominio con cabecera–detalle. | Las reglas de REQ se convierten en asociaciones, validaciones y flujos transaccionales persistentes. |
 | S11-S12 | Trazabilidad y evaluación U2. | Comparación NoSQL como justificación técnica del modelo relacional del proyecto y evaluación U2. | Consultas, reportes y evaluación de la aplicación MVC. | Segundo corte integrado: se evidencian trazabilidad, persistencia, operaciones del dominio, consultas, reportes y validaciones. |
-| S13-S15 | SRS IEEE 29148, validación y sustentación. | Integración, validación y sustentación de la base de datos. | Integración, pruebas y sustentación del sistema MVC. | Consolidación final del proyecto integrador. |
+| S13-S15 | SRS IEEE 29148, validación y sustentación. | Integración, validación y sustentación de la base de datos. | Autenticación y sesiones; integración, pruebas, refinamiento y sustentación del sistema MVC. | Consolidación final del proyecto integrador. |
 | S16 | Evaluación final. | Evaluación final. | Evaluación final. | Cierre académico y evaluación individual o técnica. |
 
 ## 4. Cronograma
@@ -77,7 +77,8 @@ Este alineamiento sirve como referencia metodológica para coordinar los avances
 | Hito | Momento | Producto esperado |
 |---|---|---|
 | S2 | Brief del proyecto | Problema, contexto, alcance, actores, entidades del proceso principal, modelo ER inicial, navegación/vistas iniciales y criterios de éxito. |
-| S6 | Dominio validado | Requerimientos iniciales validados, modelo lógico con diccionario, página web interactiva evaluada e inicio del primer módulo MVC. |
+| S5 | Dominio validado | Requerimientos iniciales validados, modelo lógico con diccionario y página web interactiva evaluada. |
+| S6 | Primer corte MVC | Proyecto MVC conectado mediante JDBC y primer listado persistente. |
 | S12 | Producto intermedio | SRS trazable, base de datos implementada y aplicación MVC con persistencia, operación cabecera–detalle, consultas y reportes. |
 | S15 | Producto final | SRS final, base de datos validada y sistema web MVC integrado y sustentado. |
 | S16 | Cierre individual | Evaluación final y evidencias de dominio técnico individual. |
@@ -176,7 +177,7 @@ Los artefactos desarrollados como ejemplo base se encuentran en [Unidad 3 - Prod
 |---|---|---|---|
 | REQ | **SRS documentado basado en IEEE 29148, validado y aceptado.** | SRS final, RF, RNF, reglas, casos de uso, prototipos, validación y trazabilidad. | Cada requerimiento tiene evidencia en BD1, LP1 y pruebas. |
 | BD1 | **Base de datos relacional implementada, integrada y validada.** | Modelo ER, modelo lógico, diccionario, DDL, DML, restricciones, consultas y reportes. | La base sostiene el sistema MVC y responde a los requerimientos. |
-| LP1 | **Sistema Web MVC Empresarial integrado, probado y sustentado.** | MVC, persistencia, formularios, consultas, seguridad básica, validaciones, pruebas y demo. | El sistema ejecuta el flujo principal usando la base y el SRS como fuente de verdad. |
+| LP1 | **Sistema Web MVC Empresarial integrado, protegido, probado y sustentado.** | MVC, JDBC, DAO, formularios, `Producto`, `Categoria–Producto`, `Venta–DetalleVenta`, consultas, reportes, autenticación, sesiones, validaciones, pruebas y demo. | El sistema ejecuta el flujo principal usando la base y el SRS como fuente de verdad. |
 
 ## 5. Producto Final
 
@@ -221,7 +222,7 @@ Los criterios se organizan según una matriz común de evaluación de proyectos 
 | 1. Problema y alcance | Problema y alcance | REQ | Analiza una necesidad organizacional y delimita una solución viable. | Contexto, problema, actores, alcance, restricciones y justificación. |
 | 2. Requerimientos o funcionalidad esperada | Requerimientos | REQ | Define, valida y traza requerimientos funcionales y no funcionales. | SRS, reglas, criterios de aceptación, trazabilidad, prototipos o vistas. |
 | 3. Diseño, modelo o arquitectura | Modelo de datos | BD1 | Modela información relacional coherente con los requerimientos. | Modelo ER, modelo lógico, normalización, diccionario y relación con requerimientos. |
-| 4. Implementación técnica | Aplicación MVC | LP1 | Implementa una aplicación web MVC funcional alineada al modelo y requerimientos. | Rutas, controladores, servicios, vistas, formularios, seguridad y persistencia. |
+| 4. Implementación técnica | Aplicación MVC | LP1 | Implementa una aplicación web MVC funcional alineada al modelo y requerimientos. | Rutas, controladores, servicios, vistas, formularios, JDBC, DAO, seguridad y persistencia. |
 | 5. Datos, persistencia o procesamiento | Base de datos | BD1 | Implementa una base relacional íntegra, consultable y útil para el sistema. | DDL, DML, restricciones, datos de prueba, consultas y reportes. |
 | 6. Integración del producto y calidad técnica | Integración y calidad técnica | REQ + BD1 + LP1 | Integra requerimientos, base de datos y aplicación como un solo sistema verificable y reproducible. | Trazabilidad SRS-BD-pantallas, demo end-to-end, repositorio, estructura, documentación, estándares, scripts y forma de ejecución. |
 | 7. Validación, pruebas o resultados | Validación y evidencias | REQ + BD1 + LP1 | Verifica funcionamiento, datos, reglas y resultados del sistema. | Pruebas, capturas, scripts, datos, resultados, incidencias y correcciones. |

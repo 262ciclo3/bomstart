@@ -11,19 +11,20 @@ Orientar la sustentación final del Proyecto Integrador del Ciclo 3. La presenta
 | Introducción del problema | 2 min | Contexto, necesidad y alcance. |
 | REQ | 3 min | SRS, RF/RNF, reglas, casos, prototipos y trazabilidad. |
 | BD1 | 3 min | Modelo ER, modelo lógico, diccionario, scripts, consultas y reportes. |
-| LP1 | 4 min | MVC, formularios, persistencia, consultas, seguridad y validaciones. |
+| LP1 | 4 min | MVC, JDBC/DAO, Producto–Categoria, Venta–DetalleVenta, consultas, seguridad y validaciones. |
 | Demo en vivo | 5 min | Flujo principal del sistema. |
 | Preguntas individuales | 5 min | Defensa de aporte, decisiones y evidencias. |
 
 ## Demo mínima
 
 1. Iniciar sesión o acceder al módulo principal según alcance.
-2. Registrar una operación válida.
-3. Mostrar persistencia en la base de datos.
-4. Consultar o filtrar registros.
-5. Mostrar validación con datos inválidos.
+2. Registrar una venta con al menos dos detalles.
+3. Mostrar cabecera, detalles, total y actualización de stock en la base de datos.
+4. Consultar o filtrar ventas.
+5. Mostrar una validación o rollback con datos inválidos.
 6. Mostrar reporte o resumen.
-7. Relacionar pantalla con SRS y tabla.
+7. Demostrar una ruta protegida y la venta asociada al usuario activo.
+8. Relacionar pantalla con SRS y tablas.
 
 ## Defensa individual
 
