@@ -3979,7 +3979,7 @@
 </tr>
 <tr>
 <td>LP1</td>
-<td>Interfaz, formularios, MVC, persistencia, seguridad, consultas y optimización básica.</td>
+<td>Interfaz, formularios, MVC, persistencia nativa con JDBC y DAO, operaciones <code>Venta–DetalleVenta</code>, consultas, reportes, seguridad y pruebas.</td>
 <td>Sistema Web MVC Empresarial.</td>
 </tr>
 </tbody>
@@ -4052,7 +4052,7 @@
 <td>S13-S15</td>
 <td>SRS IEEE 29148, validación y sustentación.</td>
 <td>Integración, validación y sustentación de la base de datos.</td>
-<td>Integración, pruebas y sustentación del sistema MVC.</td>
+<td>Autenticación y sesiones; integración, pruebas, refinamiento y sustentación del sistema MVC.</td>
 <td>Consolidación final del proyecto integrador.</td>
 </tr>
 <tr>
@@ -4080,9 +4080,14 @@
 <td>Problema, contexto, alcance, actores, entidades del proceso principal, modelo ER inicial, navegación/vistas iniciales y criterios de éxito.</td>
 </tr>
 <tr>
-<td>S6</td>
+<td>S5</td>
 <td>Dominio validado</td>
-<td>Requerimientos iniciales validados, modelo lógico con diccionario, página web interactiva evaluada e inicio del primer módulo MVC.</td>
+<td>Requerimientos iniciales validados, modelo lógico con diccionario y página web interactiva evaluada.</td>
+</tr>
+<tr>
+<td>S6</td>
+<td>Primer corte MVC</td>
+<td>Proyecto MVC conectado mediante JDBC y primer listado persistente.</td>
 </tr>
 <tr>
 <td>S12</td>
@@ -4274,8 +4279,8 @@
 </tr>
 <tr>
 <td>LP1</td>
-<td><strong>Sistema Web MVC Empresarial integrado, probado y sustentado.</strong></td>
-<td>MVC, persistencia, formularios, consultas, seguridad básica, validaciones, pruebas y demo.</td>
+<td><strong>Sistema Web MVC Empresarial integrado, protegido, probado y sustentado.</strong></td>
+<td>MVC, JDBC, DAO, formularios, <code>Producto</code>, <code>Categoria–Producto</code>, <code>Venta–DetalleVenta</code>, consultas, reportes, autenticación, sesiones, validaciones, pruebas y demo.</td>
 <td>El sistema ejecuta el flujo principal usando la base y el SRS como fuente de verdad.</td>
 </tr>
 </tbody>
@@ -4346,7 +4351,7 @@ grupo-&lt;numero&gt;-&lt;nombre-proyecto&gt;
 <td>Aplicación MVC</td>
 <td>LP1</td>
 <td>Implementa una aplicación web MVC funcional alineada al modelo y requerimientos.</td>
-<td>Rutas, controladores, servicios, vistas, formularios, seguridad y persistencia.</td>
+<td>Rutas, controladores, servicios, vistas, formularios, JDBC, DAO, seguridad y persistencia.</td>
 </tr>
 <tr>
 <td>5. Datos, persistencia o procesamiento</td>

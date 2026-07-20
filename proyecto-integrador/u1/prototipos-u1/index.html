@@ -78,7 +78,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#prototipos-u1" class="md-skip">
+        <a href="#prototipos-u1-comarket" class="md-skip">
           Saltar a contenido
         </a>
       
@@ -622,7 +622,7 @@
   <a href="#proposito" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Proposito
+        Propósito
       
     </span>
   </a>
@@ -630,10 +630,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#flujo-funcional-inicial" class="md-nav__link">
+  <a href="#1-flujo-implementable-en-u1" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Flujo funcional inicial
+        1. Flujo implementable en U1
       
     </span>
   </a>
@@ -641,10 +641,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#esbozo-de-pantalla-principal" class="md-nav__link">
+  <a href="#2-esbozo-del-catalogo" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Esbozo de pantalla principal
+        2. Esbozo del catálogo
       
     </span>
   </a>
@@ -652,10 +652,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#esbozo-de-comportamiento" class="md-nav__link">
+  <a href="#3-flujo-preparado-para-u2" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Esbozo de comportamiento
+        3. Flujo preparado para U2
       
     </span>
   </a>
@@ -663,10 +663,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#prototipo-textual" class="md-nav__link">
+  <a href="#4-trazabilidad" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Prototipo textual
+        4. Trazabilidad
       
     </span>
   </a>
@@ -674,21 +674,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#relacion-con-req-bd1-y-lp1" class="md-nav__link">
+  <a href="#5-criterios-de-aceptacion" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Relacion con REQ, BD1 y LP1
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#criterios-de-validacion-del-prototipo" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Criterios de validacion del prototipo
+        5. Criterios de aceptación
       
     </span>
   </a>
@@ -3691,132 +3680,84 @@
 
 
 
-<h1 id="prototipos-u1">Prototipos U1<a class="headerlink" href="#prototipos-u1" title="Permanent link">&para;</a></h1>
-<h2 id="proposito">Proposito<a class="headerlink" href="#proposito" title="Permanent link">&para;</a></h2>
-<p>Los prototipos de Unidad 1 permiten validar el flujo principal antes de implementar. No son disenos finales de interfaz; son esbozos funcionales para que REQ, BD1 y LP1 trabajen sobre la misma solucion.</p>
-<h2 id="flujo-funcional-inicial">Flujo funcional inicial<a class="headerlink" href="#flujo-funcional-inicial" title="Permanent link">&para;</a></h2>
-<pre class="mermaid"><code>flowchart TB
-    A[Inicio] --&gt; B[Ingresar datos del pedido]
-    B --&gt; C{Datos completos?}
-    C -- No --&gt; D[Mostrar mensaje de validacion]
-    D --&gt; B
-    C -- Si --&gt; E{Cantidad mayor que cero?}
-    E -- No --&gt; F[Mostrar error de cantidad]
-    F --&gt; B
-    E -- Si --&gt; G[Registrar pedido temporal]
-    G --&gt; H[Actualizar resumen]
-    H --&gt; I[Mostrar pedido en listado]
-    I --&gt; J[Fin del flujo U1]</code></pre>
-<h2 id="esbozo-de-pantalla-principal">Esbozo de pantalla principal<a class="headerlink" href="#esbozo-de-pantalla-principal" title="Permanent link">&para;</a></h2>
-<pre class="mermaid"><code>flowchart TB
-    subgraph P["Pantalla: Gestion inicial de pedidos"]
-        H["Encabezado&lt;br/&gt;Gestion inicial de pedidos&lt;br/&gt;Descripcion breve del modulo"]
-        F["Formulario&lt;br/&gt;Cliente&lt;br/&gt;Producto&lt;br/&gt;Cantidad&lt;br/&gt;Fecha de entrega&lt;br/&gt;Prioridad"]
-        A["Acciones&lt;br/&gt;Registrar pedido&lt;br/&gt;Limpiar"]
-        R["Resumen&lt;br/&gt;Pedidos registrados&lt;br/&gt;Unidades solicitadas&lt;br/&gt;Pedidos urgentes"]
-        T["Listado temporal&lt;br/&gt;Cliente | Producto | Cantidad | Fecha | Prioridad"]
-    end
-
-    H --&gt; F
-    F --&gt; A
-    A --&gt; R
-    R --&gt; T</code></pre>
-<h2 id="esbozo-de-comportamiento">Esbozo de comportamiento<a class="headerlink" href="#esbozo-de-comportamiento" title="Permanent link">&para;</a></h2>
+<h1 id="prototipos-u1-comarket">Prototipos U1 - CoMarket<a class="headerlink" href="#prototipos-u1-comarket" title="Permanent link">&para;</a></h1>
+<h2 id="proposito">Propósito<a class="headerlink" href="#proposito" title="Permanent link">&para;</a></h2>
+<p>Validar el catálogo de <code>Producto–Categoria</code> que LP1 implementa en U1 y anticipar, sin persistencia, el flujo <code>Venta–DetalleVenta</code> que se construirá en U2.</p>
+<h2 id="1-flujo-implementable-en-u1">1. Flujo implementable en U1<a class="headerlink" href="#1-flujo-implementable-en-u1" title="Permanent link">&para;</a></h2>
 <pre class="mermaid"><code>flowchart LR
-    A[Usuario completa formulario] --&gt; B[JavaScript captura submit]
-    B --&gt; C[Validar campos obligatorios]
-    C --&gt; D[Validar cantidad]
-    D --&gt; E[Crear objeto pedido]
-    E --&gt; F[Agregar a arreglo temporal]
-    F --&gt; G[Renderizar tabla]
-    G --&gt; H[Actualizar resumen]</code></pre>
-<h2 id="prototipo-textual">Prototipo textual<a class="headerlink" href="#prototipo-textual" title="Permanent link">&para;</a></h2>
-<div class="highlight"><pre><span></span><code>---------------------------------------------------------
-Gestion inicial de pedidos
----------------------------------------------------------
-Cliente:        [________________________]
-Producto:       [________________________]
-Cantidad:       [____]
-Fecha entrega:  [____/____/____]
-Prioridad:      [Normal v]
+    A[Ingresar producto] --&gt; B[Seleccionar categoría]
+    B --&gt; C{Datos válidos}
+    C -- No --&gt; D[Mostrar mensaje]
+    C -- Sí --&gt; E[Agregar al listado temporal]
+    E --&gt; F[Actualizar resumen]</code></pre>
+<h2 id="2-esbozo-del-catalogo">2. Esbozo del catálogo<a class="headerlink" href="#2-esbozo-del-catalogo" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code>CoMarket - Productos
 
-[Registrar pedido] [Limpiar]
+Nombre:    [________________]
+Precio:    [________]
+Stock:     [________]
+Categoría: [Seleccione      v]
 
-Resumen:
-+----------------------+----------------------+----------------+
-| Pedidos registrados  | Unidades solicitadas | Urgentes       |
-| 0                    | 0                    | 0              |
-+----------------------+----------------------+----------------+
+[Registrar producto] [Limpiar]
 
-Listado temporal:
-+----+----------+----------+----------+------------+----------+
-| #  | Cliente  | Producto | Cantidad | Fecha      | Prioridad |
-+----+----------+----------+----------+------------+----------+
-|    |          |          |          |            |          |
-+----+----------+----------+----------+------------+----------+
+| Producto | Precio | Stock | Categoría |
 </code></pre></div>
-<h2 id="relacion-con-req-bd1-y-lp1">Relacion con REQ, BD1 y LP1<a class="headerlink" href="#relacion-con-req-bd1-y-lp1" title="Permanent link">&para;</a></h2>
+<h2 id="3-flujo-preparado-para-u2">3. Flujo preparado para U2<a class="headerlink" href="#3-flujo-preparado-para-u2" title="Permanent link">&para;</a></h2>
+<pre class="mermaid"><code>flowchart LR
+    A[Ingresar cliente y fecha] --&gt; B[Agregar productos y cantidades]
+    B --&gt; C[Calcular subtotales y total]
+    C --&gt; D[Validar stock]
+    D --&gt; E[Registrar Venta y DetalleVenta]</code></pre>
+<p>Este segundo flujo sólo se valida como prototipo en U1. Su persistencia atómica corresponde a LP1 S10.</p>
+<h2 id="4-trazabilidad">4. Trazabilidad<a class="headerlink" href="#4-trazabilidad" title="Permanent link">&para;</a></h2>
 <table>
 <thead>
 <tr>
-<th>Elemento del prototipo</th>
+<th>Elemento</th>
 <th>REQ</th>
 <th>BD1</th>
-<th>LP1</th>
+<th>LP1 U1</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td>Cliente</td>
-<td>RF-01, RN-01</td>
-<td>cliente.nombre</td>
-<td>Campo de texto obligatorio</td>
-</tr>
-<tr>
-<td>Producto</td>
-<td>RF-01, RN-02</td>
-<td>producto.nombre</td>
-<td>Campo de texto obligatorio</td>
-</tr>
-<tr>
-<td>Cantidad</td>
+<td>Nombre, precio y stock</td>
 <td>RF-01, RF-03</td>
-<td>detalle_pedido.cantidad</td>
-<td>Campo numerico validado</td>
+<td>producto</td>
+<td>Formulario y validación</td>
 </tr>
 <tr>
-<td>Fecha de entrega</td>
-<td>RF-01</td>
-<td>pedido.fecha_entrega</td>
-<td>Campo tipo fecha</td>
-</tr>
-<tr>
-<td>Prioridad</td>
-<td>RN-03, RN-04</td>
-<td>pedido.prioridad</td>
-<td>Selector y distintivo visual</td>
-</tr>
-<tr>
-<td>Listado temporal</td>
+<td>Categoría</td>
 <td>RF-04</td>
-<td>pedido, detalle_pedido</td>
-<td>Tabla renderizada con DOM</td>
+<td>categoria, producto.id_categoria</td>
+<td>Selector y tabla</td>
 </tr>
 <tr>
-<td>Resumen</td>
+<td>Cliente y fecha</td>
 <td>RF-05</td>
-<td>pedido.cantidad</td>
-<td>Tarjetas calculadas con JavaScript</td>
+<td>venta</td>
+<td>Prototipo U2</td>
+</tr>
+<tr>
+<td>Producto y cantidad</td>
+<td>RN-04</td>
+<td>detalle_venta</td>
+<td>Prototipo U2</td>
+</tr>
+<tr>
+<td>Subtotal y total</td>
+<td>RN-05</td>
+<td>detalle_venta.subtotal, venta.total</td>
+<td>Prototipo U2</td>
 </tr>
 </tbody>
 </table>
-<h2 id="criterios-de-validacion-del-prototipo">Criterios de validacion del prototipo<a class="headerlink" href="#criterios-de-validacion-del-prototipo" title="Permanent link">&para;</a></h2>
+<h2 id="5-criterios-de-aceptacion">5. Criterios de aceptación<a class="headerlink" href="#5-criterios-de-aceptacion" title="Permanent link">&para;</a></h2>
 <ul>
-<li>El flujo permite registrar el proceso principal definido en el brief.</li>
-<li>Los campos del prototipo existen en el modelo de datos inicial.</li>
-<li>Las validaciones del prototipo responden a reglas o requerimientos.</li>
-<li>La pantalla puede implementarse en LP1 sin inventar campos fuera de REQ y BD1.</li>
-<li>El prototipo permite explicar qué falta para Unidad 2: persistencia, MVC, operaciones del dominio, consultas y reportes; la seguridad se incorpora en U3.</li>
+<li>El catálogo puede implementarse sin base de datos en LP1 U1.</li>
+<li><code>Categoria</code> amplía <code>Producto</code> sin romper la continuidad con POO.</li>
+<li>El prototipo de venta usa las entidades que BD1 formalizará.</li>
+<li>No se exige login ni persistencia real en este corte.</li>
 </ul>
 
 

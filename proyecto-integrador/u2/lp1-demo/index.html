@@ -3699,20 +3699,20 @@
 <p><a href="../demo-lp1-mvc/">Abrir demo LP1 U2</a></p>
 <h2 id="arquitectura-de-referencia">Arquitectura de referencia<a class="headerlink" href="#arquitectura-de-referencia" title="Permanent link">&para;</a></h2>
 <pre class="mermaid"><code>flowchart TB
-    A[Vista HTML] --&gt; B[PedidoController]
-    B --&gt; C[PedidoService]
-    C --&gt; D[PedidoRepository]
+    A[Vista HTML] --&gt; B[VentaController]
+    B --&gt; C[VentaService]
+    C --&gt; D[VentaDAO]
     D --&gt; E[(Persistencia&lt;br/&gt;localStorage / BD)]
     C --&gt; F[Reglas y validaciones]
     B --&gt; G[Render de tabla, filtros y resumen]</code></pre>
 <h2 id="que-demuestra">Que demuestra<a class="headerlink" href="#que-demuestra" title="Permanent link">&para;</a></h2>
 <ul>
-<li>Separacion conceptual entre vista, controlador, servicio y repositorio.</li>
-<li>Persistencia de pedidos despues de recargar la pagina.</li>
-<li>Registro de pedidos con validaciones.</li>
-<li>Listado con filtros por estado y prioridad.</li>
-<li>Cambio de estado de pedido.</li>
-<li>Resumen de pedidos, unidades y urgentes.</li>
+<li>Separación conceptual entre vista, controlador, servicio y DAO.</li>
+<li>Persistencia de ventas con cabecera y colección de detalles.</li>
+<li>Validación de cliente, productos, cantidades, stock y total.</li>
+<li>Listado y filtro por estado.</li>
+<li>Anulación de una venta.</li>
+<li>Resumen de ventas, unidades e importe.</li>
 </ul>
 <h2 id="trazabilidad-con-req-y-bd1">Trazabilidad con REQ y BD1<a class="headerlink" href="#trazabilidad-con-req-y-bd1" title="Permanent link">&para;</a></h2>
 <table>
@@ -3725,33 +3725,33 @@
 </thead>
 <tbody>
 <tr>
-<td>Registro de pedido</td>
+<td>CRUD Producto</td>
 <td>HU-01</td>
-<td>pedido, cliente, producto, detalle_pedido</td>
+<td>producto, categoria</td>
 </tr>
 <tr>
-<td>Validacion de campos</td>
-<td>RF-02, RN-01</td>
-<td><code>NOT NULL</code></td>
+<td>Registro de venta</td>
+<td>HU-02</td>
+<td>venta, detalle_venta, producto</td>
 </tr>
 <tr>
-<td>Validacion de cantidad</td>
-<td>RF-03, RN-02</td>
-<td><code>CHECK (cantidad &gt; 0)</code></td>
+<td>Validación de cantidad y stock</td>
+<td>RN-03</td>
+<td><code>CHECK</code>, stock y servicio</td>
 </tr>
 <tr>
 <td>Filtro por estado</td>
-<td>HU-02</td>
-<td><code>pedido.estado</code></td>
+<td>HU-03</td>
+<td>venta.estado</td>
 </tr>
 <tr>
-<td>Cambio de estado</td>
-<td>HU-03</td>
-<td><code>pedido.estado</code></td>
+<td>Anulación</td>
+<td>HU-04</td>
+<td>venta.estado y producto.stock</td>
 </tr>
 <tr>
 <td>Resumen</td>
-<td>HU-04</td>
+<td>HU-05</td>
 <td>consultas agregadas</td>
 </tr>
 </tbody>
@@ -3767,29 +3767,29 @@
 </thead>
 <tbody>
 <tr>
-<td>Registrar pedido</td>
-<td>Completar datos validos y guardar.</td>
-<td>El pedido queda en estado pendiente y aparece en la tabla.</td>
+<td>Registrar venta</td>
+<td>Ingresar cliente y dos detalles válidos.</td>
+<td>La venta ACTIVA aparece con total consistente.</td>
 </tr>
 <tr>
 <td>Persistencia</td>
-<td>Recargar la pagina despues de registrar.</td>
-<td>Los pedidos registrados siguen visibles.</td>
+<td>Recargar la página después de registrar.</td>
+<td>Las ventas siguen visibles.</td>
 </tr>
 <tr>
 <td>Filtrar</td>
-<td>Seleccionar estado o prioridad.</td>
-<td>La tabla muestra solo coincidencias.</td>
+<td>Seleccionar ACTIVA o ANULADA.</td>
+<td>La tabla muestra sólo coincidencias.</td>
 </tr>
 <tr>
-<td>Atender pedido</td>
-<td>Presionar atender en un pedido pendiente.</td>
-<td>El estado cambia a atendido y se actualiza el resumen.</td>
+<td>Anular venta</td>
+<td>Presionar anular en una venta activa.</td>
+<td>El estado cambia y el resumen excluye la venta anulada.</td>
 </tr>
 <tr>
-<td>Datos invalidos</td>
-<td>Guardar con cantidad cero o campos vacios.</td>
-<td>El sistema muestra mensaje de validacion.</td>
+<td>Datos inválidos</td>
+<td>Confirmar sin cliente, sin detalles o con cantidad inválida.</td>
+<td>El sistema muestra validación y no registra.</td>
 </tr>
 </tbody>
 </table>

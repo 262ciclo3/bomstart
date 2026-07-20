@@ -3718,8 +3718,8 @@
 <p>El corte de Unidad 1 demuestra que el equipo conserva el dominio construido en POO y lo amplía de forma coordinada con REQ, BD1 y LP1 antes de iniciar la construcción MVC. No es todavía el sistema final.</p>
 <p>En el caso de referencia, LP1 recupera <code>Producto</code> en S1 y agrega <code>Categoria</code> en S2. La relación es <code>Categoria 1 : * Producto</code>: una categoría agrupa muchos productos y cada producto pertenece a una categoría.</p>
 <h2 id="dominio-de-ejemplo">Dominio de ejemplo<a class="headerlink" href="#dominio-de-ejemplo" title="Permanent link">&para;</a></h2>
-<p><strong>Gestion inicial de pedidos para una tienda local.</strong></p>
-<p>Una tienda registra pedidos de clientes de forma manual. Esto genera errores en cantidades, datos incompletos y poca visibilidad del estado de atencion. El equipo propone una aplicacion web empresarial que permita registrar, consultar y dar seguimiento inicial a pedidos.</p>
+<p><strong>Gestión comercial inicial para una tienda local.</strong></p>
+<p>Una tienda registra productos y ventas de forma manual. Esto genera errores en cantidades, precios, stock y totales. El equipo propone una aplicación web empresarial que continúe el dominio de POO, incorpore <code>Categoria</code> y permita preparar el flujo <code>Venta–DetalleVenta</code> que se persistirá en U2.</p>
 <h2 id="productos-por-curso">Productos por curso<a class="headerlink" href="#productos-por-curso" title="Permanent link">&para;</a></h2>
 <table>
 <thead>
@@ -3800,34 +3800,34 @@
 </thead>
 <tbody>
 <tr>
-<td>Pedido valido</td>
-<td>Cliente, producto, cantidad mayor que cero, fecha y prioridad.</td>
-<td>El pedido se registra, aparece en la tabla y actualiza el resumen.</td>
-<td>Captura o ejecucion en vivo.</td>
+<td>Producto válido</td>
+<td>Nombre, precio, stock y categoría válidos.</td>
+<td>El producto aparece en el listado temporal con su categoría.</td>
+<td>Captura o ejecución en vivo.</td>
 </tr>
 <tr>
-<td>Cliente vacio</td>
-<td>Producto, cantidad, fecha y prioridad sin cliente.</td>
-<td>El sistema muestra mensaje de validacion y no registra el pedido.</td>
+<td>Nombre vacío</td>
+<td>Precio, stock y categoría sin nombre.</td>
+<td>El sistema muestra un mensaje y no registra el producto.</td>
 <td>Captura del mensaje.</td>
 </tr>
 <tr>
-<td>Cantidad cero o negativa</td>
-<td>Cliente, producto, cantidad invalida, fecha y prioridad.</td>
-<td>El sistema indica que la cantidad debe ser mayor que cero.</td>
+<td>Precio inválido</td>
+<td>Precio negativo.</td>
+<td>El sistema rechaza el registro.</td>
 <td>Captura del mensaje.</td>
 </tr>
 <tr>
-<td>Fecha vacia</td>
-<td>Cliente, producto, cantidad y prioridad sin fecha.</td>
-<td>El sistema solicita completar la fecha de entrega.</td>
+<td>Stock inválido</td>
+<td>Stock negativo o no entero.</td>
+<td>El sistema rechaza el registro.</td>
 <td>Captura del mensaje.</td>
 </tr>
 <tr>
-<td>Pedido urgente</td>
-<td>Pedido valido con prioridad urgente.</td>
-<td>El pedido aparece diferenciado visualmente en el listado.</td>
-<td>Captura de la fila registrada.</td>
+<td>Categoría no seleccionada</td>
+<td>Producto sin categoría.</td>
+<td>El sistema solicita elegir una categoría existente.</td>
+<td>Captura del mensaje.</td>
 </tr>
 </tbody>
 </table>

@@ -613,10 +613,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#2-stakeholders" class="md-nav__link">
+  <a href="#2-requerimientos-iniciales" class="md-nav__link">
     <span class="md-ellipsis">
       
-        2. Stakeholders
+        2. Requerimientos iniciales
       
     </span>
   </a>
@@ -624,10 +624,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#3-alcance-funcional-inicial" class="md-nav__link">
+  <a href="#3-reglas-iniciales" class="md-nav__link">
     <span class="md-ellipsis">
       
-        3. Alcance funcional inicial
+        3. Reglas iniciales
       
     </span>
   </a>
@@ -635,10 +635,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#4-requerimientos-funcionales-priorizados" class="md-nav__link">
+  <a href="#4-trazabilidad-inicial" class="md-nav__link">
     <span class="md-ellipsis">
       
-        4. Requerimientos funcionales priorizados
+        4. Trazabilidad inicial
       
     </span>
   </a>
@@ -646,54 +646,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#5-requerimientos-no-funcionales-iniciales" class="md-nav__link">
+  <a href="#5-validacion-del-corte" class="md-nav__link">
     <span class="md-ellipsis">
       
-        5. Requerimientos no funcionales iniciales
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#6-reglas-de-negocio-iniciales" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        6. Reglas de negocio iniciales
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#7-prototipo-textual" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        7. Prototipo textual
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#8-matriz-de-trazabilidad-u1" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        8. Matriz de trazabilidad U1
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#9-validacion-inicial" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        9. Validacion inicial
+        5. Validación del corte
       
     </span>
   </a>
@@ -3726,276 +3682,192 @@
 
 <h1 id="req-producto-de-unidad-1">REQ - Producto de Unidad 1<a class="headerlink" href="#req-producto-de-unidad-1" title="Permanent link">&para;</a></h1>
 <h2 id="producto">Producto<a class="headerlink" href="#producto" title="Permanent link">&para;</a></h2>
-<p><strong>Requerimientos iniciales priorizados y prototipos validados.</strong></p>
-<p>Este producto deja claro que el equipo comprende el problema, conoce a los actores, delimita el alcance y puede explicar que funcionalidades iniciales necesita el sistema.</p>
+<p><strong>Requerimientos iniciales priorizados y prototipos validados para la gestión comercial.</strong></p>
 <h2 id="1-brief-del-proyecto">1. Brief del proyecto<a class="headerlink" href="#1-brief-del-proyecto" title="Permanent link">&para;</a></h2>
 <table>
 <thead>
 <tr>
 <th>Elemento</th>
-<th>Definicion</th>
+<th>Definición</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td>Nombre del proyecto</td>
-<td>Gestion inicial de pedidos para una tienda local</td>
+<td>Nombre</td>
+<td>CoMarket: gestión de productos y ventas</td>
 </tr>
 <tr>
 <td>Problema</td>
-<td>La tienda registra pedidos manualmente, lo que genera datos incompletos, errores en cantidades y dificultad para saber que pedidos estan pendientes o atendidos.</td>
+<td>La tienda registra productos y ventas manualmente, lo que provoca datos incompletos, errores de stock y totales inconsistentes.</td>
 </tr>
 <tr>
 <td>Objetivo</td>
-<td>Construir una aplicacion web que permita registrar pedidos, validar datos basicos, consultar pedidos registrados y preparar la base para una gestion MVC con persistencia.</td>
+<td>Construir una aplicación web que gestione productos y ventas con reglas verificables y continuidad hacia MVC y base de datos.</td>
 </tr>
 <tr>
 <td>Proceso principal</td>
-<td>Registro y seguimiento inicial de pedidos.</td>
+<td>Registrar y consultar una venta con uno o más detalles.</td>
 </tr>
 <tr>
-<td>Entidad transaccional principal</td>
-<td>Pedido.</td>
+<td>Entidades heredadas de POO</td>
+<td><code>Producto</code>, <code>Venta</code>, <code>DetalleVenta</code> y <code>Usuario</code>.</td>
 </tr>
 <tr>
-<td>Entidades de apoyo</td>
-<td>Cliente y producto.</td>
+<td>Incremento de LP1</td>
+<td><code>Categoria</code>, asociada con <code>Producto</code>.</td>
 </tr>
 <tr>
-<td>Usuarios principales</td>
-<td>Administrador, vendedor y encargado de atencion.</td>
+<td>Actores</td>
+<td>Administrador y vendedor.</td>
 </tr>
 <tr>
 <td>Alcance U1</td>
-<td>Registro interactivo de pedidos en una pagina web, con validaciones y listado temporal.</td>
+<td>Catálogo interactivo de productos y categorías con validaciones y datos temporales.</td>
 </tr>
 <tr>
 <td>Fuera de alcance U1</td>
-<td>Persistencia real en base de datos, autenticacion, reportes avanzados y gestion completa de inventario.</td>
+<td>Persistencia real, operación transaccional completa, autenticación y reportes.</td>
 </tr>
 </tbody>
 </table>
-<h2 id="2-stakeholders">2. Stakeholders<a class="headerlink" href="#2-stakeholders" title="Permanent link">&para;</a></h2>
+<h2 id="2-requerimientos-iniciales">2. Requerimientos iniciales<a class="headerlink" href="#2-requerimientos-iniciales" title="Permanent link">&para;</a></h2>
 <table>
 <thead>
 <tr>
-<th>Stakeholder</th>
-<th>Necesidad</th>
-<th>Interes en el sistema</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Administrador</td>
-<td>Tener visibilidad de pedidos registrados.</td>
-<td>Controlar el flujo de atencion.</td>
-</tr>
-<tr>
-<td>Vendedor</td>
-<td>Registrar pedidos rapidamente y sin errores basicos.</td>
-<td>Reducir omisiones en los datos.</td>
-</tr>
-<tr>
-<td>Encargado de atencion</td>
-<td>Ver pedidos pendientes y priorizarlos.</td>
-<td>Organizar la atencion diaria.</td>
-</tr>
-<tr>
-<td>Cliente</td>
-<td>Que su pedido sea registrado correctamente.</td>
-<td>Recibir una atencion oportuna.</td>
-</tr>
-</tbody>
-</table>
-<h2 id="3-alcance-funcional-inicial">3. Alcance funcional inicial<a class="headerlink" href="#3-alcance-funcional-inicial" title="Permanent link">&para;</a></h2>
-<p>El primer incremento del sistema permite:</p>
-<ul>
-<li>Registrar un pedido con datos del cliente, producto, cantidad, fecha y prioridad.</li>
-<li>Validar que los campos obligatorios esten completos.</li>
-<li>Validar que la cantidad sea mayor que cero.</li>
-<li>Mostrar los pedidos registrados en una tabla temporal.</li>
-<li>Calcular el total de pedidos y unidades registradas.</li>
-<li>Preparar los campos que luego usara BD1 para el modelo logico.</li>
-</ul>
-<h2 id="4-requerimientos-funcionales-priorizados">4. Requerimientos funcionales priorizados<a class="headerlink" href="#4-requerimientos-funcionales-priorizados" title="Permanent link">&para;</a></h2>
-<table>
-<thead>
-<tr>
-<th>Codigo</th>
-<th>Requerimiento funcional</th>
+<th>Código</th>
+<th>Requerimiento</th>
 <th>Prioridad</th>
-<th>Criterio de aceptacion</th>
+<th>Criterio de aceptación</th>
 </tr>
 </thead>
 <tbody>
 <tr>
 <td>RF-01</td>
-<td>El sistema debe registrar un pedido con cliente, producto, cantidad, fecha y prioridad.</td>
+<td>Registrar temporalmente un producto con nombre, precio, stock y categoría.</td>
 <td>Alta</td>
-<td>Al completar datos validos, el pedido aparece en el listado temporal.</td>
+<td>El producto válido aparece en el listado.</td>
 </tr>
 <tr>
 <td>RF-02</td>
-<td>El sistema debe validar campos obligatorios antes de registrar el pedido.</td>
+<td>Validar campos obligatorios.</td>
 <td>Alta</td>
-<td>Si falta un campo obligatorio, se muestra un mensaje y no se registra el pedido.</td>
+<td>Los datos incompletos no se registran y generan un mensaje.</td>
 </tr>
 <tr>
 <td>RF-03</td>
-<td>El sistema debe validar que la cantidad sea mayor que cero.</td>
+<td>Validar precio y stock.</td>
 <td>Alta</td>
-<td>Si la cantidad es cero o negativa, se muestra un mensaje de error.</td>
+<td>Precio y stock no son negativos; el stock es entero.</td>
 </tr>
 <tr>
 <td>RF-04</td>
-<td>El sistema debe listar los pedidos registrados durante la sesion.</td>
-<td>Media</td>
-<td>Cada pedido registrado aparece en una tabla con sus datos principales.</td>
+<td>Mostrar productos con su categoría.</td>
+<td>Alta</td>
+<td>Cada fila identifica la categoría asociada.</td>
 </tr>
 <tr>
 <td>RF-05</td>
-<td>El sistema debe mostrar resumen de pedidos y unidades.</td>
+<td>Preparar el flujo de venta.</td>
 <td>Media</td>
-<td>El resumen se actualiza despues de cada registro valido.</td>
+<td>El prototipo identifica cliente, fecha, detalles, total y estado.</td>
 </tr>
 </tbody>
 </table>
-<h2 id="5-requerimientos-no-funcionales-iniciales">5. Requerimientos no funcionales iniciales<a class="headerlink" href="#5-requerimientos-no-funcionales-iniciales" title="Permanent link">&para;</a></h2>
+<h2 id="3-reglas-iniciales">3. Reglas iniciales<a class="headerlink" href="#3-reglas-iniciales" title="Permanent link">&para;</a></h2>
 <table>
 <thead>
 <tr>
-<th>Codigo</th>
-<th>Requerimiento no funcional</th>
-<th>Criterio de aceptacion</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>RNF-01</td>
-<td>La interfaz debe ser clara y usable en pantalla de escritorio y movil.</td>
-<td>El formulario y la tabla se visualizan correctamente en diferentes anchos de pantalla.</td>
-</tr>
-<tr>
-<td>RNF-02</td>
-<td>La validacion debe responder sin recargar la pagina.</td>
-<td>Los mensajes aparecen inmediatamente al enviar el formulario.</td>
-</tr>
-<tr>
-<td>RNF-03</td>
-<td>El codigo debe estar organizado para evolucionar a MVC.</td>
-<td>HTML, CSS y JavaScript se encuentran separados.</td>
-</tr>
-</tbody>
-</table>
-<h2 id="6-reglas-de-negocio-iniciales">6. Reglas de negocio iniciales<a class="headerlink" href="#6-reglas-de-negocio-iniciales" title="Permanent link">&para;</a></h2>
-<table>
-<thead>
-<tr>
-<th>Codigo</th>
+<th>Código</th>
 <th>Regla</th>
 </tr>
 </thead>
 <tbody>
 <tr>
 <td>RN-01</td>
-<td>Un pedido debe tener un cliente identificado.</td>
+<td>Todo producto tiene nombre, precio, stock y una categoría existente.</td>
 </tr>
 <tr>
 <td>RN-02</td>
-<td>Un pedido debe contener un producto y una cantidad mayor que cero.</td>
+<td>El precio y el stock no pueden ser negativos.</td>
 </tr>
 <tr>
 <td>RN-03</td>
-<td>La prioridad puede ser normal, alta o urgente.</td>
+<td>Una venta contiene al menos un detalle.</td>
 </tr>
 <tr>
 <td>RN-04</td>
-<td>Un pedido urgente debe poder distinguirse visualmente en el listado.</td>
+<td>Cada detalle referencia un producto y una cantidad mayor que cero.</td>
+</tr>
+<tr>
+<td>RN-05</td>
+<td>El total de la venta es la suma de los subtotales.</td>
+</tr>
+<tr>
+<td>RN-06</td>
+<td>La seguridad se implementará en LP1 U3; no forma parte de U1 ni U2.</td>
 </tr>
 </tbody>
 </table>
-<h2 id="7-prototipo-textual">7. Prototipo textual<a class="headerlink" href="#7-prototipo-textual" title="Permanent link">&para;</a></h2>
-<p>Pantalla: <strong>Registro de pedidos</strong></p>
-<p>El esbozo funcional y los diagramas del prototipo se encuentran en <a href="../prototipos-u1/">Prototipos U1</a>.</p>
-<div class="highlight"><pre><span></span><code>---------------------------------------------------------
-Gestion de pedidos
----------------------------------------------------------
-Cliente:        [________________________]
-Producto:       [________________________]
-Cantidad:       [____]
-Fecha entrega:  [____/____/____]
-Prioridad:      [Normal v]
-
-[Registrar pedido] [Limpiar]
-
-Resumen:
-Pedidos registrados: 0
-Unidades solicitadas: 0
-
-Listado:
-Cliente | Producto | Cantidad | Fecha | Prioridad
----------------------------------------------------------
-</code></pre></div>
-<h2 id="8-matriz-de-trazabilidad-u1">8. Matriz de trazabilidad U1<a class="headerlink" href="#8-matriz-de-trazabilidad-u1" title="Permanent link">&para;</a></h2>
+<h2 id="4-trazabilidad-inicial">4. Trazabilidad inicial<a class="headerlink" href="#4-trazabilidad-inicial" title="Permanent link">&para;</a></h2>
 <table>
 <thead>
 <tr>
 <th>Requerimiento</th>
 <th>Dato o entidad BD1</th>
-<th>Elemento LP1</th>
+<th>Evidencia LP1</th>
 </tr>
 </thead>
 <tbody>
 <tr>
 <td>RF-01</td>
-<td>Pedido, Cliente, Producto</td>
-<td>Formulario de registro</td>
+<td>producto</td>
+<td>Formulario de producto</td>
 </tr>
 <tr>
 <td>RF-02</td>
-<td>Campos obligatorios del diccionario</td>
-<td>Validacion JavaScript</td>
+<td>restricciones <code>NOT NULL</code></td>
+<td>Mensajes de validación</td>
 </tr>
 <tr>
 <td>RF-03</td>
-<td>pedido.cantidad</td>
-<td>Validacion numerica</td>
+<td>producto.precio, producto.stock</td>
+<td>Validación numérica</td>
 </tr>
 <tr>
 <td>RF-04</td>
-<td>Pedido</td>
-<td>Tabla de pedidos</td>
+<td>categoria, producto.id_categoria</td>
+<td>Selector y tabla de productos</td>
 </tr>
 <tr>
 <td>RF-05</td>
-<td>Pedido.cantidad</td>
-<td>Tarjetas de resumen</td>
+<td>venta, detalle_venta</td>
+<td>Prototipo del flujo transaccional</td>
 </tr>
 </tbody>
 </table>
-<h2 id="9-validacion-inicial">9. Validacion inicial<a class="headerlink" href="#9-validacion-inicial" title="Permanent link">&para;</a></h2>
+<h2 id="5-validacion-del-corte">5. Validación del corte<a class="headerlink" href="#5-validacion-del-corte" title="Permanent link">&para;</a></h2>
 <table>
 <thead>
 <tr>
-<th>Observacion</th>
-<th>Acuerdo</th>
-<th>Estado</th>
+<th>Observación</th>
+<th>Decisión</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td>El usuario necesita ver rapidamente los pedidos urgentes.</td>
-<td>Agregar prioridad y resaltar prioridad urgente.</td>
+<td>Se conserva el dominio construido en POO.</td>
 <td>Aprobado</td>
 </tr>
 <tr>
-<td>No se requiere login en U1.</td>
-<td>La autenticacion se trabajara en LP1 Unidad 3.</td>
+<td>LP1 agrega <code>Categoria</code> sin reemplazar las entidades existentes.</td>
 <td>Aprobado</td>
 </tr>
 <tr>
-<td>El producto debe estar preparado para base de datos.</td>
-<td>BD1 definira modelo logico y diccionario desde U1.</td>
+<td>La persistencia se inicia en U2 mediante JDBC y DAO.</td>
+<td>Aprobado</td>
+</tr>
+<tr>
+<td>La autenticación se implementa en U3.</td>
 <td>Aprobado</td>
 </tr>
 </tbody>

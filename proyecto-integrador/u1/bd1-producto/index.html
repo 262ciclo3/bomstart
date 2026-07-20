@@ -658,10 +658,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#1-inventario-de-datos" class="md-nav__link">
+  <a href="#1-entidades" class="md-nav__link">
     <span class="md-ellipsis">
       
-        1. Inventario de datos
+        1. Entidades
       
     </span>
   </a>
@@ -669,10 +669,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#2-entidades-identificadas" class="md-nav__link">
+  <a href="#2-modelo-conceptual" class="md-nav__link">
     <span class="md-ellipsis">
       
-        2. Entidades identificadas
+        2. Modelo conceptual
       
     </span>
   </a>
@@ -680,10 +680,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#3-modelo-conceptual-er" class="md-nav__link">
+  <a href="#3-modelo-logico-inicial" class="md-nav__link">
     <span class="md-ellipsis">
       
-        3. Modelo conceptual ER
+        3. Modelo lógico inicial
       
     </span>
   </a>
@@ -691,10 +691,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#4-modelo-logico-inicial" class="md-nav__link">
+  <a href="#4-reglas-de-integridad" class="md-nav__link">
     <span class="md-ellipsis">
       
-        4. Modelo logico inicial
+        4. Reglas de integridad
       
     </span>
   </a>
@@ -702,10 +702,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#5-normalizacion-inicial" class="md-nav__link">
+  <a href="#5-diccionario-minimo" class="md-nav__link">
     <span class="md-ellipsis">
       
-        5. Normalizacion inicial
+        5. Diccionario mínimo
       
     </span>
   </a>
@@ -716,18 +716,7 @@
   <a href="#6-relacion-con-lp1" class="md-nav__link">
     <span class="md-ellipsis">
       
-        6. Relacion con LP1
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#7-preparacion-para-unidad-2" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        7. Preparacion para Unidad 2
+        6. Relación con LP1
       
     </span>
   </a>
@@ -3704,390 +3693,187 @@
 
 <h1 id="bd1-producto-de-unidad-1">BD1 - Producto de Unidad 1<a class="headerlink" href="#bd1-producto-de-unidad-1" title="Permanent link">&para;</a></h1>
 <h2 id="producto">Producto<a class="headerlink" href="#producto" title="Permanent link">&para;</a></h2>
-<p><strong>Modelo de datos conceptual y logico documentado.</strong></p>
-<p>Este producto transforma los requerimientos iniciales de REQ en una estructura de datos coherente para que LP1 pueda construir formularios, validaciones y, posteriormente, persistencia MVC.</p>
-<h2 id="1-inventario-de-datos">1. Inventario de datos<a class="headerlink" href="#1-inventario-de-datos" title="Permanent link">&para;</a></h2>
-<table>
-<thead>
-<tr>
-<th>Dato</th>
-<th>Descripcion</th>
-<th>Origen</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>nombre_cliente</td>
-<td>Nombre de la persona que realiza el pedido.</td>
-<td>RF-01</td>
-</tr>
-<tr>
-<td>documento_cliente</td>
-<td>Documento de identificacion del cliente.</td>
-<td>RF-01</td>
-</tr>
-<tr>
-<td>nombre_producto</td>
-<td>Producto solicitado.</td>
-<td>RF-01</td>
-</tr>
-<tr>
-<td>nombre_categoria</td>
-<td>Clasificacion del producto.</td>
-<td>Continuidad LP1 S02</td>
-</tr>
-<tr>
-<td>cantidad</td>
-<td>Numero de unidades solicitadas.</td>
-<td>RF-01, RF-03</td>
-</tr>
-<tr>
-<td>fecha_entrega</td>
-<td>Fecha tentativa de atencion o entrega.</td>
-<td>RF-01</td>
-</tr>
-<tr>
-<td>prioridad</td>
-<td>Nivel de prioridad del pedido.</td>
-<td>RN-03</td>
-</tr>
-<tr>
-<td>estado</td>
-<td>Situacion del pedido.</td>
-<td>RF-04</td>
-</tr>
-</tbody>
-</table>
-<h2 id="2-entidades-identificadas">2. Entidades identificadas<a class="headerlink" href="#2-entidades-identificadas" title="Permanent link">&para;</a></h2>
+<p><strong>Modelo conceptual y lógico inicial de CoMarket.</strong></p>
+<p>El modelo conserva <code>Producto</code>, <code>Venta</code>, <code>DetalleVenta</code> y <code>Usuario</code> de POO e incorpora <code>Categoria</code> como incremento coordinado con LP1.</p>
+<h2 id="1-entidades">1. Entidades<a class="headerlink" href="#1-entidades" title="Permanent link">&para;</a></h2>
 <table>
 <thead>
 <tr>
 <th>Tipo</th>
 <th>Entidad</th>
-<th>Justificacion</th>
+<th>Responsabilidad</th>
 </tr>
 </thead>
 <tbody>
 <tr>
 <td>Maestra</td>
-<td>Cliente</td>
-<td>Permite identificar quien solicita el pedido.</td>
+<td>Categoria</td>
+<td>Clasifica productos.</td>
 </tr>
 <tr>
 <td>Maestra</td>
 <td>Producto</td>
-<td>Permite reconocer que se esta solicitando.</td>
+<td>Conserva nombre, precio y stock.</td>
 </tr>
 <tr>
-<td>Maestra</td>
-<td>Categoria</td>
-<td>Organiza los productos sin repetir su clasificación como texto libre.</td>
+<td>Seguridad</td>
+<td>Usuario</td>
+<td>Identifica quién registra operaciones en U3.</td>
 </tr>
 <tr>
 <td>Transaccional</td>
-<td>Pedido</td>
-<td>Representa la operacion principal del sistema.</td>
+<td>Venta</td>
+<td>Conserva cliente, fecha, estado y total.</td>
 </tr>
 <tr>
 <td>Detalle</td>
-<td>DetallePedido</td>
-<td>Permite que un pedido pueda crecer a varios productos en unidades posteriores.</td>
+<td>DetalleVenta</td>
+<td>Relaciona una venta con sus productos, cantidades y subtotales.</td>
 </tr>
 </tbody>
 </table>
-<h2 id="3-modelo-conceptual-er">3. Modelo conceptual ER<a class="headerlink" href="#3-modelo-conceptual-er" title="Permanent link">&para;</a></h2>
+<h2 id="2-modelo-conceptual">2. Modelo conceptual<a class="headerlink" href="#2-modelo-conceptual" title="Permanent link">&para;</a></h2>
 <pre class="mermaid"><code>erDiagram
-    CLIENTE ||--o{ PEDIDO : realiza
-    PEDIDO ||--|{ DETALLE_PEDIDO : contiene
-    PRODUCTO ||--o{ DETALLE_PEDIDO : se_solicita_en
     CATEGORIA ||--o{ PRODUCTO : clasifica
-
-    CLIENTE {
-        int id_cliente
-        string nombre
-        string documento
-    }
-
-    PRODUCTO {
-        int id_producto
-        string nombre
-        decimal precio
-        int stock
-        int id_categoria
-    }
-
-    CATEGORIA {
-        int id_categoria
-        string nombre
-        string descripcion
-    }
-
-    PEDIDO {
-        int id_pedido
-        date fecha_entrega
-        string prioridad
-        string estado
-        int id_cliente
-    }
-
-    DETALLE_PEDIDO {
-        int id_detalle
-        int cantidad
-        int id_pedido
-        int id_producto
-    }</code></pre>
-<h2 id="4-modelo-logico-inicial">4. Modelo logico inicial<a class="headerlink" href="#4-modelo-logico-inicial" title="Permanent link">&para;</a></h2>
+    USUARIO ||--o{ VENTA : registra
+    VENTA ||--|{ DETALLE_VENTA : contiene
+    PRODUCTO ||--o{ DETALLE_VENTA : participa</code></pre>
+<p>La relación <code>Usuario–Venta</code> se modela desde BD1, pero el login y la asignación automática del usuario se implementan en LP1 U3.</p>
+<h2 id="3-modelo-logico-inicial">3. Modelo lógico inicial<a class="headerlink" href="#3-modelo-logico-inicial" title="Permanent link">&para;</a></h2>
 <table>
 <thead>
 <tr>
 <th>Tabla</th>
+<th>Campos principales</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>categoria</td>
+<td>id_categoria, nombre, descripcion</td>
+</tr>
+<tr>
+<td>producto</td>
+<td>id_producto, nombre, precio, stock, id_categoria</td>
+</tr>
+<tr>
+<td>usuario</td>
+<td>id_usuario, username, password_hash, rol, activo</td>
+</tr>
+<tr>
+<td>venta</td>
+<td>id_venta, cliente, fecha, estado, total, id_usuario</td>
+</tr>
+<tr>
+<td>detalle_venta</td>
+<td>id_detalle, id_venta, id_producto, cantidad, precio_unitario, subtotal</td>
+</tr>
+</tbody>
+</table>
+<h2 id="4-reglas-de-integridad">4. Reglas de integridad<a class="headerlink" href="#4-reglas-de-integridad" title="Permanent link">&para;</a></h2>
+<ul>
+<li><code>producto.id_categoria</code> referencia una categoría existente.</li>
+<li>Precio y stock no son negativos.</li>
+<li>Una venta activa debe contener al menos un detalle.</li>
+<li>Cantidad y precio unitario producen el subtotal del detalle.</li>
+<li>El total de venta coincide con la suma de subtotales.</li>
+<li>El estado de venta sólo puede ser <code>ACTIVA</code> o <code>ANULADA</code>.</li>
+<li><code>venta.id_usuario</code> puede quedar pendiente durante U2 y se vuelve obligatorio al integrar seguridad en U3.</li>
+</ul>
+<h2 id="5-diccionario-minimo">5. Diccionario mínimo<a class="headerlink" href="#5-diccionario-minimo" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
 <th>Campo</th>
-<th>Tipo sugerido</th>
-<th>Clave</th>
+<th>Tipo lógico</th>
 <th>Nulo</th>
 <th>Regla</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td>cliente</td>
-<td>id_cliente</td>
-<td>INT</td>
-<td>PK</td>
-<td>No</td>
-<td>Identificador autogenerado.</td>
-</tr>
-<tr>
-<td>cliente</td>
-<td>nombre</td>
-<td>VARCHAR(100)</td>
-<td></td>
-<td>No</td>
-<td>Debe contener texto.</td>
-</tr>
-<tr>
-<td>cliente</td>
-<td>documento</td>
-<td>VARCHAR(20)</td>
-<td></td>
-<td>Si</td>
-<td>Opcional en U1.</td>
-</tr>
-<tr>
-<td>producto</td>
-<td>id_producto</td>
-<td>INT</td>
-<td>PK</td>
-<td>No</td>
-<td>Identificador autogenerado.</td>
-</tr>
-<tr>
-<td>producto</td>
-<td>nombre</td>
-<td>VARCHAR(100)</td>
-<td></td>
-<td>No</td>
-<td>Debe contener texto.</td>
-</tr>
-<tr>
-<td>producto</td>
-<td>precio</td>
-<td>DECIMAL(10,2)</td>
-<td></td>
-<td>No</td>
-<td>Debe ser mayor o igual que cero.</td>
-</tr>
-<tr>
-<td>producto</td>
-<td>stock</td>
-<td>INT</td>
-<td></td>
-<td>No</td>
-<td>Debe ser mayor o igual que cero.</td>
-</tr>
-<tr>
-<td>producto</td>
-<td>id_categoria</td>
-<td>INT</td>
-<td>FK</td>
-<td>No</td>
-<td>Referencia a la categoría del producto.</td>
-</tr>
-<tr>
-<td>categoria</td>
-<td>id_categoria</td>
-<td>INT</td>
-<td>PK</td>
-<td>No</td>
-<td>Identificador autogenerado.</td>
-</tr>
-<tr>
-<td>categoria</td>
-<td>nombre</td>
-<td>VARCHAR(80)</td>
-<td></td>
-<td>No</td>
-<td>Nombre único de la categoría.</td>
-</tr>
-<tr>
-<td>categoria</td>
-<td>descripcion</td>
-<td>VARCHAR(200)</td>
-<td></td>
-<td>Si</td>
-<td>Descripción opcional.</td>
-</tr>
-<tr>
-<td>pedido</td>
-<td>id_pedido</td>
-<td>INT</td>
-<td>PK</td>
-<td>No</td>
-<td>Identificador autogenerado.</td>
-</tr>
-<tr>
-<td>pedido</td>
-<td>id_cliente</td>
-<td>INT</td>
-<td>FK</td>
-<td>No</td>
-<td>Referencia a cliente.</td>
-</tr>
-<tr>
-<td>pedido</td>
-<td>fecha_entrega</td>
-<td>DATE</td>
-<td></td>
-<td>No</td>
-<td>Fecha de atencion o entrega.</td>
-</tr>
-<tr>
-<td>pedido</td>
-<td>prioridad</td>
-<td>VARCHAR(20)</td>
-<td></td>
-<td>No</td>
-<td>Normal, alta o urgente.</td>
-</tr>
-<tr>
-<td>pedido</td>
-<td>estado</td>
-<td>VARCHAR(20)</td>
-<td></td>
-<td>No</td>
-<td>Pendiente por defecto.</td>
-</tr>
-<tr>
-<td>detalle_pedido</td>
-<td>id_detalle</td>
-<td>INT</td>
-<td>PK</td>
-<td>No</td>
-<td>Identificador autogenerado.</td>
-</tr>
-<tr>
-<td>detalle_pedido</td>
-<td>id_pedido</td>
-<td>INT</td>
-<td>FK</td>
-<td>No</td>
-<td>Referencia a pedido.</td>
-</tr>
-<tr>
-<td>detalle_pedido</td>
-<td>id_producto</td>
-<td>INT</td>
-<td>FK</td>
-<td>No</td>
-<td>Referencia a producto.</td>
-</tr>
-<tr>
-<td>detalle_pedido</td>
-<td>cantidad</td>
-<td>INT</td>
-<td></td>
-<td>No</td>
-<td>Debe ser mayor que cero.</td>
-</tr>
-</tbody>
-</table>
-<h2 id="5-normalizacion-inicial">5. Normalizacion inicial<a class="headerlink" href="#5-normalizacion-inicial" title="Permanent link">&para;</a></h2>
-<table>
-<thead>
-<tr>
-<th>Revision</th>
-<th>Resultado</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Primera forma normal</td>
-<td>Los campos contienen valores atomicos. No se guardan varios productos en una sola columna.</td>
-</tr>
-<tr>
-<td>Segunda forma normal</td>
-<td>Los datos de cliente y producto se separan del pedido para evitar repeticion.</td>
-</tr>
-<tr>
-<td>Tercera forma normal</td>
-<td>La categoría se separa de producto para evitar repetir su nombre; la prioridad y el estado pertenecen al pedido.</td>
-</tr>
-</tbody>
-</table>
-<h2 id="6-relacion-con-lp1">6. Relacion con LP1<a class="headerlink" href="#6-relacion-con-lp1" title="Permanent link">&para;</a></h2>
-<table>
-<thead>
-<tr>
-<th>Campo del formulario LP1</th>
-<th>Tabla/campo BD1</th>
-<th>Regla de validacion</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Cliente</td>
-<td>cliente.nombre</td>
-<td>Obligatorio.</td>
-</tr>
-<tr>
-<td>Producto</td>
 <td>producto.nombre</td>
-<td>Obligatorio.</td>
+<td>VARCHAR(100)</td>
+<td>No</td>
+<td>Texto no vacío</td>
 </tr>
 <tr>
-<td>Categoria del producto</td>
-<td>categoria.id_categoria / producto.id_categoria</td>
-<td>Debe seleccionar una categoría existente.</td>
+<td>producto.precio</td>
+<td>DECIMAL(10,2)</td>
+<td>No</td>
+<td>Mayor o igual a cero</td>
 </tr>
 <tr>
-<td>Cantidad</td>
-<td>detalle_pedido.cantidad</td>
-<td>Entero mayor que cero.</td>
+<td>producto.stock</td>
+<td>INTEGER</td>
+<td>No</td>
+<td>Mayor o igual a cero</td>
 </tr>
 <tr>
-<td>Fecha de entrega</td>
-<td>pedido.fecha_entrega</td>
-<td>Obligatoria.</td>
+<td>venta.cliente</td>
+<td>VARCHAR(120)</td>
+<td>No</td>
+<td>Texto no vacío</td>
 </tr>
 <tr>
-<td>Prioridad</td>
-<td>pedido.prioridad</td>
-<td>Valor permitido: normal, alta, urgente.</td>
+<td>venta.fecha</td>
+<td>TIMESTAMP</td>
+<td>No</td>
+<td>Fecha de registro</td>
+</tr>
+<tr>
+<td>venta.estado</td>
+<td>VARCHAR(20)</td>
+<td>No</td>
+<td>ACTIVA o ANULADA</td>
+</tr>
+<tr>
+<td>detalle_venta.cantidad</td>
+<td>INTEGER</td>
+<td>No</td>
+<td>Mayor que cero</td>
+</tr>
+<tr>
+<td>detalle_venta.precio_unitario</td>
+<td>DECIMAL(10,2)</td>
+<td>No</td>
+<td>Mayor o igual a cero</td>
+</tr>
+<tr>
+<td>detalle_venta.subtotal</td>
+<td>DECIMAL(12,2)</td>
+<td>No</td>
+<td>cantidad × precio_unitario</td>
 </tr>
 </tbody>
 </table>
-<h2 id="7-preparacion-para-unidad-2">7. Preparacion para Unidad 2<a class="headerlink" href="#7-preparacion-para-unidad-2" title="Permanent link">&para;</a></h2>
-<p>En Unidad 2, este modelo debe convertirse en scripts SQL:</p>
-<ul>
-<li><code>CREATE TABLE cliente</code>.</li>
-<li><code>CREATE TABLE producto</code>.</li>
-<li><code>CREATE TABLE categoria</code> antes de <code>producto</code>.</li>
-<li><code>CREATE TABLE pedido</code>.</li>
-<li><code>CREATE TABLE detalle_pedido</code>.</li>
-<li>Claves primarias y foraneas.</li>
-<li>Restricciones para cantidad positiva, estado y prioridad.</li>
-<li>Datos de prueba coherentes con los casos de uso de REQ.</li>
-</ul>
+<h2 id="6-relacion-con-lp1">6. Relación con LP1<a class="headerlink" href="#6-relacion-con-lp1" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>BD1</th>
+<th>LP1 U1</th>
+<th>LP1 U2/U3</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>producto y categoria</td>
+<td>Formulario y listado temporal</td>
+<td>CRUD persistente mediante JDBC y DAO</td>
+</tr>
+<tr>
+<td>venta y detalle_venta</td>
+<td>Prototipo</td>
+<td>Operación transaccional cabecera–detalle</td>
+</tr>
+<tr>
+<td>usuario</td>
+<td>Fuera de alcance</td>
+<td>Autenticación y sesión en U3</td>
+</tr>
+</tbody>
+</table>
 
 
 

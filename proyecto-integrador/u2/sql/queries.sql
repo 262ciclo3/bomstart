@@ -1,42 +1,44 @@
--- Listado general de pedidos
+-- Ventas con cabecera, usuario opcional y total
 SELECT
-    p.id_pedido,
-    c.nombre AS cliente,
-    pr.nombre AS producto,
-    ca.nombre AS categoria,
-    dp.cantidad,
-    p.fecha_entrega,
-    p.prioridad,
-    p.estado
-FROM pedido p
-JOIN cliente c ON c.id_cliente = p.id_cliente
-JOIN detalle_pedido dp ON dp.id_pedido = p.id_pedido
-JOIN producto pr ON pr.id_producto = dp.id_producto
-JOIN categoria ca ON ca.id_categoria = pr.id_categoria
-ORDER BY p.fecha_entrega;
+    v.id_venta,
+    v.cliente,
+    v.fecha,
+    v.estado,
+    v.total,
+    u.username AS registrada_por
+FROM venta v
+LEFT JOIN usuario u ON u.id_usuario = v.id_usuario
+ORDER BY v.fecha DESC;
 
--- Pedidos pendientes
-SELECT p.id_pedido, c.nombre AS cliente, p.fecha_entrega, p.prioridad
-FROM pedido p
-JOIN cliente c ON c.id_cliente = p.id_cliente
-WHERE p.estado = 'pendiente'
-ORDER BY p.fecha_entrega;
-
--- Pedidos urgentes
-SELECT p.id_pedido, c.nombre AS cliente, p.fecha_entrega, p.estado
-FROM pedido p
-JOIN cliente c ON c.id_cliente = p.id_cliente
-WHERE p.prioridad = 'urgente';
+-- Detalles de una venta
+SELECT
+    dv.id_venta,
+    p.nombre AS producto,
+    c.nombre AS categoria,
+    dv.cantidad,
+    dv.precio_unitario,
+    dv.subtotal
+FROM detalle_venta dv
+JOIN producto p ON p.id_producto = dv.id_producto
+JOIN categoria c ON c.id_categoria = p.id_categoria
+WHERE dv.id_venta = ?
+ORDER BY dv.id_detalle;
 
 -- Resumen por estado
-SELECT estado, COUNT(*) AS total_pedidos
-FROM pedido
+SELECT estado, COUNT(*) AS cantidad_ventas, SUM(total) AS importe_total
+FROM venta
 GROUP BY estado;
 
--- Total de unidades por producto
-SELECT pr.nombre AS producto, ca.nombre AS categoria, SUM(dp.cantidad) AS unidades_solicitadas
-FROM detalle_pedido dp
-JOIN producto pr ON pr.id_producto = dp.id_producto
-JOIN categoria ca ON ca.id_categoria = pr.id_categoria
-GROUP BY pr.nombre, ca.nombre
-ORDER BY unidades_solicitadas DESC;
+-- Productos vendidos por categoría
+SELECT
+    c.nombre AS categoria,
+    p.nombre AS producto,
+    SUM(dv.cantidad) AS unidades_vendidas,
+    SUM(dv.subtotal) AS importe_vendido
+FROM detalle_venta dv
+JOIN producto p ON p.id_producto = dv.id_producto
+JOIN categoria c ON c.id_categoria = p.id_categoria
+JOIN venta v ON v.id_venta = dv.id_venta
+WHERE v.estado = 'ACTIVA'
+GROUP BY c.nombre, p.nombre
+ORDER BY importe_vendido DESC;

@@ -3704,7 +3704,7 @@
 
 <h1 id="unidad-2-producto-integrado">Unidad 2 - Producto integrado<a class="headerlink" href="#unidad-2-producto-integrado" title="Permanent link">&para;</a></h1>
 <h2 id="corte-u2">Corte U2<a class="headerlink" href="#corte-u2" title="Permanent link">&para;</a></h2>
-<p>El corte de Unidad 2 demuestra que el dominio validado en U1 ya se transforma en un producto funcional intermedio. En este punto, REQ formaliza historias, casos de uso, reglas y trazabilidad; BD1 implementa la base de datos con SQL; LP1 construye una aplicacion MVC inicial con persistencia, consultas y validaciones.</p>
+<p>El corte de Unidad 2 demuestra que el dominio validado en U1 ya se transforma en un producto funcional intermedio. En este punto, REQ formaliza historias, casos de uso, reglas y trazabilidad; BD1 implementa la base de datos con SQL; LP1 construye una aplicación MVC con JDBC, DAO, CRUD, objetos relacionados, <code>Venta–DetalleVenta</code>, consultas, reportes y validaciones.</p>
 <h2 id="producto-integrado-u2">Producto integrado U2<a class="headerlink" href="#producto-integrado-u2" title="Permanent link">&para;</a></h2>
 <p><strong>Sistema MVC inicial con base relacional y requerimientos trazables.</strong></p>
 <p>El producto no tiene que estar completo como entrega final, pero debe permitir ejecutar el flujo principal del negocio con datos persistidos, consultas basicas y evidencia de trazabilidad entre requerimiento, tabla y modulo.</p>
@@ -3740,7 +3740,7 @@
     A[REQ U2&lt;br/&gt;Historias, casos de uso, reglas y trazabilidad]
     B[BD1 U2&lt;br/&gt;DDL, DML, restricciones, consultas y reportes]
     C[LP1 U2&lt;br/&gt;MVC, persistencia, operaciones, consultas y reportes]
-    D[Producto integrado U2&lt;br/&gt;Sistema MVC inicial persistente]
+    D[Producto integrado U2&lt;br/&gt;Sistema MVC persistente con Venta-DetalleVenta]
 
     A --&gt; B
     A --&gt; C
@@ -3773,34 +3773,34 @@
 </thead>
 <tbody>
 <tr>
-<td>Registrar pedido persistente</td>
-<td>Cliente, producto, cantidad, fecha y prioridad validos.</td>
-<td>El pedido se guarda y permanece despues de recargar la aplicacion.</td>
+<td>Registrar venta persistente</td>
+<td>Cliente y dos productos con cantidades válidas.</td>
+<td>La cabecera y los detalles se guardan atómicamente y el stock se actualiza.</td>
 <td>LP1 + BD1</td>
 </tr>
 <tr>
-<td>Rechazar cantidad invalida</td>
-<td>Cantidad cero o negativa.</td>
-<td>La aplicacion bloquea el registro y muestra mensaje.</td>
-<td>REQ + LP1</td>
+<td>Rechazar cantidad inválida</td>
+<td>Cantidad cero, negativa o superior al stock.</td>
+<td>La aplicación bloquea el registro y no guarda datos parciales.</td>
+<td>REQ + LP1 + BD1</td>
 </tr>
 <tr>
-<td>Consultar pedidos por estado</td>
-<td>Filtrar por pendiente, atendido o anulado.</td>
-<td>La lista muestra solo pedidos del estado seleccionado.</td>
+<td>Consultar ventas por estado</td>
+<td>Filtrar por activa o anulada.</td>
+<td>La lista muestra sólo ventas coincidentes y permite consultar sus detalles.</td>
 <td>BD1 + LP1</td>
 </tr>
 <tr>
-<td>Atender pedido</td>
-<td>Cambiar estado de pendiente a atendido.</td>
-<td>El estado se actualiza y el resumen cambia.</td>
-<td>LP1</td>
+<td>Anular venta</td>
+<td>Anular una venta activa.</td>
+<td>El estado cambia y el stock se repone de manera consistente.</td>
+<td>LP1 + BD1</td>
 </tr>
 <tr>
-<td>Reporte basico</td>
-<td>Ejecutar consulta de pedidos por prioridad o estado.</td>
-<td>Se obtiene una salida verificable.</td>
-<td>BD1</td>
+<td>Reporte básico</td>
+<td>Consultar ventas por fecha, producto o categoría.</td>
+<td>Se obtiene un resumen verificable y consistente con los detalles.</td>
+<td>BD1 + LP1</td>
 </tr>
 <tr>
 <td>Trazabilidad</td>

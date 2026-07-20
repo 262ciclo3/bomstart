@@ -833,10 +833,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#1-scripts-del-producto" class="md-nav__link">
+  <a href="#1-scripts" class="md-nav__link">
     <span class="md-ellipsis">
       
-        1. Scripts del producto
+        1. Scripts
       
     </span>
   </a>
@@ -844,10 +844,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#2-modelo-fisico-inicial" class="md-nav__link">
+  <a href="#2-modelo-implementado" class="md-nav__link">
     <span class="md-ellipsis">
       
-        2. Modelo fisico inicial
+        2. Modelo implementado
       
     </span>
   </a>
@@ -855,10 +855,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#3-restricciones-implementadas" class="md-nav__link">
+  <a href="#3-integridad-requerida" class="md-nav__link">
     <span class="md-ellipsis">
       
-        3. Restricciones implementadas
+        3. Integridad requerida
       
     </span>
   </a>
@@ -866,10 +866,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#4-consultas-funcionales" class="md-nav__link">
+  <a href="#4-consultas-minimas" class="md-nav__link">
     <span class="md-ellipsis">
       
-        4. Consultas funcionales
+        4. Consultas mínimas
       
     </span>
   </a>
@@ -877,21 +877,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#5-datos-de-prueba-minimos" class="md-nav__link">
+  <a href="#5-integracion-con-lp1" class="md-nav__link">
     <span class="md-ellipsis">
       
-        5. Datos de prueba minimos
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#6-evidencia-de-integracion" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        6. Evidencia de integracion
+        5. Integración con LP1
       
     </span>
   </a>
@@ -3693,215 +3682,107 @@
 
 <h1 id="bd1-producto-de-unidad-2">BD1 - Producto de Unidad 2<a class="headerlink" href="#bd1-producto-de-unidad-2" title="Permanent link">&para;</a></h1>
 <h2 id="producto">Producto<a class="headerlink" href="#producto" title="Permanent link">&para;</a></h2>
-<p><strong>Base de datos relacional implementada con consultas funcionales.</strong></p>
-<p>Este producto convierte el modelo logico de U1 en scripts SQL ejecutables, datos de prueba, restricciones y consultas que soportan el flujo principal de LP1.</p>
-<h2 id="1-scripts-del-producto">1. Scripts del producto<a class="headerlink" href="#1-scripts-del-producto" title="Permanent link">&para;</a></h2>
+<p><strong>Base de datos relacional implementada para Producto–Categoria y Venta–DetalleVenta.</strong></p>
+<h2 id="1-scripts">1. Scripts<a class="headerlink" href="#1-scripts" title="Permanent link">&para;</a></h2>
 <table>
 <thead>
 <tr>
-<th>Script</th>
-<th>Uso</th>
+<th>Archivo</th>
+<th>Contenido</th>
 </tr>
 </thead>
 <tbody>
 <tr>
 <td><a href="../sql/schema.sql">schema.sql</a></td>
-<td>Crea tablas, claves primarias, claves foraneas y restricciones.</td>
+<td>Tablas, claves, restricciones y relaciones.</td>
 </tr>
 <tr>
 <td><a href="../sql/seed.sql">seed.sql</a></td>
-<td>Inserta datos iniciales para pruebas.</td>
+<td>Categorías, productos, usuarios de referencia, ventas y detalles.</td>
 </tr>
 <tr>
 <td><a href="../sql/queries.sql">queries.sql</a></td>
-<td>Contiene consultas y reportes basicos del corte U2.</td>
+<td>Consultas de ventas, detalles, estados, categorías y productos vendidos.</td>
 </tr>
 </tbody>
 </table>
-<h2 id="2-modelo-fisico-inicial">2. Modelo fisico inicial<a class="headerlink" href="#2-modelo-fisico-inicial" title="Permanent link">&para;</a></h2>
+<h2 id="2-modelo-implementado">2. Modelo implementado<a class="headerlink" href="#2-modelo-implementado" title="Permanent link">&para;</a></h2>
 <pre class="mermaid"><code>erDiagram
-    CLIENTE ||--o{ PEDIDO : realiza
-    PEDIDO ||--|{ DETALLE_PEDIDO : contiene
-    PRODUCTO ||--o{ DETALLE_PEDIDO : aparece_en
     CATEGORIA ||--o{ PRODUCTO : clasifica
-
-    CLIENTE {
-        int id_cliente PK
-        string nombre
-        string documento
-    }
-
-    PRODUCTO {
-        int id_producto PK
-        string nombre
-        decimal precio
-        int stock
-        int id_categoria FK
-    }
-
-    CATEGORIA {
-        int id_categoria PK
-        string nombre
-        string descripcion
-    }
-
-    PEDIDO {
-        int id_pedido PK
-        int id_cliente FK
-        date fecha_entrega
-        string prioridad
-        string estado
-        datetime creado_en
-    }
-
-    DETALLE_PEDIDO {
-        int id_detalle PK
-        int id_pedido FK
-        int id_producto FK
-        int cantidad
-    }</code></pre>
-<h2 id="3-restricciones-implementadas">3. Restricciones implementadas<a class="headerlink" href="#3-restricciones-implementadas" title="Permanent link">&para;</a></h2>
+    USUARIO ||--o{ VENTA : registra
+    VENTA ||--|{ DETALLE_VENTA : contiene
+    PRODUCTO ||--o{ DETALLE_VENTA : vendido_en</code></pre>
+<h2 id="3-integridad-requerida">3. Integridad requerida<a class="headerlink" href="#3-integridad-requerida" title="Permanent link">&para;</a></h2>
 <table>
 <thead>
 <tr>
 <th>Regla</th>
-<th>Evidencia en SQL</th>
+<th>Implementación</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td>Cliente obligatorio para pedido.</td>
-<td><code>pedido.id_cliente NOT NULL</code> y clave foranea.</td>
+<td>Producto con categoría existente</td>
+<td>FK producto–categoria</td>
 </tr>
 <tr>
-<td>Cantidad mayor que cero.</td>
-<td><code>CHECK (cantidad &gt; 0)</code>.</td>
+<td>Precio y stock no negativos</td>
+<td>Restricciones <code>CHECK</code></td>
 </tr>
 <tr>
-<td>Prioridad controlada.</td>
-<td><code>CHECK (prioridad IN ('normal','alta','urgente'))</code>.</td>
+<td>Estado de venta controlado</td>
+<td><code>ACTIVA</code> o <code>ANULADA</code></td>
 </tr>
 <tr>
-<td>Estado controlado.</td>
-<td><code>CHECK (estado IN ('pendiente','atendido','anulado'))</code>.</td>
+<td>Detalle con cantidad positiva</td>
+<td>Restricción y validación de servicio</td>
 </tr>
 <tr>
-<td>Integridad detalle-pedido-producto.</td>
-<td>Claves foraneas en <code>detalle_pedido</code>.</td>
+<td>Detalle unido a venta y producto</td>
+<td>Claves foráneas</td>
 </tr>
 <tr>
-<td>Cada producto pertenece a una categoría válida.</td>
-<td><code>producto.id_categoria NOT NULL</code> y clave foránea.</td>
+<td>Venta consistente</td>
+<td>Transacción para cabecera, detalles y stock</td>
 </tr>
 </tbody>
 </table>
-<h2 id="4-consultas-funcionales">4. Consultas funcionales<a class="headerlink" href="#4-consultas-funcionales" title="Permanent link">&para;</a></h2>
-<table>
-<thead>
-<tr>
-<th>Consulta</th>
-<th>Proposito</th>
-<th>Requerimiento</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Listado general de pedidos.</td>
-<td>Mostrar pedidos con cliente, producto, cantidad, prioridad y estado.</td>
-<td>RF-04</td>
-</tr>
-<tr>
-<td>Pedidos por estado.</td>
-<td>Filtrar pendientes, atendidos o anulados.</td>
-<td>HU-02</td>
-</tr>
-<tr>
-<td>Pedidos urgentes.</td>
-<td>Priorizar atencion.</td>
-<td>RN-04</td>
-</tr>
-<tr>
-<td>Resumen por estado.</td>
-<td>Reporte de carga operativa.</td>
-<td>HU-04</td>
-</tr>
-<tr>
-<td>Total de unidades por producto.</td>
-<td>Identificar productos mas solicitados.</td>
-<td>HU-04</td>
-</tr>
-</tbody>
-</table>
-<h2 id="5-datos-de-prueba-minimos">5. Datos de prueba minimos<a class="headerlink" href="#5-datos-de-prueba-minimos" title="Permanent link">&para;</a></h2>
-<table>
-<thead>
-<tr>
-<th>Tabla</th>
-<th>Datos requeridos</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>cliente</td>
-<td>Tres clientes de prueba.</td>
-</tr>
-<tr>
-<td>producto</td>
-<td>Tres productos de prueba.</td>
-</tr>
-<tr>
-<td>categoria</td>
-<td>Dos categorías de prueba.</td>
-</tr>
-<tr>
-<td>pedido</td>
-<td>Pedidos con estados pendiente, atendido y anulado.</td>
-</tr>
-<tr>
-<td>detalle_pedido</td>
-<td>Cantidades validas asociadas a productos.</td>
-</tr>
-</tbody>
-</table>
-<h2 id="6-evidencia-de-integracion">6. Evidencia de integracion<a class="headerlink" href="#6-evidencia-de-integracion" title="Permanent link">&para;</a></h2>
+<h2 id="4-consultas-minimas">4. Consultas mínimas<a class="headerlink" href="#4-consultas-minimas" title="Permanent link">&para;</a></h2>
+<ul>
+<li>Ventas por fecha o estado.</li>
+<li>Detalles de una venta.</li>
+<li>Ventas registradas por usuario cuando U3 asigne la sesión activa.</li>
+<li>Unidades e importe vendidos por producto o categoría.</li>
+<li>Comprobación del total de cabecera contra sus detalles.</li>
+</ul>
+<h2 id="5-integracion-con-lp1">5. Integración con LP1<a class="headerlink" href="#5-integracion-con-lp1" title="Permanent link">&para;</a></h2>
 <table>
 <thead>
 <tr>
 <th>BD1</th>
-<th>REQ</th>
 <th>LP1</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td><code>pedido.estado</code></td>
-<td>HU-03, RF-06</td>
-<td>Accion atender/anular.</td>
+<td>schema.sql</td>
+<td>Entidades y DAO JDBC</td>
 </tr>
 <tr>
-<td><code>pedido.prioridad</code></td>
-<td>RN-03, RN-04</td>
-<td>Filtro y distintivo visual.</td>
+<td>restricciones</td>
+<td>Validaciones de servicio y mensajes web</td>
 </tr>
 <tr>
-<td><code>detalle_pedido.cantidad</code></td>
-<td>RF-03</td>
-<td>Validacion de cantidad.</td>
+<td>transacción venta</td>
+<td>Servicio de <code>Venta–DetalleVenta</code> con commit/rollback</td>
 </tr>
 <tr>
-<td><code>producto.id_categoria</code></td>
-<td>Continuidad POO–LP1 S02</td>
-<td>Selector y vista de categoría por producto.</td>
+<td>queries.sql</td>
+<td>Consultas y reportes MVC de S11</td>
 </tr>
 <tr>
-<td>Consulta de listado</td>
-<td>RF-04</td>
-<td>Vista de pedidos.</td>
-</tr>
-<tr>
-<td>Consulta de resumen</td>
-<td>HU-04</td>
-<td>Dashboard del modulo.</td>
+<td>usuario</td>
+<td>Autenticación y sesión de S13</td>
 </tr>
 </tbody>
 </table>

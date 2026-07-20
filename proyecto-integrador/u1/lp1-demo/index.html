@@ -3737,13 +3737,13 @@
 <li>Estructura HTML semantica.</li>
 <li>Estilos CSS separados.</li>
 <li>Catálogo de productos con nombre, precio, stock y categoría.</li>
-<li>Formulario del proceso principal.</li>
+<li>Formulario temporal de <code>Producto</code>.</li>
 <li>Selección de una categoría existente para el producto.</li>
 <li>Validaciones del lado cliente.</li>
 <li>Manejo de eventos con JavaScript.</li>
-<li>Registro temporal de pedidos en memoria del navegador.</li>
+<li>Registro temporal de productos en memoria del navegador.</li>
 <li>Renderizado de una tabla mediante DOM.</li>
-<li>Resumen de pedidos y unidades.</li>
+<li>Resumen de productos, stock y categorías utilizadas.</li>
 </ul>
 <h2 id="trazabilidad-con-req-y-bd1">Trazabilidad con REQ y BD1<a class="headerlink" href="#trazabilidad-con-req-y-bd1" title="Permanent link">&para;</a></h2>
 <table>
@@ -3756,9 +3756,9 @@
 </thead>
 <tbody>
 <tr>
-<td>Formulario de pedido</td>
+<td>Formulario de producto</td>
 <td>RF-01</td>
-<td>pedido, cliente, producto, detalle_pedido</td>
+<td>producto</td>
 </tr>
 <tr>
 <td>Selector de categoría</td>
@@ -3771,27 +3771,27 @@
 <td>Campos con nulo = No</td>
 </tr>
 <tr>
-<td>Validacion de cantidad</td>
+<td>Validación de precio y stock</td>
 <td>RF-03</td>
-<td>detalle_pedido.cantidad</td>
+<td>producto.precio y producto.stock</td>
 </tr>
 <tr>
-<td>Tabla de pedidos</td>
+<td>Tabla de productos</td>
 <td>RF-04</td>
-<td>pedido y detalle_pedido</td>
+<td>producto y categoria</td>
 </tr>
 <tr>
-<td>Resumen de pedidos</td>
+<td>Resumen del catálogo</td>
 <td>RF-05</td>
-<td>pedido.cantidad</td>
+<td>producto.stock y producto.id_categoria</td>
 </tr>
 </tbody>
 </table>
 <h2 id="criterio-de-aceptacion-de-la-demo">Criterio de aceptacion de la demo<a class="headerlink" href="#criterio-de-aceptacion-de-la-demo" title="Permanent link">&para;</a></h2>
 <p>La demo cumple el corte U1 si:</p>
 <ul>
-<li>Registra pedidos válidos con producto y categoría sin recargar la página.</li>
-<li>Bloquea datos incompletos o cantidad invalida.</li>
+<li>Registra productos válidos con categoría sin recargar la página.</li>
+<li>Bloquea nombres vacíos, precios negativos, stock inválido o categoría ausente.</li>
 <li>Muestra mensajes claros al usuario.</li>
 <li>Actualiza la tabla y el resumen.</li>
 <li>Mantiene coherencia con el brief, el prototipo y el modelo de datos.</li>
@@ -3807,42 +3807,37 @@
 </thead>
 <tbody>
 <tr>
-<td>Pedido valido</td>
-<td>Completar todos los campos con cantidad mayor que cero y registrar.</td>
-<td>Se agrega una fila a la tabla, se limpian los campos y se actualiza el resumen.</td>
+<td>Producto válido</td>
+<td>Completar nombre, precio, stock y categoría.</td>
+<td>Se agrega una fila, se limpia el formulario y se actualiza el resumen.</td>
 </tr>
 <tr>
-<td>Categoria vacía</td>
-<td>No seleccionar categoría y registrar.</td>
-<td>Se muestra un mensaje de validación y no se registra el pedido.</td>
+<td>Categoría vacía</td>
+<td>No seleccionar categoría.</td>
+<td>Se muestra un mensaje y no se registra el producto.</td>
 </tr>
 <tr>
-<td>Cliente vacio</td>
-<td>Dejar el cliente vacio y registrar.</td>
-<td>Se muestra un mensaje de validacion y no se registra el pedido.</td>
+<td>Nombre vacío</td>
+<td>Dejar el nombre vacío.</td>
+<td>Se muestra un mensaje y no se registra el producto.</td>
 </tr>
 <tr>
-<td>Cantidad cero</td>
-<td>Ingresar cantidad <code>0</code> y registrar.</td>
-<td>Se muestra el mensaje de cantidad invalida.</td>
+<td>Precio negativo</td>
+<td>Ingresar precio menor que cero.</td>
+<td>Se rechaza el registro.</td>
 </tr>
 <tr>
-<td>Fecha vacia</td>
-<td>Dejar la fecha sin completar y registrar.</td>
-<td>Se muestra un mensaje de validacion y no se registra el pedido.</td>
-</tr>
-<tr>
-<td>Prioridad urgente</td>
-<td>Registrar un pedido con prioridad urgente.</td>
-<td>La prioridad aparece diferenciada visualmente en la tabla.</td>
+<td>Stock inválido</td>
+<td>Ingresar stock negativo o decimal.</td>
+<td>Se rechaza el registro.</td>
 </tr>
 </tbody>
 </table>
 <h2 id="como-debe-adaptarlo-cada-grupo">Como debe adaptarlo cada grupo<a class="headerlink" href="#como-debe-adaptarlo-cada-grupo" title="Permanent link">&para;</a></h2>
 <p>Cada grupo debe cambiar el dominio, entidades y campos segun su proyecto, manteniendo la misma estructura:</p>
 <ul>
-<li>Una entidad transaccional principal.</li>
-<li>Dos o mas datos asociados al proceso.</li>
+<li>Una entidad principal ya trabajada en POO.</li>
+<li>Un objeto relacionado incorporado en LP1.</li>
 <li>Reglas de validacion visibles.</li>
 <li>Listado temporal.</li>
 <li>Evidencia de que REQ, BD1 y LP1 trabajan sobre el mismo flujo.</li>

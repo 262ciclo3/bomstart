@@ -3683,23 +3683,27 @@
 <tbody>
 <tr>
 <td>Arquitectura MVC</td>
-<td>Rutas, controladores, servicios, modelos, repositorios o equivalentes.</td>
+<td>Rutas, controladores, servicios, entidades y DAO.</td>
 </tr>
 <tr>
 <td>Persistencia</td>
-<td>Conexión a base de datos y operaciones sobre entidades del proyecto.</td>
+<td>Conexión nativa mediante JDBC y operaciones DAO.</td>
 </tr>
 <tr>
-<td>Formularios</td>
-<td>Registro, edición o flujo transaccional principal.</td>
+<td>Catálogo</td>
+<td>CRUD de <code>Producto</code> y gestión de <code>Categoria–Producto</code>.</td>
+</tr>
+<tr>
+<td>Operación</td>
+<td>Registro y anulación de <code>Venta–DetalleVenta</code> con consistencia de stock y total.</td>
 </tr>
 <tr>
 <td>Consultas</td>
-<td>Listado, búsqueda, filtros, ordenamiento o paginación.</td>
+<td>Búsqueda, filtros, ordenamiento, agregaciones y reportes web.</td>
 </tr>
 <tr>
-<td>Seguridad básica</td>
-<td>Login, sesión, roles o protección de rutas según alcance.</td>
+<td>Seguridad</td>
+<td>Login, hash de contraseñas, sesión, roles y protección de rutas.</td>
 </tr>
 <tr>
 <td>Validaciones</td>
@@ -3727,8 +3731,8 @@
 <tbody>
 <tr>
 <td>Funcional</td>
-<td>Registrar entidad o transacción principal.</td>
-<td>Se guarda y aparece en el listado.</td>
+<td>Registrar una venta con dos detalles.</td>
+<td>Cabecera, detalles, stock y total quedan consistentes.</td>
 </tr>
 <tr>
 <td>Validación</td>
@@ -3742,8 +3746,8 @@
 </tr>
 <tr>
 <td>Integración</td>
-<td>Ejecutar flujo MVC con base de datos.</td>
-<td>La base refleja la operación.</td>
+<td>Ejecutar <code>Venta–DetalleVenta</code> desde la vista hasta la base.</td>
+<td>La base refleja toda la operación o ninguna parte.</td>
 </tr>
 <tr>
 <td>Seguridad</td>
@@ -3790,7 +3794,7 @@
 </tbody>
 </table>
 <h2 id="cierre-lp1">Cierre LP1<a class="headerlink" href="#cierre-lp1" title="Permanent link">&para;</a></h2>
-<p>LP1 está completo cuando el sistema MVC permite ejecutar el flujo principal, usar datos persistidos, consultar información, validar errores y sustentar cómo cada módulo responde al SRS y a la base de datos.</p>
+<p>LP1 está completo cuando el sistema MVC permite gestionar <code>Producto–Categoria</code>, registrar y anular <code>Venta–DetalleVenta</code>, usar datos persistidos mediante JDBC y DAO, consultar información, autenticar usuarios, proteger rutas, validar errores y sustentar cómo cada módulo responde al SRS y a la base de datos.</p>
 
 
 

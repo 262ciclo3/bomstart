@@ -1,157 +1,112 @@
-const STORAGE_KEY = "bomstart_u2_pedidos";
+const STORAGE_KEY = "comarket_u2_ventas";
+const productos = [
+  { id: 1, nombre: "Pack escolar", precio: 45, stock: 20 },
+  { id: 2, nombre: "Caja de lapiceros", precio: 18.5, stock: 35 },
+  { id: 3, nombre: "Mochila urbana", precio: 89.9, stock: 12 }
+];
+let detalles = [];
 
-function crearId() {
-  if (window.crypto && typeof window.crypto.randomUUID === "function") {
-    return window.crypto.randomUUID();
-  }
-  return `pedido-${Date.now()}-${Math.floor(Math.random() * 100000)}`;
-}
-
-const PedidoRepository = {
-  listar() {
-    return JSON.parse(localStorage.getItem(STORAGE_KEY) || "[]");
+const VentaRepository = {
+  listar: () => JSON.parse(localStorage.getItem(STORAGE_KEY) || "[]"),
+  guardar(ventas) { localStorage.setItem(STORAGE_KEY, JSON.stringify(ventas)); },
+  agregar(venta) { const ventas = this.listar(); ventas.push(venta); this.guardar(ventas); },
+  anular(id) {
+    this.guardar(this.listar().map((venta) => venta.id === id ? { ...venta, estado: "ANULADA" } : venta));
   },
-  guardarTodos(pedidos) {
-    localStorage.setItem(STORAGE_KEY, JSON.stringify(pedidos));
-  },
-  agregar(pedido) {
-    const pedidos = this.listar();
-    pedidos.push({ ...pedido, id: crearId(), estado: "pendiente" });
-    this.guardarTodos(pedidos);
-  },
-  actualizarEstado(id, estado) {
-    const pedidos = this.listar().map((pedido) =>
-      pedido.id === id ? { ...pedido, estado } : pedido
-    );
-    this.guardarTodos(pedidos);
-  },
-  limpiar() {
-    localStorage.removeItem(STORAGE_KEY);
-  }
+  limpiar() { localStorage.removeItem(STORAGE_KEY); }
 };
 
-const PedidoService = {
-  validar(pedido) {
-    if (!pedido.cliente || !pedido.producto || !pedido.fecha) {
-      return "Completa cliente, producto y fecha.";
-    }
-    if (!Number.isInteger(pedido.cantidad) || pedido.cantidad <= 0) {
-      return "La cantidad debe ser un entero mayor que cero.";
-    }
+function crearId() {
+  return window.crypto?.randomUUID?.() || `venta-${Date.now()}-${Math.floor(Math.random() * 10000)}`;
+}
+
+function dinero(valor) { return `S/ ${valor.toFixed(2)}`; }
+function totalDetalles() { return detalles.reduce((total, d) => total + d.subtotal, 0); }
+
+const VentaService = {
+  agregarDetalle(productoId, cantidad) {
+    const producto = productos.find((item) => item.id === productoId);
+    if (!producto) return "Seleccione un producto.";
+    if (!Number.isInteger(cantidad) || cantidad <= 0) return "La cantidad debe ser mayor que cero.";
+    if (cantidad > producto.stock) return "Stock insuficiente para el producto.";
+    const existente = detalles.find((item) => item.productoId === productoId);
+    if (existente) existente.cantidad += cantidad;
+    else detalles.push({ productoId, producto: producto.nombre, cantidad, precioUnitario: producto.precio, subtotal: 0 });
+    detalles = detalles.map((item) => ({ ...item, subtotal: item.cantidad * item.precioUnitario }));
     return "";
   },
-  registrar(pedido) {
-    const error = this.validar(pedido);
-    if (error) return { ok: false, mensaje: error };
-    PedidoRepository.agregar(pedido);
-    return { ok: true, mensaje: "Pedido registrado y persistido." };
-  },
-  listarFiltrado(estado, prioridad) {
-    return PedidoRepository.listar().filter((pedido) => {
-      const estadoOk = estado === "todos" || pedido.estado === estado;
-      const prioridadOk = prioridad === "todas" || pedido.prioridad === prioridad;
-      return estadoOk && prioridadOk;
-    });
-  },
-  resumen() {
-    const pedidos = PedidoRepository.listar();
-    return {
-      total: pedidos.length,
-      pendientes: pedidos.filter((pedido) => pedido.estado === "pendiente").length,
-      unidades: pedidos.reduce((total, pedido) => total + pedido.cantidad, 0),
-      urgentes: pedidos.filter((pedido) => pedido.prioridad === "urgente").length
+  registrar(cliente) {
+    if (!cliente.trim()) return { ok: false, mensaje: "Ingrese el cliente." };
+    if (detalles.length === 0) return { ok: false, mensaje: "Agregue al menos un detalle." };
+    const venta = {
+      id: crearId(), cliente: cliente.trim(), fecha: new Date().toISOString(),
+      estado: "ACTIVA", detalles: detalles.map((d) => ({ ...d })), total: totalDetalles()
     };
+    VentaRepository.agregar(venta);
+    detalles = [];
+    return { ok: true, mensaje: "Venta registrada con cabecera y detalles." };
   }
 };
 
 const View = {
-  pedidoMensaje: document.querySelector("#pedidoMensaje"),
-  pedidosBody: document.querySelector("#pedidosBody"),
-  mensaje(elemento, texto, tipo) {
-    elemento.textContent = texto;
-    elemento.className = `message ${tipo || ""}`;
+  mensaje(texto, tipo = "") {
+    const element = document.querySelector("#ventaMensaje");
+    element.textContent = texto;
+    element.className = `message ${tipo}`;
   },
-  renderTabla(pedidos) {
-    if (pedidos.length === 0) {
-      this.pedidosBody.innerHTML = '<tr><td colspan="8">No hay pedidos para mostrar.</td></tr>';
-      return;
-    }
-    this.pedidosBody.innerHTML = pedidos.map((pedido, index) => `
-      <tr>
-        <td>${index + 1}</td>
-        <td>${pedido.cliente}</td>
-        <td>${pedido.producto}</td>
-        <td>${pedido.cantidad}</td>
-        <td>${pedido.fecha}</td>
-        <td><span class="badge ${pedido.prioridad}">${pedido.prioridad}</span></td>
-        <td><span class="badge ${pedido.estado}">${pedido.estado}</span></td>
-        <td>
-          <button type="button" data-id="${pedido.id}" data-action="atender" ${pedido.estado !== "pendiente" ? "disabled" : ""}>Atender</button>
-        </td>
-      </tr>
-    `).join("");
+  renderDetalles() {
+    document.querySelector("#detallesBody").innerHTML = detalles.length === 0
+      ? '<tr><td colspan="5">Agregue productos a la venta.</td></tr>'
+      : detalles.map((d) => `<tr><td>${d.producto}</td><td>${d.cantidad}</td><td>${dinero(d.precioUnitario)}</td><td>${dinero(d.subtotal)}</td><td><button type="button" data-remove="${d.productoId}">Quitar</button></td></tr>`).join("");
+    document.querySelector("#totalActual").textContent = dinero(totalDetalles());
   },
-  renderResumen(resumen) {
-    document.querySelector("#totalPedidos").textContent = resumen.total;
-    document.querySelector("#totalPendientes").textContent = resumen.pendientes;
-    document.querySelector("#totalUnidades").textContent = resumen.unidades;
-    document.querySelector("#totalUrgentes").textContent = resumen.urgentes;
+  renderVentas() {
+    const filtro = document.querySelector("#filtroEstado").value;
+    const ventas = VentaRepository.listar();
+    const visibles = ventas.filter((v) => filtro === "TODAS" || v.estado === filtro);
+    document.querySelector("#ventasBody").innerHTML = visibles.length === 0
+      ? '<tr><td colspan="7">No hay ventas para mostrar.</td></tr>'
+      : visibles.map((v, index) => `<tr><td>${index + 1}</td><td>${v.cliente}</td><td>${new Date(v.fecha).toLocaleDateString("es-PE")}</td><td>${v.detalles.map((d) => `${d.producto} × ${d.cantidad}`).join("<br>")}</td><td>${dinero(v.total)}</td><td>${v.estado}</td><td><button type="button" data-anular="${v.id}" ${v.estado === "ANULADA" ? "disabled" : ""}>Anular</button></td></tr>`).join("");
+
+    const activas = ventas.filter((v) => v.estado === "ACTIVA");
+    document.querySelector("#totalVentas").textContent = activas.length;
+    document.querySelector("#importeVentas").textContent = dinero(activas.reduce((t, v) => t + v.total, 0));
+    document.querySelector("#unidadesVendidas").textContent = activas.reduce((t, v) => t + v.detalles.reduce((s, d) => s + d.cantidad, 0), 0);
   }
 };
 
-const PedidoController = {
-  iniciar() {
-    document.querySelector("#pedidoForm").addEventListener("submit", this.registrar);
-    document.querySelector("#filtroEstado").addEventListener("change", this.refrescar);
-    document.querySelector("#filtroPrioridad").addEventListener("change", this.refrescar);
-    document.querySelector("#seedBtn").addEventListener("click", this.cargarDatos);
-    document.querySelector("#clearBtn").addEventListener("click", this.limpiarDatos);
-    document.querySelector("#pedidosBody").addEventListener("click", this.accionTabla);
+document.querySelector("#agregarDetalleBtn").addEventListener("click", () => {
+  const error = VentaService.agregarDetalle(Number(document.querySelector("#producto").value), Number(document.querySelector("#cantidad").value));
+  View.mensaje(error, error ? "error" : "ok");
+  View.renderDetalles();
+});
 
-    this.refrescar();
-  },
-  obtenerPedido() {
-    return {
-      cliente: document.querySelector("#cliente").value.trim(),
-      producto: document.querySelector("#producto").value.trim(),
-      cantidad: Number(document.querySelector("#cantidad").value),
-      fecha: document.querySelector("#fecha").value,
-      prioridad: document.querySelector("#prioridad").value
-    };
-  },
-  registrar(event) {
-    event.preventDefault();
-    const resultado = PedidoService.registrar(PedidoController.obtenerPedido());
-    View.mensaje(View.pedidoMensaje, resultado.mensaje, resultado.ok ? "ok" : "error");
-    if (resultado.ok) {
-      event.target.reset();
-      PedidoController.refrescar();
-    }
-  },
-  refrescar() {
-    const estado = document.querySelector("#filtroEstado").value;
-    const prioridad = document.querySelector("#filtroPrioridad").value;
-    View.renderTabla(PedidoService.listarFiltrado(estado, prioridad));
-    View.renderResumen(PedidoService.resumen());
-  },
-  accionTabla(event) {
-    const button = event.target.closest("button[data-action='atender']");
-    if (!button) return;
-    PedidoRepository.actualizarEstado(button.dataset.id, "atendido");
-    PedidoController.refrescar();
-  },
-  cargarDatos() {
-    PedidoRepository.guardarTodos([
-      { id: crearId(), cliente: "Maria Quispe", producto: "Pack escolar", cantidad: 3, fecha: "2026-08-20", prioridad: "urgente", estado: "pendiente" },
-      { id: crearId(), cliente: "Jose Mamani", producto: "Caja de lapiceros", cantidad: 5, fecha: "2026-08-22", prioridad: "alta", estado: "atendido" },
-      { id: crearId(), cliente: "Ana Torres", producto: "Mochila urbana", cantidad: 1, fecha: "2026-08-25", prioridad: "normal", estado: "pendiente" }
-    ]);
-    PedidoController.refrescar();
-  },
-  limpiarDatos() {
-    PedidoRepository.limpiar();
-    PedidoController.refrescar();
-  }
-};
+document.querySelector("#detallesBody").addEventListener("click", (event) => {
+  const button = event.target.closest("button[data-remove]");
+  if (!button) return;
+  detalles = detalles.filter((d) => d.productoId !== Number(button.dataset.remove));
+  View.renderDetalles();
+});
 
-PedidoController.iniciar();
+document.querySelector("#ventaForm").addEventListener("submit", (event) => {
+  event.preventDefault();
+  const resultado = VentaService.registrar(document.querySelector("#cliente").value);
+  View.mensaje(resultado.mensaje, resultado.ok ? "ok" : "error");
+  if (resultado.ok) { event.target.reset(); View.renderDetalles(); View.renderVentas(); }
+});
+
+document.querySelector("#filtroEstado").addEventListener("change", View.renderVentas);
+document.querySelector("#ventasBody").addEventListener("click", (event) => {
+  const button = event.target.closest("button[data-anular]");
+  if (!button) return;
+  VentaRepository.anular(button.dataset.anular);
+  View.renderVentas();
+});
+document.querySelector("#seedBtn").addEventListener("click", () => {
+  VentaRepository.guardar([{ id: crearId(), cliente: "María Quispe", fecha: new Date().toISOString(), estado: "ACTIVA", detalles: [{ productoId: 1, producto: "Pack escolar", cantidad: 2, precioUnitario: 45, subtotal: 90 }], total: 90 }]);
+  View.renderVentas();
+});
+document.querySelector("#clearBtn").addEventListener("click", () => { VentaRepository.limpiar(); View.renderVentas(); });
+
+View.renderDetalles();
+View.renderVentas();

@@ -805,10 +805,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#1-historias-de-usuario-priorizadas" class="md-nav__link">
+  <a href="#1-historias-de-usuario" class="md-nav__link">
     <span class="md-ellipsis">
       
-        1. Historias de usuario priorizadas
+        1. Historias de usuario
       
     </span>
   </a>
@@ -828,17 +828,6 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#flujo-principal" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Flujo principal
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
   <a href="#flujos-alternos" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -855,10 +844,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#3-reglas-de-negocio-detalladas" class="md-nav__link">
+  <a href="#3-reglas-de-negocio" class="md-nav__link">
     <span class="md-ellipsis">
       
-        3. Reglas de negocio detalladas
+        3. Reglas de negocio
       
     </span>
   </a>
@@ -866,10 +855,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#4-requerimientos-no-funcionales-verificables" class="md-nav__link">
+  <a href="#4-trazabilidad-reqbd1lp1" class="md-nav__link">
     <span class="md-ellipsis">
       
-        4. Requerimientos no funcionales verificables
+        4. Trazabilidad REQ–BD1–LP1
       
     </span>
   </a>
@@ -877,32 +866,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#5-prototipo-funcional-u2" class="md-nav__link">
+  <a href="#5-alcance-de-seguridad" class="md-nav__link">
     <span class="md-ellipsis">
       
-        5. Prototipo funcional U2
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#6-matriz-de-trazabilidad-u2" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        6. Matriz de trazabilidad U2
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#7-validacion-del-corte-u2" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        7. Validacion del corte U2
+        5. Alcance de seguridad
       
     </span>
   </a>
@@ -3732,48 +3699,53 @@
 
 <h1 id="req-producto-de-unidad-2">REQ - Producto de Unidad 2<a class="headerlink" href="#req-producto-de-unidad-2" title="Permanent link">&para;</a></h1>
 <h2 id="producto">Producto<a class="headerlink" href="#producto" title="Permanent link">&para;</a></h2>
-<p><strong>Modelo funcional y requerimientos documentados con trazabilidad.</strong></p>
-<p>Este producto toma el brief, prototipo y requerimientos iniciales de U1 y los convierte en historias de usuario, casos de uso, reglas de negocio, requerimientos no funcionales verificables y matriz de trazabilidad.</p>
-<h2 id="1-historias-de-usuario-priorizadas">1. Historias de usuario priorizadas<a class="headerlink" href="#1-historias-de-usuario-priorizadas" title="Permanent link">&para;</a></h2>
+<p><strong>Modelo funcional y requerimientos trazables para Producto, Categoria y Venta–DetalleVenta.</strong></p>
+<h2 id="1-historias-de-usuario">1. Historias de usuario<a class="headerlink" href="#1-historias-de-usuario" title="Permanent link">&para;</a></h2>
 <table>
 <thead>
 <tr>
-<th>Codigo</th>
-<th>Historia de usuario</th>
+<th>Código</th>
+<th>Historia</th>
 <th>Prioridad</th>
-<th>Criterios de aceptacion</th>
+<th>Criterio de aceptación</th>
 </tr>
 </thead>
 <tbody>
 <tr>
 <td>HU-01</td>
-<td>Como vendedor, quiero registrar pedidos de clientes para iniciar su atencion.</td>
+<td>Como administrador, quiero gestionar productos para mantener el catálogo.</td>
 <td>Alta</td>
-<td>El pedido se registra con cliente, producto, cantidad, fecha, prioridad y estado pendiente.</td>
+<td>El CRUD persiste nombre, precio, stock y categoría.</td>
 </tr>
 <tr>
 <td>HU-02</td>
-<td>Como vendedor, quiero consultar pedidos registrados para verificar la informacion ingresada.</td>
+<td>Como vendedor, quiero registrar una venta con varios detalles.</td>
 <td>Alta</td>
-<td>La aplicacion lista pedidos y permite filtrar por estado o prioridad.</td>
+<td>Cabecera, detalles y stock se actualizan atómicamente.</td>
 </tr>
 <tr>
 <td>HU-03</td>
-<td>Como encargado de atencion, quiero cambiar el estado de un pedido para controlar su avance.</td>
+<td>Como vendedor, quiero consultar ventas y sus detalles.</td>
 <td>Alta</td>
-<td>Un pedido pendiente puede pasar a atendido o anulado.</td>
+<td>La aplicación muestra cabecera, productos, cantidades y total.</td>
 </tr>
 <tr>
 <td>HU-04</td>
-<td>Como administrador, quiero ver un resumen de pedidos para conocer la carga de atencion.</td>
-<td>Media</td>
-<td>El sistema muestra totales por estado, prioridad y unidades solicitadas.</td>
+<td>Como responsable, quiero anular una venta.</td>
+<td>Alta</td>
+<td>El estado cambia a ANULADA y el stock se repone.</td>
 </tr>
 <tr>
 <td>HU-05</td>
-<td>Como administrador, quiero que solo usuarios autorizados gestionen pedidos.</td>
+<td>Como responsable, quiero filtrar y resumir ventas.</td>
 <td>Media</td>
-<td>Requerimiento documentado en U2 y planificado para su implementación en LP1 U3.</td>
+<td>Los filtros y agregaciones devuelven resultados consistentes.</td>
+</tr>
+<tr>
+<td>HU-06</td>
+<td>Como administrador, quiero controlar el acceso.</td>
+<td>Media</td>
+<td>Requerimiento documentado en U2 e implementado en LP1 U3.</td>
 </tr>
 </tbody>
 </table>
@@ -3782,238 +3754,156 @@
 <thead>
 <tr>
 <th>Elemento</th>
-<th>Descripcion</th>
+<th>Descripción</th>
 </tr>
 </thead>
 <tbody>
 <tr>
 <td>Caso de uso</td>
-<td>Registrar pedido</td>
+<td>Registrar venta</td>
 </tr>
 <tr>
-<td>Actor principal</td>
+<td>Actor</td>
 <td>Vendedor</td>
 </tr>
 <tr>
-<td>Proposito</td>
-<td>Registrar un pedido valido para iniciar su seguimiento.</td>
+<td>Precondición</td>
+<td>Existen productos activos con stock.</td>
 </tr>
 <tr>
-<td>Precondicion</td>
-<td>El vendedor accede al modulo de pedidos.</td>
+<td>Flujo</td>
+<td>Ingresar cliente, agregar productos y cantidades, validar, calcular y confirmar.</td>
 </tr>
 <tr>
-<td>Postcondicion</td>
-<td>El pedido queda registrado con estado pendiente.</td>
+<td>Postcondición</td>
+<td>Venta y detalles persistidos; stock descontado; total consistente.</td>
 </tr>
 </tbody>
 </table>
-<h3 id="flujo-principal">Flujo principal<a class="headerlink" href="#flujo-principal" title="Permanent link">&para;</a></h3>
-<ol>
-<li>El vendedor ingresa al modulo de pedidos.</li>
-<li>El sistema muestra el formulario de registro.</li>
-<li>El vendedor completa cliente, producto, cantidad, fecha y prioridad.</li>
-<li>El sistema valida campos obligatorios y cantidad.</li>
-<li>El sistema registra el pedido.</li>
-<li>El sistema muestra el pedido en la lista y actualiza el resumen.</li>
-</ol>
 <h3 id="flujos-alternos">Flujos alternos<a class="headerlink" href="#flujos-alternos" title="Permanent link">&para;</a></h3>
 <table>
 <thead>
 <tr>
-<th>Codigo</th>
-<th>Situacion</th>
-<th>Respuesta del sistema</th>
+<th>Código</th>
+<th>Situación</th>
+<th>Respuesta</th>
 </tr>
 </thead>
 <tbody>
 <tr>
 <td>FA-01</td>
-<td>Faltan campos obligatorios.</td>
-<td>Muestra mensaje de validacion y no registra.</td>
+<td>Venta sin detalles</td>
+<td>Se rechaza la operación.</td>
 </tr>
 <tr>
 <td>FA-02</td>
-<td>La cantidad es cero o negativa.</td>
-<td>Muestra mensaje de cantidad invalida y no registra.</td>
+<td>Cantidad inválida</td>
+<td>Se muestra validación y no se persiste.</td>
 </tr>
 <tr>
 <td>FA-03</td>
-<td>El usuario filtra por estado.</td>
-<td>Muestra solo pedidos que coinciden con el estado seleccionado.</td>
+<td>Stock insuficiente</td>
+<td>Se cancela toda la transacción.</td>
 </tr>
 <tr>
 <td>FA-04</td>
-<td>El usuario atiende un pedido.</td>
-<td>Cambia el estado del pedido y actualiza resumen.</td>
+<td>Error al guardar un detalle</td>
+<td>Se ejecuta rollback de cabecera, detalles y stock.</td>
+</tr>
+<tr>
+<td>FA-05</td>
+<td>Venta ya anulada</td>
+<td>Se rechaza una segunda anulación.</td>
 </tr>
 </tbody>
 </table>
-<h2 id="3-reglas-de-negocio-detalladas">3. Reglas de negocio detalladas<a class="headerlink" href="#3-reglas-de-negocio-detalladas" title="Permanent link">&para;</a></h2>
+<h2 id="3-reglas-de-negocio">3. Reglas de negocio<a class="headerlink" href="#3-reglas-de-negocio" title="Permanent link">&para;</a></h2>
 <table>
 <thead>
 <tr>
-<th>Codigo</th>
+<th>Código</th>
 <th>Regla</th>
-<th>Implementacion esperada</th>
+<th>Evidencia esperada</th>
 </tr>
 </thead>
 <tbody>
 <tr>
 <td>RN-01</td>
-<td>Todo pedido debe estar asociado a un cliente.</td>
-<td>Validacion de formulario y campo obligatorio en BD.</td>
+<td>Todo producto pertenece a una categoría existente.</td>
+<td>Selector y clave foránea.</td>
 </tr>
 <tr>
 <td>RN-02</td>
-<td>Todo pedido debe tener al menos un producto y cantidad mayor que cero.</td>
-<td>Validacion de LP1 y restriccion <code>CHECK</code> en BD.</td>
+<td>Toda venta contiene al menos un detalle.</td>
+<td>Validación de servicio.</td>
 </tr>
 <tr>
 <td>RN-03</td>
-<td>El estado inicial de un pedido es pendiente.</td>
-<td>Valor por defecto en BD o servicio.</td>
+<td>La cantidad es mayor que cero y no supera el stock.</td>
+<td>Validación y prueba de error.</td>
 </tr>
 <tr>
 <td>RN-04</td>
-<td>Un pedido atendido no debe volver a pendiente sin justificacion.</td>
-<td>Regla de servicio documentada.</td>
+<td>El subtotal es cantidad × precio unitario.</td>
+<td>Cálculo verificable.</td>
 </tr>
 <tr>
 <td>RN-05</td>
-<td>La prioridad solo puede ser normal, alta o urgente.</td>
-<td>Selector en LP1 y restriccion en BD.</td>
+<td>El total es la suma de subtotales.</td>
+<td>Consulta de consistencia.</td>
+</tr>
+<tr>
+<td>RN-06</td>
+<td>Registrar o anular una venta es una operación atómica.</td>
+<td>Commit y rollback.</td>
 </tr>
 </tbody>
 </table>
-<h2 id="4-requerimientos-no-funcionales-verificables">4. Requerimientos no funcionales verificables<a class="headerlink" href="#4-requerimientos-no-funcionales-verificables" title="Permanent link">&para;</a></h2>
-<table>
-<thead>
-<tr>
-<th>Codigo</th>
-<th>Requerimiento</th>
-<th>Evidencia</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>RNF-01</td>
-<td>La aplicacion debe mantener los datos registrados al recargar durante la demo.</td>
-<td>Persistencia en base de datos o almacenamiento local para demo academica.</td>
-</tr>
-<tr>
-<td>RNF-02</td>
-<td>La interfaz debe permitir ubicar pedidos por estado o prioridad.</td>
-<td>Filtros visibles y funcionales.</td>
-</tr>
-<tr>
-<td>RNF-03</td>
-<td>El codigo debe separarse por responsabilidades.</td>
-<td>Rutas/controladores/servicios/repositorios o estructura equivalente.</td>
-</tr>
-<tr>
-<td>RNF-04</td>
-<td>El sistema debe mostrar errores comprensibles.</td>
-<td>Mensajes ante datos invalidos o acciones no permitidas.</td>
-</tr>
-<tr>
-<td>RNF-05</td>
-<td>La demo debe ser reproducible.</td>
-<td>Instrucciones de ejecucion y datos de prueba.</td>
-</tr>
-</tbody>
-</table>
-<h2 id="5-prototipo-funcional-u2">5. Prototipo funcional U2<a class="headerlink" href="#5-prototipo-funcional-u2" title="Permanent link">&para;</a></h2>
-<pre class="mermaid"><code>flowchart TB
-    A[Acceso al modulo] --&gt; B[Dashboard de pedidos]
-    B --&gt; C[Registrar pedido]
-    B --&gt; D[Consultar pedidos]
-    D --&gt; E[Filtrar por estado o prioridad]
-    D --&gt; F[Cambiar estado]
-    B --&gt; G[Ver resumen]</code></pre>
-<h2 id="6-matriz-de-trazabilidad-u2">6. Matriz de trazabilidad U2<a class="headerlink" href="#6-matriz-de-trazabilidad-u2" title="Permanent link">&para;</a></h2>
+<h2 id="4-trazabilidad-reqbd1lp1">4. Trazabilidad REQ–BD1–LP1<a class="headerlink" href="#4-trazabilidad-reqbd1lp1" title="Permanent link">&para;</a></h2>
 <table>
 <thead>
 <tr>
 <th>Requerimiento</th>
-<th>Historia</th>
-<th>Tabla BD1</th>
-<th>Modulo LP1</th>
+<th>Tablas</th>
+<th>Módulo LP1</th>
 <th>Prueba</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td>RF-01 Registrar pedido</td>
-<td>HU-01</td>
-<td>pedido, detalle_pedido</td>
-<td>PedidoController.registrar</td>
-<td>Pedido valido</td>
+<td>RF-01 CRUD Producto</td>
+<td>producto, categoria</td>
+<td>ProductoController / DAO</td>
+<td>CRUD válido e inválido</td>
 </tr>
 <tr>
-<td>RF-02 Validar campos</td>
-<td>HU-01</td>
-<td>restricciones de campos</td>
-<td>PedidoService.validar</td>
-<td>Campos vacios</td>
+<td>RF-02 Registrar venta</td>
+<td>venta, detalle_venta, producto</td>
+<td>VentaController / Service / DAO</td>
+<td>Venta con dos detalles</td>
 </tr>
 <tr>
-<td>RF-03 Validar cantidad</td>
-<td>HU-01</td>
-<td>detalle_pedido.cantidad</td>
-<td>PedidoService.validar</td>
-<td>Cantidad cero</td>
+<td>RF-03 Anular venta</td>
+<td>venta, detalle_venta, producto</td>
+<td>VentaService</td>
+<td>Reposición de stock</td>
 </tr>
 <tr>
-<td>RF-04 Listar pedidos</td>
-<td>HU-02</td>
-<td>pedido, cliente, producto</td>
-<td>PedidoController.listar</td>
-<td>Consulta general</td>
+<td>RF-04 Consultar ventas</td>
+<td>venta, detalle_venta, producto</td>
+<td>ReporteController / DAO</td>
+<td>Filtros y detalle</td>
 </tr>
 <tr>
-<td>RF-05 Resumen</td>
-<td>HU-04</td>
-<td>pedido, detalle_pedido</td>
-<td>DashboardView.renderResumen</td>
-<td>Totales por estado</td>
-</tr>
-<tr>
-<td>RF-06 Cambiar estado</td>
-<td>HU-03</td>
-<td>pedido.estado</td>
-<td>PedidoController.cambiarEstado</td>
-<td>Atender pedido</td>
+<td>RF-05 Resumir ventas</td>
+<td>venta, detalle_venta</td>
+<td>ReporteService</td>
+<td>Totales por fecha o producto</td>
 </tr>
 </tbody>
 </table>
-<h2 id="7-validacion-del-corte-u2">7. Validacion del corte U2<a class="headerlink" href="#7-validacion-del-corte-u2" title="Permanent link">&para;</a></h2>
-<table>
-<thead>
-<tr>
-<th>Evidencia</th>
-<th>Criterio</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Historias y casos de uso revisados.</td>
-<td>Los actores y flujos corresponden al dominio.</td>
-</tr>
-<tr>
-<td>Reglas conectadas con BD y LP1.</td>
-<td>Cada regla tiene forma de implementarse o validarse.</td>
-</tr>
-<tr>
-<td>Trazabilidad completa.</td>
-<td>Cada RF principal llega a tabla, modulo y prueba.</td>
-</tr>
-<tr>
-<td>Demo ejecutable.</td>
-<td>El equipo puede mostrar el flujo end-to-end.</td>
-</tr>
-</tbody>
-</table>
+<h2 id="5-alcance-de-seguridad">5. Alcance de seguridad<a class="headerlink" href="#5-alcance-de-seguridad" title="Permanent link">&para;</a></h2>
+<p>U2 puede conservar <code>usuario</code> en el modelo y datos de prueba, pero no exige login, sesión ni permisos. Esas funciones se implementan en S13 y protegen en S14 las consultas y operaciones ya construidas.</p>
 
 
 

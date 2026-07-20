@@ -1,96 +1,61 @@
-const pedidos = [];
+const productos = [
+  { nombre: "Pack escolar", precio: 45, stock: 20, categoria: "Útiles" },
+  { nombre: "Mochila urbana", precio: 89.9, stock: 12, categoria: "Accesorios" }
+];
 
-const form = document.querySelector("#pedidoForm");
-const limpiarBtn = document.querySelector("#limpiarBtn");
+const form = document.querySelector("#productoForm");
 const mensaje = document.querySelector("#mensaje");
-const pedidosBody = document.querySelector("#pedidosBody");
-const totalPedidos = document.querySelector("#totalPedidos");
-const totalUnidades = document.querySelector("#totalUnidades");
-const totalUrgentes = document.querySelector("#totalUrgentes");
-const productoSelect = document.querySelector("#producto");
-const categoriaInput = document.querySelector("#categoria");
+const productosBody = document.querySelector("#productosBody");
 
-function mostrarMensaje(texto, tipo) {
-  mensaje.textContent = texto;
-  mensaje.className = `message ${tipo}`;
-}
-
-function obtenerPedido() {
+function obtenerProducto() {
   return {
-    cliente: document.querySelector("#cliente").value.trim(),
-    producto: document.querySelector("#producto").value.trim(),
-    categoria: document.querySelector("#categoria").value,
-    cantidad: Number(document.querySelector("#cantidad").value),
-    fecha: document.querySelector("#fecha").value,
-    prioridad: document.querySelector("#prioridad").value
+    nombre: document.querySelector("#nombre").value.trim(),
+    precio: Number(document.querySelector("#precio").value),
+    stock: Number(document.querySelector("#stock").value),
+    categoria: document.querySelector("#categoria").value
   };
 }
 
-function validarPedido(pedido) {
-  if (!pedido.cliente || !pedido.producto || !pedido.categoria || !pedido.fecha) {
-    return "Completa cliente, producto, categoría y fecha de entrega.";
-  }
-
-  if (!Number.isInteger(pedido.cantidad) || pedido.cantidad <= 0) {
-    return "La cantidad debe ser un numero entero mayor que cero.";
-  }
-
+function validar(producto) {
+  if (!producto.nombre || !producto.categoria) return "Completa nombre y categoría.";
+  if (!Number.isFinite(producto.precio) || producto.precio < 0) return "El precio no puede ser negativo.";
+  if (!Number.isInteger(producto.stock) || producto.stock < 0) return "El stock debe ser un entero no negativo.";
   return "";
 }
 
-function renderPedidos() {
-  if (pedidos.length === 0) {
-    pedidosBody.innerHTML = '<tr><td colspan="7" class="empty">Aun no hay pedidos registrados.</td></tr>';
-    return;
-  }
+function render() {
+  productosBody.innerHTML = productos.length === 0
+    ? '<tr><td colspan="5" class="empty">Aún no hay productos.</td></tr>'
+    : productos.map((producto, index) => `
+      <tr>
+        <td>${index + 1}</td>
+        <td>${producto.nombre}</td>
+        <td>S/ ${producto.precio.toFixed(2)}</td>
+        <td>${producto.stock}</td>
+        <td>${producto.categoria}</td>
+      </tr>`).join("");
 
-  pedidosBody.innerHTML = pedidos.map((pedido, index) => `
-    <tr>
-      <td>${index + 1}</td>
-      <td>${pedido.cliente}</td>
-      <td>${pedido.producto}</td>
-      <td>${pedido.categoria}</td>
-      <td>${pedido.cantidad}</td>
-      <td>${pedido.fecha}</td>
-      <td><span class="badge ${pedido.prioridad}">${pedido.prioridad}</span></td>
-    </tr>
-  `).join("");
-}
-
-function actualizarResumen() {
-  const unidades = pedidos.reduce((total, pedido) => total + pedido.cantidad, 0);
-  const urgentes = pedidos.filter((pedido) => pedido.prioridad === "urgente").length;
-
-  totalPedidos.textContent = pedidos.length;
-  totalUnidades.textContent = unidades;
-  totalUrgentes.textContent = urgentes;
+  document.querySelector("#totalProductos").textContent = productos.length;
+  document.querySelector("#totalStock").textContent = productos.reduce((total, p) => total + p.stock, 0);
+  document.querySelector("#totalCategorias").textContent = new Set(productos.map((p) => p.categoria)).size;
 }
 
 form.addEventListener("submit", (event) => {
   event.preventDefault();
-
-  const pedido = obtenerPedido();
-  const error = validarPedido(pedido);
-
-  if (error) {
-    mostrarMensaje(error, "error");
-    return;
-  }
-
-  pedidos.push(pedido);
-  renderPedidos();
-  actualizarResumen();
+  const producto = obtenerProducto();
+  const error = validar(producto);
+  mensaje.textContent = error || "Producto registrado temporalmente.";
+  mensaje.className = `message ${error ? "error" : "ok"}`;
+  if (error) return;
+  productos.push(producto);
   form.reset();
-  mostrarMensaje("Pedido registrado correctamente.", "ok");
+  render();
 });
 
-limpiarBtn.addEventListener("click", () => {
+document.querySelector("#limpiarBtn").addEventListener("click", () => {
   form.reset();
-  categoriaInput.value = "";
-  mostrarMensaje("", "");
+  mensaje.textContent = "";
+  mensaje.className = "message";
 });
 
-productoSelect.addEventListener("change", () => {
-  const opcion = productoSelect.options[productoSelect.selectedIndex];
-  categoriaInput.value = opcion.dataset.categoria || "";
-});
+render();
